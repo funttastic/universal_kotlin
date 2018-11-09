@@ -11,3 +11,5 @@ pluginManagement {
 rootProject.name = 'kotlin-universal'
 
 enableFeaturePreview('GRADLE_METADATA')
+
+include 'common'
