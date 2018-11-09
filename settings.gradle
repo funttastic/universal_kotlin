@@ -7,7 +7,7 @@ pluginManagement {
         }
     }
 }
-rootProject.name = 'kotlin-universal'
 
+rootProject.name = 'kotlin-universal'
 
 enableFeaturePreview('GRADLE_METADATA')
