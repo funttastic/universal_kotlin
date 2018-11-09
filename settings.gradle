@@ -12,5 +12,14 @@ rootProject.name = 'kotlin-universal'
 
 enableFeaturePreview('GRADLE_METADATA')
 
-include 'common'
-include 'library'
+if (properties['include.common.module'] == "true") {
+	include 'common'
+}
+
+if (properties['include.library.module'] == "true") {
+	include 'library'
+}
+
+if (properties['include.application.module'] == "true") {
+	include 'application'
+}
