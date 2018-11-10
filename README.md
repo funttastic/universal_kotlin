@@ -1,80 +1,78 @@
-# Project Title
+# Universal Kotlin
 
-One Paragraph of project description goes here.
+An universal Kotlin project that aims to run on ALL supported platforms.
+
+## Currently Supported Platforms
+
+- Common: a common module with code to use in all platforms
+	- supports common, js, jvm, and native code
+- Library: a module to build a multiplatform library in all platforms
+	- supports common, js, jvm, and native code
+	- can use code from the common module
+- Application: a module to hold as many as possible different kotlin applications
+	- supports the following applications: JVM Terminal (CLI) Application
+	- wanted applications: JVM Android Application, and others. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing 
+purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The project prerequisites are:
 
 ```
-Give examples
+Java 8 or superior
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+1. Clone:
 
-Say what the step will be
+	```
+	git clone https://github.com/funttastic/universal-kotlin.git
+	```
 
-```
-Give the example
-```
+2. Run:
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+	```
+	cd universal-kotlin
+	./gradlew build
+	```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+To run the test do:
 
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+./gradlew test
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To deploy this project do:
+
+[TODO]
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Kotlin](https://kotlinlang.org/) - Multi-purpose programming language
+* [Gradle](https://gradle.org/) - Dependency management
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/funttastic/universal-kotlin/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **[Danilo Araújo Silva](https://goo.gl/D0Oedt)** - *Initial work* - [Funttastic](https://www.funttastic.com/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/funttastic/universal-kotlin/graphs/contributors) who participated in this project.
 
 ## License
 
@@ -82,6 +80,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* I would like to thank [all Kotlin's contributors](https://github.com/JetBrains/kotlin/graphs/contributors), 
+	which are doing a very good job. Thanks a lot!
