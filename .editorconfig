@@ -1,4 +1,4 @@
-# EditorConfig:
+# Editor config:
 #   http://EditorConfig.org
 # Complete list of properties:
 #   https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
@@ -14,10 +14,6 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 # max_line_length = 120
-
-[{messages.*,org.codehaus.groovy.runtime.ExtensionModule,spring.handlers,spring.schemas,messages,*.properties}]
-indent_style=space
-indent_size=4
 
 [*.csv]
 indent_style=space
