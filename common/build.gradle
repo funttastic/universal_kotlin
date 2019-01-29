@@ -1,86 +1,211 @@
-apply plugin: 'kotlin-multiplatform'
+apply plugin: "kotlin-multiplatform"
 
 kotlin {
-	targets {
-		fromPreset(presets.jvm, 'jvm') {
-//			dependsOn commonMain
-//
-//			// Configure a single target's compilations (main and test)
-//			compilations.all {
-//				tasks[compileKotlinTaskName].kotlinOptions {
-//					jvmTarget = '1.8'
-//				}
-//			}
-		}
-		fromPreset(presets.js, 'js') {
-		}
-
-		// For ARM, preset should be changed to presets.iosArm32 or presets.iosArm64
-		// For Linux, preset should be changed to e.g. presets.linuxX64
-		// For MacOS, preset should be changed to e.g. presets.macosX64
-		fromPreset(presets.macosX64, 'native') {
-		}
-
-		// Configure all compilations of all targets:
-		all {
+	// Configure all compilations of all targets:
+	targets.all {
 //			compilations.all {
 //				tasks[compileKotlinTaskName].kotlinOptions {
 //					allWarningsAsErrors = true
 //				}
 //			}
-		}
 	}
-	sourceSets {
-		commonMain {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
 
-			}
+	js() {
+	}
 
-//			languageSettings {
-//				languageVersion = '1.3' // possible values: '1.0', '1.1', '1.2', '1.3'
-//				apiVersion = '1.3' // possible values: '1.0', '1.1', '1.2', '1.3'
-//				enableLanguageFeature('InlineClasses') // language feature name
-//				useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
-//				progressiveMode = true // false by default
+	js("jsSpa") {
+	}
+
+	js("jsSpaAngular") {
+	}
+
+	js("jsSpaReact") {
+	}
+
+	js("jsSpaVue") {
+	}
+
+	js("jsVanilla") {
+	}
+
+	jvm() {
+//			// Configure a single target"s compilations (main and test)
+//			compilations.all {
+//				tasks[compileKotlinTaskName].kotlinOptions {
+//					jvmTarget = "1.8"
+//				}
 //			}
-		}
-		commonTest {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-test-common'
-				implementation 'org.jetbrains.kotlin:kotlin-test-annotations-common'
-			}
-		}
-		jvmMain {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-			}
-		}
-		jvmTest {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-test'
-				implementation 'org.jetbrains.kotlin:kotlin-test-junit'
-			}
-		}
-		jsMain {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
-			}
-		}
-		jsTest {
-			dependencies {
-				implementation 'org.jetbrains.kotlin:kotlin-test-js'
-			}
-		}
-		nativeMain {
-		}
-		nativeTest {
-		}
+	}
 
+	jvm("jvm6") {
+	}
+
+	jvm("jvm8") {
+	}
+
+	jvm("jvm8Android") {
+	}
+
+	jvm("jvm8Desktop") {
+	}
+
+	jvm("jvm8DesktopSwing") {
+	}
+
+	// For ARM, preset should be changed to presets.iosArm32 or presets.iosArm64
+	// For Linux, preset should be changed to e.g. presets.linuxX64
+	// For MacOS, preset should be changed to e.g. presets.macosX64
+	macosX64("native") {
+	}
+
+	sourceSets {
 		all {
 //			languageSettings {
 //				progressiveMode = true
 //			}
+		}
+
+		commonMain {
+			dependencies {
+				implementation kotlin("stdlib-common")
+
+			}
+
+//			languageSettings {
+//				languageVersion = "1.3" // possible values: "1.0", "1.1", "1.2", "1.3"
+//				apiVersion = "1.3" // possible values: "1.0", "1.1", "1.2", "1.3"
+//				enableLanguageFeature("InlineClasses") // language feature name
+//				useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
+//				progressiveMode = true // false by default
+//			}
+		}
+
+		commonTest {
+			dependencies {
+				implementation kotlin("test-common")
+				implementation kotlin("test-annotations-common")
+			}
+		}
+
+		jsMain {
+			dependsOn commonMain
+
+			dependencies {
+				implementation kotlin("stdlib-js")
+			}
+		}
+
+		jsSpaMain {
+			dependsOn jsMain
+		}
+
+		jsSpaAngularMain {
+			dependsOn jsSpaMain
+		}
+
+		jsSpaReactMain {
+			dependsOn jsSpaMain
+		}
+
+		jsSpaVueMain {
+			dependsOn jsSpaMain
+		}
+
+		jsVanillaMain {
+			dependsOn jsMain
+		}
+
+		jsTest {
+			dependsOn commonTest
+
+			dependencies {
+				implementation kotlin("test-js")
+			}
+		}
+
+		jsSpaTest {
+			dependsOn jsTest
+		}
+
+		jsSpaAngularTest {
+			dependsOn jsSpaTest
+		}
+
+		jsSpaReactTest {
+			dependsOn jsSpaTest
+		}
+
+		jsSpaVueTest {
+			dependsOn jsSpaTest
+		}
+
+		jsVanillaTest {
+			dependsOn jsTest
+		}
+
+		jvmMain {
+			dependsOn commonMain
+
+			dependencies {
+				implementation kotlin("stdlib-jdk8")
+			}
+		}
+
+		jvm6Main {
+			dependsOn jvmMain
+		}
+
+		jvm8Main {
+			dependsOn jvmMain
+		}
+
+		jvm8AndroidMain {
+			dependsOn jvm8Main
+		}
+
+		jvm8DesktopMain {
+			dependsOn jvm8Main
+		}
+
+		jvm8DesktopSwingMain {
+			dependsOn jvm8DesktopMain
+		}
+
+		jvmTest {
+			dependsOn commonTest
+
+			dependencies {
+				implementation kotlin("test")
+				implementation kotlin("test-junit")
+			}
+		}
+
+		jvm6Test {
+			dependsOn jvmTest
+		}
+
+		jvm8Test {
+			dependsOn jvmTest
+		}
+
+		jvm8AndroidTest {
+			dependsOn jvm8Test
+		}
+
+		jvm8DesktopTest {
+			dependsOn jvm8Test
+		}
+
+		jvm8DesktopSwingTest {
+			dependsOn jvm8DesktopTest
+		}
+
+		nativeMain {
+			dependsOn commonMain
+		}
+
+		nativeTest {
+			dependsOn commonTest
 		}
 	}
 }
