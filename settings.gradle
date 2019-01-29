@@ -8,14 +8,14 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'universal-kotlin'
+rootProject.name = "universal-kotlin"
 
-enableFeaturePreview('GRADLE_METADATA')
+enableFeaturePreview("GRADLE_METADATA")
 
 def enabledModules = [
-	'common',
-	'library',
-	'application:jvm:terminal'
+	"common",
+//	"library",
+//	"application:jvm:terminal"
 ]
 
 enabledModules.each {include it}
