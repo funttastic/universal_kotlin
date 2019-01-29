@@ -1,15 +1,15 @@
 plugins {
-	id 'kotlin-multiplatform' version '1.3.0'
+	kotlin("multiplatform") version "1.3.20"
 }
-group 'com.company.team.project'
-version '0.0.1'
+group = "com.company.team.project"
+version = "0.0.1"
 
 allprojects {
 	repositories {
 		google()
 		jcenter()
 		mavenCentral()
-		maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+		maven("https://dl.bintray.com/kotlin/kotlin-eap")
 	}
 }
 
