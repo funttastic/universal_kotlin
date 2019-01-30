@@ -14,8 +14,8 @@ enableFeaturePreview("GRADLE_METADATA")
 
 def enabledModules = [
 	"common",
-//	"library",
-//	"application:jvm:terminal"
+	"library",
+	"application:jvm:terminal"
 ]
 
 enabledModules.each {include it}

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="common-jsspareact">
+    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
+    <root id="archive" name="common-jsspareact.jar">
+      <element id="module-output" name="common_jsSpaReactMain" />
+    </root>
+  </artifact>
+</component>

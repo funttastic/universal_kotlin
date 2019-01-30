@@ -2,33 +2,33 @@ apply plugin: "kotlin-multiplatform"
 
 kotlin {
 	// Configure all compilations of all targets:
-	targets.all {
+//	targets.all {
 //			compilations.all {
 //				tasks[compileKotlinTaskName].kotlinOptions {
 //					allWarningsAsErrors = true
 //				}
 //			}
-	}
+//	}
 
-	js() {
-	}
-
-	js("jsSpa") {
-	}
-
-	js("jsSpaAngular") {
-	}
-
-	js("jsSpaReact") {
-	}
-
-	js("jsSpaVue") {
-	}
-
-	js("jsVanilla") {
-	}
-
-	jvm() {
+//	js("commonJs") {
+//	}
+//
+//	js("commonJsSpa") {
+//	}
+//
+//	js("commonJsSpaAngular") {
+//	}
+//
+//	js("commonJsSpaReact") {
+//	}
+//
+//	js("commonJsSpaVue") {
+//	}
+//
+//	js("commonJsVanilla") {
+//	}
+//
+	jvm("commonJvm") {
 //			// Configure a single target"s compilations (main and test)
 //			compilations.all {
 //				tasks[compileKotlinTaskName].kotlinOptions {
@@ -36,34 +36,34 @@ kotlin {
 //				}
 //			}
 	}
-
-	jvm("jvm6") {
-	}
-
-	jvm("jvm8") {
-	}
-
-	jvm("jvm8Android") {
-	}
-
-	jvm("jvm8Desktop") {
-	}
-
-	jvm("jvm8DesktopSwing") {
-	}
-
-	// For ARM, preset should be changed to presets.iosArm32 or presets.iosArm64
-	// For Linux, preset should be changed to e.g. presets.linuxX64
-	// For MacOS, preset should be changed to e.g. presets.macosX64
-	macosX64("native") {
-	}
+//
+//	jvm("commonJvmJvm6") {
+//	}
+//
+//	jvm("commonJvmJvm8") {
+//	}
+//
+//	jvm("commonJvmJvm8Android") {
+//	}
+//
+//	jvm("commonJvmJvm8Desktop") {
+//	}
+//
+//	jvm("commonJvmJvm8DesktopSwing") {
+//	}
+//
+//	// For ARM, preset should be changed to presets.iosArm32 or presets.iosArm64
+//	// For Linux, preset should be changed to e.g. presets.linuxX64
+//	// For MacOS, preset should be changed to e.g. presets.macosX64
+//	macosX64("commonNative") {
+//	}
 
 	sourceSets {
-		all {
+//		all {
 //			languageSettings {
 //				progressiveMode = true
 //			}
-		}
+//		}
 
 		commonMain {
 			dependencies {
@@ -87,63 +87,63 @@ kotlin {
 			}
 		}
 
-		jsMain {
-			dependsOn commonMain
-
-			dependencies {
-				implementation kotlin("stdlib-js")
-			}
-		}
-
-		jsSpaMain {
-			dependsOn jsMain
-		}
-
-		jsSpaAngularMain {
-			dependsOn jsSpaMain
-		}
-
-		jsSpaReactMain {
-			dependsOn jsSpaMain
-		}
-
-		jsSpaVueMain {
-			dependsOn jsSpaMain
-		}
-
-		jsVanillaMain {
-			dependsOn jsMain
-		}
-
-		jsTest {
-			dependsOn commonTest
-
-			dependencies {
-				implementation kotlin("test-js")
-			}
-		}
-
-		jsSpaTest {
-			dependsOn jsTest
-		}
-
-		jsSpaAngularTest {
-			dependsOn jsSpaTest
-		}
-
-		jsSpaReactTest {
-			dependsOn jsSpaTest
-		}
-
-		jsSpaVueTest {
-			dependsOn jsSpaTest
-		}
-
-		jsVanillaTest {
-			dependsOn jsTest
-		}
-
-		jvmMain {
+//		commonJsMain {
+//			dependsOn commonMain
+//
+//			dependencies {
+//				implementation kotlin("stdlib-js")
+//			}
+//		}
+//
+//		commonJsTest {
+//			dependsOn commonTest
+//
+//			dependencies {
+//				implementation kotlin("test-js")
+//			}
+//		}
+//
+//		commonJsSpaMain {
+//			dependsOn commonJsMain
+//		}
+//
+//		commonJsSpaTest {
+//			dependsOn commonJsTest
+//		}
+//
+//		commonJsSpaAngularMain {
+//			dependsOn commonJsSpaMain
+//		}
+//
+//		commonJsSpaAngularTest {
+//			dependsOn commonJsSpaTest
+//		}
+//
+//		commonJsSpaReactMain {
+//			dependsOn commonJsSpaMain
+//		}
+//
+//		commonJsSpaReactTest {
+//			dependsOn commonJsSpaTest
+//		}
+//
+//		commonJsSpaVueMain {
+//			dependsOn commonJsSpaMain
+//		}
+//
+//		commonJsSpaVueTest {
+//			dependsOn commonJsSpaTest
+//		}
+//
+//		commonJsVanillaMain {
+//			dependsOn commonJsMain
+//		}
+//
+//		commonJsVanillaTest {
+//			dependsOn commonJsTest
+//		}
+//
+		commonJvmMain {
 			dependsOn commonMain
 
 			dependencies {
@@ -151,27 +151,7 @@ kotlin {
 			}
 		}
 
-		jvm6Main {
-			dependsOn jvmMain
-		}
-
-		jvm8Main {
-			dependsOn jvmMain
-		}
-
-		jvm8AndroidMain {
-			dependsOn jvm8Main
-		}
-
-		jvm8DesktopMain {
-			dependsOn jvm8Main
-		}
-
-		jvm8DesktopSwingMain {
-			dependsOn jvm8DesktopMain
-		}
-
-		jvmTest {
+		commonJvmTest {
 			dependsOn commonTest
 
 			dependencies {
@@ -179,33 +159,106 @@ kotlin {
 				implementation kotlin("test-junit")
 			}
 		}
-
-		jvm6Test {
-			dependsOn jvmTest
-		}
-
-		jvm8Test {
-			dependsOn jvmTest
-		}
-
-		jvm8AndroidTest {
-			dependsOn jvm8Test
-		}
-
-		jvm8DesktopTest {
-			dependsOn jvm8Test
-		}
-
-		jvm8DesktopSwingTest {
-			dependsOn jvm8DesktopTest
-		}
-
-		nativeMain {
-			dependsOn commonMain
-		}
-
-		nativeTest {
-			dependsOn commonTest
-		}
+//
+//		commonJvmJvm6Main {
+//			dependsOn commonJvmMain
+//		}
+//
+//		commonJvmJvm6Test {
+//			dependsOn commonJvmTest
+//		}
+//
+//		commonJvmJvm8Main {
+//			dependsOn commonJvmMain
+//		}
+//
+//		commonJvmJvm8Test {
+//			dependsOn commonJvmTest
+//		}
+//
+//		commonMobileMain {
+//			dependsOn commonMain
+//
+//			dependencies {
+//			}
+//		}
+//
+//		commonMobileTest {
+//			dependsOn commonTest
+//		}
+//
+//		commonJvmJvm8AndroidMain {
+//			dependsOn commonJvmJvm8Main
+//			dependsOn commonMobileMain
+//		}
+//
+//		commonJvmJvm8AndroidTest {
+//			dependsOn commonJvmJvm8Test
+//			dependsOn commonMobileTest
+//		}
+//
+//		commonJvmJvm8ApiMain {
+//			dependsOn commonJvmJvm8Main
+//		}
+//
+//		commonJvmJvm8ApiTest {
+//			dependsOn commonJvmJvm8Test
+//		}
+//
+//		commonJvmJvm8ApiSpringBootMain {
+//			dependsOn commonJvmJvm8ApiMain
+//		}
+//
+//		commonJvmJvm8ApiSpringBootTest {
+//			dependsOn commonJvmJvm8ApiTest
+//		}
+//
+//		commonJvmJvm8DesktopMain {
+//			dependsOn commonJvmJvm8Main
+//		}
+//
+//		commonJvmJvm8DesktopTest {
+//			dependsOn commonJvmJvm8Test
+//		}
+//
+//		commonJvmJvm8DesktopSwingMain {
+//			dependsOn commonJvmJvm8DesktopMain
+//		}
+//
+//		commonJvmJvm8DesktopSwingTest {
+//			dependsOn commonJvmJvm8DesktopTest
+//		}
+//
+//		commonJvmJvm8DesktopTornadoFxMain {
+//			dependsOn commonJvmJvm8DesktopMain
+//		}
+//
+//		commonJvmJvm8DesktopTornadoFxTest {
+//			dependsOn commonJvmJvm8DesktopTest
+//		}
+//
+//		commonJvmJvm8FullstackMain {
+//			dependsOn commonJvmJvm8Main
+//		}
+//
+//		commonJvmJvm8FullstackTest {
+//			dependsOn commonJvmJvm8Test
+//		}
+//
+//		commonJvmJvm8AFullstackVaadinMain {
+//			dependsOn commonJvmJvm8FullstackMain
+//		}
+//
+//		commonJvmJvm8FullstackVaadinTest {
+//			dependsOn commonJvmJvm8FullstackTest
+//		}
+//
+//		commonNativeMain {
+//			dependsOn commonMain
+//		}
+//
+//		commonNativeTest {
+//			dependsOn commonTest
+//		}
 	}
 }

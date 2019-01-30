@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="common-jsspaangular">
+    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
+    <root id="archive" name="common-jsspaangular.jar">
+      <element id="module-output" name="common_jsSpaAngularMain" />
+    </root>
+  </artifact>
+</component>

@@ -2,8 +2,38 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="common_commonJvmJvm6Main" target="1.6" />
+      <module name="common_commonJvmJvm6Test" target="1.6" />
+      <module name="common_commonJvmJvm8AndroidMain" target="1.6" />
+      <module name="common_commonJvmJvm8AndroidTest" target="1.6" />
+      <module name="common_commonJvmJvm8DesktopMain" target="1.6" />
+      <module name="common_commonJvmJvm8DesktopSwingMain" target="1.6" />
+      <module name="common_commonJvmJvm8DesktopSwingTest" target="1.6" />
+      <module name="common_commonJvmJvm8DesktopTest" target="1.6" />
+      <module name="common_commonJvmJvm8Main" target="1.6" />
+      <module name="common_commonJvmJvm8Test" target="1.6" />
+      <module name="common_jvm6Main" target="1.6" />
+      <module name="common_jvm6Test" target="1.6" />
+      <module name="common_jvm8AndroidMain" target="1.6" />
+      <module name="common_jvm8AndroidTest" target="1.6" />
+      <module name="common_jvm8DesktopMain" target="1.6" />
+      <module name="common_jvm8DesktopSwingMain" target="1.6" />
+      <module name="common_jvm8DesktopSwingTest" target="1.6" />
+      <module name="common_jvm8DesktopTest" target="1.6" />
+      <module name="common_jvm8DesMain" target="1.6" />
+      <module name="common_jvm8DesTest" target="1.6" />
+      <module name="common_jvm8Main" target="1.6" />
+      <module name="common_jvm8SwingMain" target="1.6" />
+      <module name="common_jvm8SwingTest" target="1.6" />
+      <module name="common_jvm8Test" target="1.6" />
+      <module name="common_jvmMain" target="1.6" />
+      <module name="common_jvmTest" target="1.6" />
       <module name="kotlin-universal_jvmMain" target="1.6" />
       <module name="kotlin-universal_jvmTest" target="1.6" />
+      <module name="library_jvmMain" target="1.6" />
+      <module name="library_jvmTest" target="1.6" />
+      <module name="terminal_main" target="1.8" />
+      <module name="terminal_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
