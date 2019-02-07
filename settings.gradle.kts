@@ -12,10 +12,10 @@ rootProject.name = "universal-kotlin"
 
 enableFeaturePreview("GRADLE_METADATA")
 
-def enabledModules = [
+val enabledModules = arrayOf(
 	"common",
 	"library",
 	"application:jvm:terminal"
-]
+)
 
-enabledModules.each {include it}
+enabledModules.forEach{include(it)}

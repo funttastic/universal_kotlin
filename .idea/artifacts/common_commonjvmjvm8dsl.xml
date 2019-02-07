@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="common-commonjvmjvm8dsl">
+    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
+    <root id="archive" name="common-commonjvmjvm8dsl.jar">
+      <element id="module-output" name="common_commonJvmJvm8DslMain" />
+    </root>
+  </artifact>
+</component>

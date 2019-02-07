@@ -12,7 +12,7 @@ application
 		api
 			spring-boot
 		desktop
-			tornado-fx
+			tornado-fx?
 		full_stack
 			vaadin?
 			jsf?
@@ -38,6 +38,7 @@ common
 		common-api
 			common-spring_boot
 		common-full_stack
+			common-jsf?
 			common-vaadin?
 		common-script
 		common-terminal
@@ -76,6 +77,7 @@ common
 			common-react
 			common-angular
 			common-vue
+		common-vanilla
 	common-jvm
 		common-android (depends on common-mobile too)
 		common-desktop
