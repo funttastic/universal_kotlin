@@ -71,6 +71,8 @@ library
 Complete common architecture
 =====================
 common
+	common-application
+	common-library
 	common-js
 		common-js-node
 		common-spa

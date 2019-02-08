@@ -44,6 +44,8 @@
       <module name="library_libraryJvmTest" target="1.6" />
       <module name="terminal_applicationTerminalJvmMain" target="1.6" />
       <module name="terminal_applicationTerminalJvmTest" target="1.6" />
+      <module name="terminal_jvmMain" target="1.6" />
+      <module name="terminal_jvmTest" target="1.6" />
       <module name="terminal_main" target="1.8" />
       <module name="terminal_test" target="1.8" />
     </bytecodeTargetLevel>

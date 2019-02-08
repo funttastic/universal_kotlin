@@ -191,7 +191,7 @@ kotlin {
 			dependsOn(commonMain)
 
 			dependencies {
-				implementation(kotlin("stdlib-jdk8"))
+				implementation(kotlin("stdlib"))
 			}
 		}
 
@@ -214,6 +214,10 @@ kotlin {
 
 		val jvmJvm8Main by getting {
 			dependsOn(jvmMain)
+
+			dependencies {
+				implementation(kotlin("stdlib-jdk8"))
+			}
 		}
 
 		val jvmJvm8Test by getting {

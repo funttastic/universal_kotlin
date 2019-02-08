@@ -9,39 +9,31 @@ kotlin {
 	val commonAttribute = Attribute.of("com.company.team.common", String::class.java)
 
 	jvm {
-		attributes.attribute(commonAttribute, targetName)
+		attributes.attribute(commonAttribute, "jvm")
+
+		// TODO Using the following version works but IntelliJ do not recognize the functions correctly.
+//		attributes.attribute(commonAttribute, "jvmJvm8")
 	}
 
 	sourceSets {
-		val commonMain by getting {
-			dependencies {
-				implementation(kotlin("stdlib-common"))
-
-				implementation(project(":common"))
-			}
-		}
-
-		val commonTest by getting {
-			dependencies {
-				implementation(kotlin("test-common"))
-				implementation(kotlin("test-annotations-common"))
-
-				implementation(project(":common"))
-			}
-		}
-
 		val jvmMain by getting {
-			dependsOn(commonMain)
+			kotlin.srcDir("src/main/kotlin")
+			resources.srcDir("src/main/resources")
 
 			dependencies {
+				implementation(project(":common"))
+
 				implementation(kotlin("stdlib-jdk8"))
 			}
 		}
 
 		val jvmTest by getting {
-			dependsOn(commonTest)
+			kotlin.srcDir("src/test/kotlin")
+			resources.srcDir("src/test/resources")
 
 			dependencies {
+				implementation(project(":common"))
+
 				implementation(kotlin("test"))
 				implementation(kotlin("test-junit"))
 			}

@@ -15,7 +15,7 @@ enableFeaturePreview("GRADLE_METADATA")
 val enabledModules = arrayOf(
 	"common",
 	"library",
-	"application:jvm:terminal"
+	"application:jvm:jvm8:terminal"
 )
 
 enabledModules.forEach{include(it)}
