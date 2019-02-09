@@ -97,6 +97,7 @@ kotlin {
 	}
 
 	iosX64("nativeIosX64") {
+		compilations["main"].outputKinds("framework")
 	}
 
 	linuxArm32Hfp("nativeLinuxArm32Hfp") {
@@ -683,5 +684,10 @@ kotlin {
 
 			dependsOn(nativeTest)
 		}
+	}
+}
+
+configurations {
+	val compileClasspath by creating {
 	}
 }
