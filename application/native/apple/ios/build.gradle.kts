@@ -60,13 +60,12 @@ task("copyFramework") {
 
 	doLast {
 		val srcFile = (kotlin.targets["$target"].compilations["main"] as KotlinNativeCompilation).getBinary("FRAMEWORK", buildType)
-		val targetDir = System.getProperty("configuration.build.dir")
+		val targetDir = project.properties["configuration.build.dir"]!!
+
 		copy {
-			from(srcFile.parent) {
-				into(targetDir)
-				include("main.framework/**")
-				include("main.framework.dSYM")
-			}
+			from(srcFile.parent)
+			into(targetDir)
+			include("main.framework/**", "main.framework.dSYM")
 		}
 	}
 }
