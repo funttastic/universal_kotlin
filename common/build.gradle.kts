@@ -1,43 +1,6 @@
 plugins {
 	kotlin("multiplatform")
-//	id("com.android.application")
-//	id("kotlin-android-extensions")
 }
-
-//android {
-//	compileSdkVersion(28)
-////	buildToolsVersion = "28.0.0"
-//
-//	defaultConfig {
-//		applicationId = "org.jetbrains.kotlin.mpp_app_android"
-//		minSdkVersion(15)
-//		targetSdkVersion(28)
-//		versionCode = 1
-//		versionName = "1.0"
-//		testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-//	}
-//	buildTypes {
-//		getByName("release") {
-//			isMinifyEnabled = false
-//			sourceSets {
-//				val main by getting {
-//					manifest.srcFile("src/main/resources/jvm/jvm8/android/common/manifest/AndroidManifest.xml")
-//					resources.srcDirs(listOf("src/main/resources/jvm/jvm8/android/common"))
-//				}
-//			}
-////			proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-r")
-//		}
-//	}
-//
-////	packagingOptions.exclude("META-INF/main.kotlin_module")
-//}
-
-//dependencies {
-//	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-//	implementation("com.android.support:appcompat-v7:28.0.0")
-//	implementation("com.android.support.constraint:constraint-layout:1.1.3")
-//	androidTestImplementation("com.android.support.test:runner:1.0.2")
-//}
 
 kotlin {
 	val commonAttribute = Attribute.of("com.company.team.project.common", String::class.java)

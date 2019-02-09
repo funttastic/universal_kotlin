@@ -1,8 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="common-jvmjvm8android">
     <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvmjvm8android.jar">
-      <element id="module-output" name="universal-kotlin-common_jvmJvm8AndroidMain" />
-    </root>
+    <root id="archive" name="common-jvmjvm8android.jar" />
   </artifact>
 </component>
