@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinCommonCompilation
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
+
 plugins {
 	kotlin("multiplatform")
 }
@@ -50,20 +53,20 @@ configurations {
 // Xcode runs this task itself during its build process.
 // Before opening the project from iosApp directory in Xcode,
 // make sure all Gradle infrastructure exists (gradle.wrapper, gradlew).
-//task("copyFramework") {
-//	val buildType = project.findProperty("kotlin.build.type") ?: "DEBUG"
-//	val target = project.findProperty("kotlin.target") ?: "ios"
-//	dependsOn(kotlin.targets["$target"].compilations["main"].linkTaskName("FRAMEWORK", buildType))
-//
-//	doLast {
-//		val srcFile = kotlin.targets["$target"].compilations["main"].getBinary("FRAMEWORK", buildType)
-//		val targetDir = System.getProperty("configuration.build.dir")
-//		copy {
-//			from(srcFile.parent) {
-//				into(targetDir)
-//				include("app.framework/**")
-//				include("app.framework.dSYM")
-//			}
-//		}
-//	}
-//}
+task("copyFramework") {
+	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
+	val target = project.findProperty("kotlin.target") ?: "ios"
+	dependsOn((kotlin.targets["$target"].compilations["main"] as KotlinNativeCompilation).linkTaskName("FRAMEWORK", buildType))
+
+	doLast {
+		val srcFile = (kotlin.targets["$target"].compilations["main"] as KotlinNativeCompilation).getBinary("FRAMEWORK", buildType)
+		val targetDir = System.getProperty("configuration.build.dir")
+		copy {
+			from(srcFile.parent) {
+				into(targetDir)
+				include("main.framework/**")
+				include("main.framework.dSYM")
+			}
+		}
+	}
+}
