@@ -2,7 +2,7 @@
   <artifact type="jar" name="common-jvmjvm8afullstackvaadin">
     <output-path>$PROJECT_DIR$/common/build/libs</output-path>
     <root id="archive" name="common-jvmjvm8afullstackvaadin.jar">
-      <element id="module-output" name="common_jvmJvm8AFullstackVaadinMain" />
+      <element id="module-output" name="universal-kotlin-common_jvmJvm8AFullstackVaadinMain" />
     </root>
   </artifact>
 </component>

@@ -2,11 +2,11 @@ plugins {
 	kotlin("multiplatform")
 }
 
-group = "com.company.team.application.jvm.terminal"
+group = "com.company.team.application.jvm.jvm8.terminal"
 version = "0.0.1"
 
 kotlin {
-	val commonAttribute = Attribute.of("com.company.team.common", String::class.java)
+	val commonAttribute = Attribute.of("com.company.team.project.common", String::class.java)
 
 	jvm {
 		attributes.attribute(commonAttribute, "jvm")

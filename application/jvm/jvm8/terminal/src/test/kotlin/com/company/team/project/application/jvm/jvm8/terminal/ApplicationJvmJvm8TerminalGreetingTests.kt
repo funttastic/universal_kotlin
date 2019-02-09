@@ -1,6 +1,6 @@
 package com.company.team.project.application.jvm.jvm8.terminal
 
-import com.company.team.project.common.commonJvm
+import com.company.team.project.common.jvm.common.commonJvm
 import org.junit.Test
 import kotlin.test.assertEquals
 

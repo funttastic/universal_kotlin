@@ -2,7 +2,7 @@
   <artifact type="jar" name="common-jvmjvm8apispringboot">
     <output-path>$PROJECT_DIR$/common/build/libs</output-path>
     <root id="archive" name="common-jvmjvm8apispringboot.jar">
-      <element id="module-output" name="common_jvmJvm8ApiSpringBootMain" />
+      <element id="module-output" name="universal-kotlin-common_jvmJvm8ApiSpringBootMain" />
     </root>
   </artifact>
 </component>
