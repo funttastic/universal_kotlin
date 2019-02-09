@@ -1,8 +1,8 @@
 import XCTest
-import app
+import main
 
 class iosAppTests: XCTestCase {
     func testExample() {
-        assert(Sample().checkMe() == 7)
+        assert(!Proxy().proxyHello().isEmpty)
     }
 }
