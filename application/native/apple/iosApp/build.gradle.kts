@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinCommonCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
 
 plugins {
@@ -12,6 +11,7 @@ kotlin {
 		attributes.attribute(commonAttribute, "nativeIosX64")
 
 		compilations["main"].outputKinds("framework")
+		compilations["test"].outputKinds("framework")
 	}
 
 	sourceSets {
@@ -65,7 +65,8 @@ task("copyFramework") {
 		copy {
 			from(srcFile.parent)
 			into(targetDir)
-			include("main.framework/**", "main.framework.dSYM")
+			include("main.framework/**")
+			include("main.framework.dSYM")
 		}
 	}
 }

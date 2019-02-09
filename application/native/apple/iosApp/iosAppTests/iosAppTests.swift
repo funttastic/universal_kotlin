@@ -1,7 +1,7 @@
 import XCTest
-import main
+import app
 
-class iosTests: XCTestCase {
+class iosAppTests: XCTestCase {
     func testExample() {
         assert(Sample().checkMe() == 7)
     }

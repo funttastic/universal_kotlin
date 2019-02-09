@@ -1,5 +1,5 @@
 import UIKit
-import main
+import app
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
