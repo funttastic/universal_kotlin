@@ -45,15 +45,15 @@ allprojects {
 }
 
 //// Used in the android-ios application
-//buildscript {
-//	repositories {
-//		google()
-//		jcenter()
-//	}
-//	dependencies {
-//		classpath 'com.android.tools.build:gradle:3.2.0'
-//	}
-//}
+buildscript {
+	repositories {
+		google()
+		jcenter()
+	}
+	dependencies {
+		classpath("com.android.tools.build:gradle:3.2.0")
+	}
+}
 //repositories {
 //	google()
 //	jcenter()
