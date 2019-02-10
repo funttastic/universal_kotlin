@@ -2,10 +2,31 @@ plugins {
 	kotlin("multiplatform") version "1.3.20"
 }
 
-group = ext["project.group"]!!
-version = ext["project.version"]!!
+// Used mainly by the android-ios and spring boot applications
+buildscript {
+	val kotlinVersion = "1.3.20"
+	val springBootVersion = "2.1.2.RELEASE"
+	val androidToolsVersion = "3.2.0"
+
+	repositories {
+		google()
+		jcenter()
+		mavenCentral()
+		maven("https://dl.bintray.com/kotlin/kotlin-eap")
+	}
+
+	dependencies {
+		classpath("com.android.tools.build:gradle:$androidToolsVersion")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
+	}
+}
 
 allprojects {
+	group = ext["project.group"]!!
+	version = ext["project.version"]!!
+
 //	ext {
 //		set("property", "value")
 //	}
@@ -43,18 +64,3 @@ allprojects {
 //		maven("https://dl.bintray.com/kotlin/kotlin-eap")
 //	}
 }
-
-//// Used in the android-ios application
-buildscript {
-	repositories {
-		google()
-		jcenter()
-	}
-	dependencies {
-		classpath("com.android.tools.build:gradle:3.2.0")
-	}
-}
-//repositories {
-//	google()
-//	jcenter()
-//}

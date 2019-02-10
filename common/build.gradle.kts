@@ -304,14 +304,14 @@ kotlin {
 
 		val jvmJvm7Main by getting {
 			kotlin.srcDir("src/main/kotlin/com/company/team/project/common/jvm/jvm7/common")
-			resources.srcDir("src/main/resources/jvm/jvm6/common")
+			resources.srcDir("src/main/resources/jvm/jvm7/common")
 
 			dependsOn(jvmMain)
 		}
 
 		val jvmJvm7Test by getting {
 			kotlin.srcDir("src/test/kotlin/com/company/team/project/common/jvm/jvm7/common")
-			resources.srcDir("src/test/resources/jvm/jvm6/common")
+			resources.srcDir("src/test/resources/jvm/jvm7/common")
 
 			dependsOn(jvmTest)
 		}

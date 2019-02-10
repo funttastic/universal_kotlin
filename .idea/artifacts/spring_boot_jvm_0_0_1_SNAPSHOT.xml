@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="spring_boot-jvm-0.0.1-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/application/jvm/jvm8/api/spring_boot/build/libs</output-path>
+    <root id="archive" name="spring_boot-jvm-0.0.1-SNAPSHOT.jar">
+      <element id="module-output" name="spring_boot_jvmMain" />
+    </root>
+  </artifact>
+</component>

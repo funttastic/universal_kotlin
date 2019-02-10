@@ -2,7 +2,7 @@
   <artifact type="jar" name="common-jvmjvm8fullstack">
     <output-path>$PROJECT_DIR$/common/build/libs</output-path>
     <root id="archive" name="common-jvmjvm8fullstack.jar">
-      <element id="module-output" name="universal-kotlin-common_jvmJvm8FullstackMain" />
+      <element id="module-output" name="common_jvmJvm8FullstackMain" />
     </root>
   </artifact>
 </component>

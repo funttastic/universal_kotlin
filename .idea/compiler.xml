@@ -42,8 +42,14 @@
       <module name="common_jvm8SwingMain" target="1.6" />
       <module name="common_jvm8SwingTest" target="1.6" />
       <module name="common_jvm8Test" target="1.6" />
+      <module name="common_jvmJvm10Main" target="1.6" />
+      <module name="common_jvmJvm10Test" target="1.6" />
+      <module name="common_jvmJvm11Main" target="1.6" />
+      <module name="common_jvmJvm11Test" target="1.6" />
       <module name="common_jvmJvm6Main" target="1.6" />
       <module name="common_jvmJvm6Test" target="1.6" />
+      <module name="common_jvmJvm7Main" target="1.6" />
+      <module name="common_jvmJvm7Test" target="1.6" />
       <module name="common_jvmJvm8AFullstackVaadinMain" target="1.6" />
       <module name="common_jvmJvm8AFullstackVaadinTest" target="1.6" />
       <module name="common_jvmJvm8AndroidMain" target="1.6" />
@@ -58,10 +64,16 @@
       <module name="common_jvmJvm8DesktopTest" target="1.6" />
       <module name="common_jvmJvm8DesktopTornadoFxMain" target="1.6" />
       <module name="common_jvmJvm8DesktopTornadoFxTest" target="1.6" />
+      <module name="common_jvmJvm8FullstackJsfMain" target="1.6" />
+      <module name="common_jvmJvm8FullstackJsfTest" target="1.6" />
       <module name="common_jvmJvm8FullstackMain" target="1.6" />
       <module name="common_jvmJvm8FullstackTest" target="1.6" />
+      <module name="common_jvmJvm8FullstackVaadinMain" target="1.6" />
+      <module name="common_jvmJvm8FullstackVaadinTest" target="1.6" />
       <module name="common_jvmJvm8Main" target="1.6" />
       <module name="common_jvmJvm8Test" target="1.6" />
+      <module name="common_jvmJvm9Main" target="1.6" />
+      <module name="common_jvmJvm9Test" target="1.6" />
       <module name="common_jvmMain" target="1.6" />
       <module name="common_jvmTest" target="1.6" />
       <module name="kotlin-universal_jvmMain" target="1.6" />
@@ -70,6 +82,8 @@
       <module name="library_jvmTest" target="1.6" />
       <module name="library_libraryJvmMain" target="1.6" />
       <module name="library_libraryJvmTest" target="1.6" />
+      <module name="spring_boot_jvmMain" target="1.6" />
+      <module name="spring_boot_jvmTest" target="1.6" />
       <module name="terminal_applicationTerminalJvmMain" target="1.6" />
       <module name="terminal_applicationTerminalJvmTest" target="1.6" />
       <module name="terminal_main" target="1.8" />
