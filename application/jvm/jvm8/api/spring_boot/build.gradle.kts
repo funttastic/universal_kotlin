@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
 	kotlin("multiplatform")
 	id("kotlin-spring")
@@ -31,6 +33,8 @@ kotlin {
 
 				implementation(project(":common"))
 
+				implementation("org.apache.logging.log4j:log4j-api:2.11.2")
+
 				implementation("org.springframework.boot:spring-boot-starter")
 			}
 		}
@@ -50,5 +54,12 @@ kotlin {
 				implementation("org.springframework.boot:spring-boot-starter-test")
 			}
 		}
+	}
+}
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions {
+		jvmTarget = "1.8"
+		freeCompilerArgs = listOf("-Xjsr305=strict")
 	}
 }

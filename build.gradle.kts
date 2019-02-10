@@ -2,7 +2,7 @@ plugins {
 	kotlin("multiplatform") version "1.3.20"
 }
 
-// Used mainly by the android-ios and spring boot applications
+// Used mainly by the android-ios and spring boot applications.
 buildscript {
 	val kotlinVersion = "1.3.20"
 	val springBootVersion = "2.1.2.RELEASE"
@@ -23,9 +23,11 @@ buildscript {
 	}
 }
 
+group = ext["project.group"]!!
+version = ext["project.version"]!!
+
 allprojects {
-	group = ext["project.group"]!!
-	version = ext["project.version"]!!
+//	group = ext["project.group"]!!
 
 //	ext {
 //		set("property", "value")

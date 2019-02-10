@@ -16,9 +16,9 @@ val enabledModules = arrayOf(
 	"common"
 	, "library:common"
 	, "application:jvm:jvm8:android"
+	, "application:jvm:jvm8:api:spring_boot"
 	, "application:jvm:jvm8:terminal"
 	, "application:native:apple:iosApp"
-//	, "application:jvm:jvm8:api:spring_boot"
 )
 
 enabledModules.forEach{include(it)}
