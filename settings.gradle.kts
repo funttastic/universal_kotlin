@@ -15,6 +15,7 @@ enableFeaturePreview("GRADLE_METADATA")
 val enabledModules = arrayOf(
 	"common"
 	, "library:common"
+	, "application:js:vanilla"
 	, "application:jvm:jvm8:android"
 	, "application:jvm:jvm8:api:spring_boot"
 	, "application:jvm:jvm8:terminal"
