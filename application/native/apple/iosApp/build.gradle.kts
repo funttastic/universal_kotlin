@@ -12,6 +12,11 @@ kotlin {
 
 		compilations["main"].outputKinds("framework")
 		compilations["test"].outputKinds("framework")
+
+//		This can change the framework name. Related: https://github.com/JetBrains/kotlin/blob/1.3.20/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/new-mpp-native-binaries/kotlin-dsl/build.gradle.kts#L69
+//		binaries {
+//			framework("app")
+//		}
 	}
 
 	sourceSets {
