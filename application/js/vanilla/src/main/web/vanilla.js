@@ -44,11 +44,16 @@
     var message = salutation + ' from Kotlin.JS, check me value: ' + (new Sample()).checkMe();
     (tmp$ = document.getElementById('js-response')) != null ? (tmp$.textContent = message) : null;
   }
+  function main() {
+    helloWorld('Test');
+  }
   _.Sample = Sample;
   Object.defineProperty(_, 'Platform', {
     get: Platform_getInstance
   });
   _.helloWorld = helloWorld;
+  _.main = main;
+  main();
   Kotlin.defineModule('vanilla', _);
   return _;
 }));
