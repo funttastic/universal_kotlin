@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: mizoguche/kotlin-multiplatform-build:latest
     steps:
       - checkout
       - run: ./gradlew clean build
