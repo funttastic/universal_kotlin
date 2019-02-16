@@ -1,6 +1,8 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="terminal-jvm-0.0.1">
     <output-path>$PROJECT_DIR$/application/jvm/jvm8/terminal/build/libs</output-path>
-    <root id="archive" name="terminal-jvm-0.0.1.jar" />
+    <root id="archive" name="terminal-jvm-0.0.1.jar">
+      <element id="module-output" name="com.company.team.application.jvm.jvm8.terminal.terminal.jvmMain" />
+    </root>
   </artifact>
 </component>
