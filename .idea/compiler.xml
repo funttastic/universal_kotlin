@@ -6,6 +6,8 @@
       <module name="android_jvmTest" target="1.6" />
       <module name="com.company.team.application.jvm.terminal-terminal_jvmMain" target="1.6" />
       <module name="com.company.team.application.jvm.terminal-terminal_jvmTest" target="1.6" />
+      <module name="com.company.team.library.common.common.jvmMain" target="1.6" />
+      <module name="com.company.team.library.common.common.jvmTest" target="1.6" />
       <module name="common_commonJvmJvm6Main" target="1.6" />
       <module name="common_commonJvmJvm6Test" target="1.6" />
       <module name="common_commonJvmJvm8AndroidMain" target="1.6" />
@@ -90,6 +92,8 @@
       <module name="terminal_test" target="1.8" />
       <module name="universal-kotlin-common_jvmJvm8AFullstackVaadinMain" target="1.6" />
       <module name="universal-kotlin-common_jvmJvm8AFullstackVaadinTest" target="1.6" />
+      <module name="universal-kotlin.application.js.spa.react.main" target="1.8" />
+      <module name="universal-kotlin.application.js.spa.react.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

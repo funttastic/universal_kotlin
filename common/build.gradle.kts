@@ -3,6 +3,8 @@ plugins {
 }
 
 kotlin {
+	val os = org.gradle.internal.os.OperatingSystem.current()!!
+
 	val commonAttribute = Attribute.of("com.company.team.project.common", String::class.java)
 
 	targets.all {
@@ -90,33 +92,39 @@ kotlin {
 	androidNativeArm64("nativeAndroidArm64") {
 	}
 
-	iosArm32("nativeIosArm32") {
-	}
+//	if (os.isMacOsX) {
+		iosArm32("nativeIosArm32") {
+		}
 
-	iosArm64("nativeIosArm64") {
-	}
+		iosArm64("nativeIosArm64") {
+		}
 
-	iosX64("nativeIosX64") {
-		compilations["main"].outputKinds("framework")
-	}
+		iosX64("nativeIosX64") {
+			compilations["main"].outputKinds("framework")
+		}
 
-	linuxArm32Hfp("nativeLinuxArm32Hfp") {
-	}
+		macosX64("nativeMacosX64") {
+		}
+//	}
 
-	linuxMips32("nativeLinuxMips32") {
-	}
+//	if (os.isLinux()) {
+		linuxArm32Hfp("nativeLinuxArm32Hfp") {
+		}
 
-	linuxMipsel32("nativeLinuxMipsel32") {
-	}
+		linuxMips32("nativeLinuxMips32") {
+		}
 
-	linuxX64("nativeLinuxX64") {
-	}
+		linuxMipsel32("nativeLinuxMipsel32") {
+		}
 
-	macosX64("nativeMacosX64") {
-	}
+		linuxX64("nativeLinuxX64") {
+		}
+//	}
 
-	mingwX64("nativeMingwX64") {
-	}
+//	if (os.isWindows()) {
+		mingwX64("nativeMingwX64") {
+		}
+//	}
 
 	wasm32("nativeWasm32") {
 	}

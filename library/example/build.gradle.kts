@@ -3,7 +3,7 @@ plugins {
 	id("maven-publish")
 }
 
-group = "com.company.team.library.common"
+group = "com.company.team.library.example"
 version = "0.0.1"
 
 kotlin {

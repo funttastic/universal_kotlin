@@ -1,26 +1,61 @@
 version: 2
 jobs:
-  one:
-    branches:
-      - development
+  main:
     docker:
-      - image: circleci/gradle:jdk11
+      - image: openjdk:8-jdk
+        user: root
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: sleep 25
-  two:
-    branches:
-      - development
+      - run: apt-get update && apt-get install libncurses5 -y
+      - run: ./gradlew --version --no-daemon
+      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+  jdk9:
     docker:
-      - image: circleci/gradle:jdk11
+      - image: openjdk:9-jdk
+        user: root
     steps:
       - checkout
-      - run: echo "A more familiar hi"
-      - run: sleep 15
+      - run: apt-get update && apt-get install libncurses5 -y
+      - run: ./gradlew --version --no-daemon
+      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+  jdk10:
+    docker:
+      - image: openjdk:10-jdk
+        user: root
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install libncurses5 -y
+      - run: java -version
+      - run: ./gradlew --version --no-daemon
+      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+  jdk11:
+    docker:
+      - image: openjdk:11-jdk
+        user: root
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install libncurses5 -y
+      - run: java -version
+      - run: ./gradlew --version --no-daemon
+      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+  android-28:
+    docker:
+      - image: circleci/android:api-28
+        user: root
+    steps:
+      - checkout
+      - run: java -version
+      - run: ./gradlew --version --no-daemon
+      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:android"
 workflows:
   version: 2
-  one_and_two:
+  all:
     jobs:
-      - one
-      - two
+      - main
+      - jdk9
+      - jdk10
+      - jdk11
+#      - android-28
+
+# Kotlin supported platforms: jvm, js, android, androidNativeArm32, androidNativeArm64, iosArm32, iosArm64, iosX64,
+#  linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64, wasm32

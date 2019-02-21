@@ -1,6 +1,47 @@
-# Universal Kotlin
+<p align="center">
+  <a href="https://github.com/funttastic/universal-kotlin">
+    <img src="resources/art/logo/logo.png" alt="Universal Kotlin Logo" width="72" height="72">
+  </a>
+</p>
 
-An universal Kotlin project that aims to run on ALL supported platforms.
+<h3 align="center">Universal Kotlin</h3>
+
+<p align="center">
+  An universal Kotlin project that aims to run on ALL supported platforms.
+</p>
+
+<table align="center">
+	<tr>
+		<td>
+			<span>CircleCI (Linux, OpenJDK 8, 9, 10, 11)</span>
+		</td>
+		<td>
+			<a href="https://circleci.com/gh/funttastic/universal-kotlin/tree/master">
+				<img src="https://circleci.com/gh/funttastic/universal-kotlin/tree/master.svg?style=svg" />
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span>Travis (MacOS, XCode 9.3 (JDK 8), 10 (JDK 10), 10.2 (JDK 11)</span>
+		</td>
+		<td>
+			<a href="https://travis-ci.com/funttastic/universal-kotlin">
+				<img src="https://travis-ci.com/funttastic/universal-kotlin.svg?branch=master" />
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span>AppVeyour (Windows, Visual Studio 2013, 2015, 2017 (JDK 8)</span>
+		</td>
+		<td>
+			<a href="https://ci.appveyor.com/project/funttastic/universal-kotlin/branch/master">
+				<img src="https://ci.appveyor.com/api/projects/status/jkg4rkxt8m33jd69/branch/master?svg=true" />
+			</a>
+		</td>
+	</tr>
+</table>
 
 ## Currently Supported Platforms
 
