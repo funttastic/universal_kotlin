@@ -52,9 +52,9 @@ workflows:
   all:
     jobs:
       - main
-      - jdk9
-      - jdk10
-      - jdk11
+#      - jdk9
+#      - jdk10
+#      - jdk11
 #      - android-28
 
 # Kotlin supported platforms: jvm, js, android, androidNativeArm32, androidNativeArm64, iosArm32, iosArm64, iosX64,
