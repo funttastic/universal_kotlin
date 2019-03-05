@@ -2,7 +2,7 @@
   <artifact type="jar" name="vanilla-js-0.0.1">
     <output-path>$PROJECT_DIR$/application/browser/js/vanilla/build/libs</output-path>
     <root id="archive" name="vanilla-js-0.0.1.jar">
-      <element id="module-output" name="vanilla.com.company.team.application.js.vanilla.vanilla.jsMain" />
+      <element id="module-output" name="com.company.team.application.js.vanilla.vanilla.jsMain" />
     </root>
   </artifact>
 </component>

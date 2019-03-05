@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-commonjsspavue">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-commonjsspavue.jar">
-      <element id="module-output" name="common_commonJsSpaVueMain" />
-    </root>
-  </artifact>
-</component>

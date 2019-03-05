@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jvmjvm7">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvmjvm7.jar">
-      <element id="module-output" name="universal-kotlin.common.jvmJvm7Main" />
-    </root>
-  </artifact>
-</component>

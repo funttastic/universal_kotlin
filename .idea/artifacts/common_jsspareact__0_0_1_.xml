@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jsspareact-&quot;0.0.1&quot;">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jsspareact-_0.0.1_.jar" />
-  </artifact>
-</component>

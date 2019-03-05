@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jvm8android">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvm8android.jar">
-      <element id="module-output" name="common_jvm8AndroidMain" />
-    </root>
-  </artifact>
-</component>

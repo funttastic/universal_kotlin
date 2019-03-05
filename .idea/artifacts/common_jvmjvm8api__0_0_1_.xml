@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jvmjvm8api-&quot;0.0.1&quot;">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvmjvm8api-_0.0.1_.jar" />
-  </artifact>
-</component>

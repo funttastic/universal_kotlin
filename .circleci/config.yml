@@ -6,6 +6,8 @@ jobs:
       - image: circleci/openjdk:8-jdk-node-browsers
     environment:
       ANDROID_HOME: /root/android-sdk
+      GRADLE_OPTS: -Xmx3048m -Xms3048m
+#      GRADLE_OPTS: -Xmx2048m -Dorg.gradle.daemon=false
     steps:
       - checkout
       - run: apt-get update && apt-get install openjfx -y # Necessary for tornadofx

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jvm8">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvm8.jar">
-      <element id="module-output" name="common_jvm8Main" />
-    </root>
-  </artifact>
-</component>

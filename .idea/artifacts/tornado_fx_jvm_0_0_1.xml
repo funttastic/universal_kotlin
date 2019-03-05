@@ -2,7 +2,7 @@
   <artifact type="jar" name="tornado_fx-jvm-0.0.1">
     <output-path>$PROJECT_DIR$/application/desktop/jvm/tornado_fx/build/libs</output-path>
     <root id="archive" name="tornado_fx-jvm-0.0.1.jar">
-      <element id="module-output" name="tornado_fx.com.company.team.application.jvm.jvm8.terminal.tornado_fx.jvmMain" />
+      <element id="module-output" name="com.company.team.application.jvm.jvm8.terminal.tornado_fx.jvmMain" />
     </root>
   </artifact>
 </component>

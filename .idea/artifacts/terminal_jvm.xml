@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="terminal-jvm">
-    <output-path>$PROJECT_DIR$/application/jvm/terminal/build/libs</output-path>
-    <root id="archive" name="terminal-jvm.jar">
-      <element id="module-output" name="terminal_jvmMain" />
-    </root>
-  </artifact>
-</component>

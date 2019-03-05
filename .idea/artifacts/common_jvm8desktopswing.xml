@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="common-jvm8desktopswing">
-    <output-path>$PROJECT_DIR$/common/build/libs</output-path>
-    <root id="archive" name="common-jvm8desktopswing.jar">
-      <element id="module-output" name="common_jvm8DesktopSwingMain" />
-    </root>
-  </artifact>
-</component>

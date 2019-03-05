@@ -19,7 +19,7 @@ kotlin {
 		attributes.attribute(commonAttribute, "nativeWasm32")
 
 		compilations["main"].outputKinds("EXECUTABLE")
-		compilations["main"].entryPoint("com.company.team.project.application.native_.wasm.main")
+		compilations["main"].entryPoint("com.company.team.project.application.browser.native_.wasm32.main")
 	}
 
 	sourceSets {
