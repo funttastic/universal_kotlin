@@ -1,14 +1,30 @@
 version: 2
 jobs:
-  main:
+  jdk8:
     docker:
       - image: openjdk:8-jdk
-        user: root
+      - image: circleci/openjdk:8-jdk-node-browsers
+    environment:
+      ANDROID_HOME: /root/android-sdk
     steps:
       - checkout
-      - run: apt-get update && apt-get install libncurses5 -y
-      - run: ./gradlew --version --no-daemon
-      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+      - run: apt-get update && apt-get install openjfx -y # Necessary for tornadofx
+      - run: curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o $HOME/tools.zip
+      - run: unzip -q $HOME/tools.zip -d $ANDROID_HOME
+      - run: (echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+      - run: java -version
+      - run: ./gradlew --version
+      - run: "
+        ./gradlew
+          clean
+          build
+          --stacktrace
+          --warning-mode all
+          -DdisabledModules=\"
+            application:jvm:jvm8:android,
+            application:native:apple:iosApp
+          \"
+        "
   jdk9:
     docker:
       - image: openjdk:9-jdk
@@ -16,8 +32,19 @@ jobs:
     steps:
       - checkout
       - run: apt-get update && apt-get install libncurses5 -y
-      - run: ./gradlew --version --no-daemon
-      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+      - run: java -version
+      - run: ./gradlew --version
+      - run: "
+        ./gradlew
+          clean
+          build
+          --stacktrace
+          --warning-mode all
+          -DdisabledModules=\"
+            application:jvm:jvm8:android,
+            application:native:apple:iosApp
+          \"
+        "
   jdk10:
     docker:
       - image: openjdk:10-jdk
@@ -26,8 +53,18 @@ jobs:
       - checkout
       - run: apt-get update && apt-get install libncurses5 -y
       - run: java -version
-      - run: ./gradlew --version --no-daemon
-      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+      - run: ./gradlew --version
+      - run: "
+        ./gradlew
+          clean
+          build
+          --stacktrace
+          --warning-mode all
+          -DdisabledModules=\"
+            application:jvm:jvm8:android,
+            application:native:apple:iosApp
+          \"
+        "
   jdk11:
     docker:
       - image: openjdk:11-jdk
@@ -36,8 +73,18 @@ jobs:
       - checkout
       - run: apt-get update && apt-get install libncurses5 -y
       - run: java -version
-      - run: ./gradlew --version --no-daemon
-      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla"
+      - run: ./gradlew --version
+      - run: "
+        ./gradlew
+          clean
+          build
+          --stacktrace
+          --warning-mode all
+          -DdisabledModules=\"
+            application:jvm:jvm8:android,
+            application:native:apple:iosApp
+          \"
+        "
   android-28:
     docker:
       - image: circleci/android:api-28
@@ -45,13 +92,22 @@ jobs:
     steps:
       - checkout
       - run: java -version
-      - run: ./gradlew --version --no-daemon
-      - run: ./gradlew clean build --no-daemon --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:android"
+      - run: ./gradlew --version
+      - run: "
+        ./gradlew
+          clean
+          build
+          --stacktrace
+          --warning-mode all
+          -DdisabledModules=\"
+            application:jvm:jvm8:android
+          \"
+        "
 workflows:
   version: 2
   all:
     jobs:
-      - main
+      - jdk8
 #      - jdk9
 #      - jdk10
 #      - jdk11
@@ -59,3 +115,4 @@ workflows:
 
 # Kotlin supported platforms: jvm, js, android, androidNativeArm32, androidNativeArm64, iosArm32, iosArm64, iosX64,
 #  linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64, wasm32
+

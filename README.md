@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/funttastic/universal-kotlin">
-    <img src="resources/art/logo/logo.png" alt="Universal Kotlin Logo" width="72" height="72">
+    <img src="resources/art/logo/logo.png" alt="Universal Kotlin Logo" width="180" height="180">
   </a>
 </p>
 
@@ -10,10 +10,10 @@
   An universal Kotlin project that aims to run on ALL supported platforms.
 </p>
 
-<table align="center">
+<table>
 	<tr>
 		<td>
-			<span>CircleCI (Linux, OpenJDK 8, 9, 10, 11)</span>
+			<span>CircleCI (Linux (JDK 8))</span>
 		</td>
 		<td>
 			<a href="https://circleci.com/gh/funttastic/universal-kotlin/tree/master">
@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 		<td>
-			<span>Travis (MacOS, XCode 9.3 (JDK 8), 10 (JDK 10), 10.2 (JDK 11)</span>
+			<span>Travis (MacOS, XCode 9.3 (JDK 8))</span>
 		</td>
 		<td>
 			<a href="https://travis-ci.com/funttastic/universal-kotlin">
@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 		<td>
-			<span>AppVeyour (Windows, Visual Studio 2013, 2015, 2017 (JDK 8)</span>
+			<span>AppVeyour (Windows, Visual Studio 2017 (JDK 8))</span>
 		</td>
 		<td>
 			<a href="https://ci.appveyor.com/project/funttastic/universal-kotlin/branch/master">
@@ -51,9 +51,13 @@
 	- supports common, js, jvm, and native code
 	- can use code from the common module
 - Application: a module to hold as many as possible different kotlin applications
-	- supports the following applications: JVM Terminal (CLI) Application
-	- wanted applications: JVM Android Application, and others. 
-
+	- supports the following applications:
+		- Android
+		- iOS
+		- Spring Boot
+		- JVM Terminal (CLI)
+		- JavaScript Vanilla
+	
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing 
@@ -64,7 +68,7 @@ purposes. See deployment for notes on how to deploy the project on a live system
 The project prerequisites are:
 
 ```
-Java 8 or superior
+JDK 8
 ```
 
 ### Installing
@@ -92,9 +96,7 @@ To run the test do:
 
 ## Deployment
 
-To deploy this project do:
-
-[TODO]
+Please refer to the README.md of the module that you would like to deploy.
 
 ## Built With
 
@@ -111,7 +113,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **[Danilo Araújo Silva](https://goo.gl/D0Oedt)** - *Initial work* - [Funttastic](https://www.funttastic.com/)
+* **[Danilo Araújo Silva](https://goo.gl/D0Oedt)** - *Initial work* - Funttastic
 
 See also the list of [contributors](https://github.com/funttastic/universal-kotlin/graphs/contributors) who participated in this project.
 

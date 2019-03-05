@@ -1,17 +1,158 @@
-language: java
 matrix:
   include:
-    - os: osx
-      # jdk 8
+    - language: java
+      os: osx # jdk8
       osx_image: xcode9.3
-    - os: osx
-      # jdk 10
-      osx_image: xcode10
-    - os: osx
-      # jdk 11
-      osx_image: xcode10.2
-install: true
-script:
-  - java -version
-  - ./gradlew --version
-  - ./gradlew clean build --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:js:vanilla,application:native:apple:iosApp"
+      env:
+        - ANDROID_HOME=$HOME/android-sdk
+      before_install:
+        - npm install -g npm
+        - curl -L https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip -o $HOME/tools.zip
+        - unzip -q $HOME/tools.zip -d $ANDROID_HOME
+        - yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+      install: true
+      script:
+        - java -version
+        - ./gradlew --version
+        - "
+          ./gradlew
+            clean
+            build
+            --stacktrace
+            --warning-mode all
+          "
+  #    - language: java
+  #      os: osx #jdk10
+  #      osx_image: xcode10
+  #      install: true
+  #    - language: java
+  #      os: osx #jdk11
+  #      osx_image: xcode10.2
+  #      install: true
+  #      script:
+  #        - java -version
+  #        - ./gradlew --version
+  #        - "
+  #          ./gradlew
+  #            clean
+  #            build
+  #            --stacktrace
+  #            --warning-mode all
+  #            -DenabledModules=\"
+  #              common,
+  #              library:example,
+  #              application:jvm:jvm8:terminal,
+  #              application:jvm:jvm8:api:spring_boot,
+  #              application:js:vanilla,
+  #              application:native:apple:iosApp
+  #            \"
+  #          "
+  #      env: ALLOW_FAILURE=true
+  #      - os: linux
+  #        dist: trusty
+  #          addons:
+  #            apt:
+  #              packages:
+  #                - openjdk-6-jdk
+  #        jdk: openjdk6
+  #        install: true
+  #      - os: linux # Not available
+  #        jdk: openjdk7
+  #    - language: java
+  #      os: linux
+  #      jdk: openjdk8
+  #      install: true
+  #      script:
+  #        - java -version
+  #        - ./gradlew --version
+  #        - "
+  #          ./gradlew
+  #            clean
+  #            build
+  #            --stacktrace
+  #            --warning-mode all
+  #            -DenabledModules=\"
+  #              common,
+  #              library:example,
+  #              application:jvm:jvm8:terminal,
+  #              application:jvm:jvm8:api:spring_boot,
+  #              application:js:vanilla,
+  #              application:native:apple:iosApp
+  #            \"
+  #          "
+  #      env: ALLOW_FAILURE=true
+  #      - os: linux
+  #        jdk: openjdk9
+  #        install: true
+  #      - os: linux # Not available
+  #        jdk: openjdk10
+  #    - language: java
+  #      os: linux
+  #      jdk: openjdk11
+  #      install: true
+  #      script:
+  #        - java -version
+  #        - ./gradlew --version
+  #        - "
+  #          ./gradlew
+  #            clean
+  #            build
+  #            --stacktrace
+  #            --warning-mode all
+  #            -DenabledModules=\"
+  #              common,
+  #              library:example,
+  #              application:jvm:jvm8:terminal,
+  #              application:jvm:jvm8:api:spring_boot,
+  #              application:js:vanilla,
+  #              application:native:apple:iosApp
+  #            \"
+  #          "
+  #      env: ALLOW_FAILURE=true
+  #    - language: shell
+  #      os: windows
+  #      install: choco install jdk8
+  #      script:
+  #        - java -version
+  #        - ./gradlew --version
+  #        - "
+  #          ./gradlew
+  #            clean
+  #            build
+  #            --stacktrace
+  #            --warning-mode all
+  #            -DenabledModules=\"
+  #              common,
+  #              library:example,
+  #              application:jvm:jvm8:terminal,
+  #              application:jvm:jvm8:api:spring_boot,
+  #              application:js:vanilla,
+  #              application:native:apple:iosApp
+  #            \"
+  #          "
+  #      env: ALLOW_FAILURE=true
+  #    - language: shell
+  #      os: windows
+  #      install: choco install jdk11
+  #      script:
+  #        - java -version
+  #        - ./gradlew --version
+  #        - "
+  #          ./gradlew
+  #            clean
+  #            build
+  #            --stacktrace
+  #            --warning-mode all
+  #            -DenabledModules=\"
+  #              common,
+  #              library:example,
+  #              application:jvm:jvm8:terminal,
+  #              application:jvm:jvm8:api:spring_boot,
+  #              application:js:vanilla,
+  #              application:native:apple:iosApp
+  #            \"
+  #          "
+  #      env: ALLOW_FAILURE=true
+  allow_failures:
+    env: ALLOW_FAILURE=true
+

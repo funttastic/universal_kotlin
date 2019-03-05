@@ -7,7 +7,7 @@ group = "com.company.team.library.example"
 version = "0.0.1"
 
 kotlin {
-	val commonAttribute = Attribute.of("com.company.team.project.common", String::class.java)
+	val commonAttribute = Attribute.of("com.company.team.project.common.single_source_set", String::class.java)
 
 	targets.all {
 		attributes.attribute(commonAttribute, targetName)
@@ -63,7 +63,7 @@ kotlin {
 			dependencies {
 				implementation(kotlin("stdlib-common"))
 
-				implementation(project(":common"))
+				implementation(project(":common:single_source_set"))
 			}
 		}
 

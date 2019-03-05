@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="single_source_set-jvmjvm8fullstackvaadin">
+    <output-path>$PROJECT_DIR$/common/single_source_set/build/libs</output-path>
+    <root id="archive" name="single_source_set-jvmjvm8fullstackvaadin.jar">
+      <element id="module-output" name="universal-kotlin.common.single_source_set.jvmJvm8FullstackVaadinMain" />
+    </root>
+  </artifact>
+</component>

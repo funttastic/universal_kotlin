@@ -4,10 +4,16 @@
     <bytecodeTargetLevel>
       <module name="android_jvmMain" target="1.6" />
       <module name="android_jvmTest" target="1.6" />
+      <module name="com.company.team.application.jvm.jvm8.terminal.terminal.jvmMain" target="1.6" />
+      <module name="com.company.team.application.jvm.jvm8.terminal.terminal.jvmTest" target="1.6" />
+      <module name="com.company.team.application.jvm.jvm8.terminal.tornado_fx.jvmMain" target="1.8" />
+      <module name="com.company.team.application.jvm.jvm8.terminal.tornado_fx.jvmTest" target="1.8" />
       <module name="com.company.team.application.jvm.terminal-terminal_jvmMain" target="1.6" />
       <module name="com.company.team.application.jvm.terminal-terminal_jvmTest" target="1.6" />
       <module name="com.company.team.library.common.common.jvmMain" target="1.6" />
       <module name="com.company.team.library.common.common.jvmTest" target="1.6" />
+      <module name="com.company.team.spring_boot.jvmMain" target="1.8" />
+      <module name="com.company.team.spring_boot.jvmTest" target="1.8" />
       <module name="common_commonJvmJvm6Main" target="1.6" />
       <module name="common_commonJvmJvm6Test" target="1.6" />
       <module name="common_commonJvmJvm8AndroidMain" target="1.6" />
@@ -94,6 +100,38 @@
       <module name="universal-kotlin-common_jvmJvm8AFullstackVaadinTest" target="1.6" />
       <module name="universal-kotlin.application.js.spa.react.main" target="1.8" />
       <module name="universal-kotlin.application.js.spa.react.test" target="1.8" />
+      <module name="universal-kotlin.common.jvmJvm10Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm10Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm11Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm11Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm6Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm6Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm7Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm7Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8AndroidMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8AndroidTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8ApiMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8ApiSpringBootMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8ApiSpringBootTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8ApiTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopSwingMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopSwingTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopTornadoFxMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8DesktopTornadoFxTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackJsfMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackJsfTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackVaadinMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8FullstackVaadinTest" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm8Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm9Main" target="1.6" />
+      <module name="universal-kotlin.common.jvmJvm9Test" target="1.6" />
+      <module name="universal-kotlin.common.jvmMain" target="1.6" />
+      <module name="universal-kotlin.common.jvmTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

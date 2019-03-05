@@ -1,17 +1,38 @@
 image:
   - Visual Studio 2017
-  - Visual Studio 2015
-  - Visual Studio 2013
+#  - Visual Studio 2015
+#  - Visual Studio 2013
+#  - Ubuntu 16.04
+#  - Ubuntu 18.04
 environment:
   matrix:
-    - ANDROID_HOME: "C:\\android-sdk-windows"
-#    - ANDROID_HOME: C:\Program Files (x86)\Android\android-sdk
+    - ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
+#for:
+#  -
+#    matrix:
+#      only:
+#        - image: Ubuntu
+#    build_script:
+#      - echo Ubuntu build script
+#matrix:
+#  allow_failures:
+#    - image: Visual Studio 2013
+#    - image: Visual Studio 2015
 install:
+  - RMDIR "%ProgramFiles(x86)%\\Android\\android-sdk" /S /Q
   - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
-  - 7z x sdk-tools-windows-4333796.zip -oC:\android-sdk-windows > nul
-  - yes | C:\android-sdk-windows\tools\bin\sdkmanager.bat --licenses
-#  - yes | "C:\Program Files (x86)\Android\android-sdk\tools\bin\sdkmanager.bat" --licenses
+  - 7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
+  - yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
 build_script:
   - java -version
   - ./gradlew --version
-  - ./gradlew clean build --stacktrace --warning-mode all -DenabledModules="common,library:example,application:jvm:jvm8:terminal,application:jvm:jvm8:api:spring_boot,application:jvm:jvm8:android,application:js:vanilla"
+  - "
+    ./gradlew
+      clean
+      build
+      --stacktrace
+      --warning-mode all
+      -DdisabledModules=\"
+        application:native:apple:iosApp
+      \"
+    "
