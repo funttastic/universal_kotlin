@@ -5,6 +5,7 @@ matrix:
       osx_image: xcode9.3
       env:
         - ANDROID_HOME=$HOME/android-sdk
+        - GRADLE_OPTS=-Xmx3048m -Xms3048m
       before_install:
         - npm install -g npm
         - curl -L https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip -o $HOME/tools.zip

@@ -7,6 +7,7 @@ image:
 environment:
   matrix:
     - ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
+#    - GRADLE_OPTS: "-Xmx3048m -Xms3048m"
 #for:
 #  -
 #    matrix:

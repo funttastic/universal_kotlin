@@ -21,7 +21,7 @@ object Util {
 
 	val springBootVersion = "2.1.2.RELEASE"
 
-	val androidToolsVersion = "3.3.1"
+	val androidToolsVersion = "3.3.2"
 
 	val frontendVersion = "0.0.45"
 
