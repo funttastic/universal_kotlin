@@ -14,7 +14,7 @@
 <p>
 	<a href="https://travis-ci.com/funttastic/universal-kotlin">
 			<img
-					src="https://circleci.com/gh/funttastic/universal-kotlin/tree/master.svg?style=svg"
+					src="https://circleci.com/gh/funttastic/universal_kotlin/tree/master.svg?style=svg"
 					align="right"
 			/>
 	</a>
@@ -22,13 +22,13 @@
 </p>
 <p>
 	<a href="https://travis-ci.com/funttastic/universal-kotlin">
-			<img align="right" src="https://travis-ci.com/funttastic/universal-kotlin.svg?branch=master" />
+			<img align="right" src="https://api.travis-ci.com/funttastic/universal_kotlin.svg?branch=master" />
 	</a>
 	Travis (MacOS, XCode 9.3 (JDK 8))
 </p>
 <p>
 	<a href="https://ci.appveyor.com/project/funttastic/universal-kotlin/branch/master">
-			<img align="right" src="https://ci.appveyor.com/api/projects/status/jkg4rkxt8m33jd69/branch/master?svg=true" />
+			<img align="right" src="https://ci.appveyor.com/api/projects/status/158nax2h6hvw9bhv/branch/master?svg=true" />
 	</a>
 	AppVeyour (Windows, Visual Studio 2017 (JDK 8))
 </p>
