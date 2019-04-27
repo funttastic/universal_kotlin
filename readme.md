@@ -91,9 +91,9 @@ The project prerequisites are:
 
 Specific prerequisites:
 
-- [Android SDK or Android Studio](https://developer.android.com/studio#downloads) (if you're going to use the [android](application/mobile/jvm/android/readme.md) module.)
+- [Android SDK or Android Studio](https://developer.android.com/studio#downloads) (if you're going to use the [android](application/mobile/jvm/android) module.)
 - [XCode](https://developer.apple.com/xcode/) (if you're going to use the [iOS](application/mobile/native/apple/ios) modules.)
-- [KScript](https://github.com/holgerbrandl/kscript) (if you're going to use the [script](application/script/jvm/script/readme.md) module.)
+- [KScript](https://github.com/holgerbrandl/kscript) (if you're going to use the [script](application/script/jvm/script) module.)
 - [Konan](https://github.com/JetBrains/kotlin-native) (for Kotlin Native modules, but this dependency will be automatically installed when building these modules.)
 
 If you don't have `Java` or `KScript` installed yet, consider to use [SDKMAN](https://sdkman.io/install)
@@ -140,7 +140,7 @@ But you can enable or disable modules going to this class in `buildSrc`:
 > com.company.team.project.dsl.model.enum_.ModuleEnum
 
 Also you can enable or disable modules using environment variables.
-Check the [common-single_sources](common/multiple_sources/readme.md) module for an example.
+Check the [common-single_sources](common/multiple_sources) module for an example.
 
 ## Running the tests
 
