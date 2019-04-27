@@ -1,4 +1,5 @@
-import org.gradle.internal.impldep.com.amazonaws.PredefinedClientConfigurations.defaultConfig
+import com.company.team.project.dsl.model.enum_.*
+import com.company.team.project.dsl.model.extension.*
 
 plugins {
 	kotlin("multiplatform")
@@ -10,6 +11,9 @@ repositories {
 	google()
 	jcenter()
 	mavenCentral()
+	mavenLocal()
+	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
+	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
 }
 
 android {
@@ -17,7 +21,7 @@ android {
 //	buildToolsVersion = "28.0.0"
 
 	defaultConfig {
-		applicationId = "org.jetbrains.kotlin.mpp_app_android"
+		applicationId = "com.company.team.project.application.mobile.jvm.android"
 		minSdkVersion(15)
 		targetSdkVersion(28)
 		versionCode = 1
@@ -58,29 +62,43 @@ dependencies {
 }
 
 kotlin {
-	android("android") {
+	configureTargetAttributes(ModuleEnum.`application-mobile-jvm-android`)
+
+//	targets.all {
+//			compilations.all {
+//				tasks[compileKotlinTaskName].kotlinOptions {
+//					allWarningsAsErrors = true
+//				}
+//			}
+//	}
+
+	@Suppress("IllegalIdentifier")
+	android(TargetEnum.`application-mobile-jvm-android@android`) {
 	}
 
+//	android("android") {
+//	}
+
 	sourceSets {
-		val androidMain by getting {
+//		val androidMain by getting {
+		@Suppress("IllegalIdentifier")
+		configureSourceSet(SourceSetEnum.`application-mobile-jvm-android@main@android`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
 			dependencies {
-				implementation(project(":common:single_source_set", "jvmJvm8AndroidDefault"))
-
 				implementation(kotlin("stdlib-common"))
 				implementation(kotlin("stdlib"))
 			}
 		}
 
-		val androidTest by getting {
+//		val androidTest by getting {
+		@Suppress("IllegalIdentifier")
+		configureSourceSet(SourceSetEnum.`application-mobile-jvm-android@test@android`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 
 			dependencies {
-				implementation(project(":common:single_source_set", "jvmJvm8AndroidDefault"))
-
 				implementation(kotlin("test-common"))
 				implementation(kotlin("test-annotations-common"))
 				implementation(kotlin("test"))

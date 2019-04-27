@@ -1,0 +1,7 @@
+org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute:49
+
+task.getIdentityPath().fullPath.equals(":library:single_source:linkTestDebugExecutableNativeAndroidArm32")
+
+
+~/.m2/repository/org/jetbrains/kotlin/kotlin-gradle-plugin/1.3.20/kotlin-gradle-plugin-1.3.20-sources.jar!/org/jetbrains/kotlin/gradle/tasks/KotlinNativeTasks.kt:302
+~/.m2/repository/org/jetbrains/kotlin/kotlin-gradle-plugin/1.3.20/kotlin-gradle-plugin-1.3.20-sources.jar!/org/jetbrains/kotlin/compilerRunner/KotlinNativeToolRunner.kt:133

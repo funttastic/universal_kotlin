@@ -6,27 +6,27 @@ digraph G {
 
 	root [label=root, color=darkorange]
 	root_common [label=common, color=darkorange]
-	root_common_single_source_set [label=single_source_set, color=darkorange]
-	root_common_multiple_source_sets [label=multiple_source_sets, color=darkorange]
+	root_common_single_source [label=single_source, color=darkorange]
+	root_common_multiple_sources [label=multiple_sources, color=darkorange]
 	root_common_multiple_modules [label=multiple_modules, color=darkorange]
 
 	root -> root_common
-	root_common -> root_common_single_source_set
-	root_common_single_source_set -> root_common_single_source_set_js
-	root_common_single_source_set_js -> root_common_single_source_set_js_jsVanilla
-	root_common_single_source_set_js -> root_common_single_source_set_js_jsSpa
-	root_common_single_source_set_js_jsSpa -> root_common_single_source_set_js_jsSpa_jsSpaReact
-	root_common_single_source_set_js_jsSpa -> root_common_single_source_set_js_jsSpa_jsSpaVue
-	root_common_single_source_set_js_jsSpa -> root_common_single_source_set_js_jsSpa_jsSpaAngular
-	root_common_single_source_set -> root_common_single_source_set_jvm
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm6
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm7
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm8
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm9
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm10
-	root_common_single_source_set_jvm -> root_common_single_source_set_jvm_jvm11
-	root_common_single_source_set -> root_common_single_source_set_native
-	root_common -> root_common_multiple_source_sets
+	root_common -> root_common_single_source
+	root_common_single_source -> root_common_single_source_js
+	root_common_single_source_js -> root_common_single_source_js_jsVanilla
+	root_common_single_source_js -> root_common_single_source_js_jsSpa
+	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaReact
+	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaVue
+	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaAngular
+	root_common_single_source -> root_common_single_source_jvm
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm6
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm7
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm8
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm9
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm10
+	root_common_single_source_jvm -> root_common_single_source_jvm_jvm11
+	root_common_single_source -> root_common_single_source_native
+	root_common -> root_common_multiple_sources
 	root_common -> root_common_multiple_modules
 	root -> root_library
 	root_library -> root_library_example

@@ -1,3 +1,89 @@
+Source Sets
+===========
+
+[common]
+	[target_base]
+		[target_base-android]
+		[target_base-android_native_arm32]
+		[target_base-android_native_arm64]
+		[target_base-ios_arm32]
+		[target_base-ios_arm64]
+		[target_base-ios_x64]
+		[target_base-js]
+		[target_base-jvm]
+		[target_base-linux_arm32_hfp]
+		[target_base-linux_mips32]
+		[target_base-linux_mipsel32]
+		[target_base-linux_x64]
+		[target_base-macos_x64]
+		[target_base-mingw_x64]
+		[target_base-wasm32]
+	[application]
+		[application-architecture]
+			[application-architecture-arm32]
+			[application-architecture-arm64]
+			[application-architecture-x64]
+			[application-architecture-x86_64]
+		[application-apple]
+			[application-apple-ios]
+			[application-apple-macos]
+			[application-apple-tvos]
+		[application-backend]
+			[application-backend-jvm]
+				[application-backend-jvm-spring_boot]
+			[application-backend-js]
+				[application-backend-js-nodejs]
+		[application-browser]
+			[application-browser-js]
+				[application-browser-js-spa]
+					[application-browser-js-spa-angular]
+					[application-browser-js-spa-react]
+					[application-browser-js-spa-vue]
+				[application-browser-js-vanilla]
+			[application-browser-native]
+				[application-browser-native-wasm32]
+		[application-desktop]
+			[application-desktop-jvm]
+				[application-desktop-jvm-swing]
+				[application-desktop-jvm-tornado_fx]
+		[application-dsl]
+		[application-full_stack]
+			[application-full_stack-jsf]
+			[application-full_stack-vaadin]
+		[application-hardware]
+			[application-hardware-raspberry_pi]
+		[application-linux]
+			[application-linux-arm]
+				[application-linux-arm-arm32]
+					[application-linux-arm-arm32-arm32_hfp]
+			[application-linux-mips]
+				[application-linux-mips-mips32]
+					[application-linux-mips-mips32-mips32]
+					[application-linux-mips-mips32-mipsel32]
+			[application-linux-x64]
+				[application-linux-x64-x64]
+		[application-mobile]
+			[application-mobile-android]
+			[application-mobile-jvm]
+				[application-mobile-jvm-android] ([application-mobile-android])
+			[application-mobile-native]
+				[application-mobile-native-apple] ([application-apple])
+					[application-mobile-native-apple-ios] ([application-apple-ios])
+						[application-mobile-native-apple-ios-ios_arm32]
+						[application-mobile-native-apple-ios-ios_arm64]
+						[application-mobile-native-apple-ios-ios_x64]
+				[application-mobile-native-android] ([application-mobile-android])
+					[application-mobile-native-android-android_native_arm32]
+					[application-mobile-native-android-android_native_arm64]
+		[application-native]
+		[application-script]
+			[application-script-jvm]
+				[application-script-jvm-script]
+		[application-terminal]
+			[application-terminal-jvm]
+				[application-terminal-jvm-terminal]
+	[library]
+
 Simplified architecture
 =======================
 application
@@ -74,7 +160,7 @@ common
 	common-application
 	common-library
 	common-js
-		common-js-node
+		common-nodejs
 		common-spa
 			common-react
 			common-angular
@@ -101,7 +187,7 @@ common
 			common-tvos
 		common-arm32
 			common-linux-arm32 (depends on common-linux too)
-				common-android-arm32 (depends on common-android-native too)
+				common-android-arm32 (depends on common-android-native too, depends on common-linux?
 				common-arm32_hfp
 					common-raspeberrypi
 			common-ios-arm32 (depends on common-ios too)
@@ -136,3 +222,34 @@ common
 see:
 	https://kotlinlang.org/docs/reference/native-overview.html
 	https://kotlinlang.org/docs/tutorials/native/targeting-multiple-platforms.html (most important)
+
+
+Draft
+=====
+				common-iphone-32
+		common-arm64
+			common-linux-arm64 (depends on common-linux too)
+				common-android-arm64 (depends on common-android-native too)
+			common-ios-arm64 (depends on common-ios too)
+				common-iphone
+				common-ipad
+				common-ios?
+		common-linux
+		common-mingw
+			common-mingw-windows (see common-windows)
+		common-mips
+			common-linux-mips (depends on common-linux too)
+			common-linux-mipsel32 (depends on common-linux too)
+		common-x86_64
+			common-linux-x86_64 (depends on common-linux too)
+			common-ios-x64 (depends on common-ios too)
+				common-iphone_simulator
+			common-macos-x86_64 (depends on common-macos too)
+				common-macbook
+				common-macos?
+				common-imac
+			common-windows-x86_64 (depends on common-mingw-windows)
+		common-stm32
+			common-zephyr_stm32f4_disco
+		common-wasm32
+		common-windows

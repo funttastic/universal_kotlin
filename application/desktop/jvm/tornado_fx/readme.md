@@ -1,0 +1,69 @@
+# Universal Kotlin
+
+## Application -> Desktop -> Jvm -> Tornado FX
+
+Module with a Tornado FX desktop application.
+
+It uses the common modules as dependencies.
+
+<!--
+## Screenshot
+
+## Architecture
+
+### Targets
+
+### Source Sets
+-->
+
+## Setting Up
+
+```bash
+export enabledModules="application-desktop-jvm-tornado_fx"
+```
+
+## Building
+
+```bash
+./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:build
+```
+
+or in a simplified way (can run more tasks):
+
+```bash
+./gradlew build
+```
+
+## Testing
+
+```bash
+./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:check
+```
+
+or in a simplified way (can run more tasks):
+
+```bash
+./gradlew check
+```
+
+## Running
+
+Create a fatJar with:
+
+```bash
+./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:shadowJar
+```
+
+or in a simplified way (can run more tasks):
+
+```bash
+./gradlew shadowJar
+```
+
+Run the fatJar with:
+
+````bash
+java -jar application/desktop/jvm/tornado_fx/build/libs/application-desktop-jvm-tornado_fx-0.0.1.jar
+````
+
+You should see the TornadoFx window application.

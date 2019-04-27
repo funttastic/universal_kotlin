@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="reactApp-js">
-    <output-path>$PROJECT_DIR$/application/browser/js/spa/reactApp/build/libs</output-path>
-    <root id="archive" name="reactApp-js.jar">
-      <element id="module-output" name="universal-kotlin.application.browser.js.spa.reactApp.jsMain" />
-    </root>
-  </artifact>
-</component>

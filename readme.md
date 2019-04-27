@@ -6,7 +6,7 @@
 
 <h3 align="center">Universal Kotlin</h3>
 
-<h4 align="center">An universal Kotlin project that aims to run on <strong>ALL</strong> supported platforms</h4>
+<h4 align="center">An universal multiplatform Kotlin project that aims to run on <strong>ALL</strong> supported platforms</h4>
 
 <br/>
 
@@ -33,14 +33,15 @@
 	AppVeyour (Windows, Visual Studio 2017 (JDK 8))
 </p>
 
-## Architechture
+## Architecture
 
+- [x] <strong>buildSrc</strong>: Kotlin DSL module to help with the build scripts
 - common
 	- [x] <strong>single_source</strong>: Common module using just a single source
-	- [ ] <strong>multiple_sources</strong>: Common module using multiple sources
-	- [ ] <strong>multiple_modules</strong>: Common module using multiple modules
+	- [x] <strong>multiple_sources</strong>: Common module using multiple sources
 - library
-	- [x] <strong>example</strong>: Multiplatform example library
+	- [x] <strong>single_source</strong>: Multiplatform library using just a single source
+	- [x] <strong>multiple_sources</strong>: Multiplatform library using multiple sources
 - application
 	- backend
 		- jvm
@@ -48,8 +49,8 @@
 	- browser
 		- js
 			- spa
-				- [x] <strong>reactApp</strong>: React with webpack application
-			- [x] <strong>vanilla</strong>: Vanilla JavaScript application
+				- [x] <strong>react</strong>: React with Webpack application
+			- [x] <strong>vanilla</strong>: Vanilla JavaScript with Webpack application
 		- native
 			- [x] <strong>wasm32</strong>: WebAssembly application
 	- desktop
@@ -59,7 +60,15 @@
 		- jvm
 			- [x] <strong>android</strong>: Android application
 		- native
-			- [x] <strong>iosApp</strong>: iOS application
+			- apple
+				- ios
+					- [x] <strong>ios_x64</strong>: iOS X64 application (without framework)
+					- [x] <strong>ios_x64_copying_framework</strong>: iOS X64 application copying a Kotlin framework
+					- [x] <strong>ios_x64_framework</strong>: iOS X64 Kotlin framework only
+					- [x] <strong>ios_x64_with_framework</strong>: iOS X64 application with a Kotlin framework
+	- script
+  		- jvm
+  			- [x] <strong>script</strong>: Script application running through KScript
 	- terminal
 		- jvm
 			- [x] <strong>terminal</strong>: Terminal application
@@ -73,41 +82,86 @@ purposes. See deployment for notes on how to deploy the project on a live system
 
 The project prerequisites are:
 
-```
-JDK 8
-```
+- [JDK 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html)
+
+
+- [Android SDK or Android Studio](https://developer.android.com/studio#downloads) (if you're going to use the [android](application/mobile/jvm/android/readme.md) module.)
+- [XCode](https://developer.apple.com/xcode/) (if you're going to use the [iOS](application/mobile/native/apple/ios) modules.)
+- [KScript](https://github.com/holgerbrandl/kscript) (if you're going to use the [script](application/script/jvm/script/readme.md) module.)
+- [Konan](https://github.com/JetBrains/kotlin-native) (for Kotlin Native modules, but this dependency will be automatically installed when building these modules.)
+
+If you don't have `Java` or `KScript` installed yet, consider to use [SDKMAN](https://sdkman.io/install)
+to install this packages on a straightforward way.
+
+If you don't have the `Android SDK`, go to this [link](https://developer.android.com/studio#downloads)
+and download the command line tools or `Android Studio`.
+
+If you don't have `XCode` you can download it from the [Apple Store](https://developer.apple.com/xcode/).
 
 ### Installing
 
 1. Clone:
 
-	```
-	git clone https://github.com/funttastic/universal-kotlin.git
-	```
+```bash
+git clone https://github.com/funttastic/universal_kotlin.git
+```
 
-2. Run:
+2. Configure:
 
-	```
-	cd universal-kotlin
-	./gradlew build
-	```
+Create your `local.properties` configuration file.
+A template is available at `local.properties.template`.
+
+```bash
+cp local.properties.template local.properties
+```
+
+Then change the `local.properties` file accordingly.
+
+Note: after running any native module for the first time you will get `konan` installed on your machine.
+The `konan.home` configuration is needed in the `wasm32` module to run the `jsinterop` task.
+
+3. Run:
+
+```bash
+cd universal_kotlin
+
+./gradlew build
+```
+
+Obs.: since this build will be enabling all modules, this could take too long.
+But you can enable or disable modules going to this class in `buildSrc`:
+
+> com.company.team.project.dsl.model.enum_.ModuleEnum
+
+Also you can enable or disable modules using environment variables.
+Check the [common-single_sources](common/multiple_sources/readme.md) module for an example.
 
 ## Running the tests
 
-To run the test do:
+To run the tests / checks do:
+
+```
+./gradlew check
+```
+
+or
 
 ```
 ./gradlew test
 ```
 
+Note the `check` task includes the `test` one.
+
 ## Deployment
 
-Please refer to the `readme` of the correspondent module.
+Please refer to the `readme` of the correspondent module that you would like to deploy.
 
 ## Built With
 
-* [Kotlin](https://kotlinlang.org/) (`1.3.21`): Multi-purpose programming language
-* [Gradle](https://gradle.org/) (`5.2.1`): Dependency management
+* [Kotlin](https://kotlinlang.org/) (`1.3.30`): Multi-purpose programming language
+* [Gradle](https://gradle.org/) (`5.3.1`): Dependency management
+
+Note that the modules themselves have many other dependencies and you can find them in their `build.gradle.kts` files.
 
 <!--
 ## Versioning
@@ -118,6 +172,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 ### Contributors
+
+This project exists thanks to [all the people who contribute](https://github.com/funttastic/universal_kotlin/graphs/contributors)!
+
+Thanks a lot to all of our contributors!
 
 All contributions are very welcome. [Contribute!](contributing.md)
 
@@ -136,7 +194,7 @@ This project exists thanks to all the people who contribute. [Contribute!](contr
 
 <p>
 	<br/>
-	<strong>Danilo Araújo Silva</strong> - <i>Initial work</i> - Funttastic
+	<strong>Danilo Araújo Silva</strong></i>
 </p>
 </a>
 
@@ -162,7 +220,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## Acknowledgments
 
-We would like to thank [all Kotlin's contributors](https://github.com/JetBrains/kotlin/graphs/contributors), which are doing a very good job. Thanks a lot!
+We would like to thank [all Kotlin's contributors](https://github.com/JetBrains/kotlin/graphs/contributors), 
+which are doing a very good job. Thanks a lot!
 	
 ## License
 

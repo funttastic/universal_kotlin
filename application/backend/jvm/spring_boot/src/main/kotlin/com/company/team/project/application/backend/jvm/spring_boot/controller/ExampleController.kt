@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod
  */
 @Controller
 @CrossOrigin(origins = ["*"])
-@RequestMapping("/example")
+@RequestMapping("/exampleController")
 class ExampleController {
 
 	/**
 	 *
 	 */
-	@RequestMapping("example", method= [RequestMethod.GET])
+	@RequestMapping("exampleMethod", method= [RequestMethod.GET])
 	@Throws(Exception::class)
 	fun example(): ResponseEntity<List<String>> {
 		return ResponseEntity(exampleFunction(), HttpStatus.OK)

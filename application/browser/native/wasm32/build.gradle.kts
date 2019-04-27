@@ -1,3 +1,5 @@
+import com.company.team.project.dsl.model.enum_.*
+import com.company.team.project.dsl.model.extension.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
 import java.nio.file.Paths
 
@@ -13,17 +15,23 @@ val packageName = "kotlinx.interop.wasm.dom"
 val jsinteropKlibFileName = Paths.get(buildDir.toString(), "klib", "$packageName-jsinterop.klib").toString()
 
 kotlin {
-	val commonAttribute = Attribute.of("com.company.team.project.common.single_source_set", String::class.java)
+	configureTargetAttributes(ModuleEnum.`application-browser-native-wasm32`)
 
-	wasm32 {
-		attributes.attribute(commonAttribute, "nativeWasm32")
+//	targets.all {
+//			compilations.all {
+//				tasks[compileKotlinTaskName].kotlinOptions {
+//					allWarningsAsErrors = true
+//				}
+//			}
+//	}
 
-		compilations["main"].outputKinds("EXECUTABLE")
-		compilations["main"].entryPoint("com.company.team.project.application.browser.native_.wasm32.main")
+	wasm32(TargetEnum.`application-browser-native-wasm32@wasm32`) {
+		compilations[CompilationEnum.main.id!!].outputKinds("EXECUTABLE")
+		compilations[CompilationEnum.main.id!!].entryPoint("com.company.team.project.application.browser.native_.wasm32.main")
 	}
 
 	sourceSets {
-		val wasm32Main by getting {
+		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@main@wasm32`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -31,7 +39,7 @@ kotlin {
 				implementation(files(jsinteropKlibFileName))
 			}
 		}
-		val wasm32Test by getting {
+		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@test@wasm32`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

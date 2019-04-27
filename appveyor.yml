@@ -23,7 +23,9 @@ install:
   - RMDIR "%ProgramFiles(x86)%\\Android\\android-sdk" /S /Q
   - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
   - 7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
+  - echo off
   - yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
+  - echo on
 build_script:
   - java -version
   - ./gradlew --version
@@ -31,9 +33,5 @@ build_script:
     ./gradlew
       clean
       build
-      --stacktrace
       --warning-mode all
-      -DdisabledModules=\"
-        application:native:apple:iosApp
-      \"
     "

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="single_source_set-jvmjvm7">
-    <output-path>$PROJECT_DIR$/common/single_source_set/build/libs</output-path>
-    <root id="archive" name="single_source_set-jvmjvm7.jar">
-      <element id="module-output" name="universal-kotlin.common.single_source_set.jvmJvm7Main" />
-    </root>
-  </artifact>
-</component>

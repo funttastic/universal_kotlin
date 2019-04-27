@@ -20,12 +20,7 @@ jobs:
         ./gradlew
           clean
           build
-          --stacktrace
           --warning-mode all
-          -DdisabledModules=\"
-            application:jvm:jvm8:android,
-            application:native:apple:iosApp
-          \"
         "
   jdk9:
     docker:
@@ -40,12 +35,7 @@ jobs:
         ./gradlew
           clean
           build
-          --stacktrace
           --warning-mode all
-          -DdisabledModules=\"
-            application:jvm:jvm8:android,
-            application:native:apple:iosApp
-          \"
         "
   jdk10:
     docker:
@@ -60,12 +50,7 @@ jobs:
         ./gradlew
           clean
           build
-          --stacktrace
           --warning-mode all
-          -DdisabledModules=\"
-            application:jvm:jvm8:android,
-            application:native:apple:iosApp
-          \"
         "
   jdk11:
     docker:
@@ -80,12 +65,7 @@ jobs:
         ./gradlew
           clean
           build
-          --stacktrace
           --warning-mode all
-          -DdisabledModules=\"
-            application:jvm:jvm8:android,
-            application:native:apple:iosApp
-          \"
         "
   android-28:
     docker:
@@ -99,11 +79,7 @@ jobs:
         ./gradlew
           clean
           build
-          --stacktrace
           --warning-mode all
-          -DdisabledModules=\"
-            application:jvm:jvm8:android
-          \"
         "
 workflows:
   version: 2

@@ -1,0 +1,123 @@
+import com.company.team.project.dsl.model.enum_.*
+import com.company.team.project.dsl.model.extension.*
+import org.jetbrains.kotlin.gradle.frontend.webpack.WebPackExtension
+
+plugins {
+	kotlin("multiplatform")
+//	id("kotlin2js")
+	id("kotlin-dce-js")
+	id("org.jetbrains.kotlin.frontend")
+	id("kotlinx-serialization")
+}
+
+kotlin {
+	configureTargetAttributes(ModuleEnum.`application-browser-js-spa-react`)
+
+//	targets.all {
+//			compilations.all {
+//				tasks[compileKotlinTaskName].kotlinOptions {
+//					allWarningsAsErrors = true
+//				}
+//			}
+//	}
+
+	js(TargetEnum.`application-browser-js-spa-react@js`) {
+		configure(listOf(compilations[CompilationEnum.main.id!!], compilations[CompilationEnum.test.id!!])) {
+			tasks.getByName(compileKotlinTaskName) {
+				kotlinOptions {
+//					languageVersion = "1.3"
+					metaInfo = true
+					sourceMap = true
+					sourceMapEmbedSources = "always"
+					moduleKind = "umd"
+				}
+			}
+		}
+
+		configure(listOf(compilations[CompilationEnum.main.id!!])) {
+			tasks.getByName(compileKotlinTaskName) {
+				kotlinOptions {
+					outputFile = "${project.buildDir.path}/classes/kotlin/js/${project.name}.js"
+					main = "call"
+				}
+			}
+		}
+	}
+
+	sourceSets {
+		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@main@js`) {
+			kotlin.srcDir("src/main/kotlin")
+			resources.srcDir("src/main/resources")
+
+			dependencies {
+				implementation(kotlin("stdlib-js"))
+
+				implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.6.12")
+				implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.10.0")
+				implementation("org.jetbrains:kotlin-react:16.6.0-pre.68-kotlin-1.3.20")
+				implementation("org.jetbrains:kotlin-react-dom:16.6.0-pre.68-kotlin-1.3.20")
+			}
+		}
+
+		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@test@js`) {
+			kotlin.srcDir("src/test/kotlin")
+			resources.srcDir("src/test/resources")
+
+			dependencies {
+				implementation(kotlin("test-js"))
+			}
+		}
+	}
+}
+
+repositories {
+	jcenter()
+	mavenLocal()
+	mavenCentral()
+	maven { url = uri("http://dl.bintray.com/kotlin/kotlin-dev") }
+	maven { url = uri("http://dl.bintray.com/kotlinx/kotlinx") }
+	maven { url = uri("https://kotlin.bintray.com/kotlinx") }
+	maven { url = uri("http://dl.bintray.com/kotlin/kotlin-js-wrappers") }
+}
+
+kotlinFrontend {
+	downloadNodeJsVersion = "latest"
+
+	sourceMaps = true
+
+	npm {
+		dependency("css-loader")
+		dependency("style-loader")
+		dependency("react")
+		dependency("react-dom")
+
+		devDependency("karma")
+	}
+
+	bundle<WebPackExtension>("webpack", {
+		(this as WebPackExtension).apply {
+			bundleName = "main"
+			sourceMapEnabled = true
+			contentPath = file("src/main/resources/public")
+			publicPath = "/"
+			host = "localhost"
+			port = 3101
+			mode = "development" // or "production"
+//			proxyUrl = "http://localhost:30000"
+//			stats = "errors-only"
+		}
+	})
+
+//	karma {
+//		port = 9876
+//		runnerPort = 9100
+//		reporters = mutableListOf("progress")
+//		frameworks = mutableListOf("qunit") // for now only qunit works as intended
+////		preprocessors = mutableListOf("...")
+////
+////		customConfigFile = "myKarma.conf.js" // Custom configuration
+//	}
+//
+//	define("PRODUCTION", false)
+//	define("X", false)
+}

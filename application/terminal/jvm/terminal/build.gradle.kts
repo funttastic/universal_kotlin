@@ -1,42 +1,62 @@
+import com.company.team.project.dsl.model.enum_.*
+import com.company.team.project.dsl.model.extension.*
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
 	kotlin("multiplatform")
+
+	id("com.github.johnrengelman.shadow")
+	id("java")
 }
 
-group = "com.company.team.application.jvm.jvm8.terminal"
-version = "0.0.1"
+//group = "com.company.team.application.jvm.jvm8.terminal"
+//version = "0.0.1"
 
 kotlin {
-	val commonAttribute = Attribute.of("com.company.team.project.common.single_source_set", String::class.java)
+	configureTargetAttributes(ModuleEnum.`application-terminal-jvm-terminal`)
 
-	jvm {
-		attributes.attribute(commonAttribute, "jvm")
-
-		// TODO Using the following version works but IntelliJ do not recognize the functions correctly.
-//		attributes.attribute(commonAttribute, "jvmJvm8")
+//	targets.all {
+//			compilations.all {
+//				tasks[compileKotlinTaskName].kotlinOptions {
+//					allWarningsAsErrors = true
+//				}
+//			}
+//	}
+	
+	jvm(TargetEnum.`application-terminal-jvm-terminal@jvm`) {
 	}
 
 	sourceSets {
-		val jvmMain by getting {
+		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@main@jvm`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
 			dependencies {
-				implementation(project(":common:single_source_set"))
-
 				implementation(kotlin("stdlib-jdk8"))
 			}
 		}
 
-		val jvmTest by getting {
+		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@test@jvm`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 
 			dependencies {
-				implementation(project(":common:single_source_set"))
-
 				implementation(kotlin("test"))
 				implementation(kotlin("test-junit"))
 			}
 		}
 	}
+}
+
+tasks.withType<ShadowJar> {
+	manifest {
+		attributes.put("Main-Class", "com.company.team.project.application.terminal.jvm.terminal.ExampleKt")
+	}
+
+//	val target = TargetEnum.`application-terminal-jvm-terminal@jvm`.kotlinTarget!!
+	// Assuming just one target.
+	val target = kotlin.targets.iterator().next()
+	from(target.compilations[CompilationEnum.main.id!!].output)
+	val runtimeClasspath = target.compilations[CompilationEnum.main.id!!].compileDependencyFiles as Configuration
+	configurations = mutableListOf(runtimeClasspath)
 }

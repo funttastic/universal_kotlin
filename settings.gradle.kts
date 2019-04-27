@@ -1,11 +1,23 @@
 import com.company.team.project.dsl.Util
+import com.company.team.project.dsl.model.enum_.ModuleEnum
+import com.company.team.project.dsl.model.enum_.StatusEnum
+import com.company.team.project.dsl.model.Properties
 
-rootProject.name = "universal-kotlin"
+Properties.projects.root.descriptor = rootProject
+rootProject.name = "universal_kotlin"
 
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
+		mavenCentral()
+		jcenter()
+		google()
+		mavenLocal()
 		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
+		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+
+		maven(url = "https://plugins.gradle.org/m2/")
+		maven(url = "https://dl.bintray.com/salomonbrys/gradle-plugins")
 	}
 
 	resolutionStrategy {
@@ -13,65 +25,24 @@ pluginManagement {
 			if (requested.id.id == "kotlin-multiplatform") {
 				useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
 			}
+
+			if (requested.id.id.startsWith("com.github.salomonbrys.gradle.kotlin.js.")) {
+				useModule("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils:1.2.0")
+			}
 		}
 	}
 }
 
 enableFeaturePreview("GRADLE_METADATA")
 
-val splitRegex = ",[\\s]*".toRegex()
+Util.checkAndSetModulesAvailabilities()
 
-val finalModules = ArrayList<String>()
-
-Util.systemProperties = System.getProperties()
-
-var enabledModules = if (
-	Util.systemProperties.containsKey("enabledModules")
-) {
-	if (Util.systemProperties.getProperty("enabledModules").toString().isNotBlank()) {
-		Util.systemProperties.getProperty("enabledModules").toString().split(splitRegex)
-	} else {
-		ArrayList()
+ModuleEnum.values().forEach { module ->
+	if (
+		StatusEnum.enabled == module.status
+	) {
+		Util.logger.warn("Including ${module.kotlinId}")
+		include(module.kotlinId)
+		project(":${module.kotlinId}").projectDir = module.path!!.toFile()
 	}
-} else {
-	listOf(
-		"common:single_source_set"
-		, "common:multiple_source_sets"
-		, "common:multiple_modules"
-		, "library:example"
-		, "application:backend:jvm:spring_boot"
-		, "application:browser:js:vanilla"
-		, "application:browser:js:spa:reactApp"
-		, "application:browser:native:wasm32"
-		, "application:desktop:jvm:tornado_fx"
-		, "application:mobile:jvm:android"
-		, "application:mobile:native:iosApp"
-		, "application:terminal:jvm:terminal"
-	)
-}
-enabledModules = enabledModules.map { it.trim()}
-
-var disabledModules = if (
-	Util.systemProperties.containsKey("disabledModules")
-) {
-	if (Util.systemProperties.getProperty("disabledModules").toString().isNotBlank()) {
-		Util.systemProperties.getProperty("disabledModules").toString().split(splitRegex)
-	} else {
-		System.getProperty("disabledModules").toString().split(splitRegex)
-	}
-} else {
-	ArrayList()
-}
-disabledModules = disabledModules.map { it.trim()}
-
-enabledModules.forEach{
-	if (it !in disabledModules) {
-		finalModules.add(it)
-	}
-}
-
-Util.dump(finalModules)
-
-finalModules.forEach {
-	include(it)
 }

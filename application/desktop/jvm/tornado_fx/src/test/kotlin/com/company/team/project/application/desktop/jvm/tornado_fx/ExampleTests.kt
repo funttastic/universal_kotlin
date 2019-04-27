@@ -16,4 +16,3 @@ class ExampleTests {
 		assertTrue(exampleFunction().isNotEmpty())
 	}
 }
-
