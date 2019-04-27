@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:build
+./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:check
 ```
 
 or in a simplified way (can run more tasks):

@@ -84,6 +84,7 @@ The project prerequisites are:
 
 - [JDK 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html)
 
+Specific prerequisites:
 
 - [Android SDK or Android Studio](https://developer.android.com/studio#downloads) (if you're going to use the [android](application/mobile/jvm/android/readme.md) module.)
 - [XCode](https://developer.apple.com/xcode/) (if you're going to use the [iOS](application/mobile/native/apple/ios) modules.)
@@ -91,7 +92,7 @@ The project prerequisites are:
 - [Konan](https://github.com/JetBrains/kotlin-native) (for Kotlin Native modules, but this dependency will be automatically installed when building these modules.)
 
 If you don't have `Java` or `KScript` installed yet, consider to use [SDKMAN](https://sdkman.io/install)
-to install this packages on a straightforward way.
+to install these packages on a straightforward way.
 
 If you don't have the `Android SDK`, go to this [link](https://developer.android.com/studio#downloads)
 and download the command line tools or `Android Studio`.
@@ -158,8 +159,8 @@ Please refer to the `readme` of the correspondent module that you would like to 
 
 ## Built With
 
-* [Kotlin](https://kotlinlang.org/) (`1.3.30`): Multi-purpose programming language
-* [Gradle](https://gradle.org/) (`5.3.1`): Dependency management
+* [Kotlin](https://kotlinlang.org/) (`1.3.31`): Multi-purpose programming language
+* [Gradle](https://gradle.org/) (`5.4`): Dependency management
 
 Note that the modules themselves have many other dependencies and you can find them in their `build.gradle.kts` files.
 
@@ -173,11 +174,15 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ### Contributors
 
+All contributions are very welcome. Contribute!!!
+
+<!--
 This project exists thanks to [all the people who contribute](https://github.com/funttastic/universal_kotlin/graphs/contributors)!
 
 Thanks a lot to all of our contributors!
 
 All contributions are very welcome. [Contribute!](contributing.md)
+-->
 
 <!--
 This project exists thanks to all the people who contribute. [Contribute!](contributing.md)
