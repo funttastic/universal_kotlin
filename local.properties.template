@@ -8,12 +8,9 @@
 
 # These are the default paths for Mac:
 # sdk.dir=/Users/<username>/Library/Android/sdk
-# konan.home=/Users/<username>/.konan/kotlin-native-macos-1.1.2
 
 # These are the default paths for Linux:
 # sdk.dir=/home/<username>/Android/Sdk
-# konan.home=/home/<username>/.konan/kotlin-native-macos-1.1.2
 
 # These are the default paths for Windows:
 # sdk.dir=%LOCALAPPDATA%\Android\sdk
-# konan.home=%USERPROFILE%\.konan\kotlin-native-macos-1.1.2
