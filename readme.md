@@ -40,43 +40,43 @@ Also, one of its goals is to use shared code from the common modules in all othe
 
 ## Architecture
 
-- [x] <strong>buildSrc</strong>: Kotlin DSL module to help with the build scripts
+- [x] <strong>[buildSrc](buildSrc/readme.md)</strong>: Kotlin DSL module to help with the build scripts
 - common
-	- [x] <strong>single_source</strong>: Common module using just a single source
-	- [x] <strong>multiple_sources</strong>: Common module using multiple sources
+	- [x] <strong>[multiple_sources](common/multiple_sources/readme.md)</strong>: Common module using multiple sources
+	- [x] <strong>[single_source](common/single_source/readme.md)</strong>: Common module using just a single source
 - library
-	- [x] <strong>single_source</strong>: Multiplatform library using just a single source
-	- [x] <strong>multiple_sources</strong>: Multiplatform library using multiple sources
+	- [x] <strong>[multiple_sources](library/multiple_sources/readme.md)</strong>: Multiplatform library using multiple sources
+	- [x] <strong>[single_source](library/single_source/readme.md)</strong>: Multiplatform library using just a single source
 - application
 	- backend
 		- jvm
-			- [x] <strong>spring_boot</strong>: Spring Boot API application
+			- [x] <strong>[spring_boot](application/backend/jvm/spring_boot/readme.md)</strong>: Spring Boot API application
 	- browser
 		- js
 			- spa
-				- [x] <strong>react</strong>: React with Webpack application
-			- [x] <strong>vanilla</strong>: Vanilla JavaScript with Webpack application
+				- [x] <strong>[react](application/browser/js/spa/react/readme.md)</strong>: React with Webpack application
+			- [x] <strong>[vanilla](application/browser/js/vanilla/readme.md)</strong>: Vanilla JavaScript with Webpack application
 		- native
-			- [x] <strong>wasm32</strong>: WebAssembly application
+			- [x] <strong>[wasm32](application/browser/native/wasm32/readme.md)</strong>: WebAssembly application
 	- desktop
 		- jvm
-			- [x] <strong>tornado_fx</strong>: TornadoFX application
+			- [x] <strong>[tornado_fx](application/desktop/jvm/tornado_fx/readme.md)</strong>: TornadoFX application
 	- mobile
 		- jvm
-			- [x] <strong>android</strong>: Android application
+			- [x] <strong>[android](application/mobile/jvm/android/readme.md)</strong>: Android application
 		- native
 			- apple
 				- ios
-					- [x] <strong>ios_x64</strong>: iOS X64 application (without framework)
-					- [x] <strong>ios_x64_copying_framework</strong>: iOS X64 application copying a Kotlin framework
-					- [x] <strong>ios_x64_framework</strong>: iOS X64 Kotlin framework only
-					- [x] <strong>ios_x64_with_framework</strong>: iOS X64 application with a Kotlin framework
+					- [x] <strong>[ios_x64](application/mobile/native/apple/ios/ios_x64/readme.md)</strong>: iOS X64 application (without framework)
+					- [x] <strong>[ios_x64_copying_framework](application/mobile/native/apple/ios/ios_x64_copying_framework/readme.md)</strong>: iOS X64 application copying a Kotlin framework
+					- [x] <strong>[ios_x64_framework](application/mobile/native/apple/ios/ios_x64_framework/readme.md)</strong>: iOS X64 Kotlin framework only
+					- [x] <strong>[ios_x64_with_framework](application/mobile/native/apple/ios/ios_x64_with_framework/readme.md)</strong>: iOS X64 application with a Kotlin framework
 	- script
   		- jvm
-  			- [x] <strong>script</strong>: Script application running through KScript
+  			- [x] <strong>[script](application/script/jvm/script/readme.md)</strong>: Script application running through KScript
 	- terminal
 		- jvm
-			- [x] <strong>terminal</strong>: Terminal application
+			- [x] <strong>[terminal](application/terminal/jvm/terminal/readme.md)</strong>: Terminal application
 	
 ## Getting Started
 
