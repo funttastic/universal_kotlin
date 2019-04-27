@@ -110,6 +110,8 @@ If you don't have `XCode` you can download it from the [Apple Store](https://dev
 
 ```bash
 git clone https://github.com/funttastic/universal_kotlin.git
+
+cd universal_kotlin
 ```
 
 2. Configure:
@@ -123,14 +125,9 @@ cp local.properties.template local.properties
 
 Then change the `local.properties` file accordingly.
 
-Note: after running any native module for the first time you will get `konan` installed on your machine.
-The `konan.home` configuration is needed in the `wasm32` module to run the `jsinterop` task.
-
-3. Run:
+3. Build:
 
 ```bash
-cd universal_kotlin
-
 ./gradlew build
 ```
 
