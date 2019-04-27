@@ -6,7 +6,7 @@
 
 <h3 align="center">Universal Kotlin</h3>
 
-<h4 align="center">An universal multiplatform Kotlin project that aims to run on <strong>ALL</strong> supported platforms</h4>
+<h4 align="center">A multiplatform Kotlin project to rule them all</h4>
 
 <br/>
 
@@ -32,6 +32,11 @@
 	</a>
 	AppVeyour (Windows, Visual Studio 2017 (JDK 8))
 </p>
+
+## Overview
+
+Universal Kotlin is a project that aims to run on the most popular platforms using just Kotlin.
+Also, one of its goals is to use shared code from the common modules in all other ones.
 
 ## Architecture
 
