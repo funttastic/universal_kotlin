@@ -1,7 +1,6 @@
 import com.company.team.project.dsl.Util
-import com.company.team.project.dsl.model.enum_.ModuleEnum
-import com.company.team.project.dsl.model.enum_.StatusEnum
 import com.company.team.project.dsl.model.Properties
+import com.company.team.project.dsl.model.enum_.*
 
 Properties.projects.root.descriptor = rootProject
 rootProject.name = "universal_kotlin"
@@ -35,7 +34,7 @@ pluginManagement {
 
 enableFeaturePreview("GRADLE_METADATA")
 
-Util.checkAndSetModulesAvailabilities()
+Util.initialize()
 
 ModuleEnum.values().forEach { module ->
 	if (

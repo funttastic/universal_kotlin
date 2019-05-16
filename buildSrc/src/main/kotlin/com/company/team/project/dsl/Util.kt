@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.slf4j.LoggerFactory
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.util.*
 
 /**
  *
@@ -25,6 +28,14 @@ object Util {
 	 *
 	 */
 	val logger = LoggerFactory.getLogger(Util::class.java)
+
+	/**
+	 *
+	 */
+	fun initialize() {
+		// automaticallyDefineAndroidHomeIfPossible()
+		checkAndSetModulesAvailabilities()
+	}
 
 	/**
 	 *
@@ -82,6 +93,131 @@ object Util {
 		if (module.parent != null) {
 			module.parent!!.status = StatusEnum.enabled
 			enableParents(module.parent!!)
+		}
+	}
+
+	fun automaticallyDefineAndroidHomeIfPossible() {
+		var androidHome = Properties.properties.get<String>("ANDROID_HOME")
+		if (androidHome == null) androidHome = Properties.properties.get<String>("sdk.dir")
+		if (androidHome == null) {
+			val probablePaths = mutableListOf<Path>()
+
+			with(Properties.util.os) {
+				with(Properties.properties) {
+					when {
+						isLinux -> {
+							if (containsKey("user.home")) {
+								probablePaths.add(
+									Paths.get(
+										get<String>("user.home"),
+										"Android",
+										"Sdk"
+									)
+								)
+							}
+
+							if (containsKey("HOME")) {
+								probablePaths.add(
+									Paths.get(
+										get<String>("HOME"),
+										"Android",
+										"Sdk"
+									)
+								)
+							}
+
+							null
+						}
+						isMacOsX -> {
+							if (containsKey("user.home")) {
+								probablePaths.add(
+									Paths.get(
+										get<String>("user.home"),
+										"Library",
+										"Android",
+										"sdk"
+									)
+								)
+							}
+
+							if (containsKey("HOME")) {
+								probablePaths.add(
+									Paths.get(
+										get<String>("HOME"),
+										"Library",
+										"Android",
+										"sdk"
+									)
+								)
+							}
+
+							null
+						}
+						isWindows -> {
+							if (containsKey("LOCALAPPDATA")) {
+								probablePaths.add(
+									Paths.get(
+										get<String>("LOCALAPPDATA"),
+										"Android",
+										"sdk"
+									)
+								)
+							}
+
+							null
+						}
+						else -> null
+					}
+				}
+			}
+
+			for (path in probablePaths) {
+				val file = path.toFile()
+				if (file.exists()) {
+					logger.warn(
+						"""
+    				| Automatically defining "ANDROID_HOME" to "${file.absolutePath}".
+    				| If this path is not correct, please set the "ANDROID_HOME" environment variable or configure your "local.properties" file.
+						""".trimMargin()
+					)
+
+					addAdditionalEnvironmentVariables(mapOf("ANDROID_HOME" to file.absolutePath))
+
+					break
+				}
+			}
+		}
+	}
+
+	/**
+	 * TODO This method causes problems when importing the project on IntelliJ. Try to improve it later.
+	 */
+	@Suppress("UNCHECKED_CAST")
+	@Throws(Exception::class)
+	fun addAdditionalEnvironmentVariables(additionalEnvironmentVariables: Map<String, String>) {
+		try {
+			val processEnvironmentClass = Class.forName("java.lang.ProcessEnvironment")
+			val theEnvironmentField = processEnvironmentClass.getDeclaredField("theEnvironment")
+			theEnvironmentField.isAccessible = true
+			val env = theEnvironmentField.get(null) as MutableMap<String, String>
+			env.putAll(additionalEnvironmentVariables)
+			val theCaseInsensitiveEnvironmentField = processEnvironmentClass.getDeclaredField("theCaseInsensitiveEnvironment")
+			theCaseInsensitiveEnvironmentField.isAccessible = true
+			val cienv = theCaseInsensitiveEnvironmentField.get(null) as MutableMap<String, String>
+			cienv.putAll(additionalEnvironmentVariables)
+		} catch (e: NoSuchFieldException) {
+			val classes = Collections::class.java.getDeclaredClasses()
+			val env = System.getenv()
+			for (cl in classes) {
+				if ("java.util.Collections\$UnmodifiableMap" == cl.getName()) {
+					val field = cl.getDeclaredField("m")
+					field.setAccessible(true)
+					val obj = field.get(env)
+					val map = obj as MutableMap<String, String>
+					map.clear() // Do we need this here?
+					map.putAll(additionalEnvironmentVariables)
+				}
+			}
 		}
 	}
 

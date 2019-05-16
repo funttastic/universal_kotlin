@@ -40,8 +40,11 @@ buildscript {
 		classpath("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${vendorProperties.kotlin}")
 
 		classpath("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils:1.2.0")
+
 		classpath("com.github.jengelman.gradle.plugins:shadow:5.0.0")
-		classpath("de.dynamicfiles.projects.gradle.plugins:javafx-gradle-plugin:8.8.2")
+
+//		classpath("no.tornado:fxlauncher-gradle-plugin:1.0.20")
+//		classpath("de.dynamicfiles.projects.gradle.plugins:javafx-gradle-plugin:8.8.2")
 	}
 }
 

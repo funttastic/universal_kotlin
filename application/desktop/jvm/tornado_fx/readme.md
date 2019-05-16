@@ -48,22 +48,24 @@ or in a simplified way (can run more tasks):
 
 ## Running
 
-Create a fatJar with:
+Run with:
+
+```bash
+./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run
+```
+
+<!--
+Or create a fatJar with:
 
 ```bash
 ./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:shadowJar
 ```
 
-or in a simplified way (can run more tasks):
-
-```bash
-./gradlew shadowJar
-```
-
-Run the fatJar with:
+and run the fatJar with:
 
 ````bash
 java -jar application/desktop/jvm/tornado_fx/build/libs/application-desktop-jvm-tornado_fx-0.0.1.jar
 ````
+-->
 
-You should see the TornadoFx window application.
+You should see the TornadoFx application window.

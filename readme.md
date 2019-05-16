@@ -6,7 +6,7 @@
 
 <h3 align="center">Universal Kotlin</h3>
 
-<h4 align="center">A multiplatform Kotlin project to rule them all</h4>
+<h4 align="center">One language to rule them all!</h4>
 
 <br/>
 
@@ -125,6 +125,14 @@ cp local.properties.template local.properties
 
 Then change the `local.properties` file accordingly.
 
+<!--
+The build script will automatically try to define the `ANDROID_HOME` system variable looking at the default paths.
+But if you need to customize it, you can set the `sdk.dir` property in your `local.properties` file or define the
+`ANDROID_HOME` variable in your system environment.
+
+There is a [local.properties.template](local.properties.template) file available that you can use as a basis.
+-->
+
 3. Build:
 
 ```bash
@@ -132,7 +140,7 @@ Then change the `local.properties` file accordingly.
 ```
 
 Obs.: since this build will be enabling all modules, this could take too long.
-But you can enable or disable modules going to this class in `buildSrc`:
+But you can enable or disable modules going to this class inside the [buildSrc](buildSrc) module:
 
 > com.company.team.project.dsl.model.enum_.ModuleEnum
 
@@ -153,7 +161,7 @@ or
 ./gradlew test
 ```
 
-Note the `check` task includes the `test` one.
+Note the `check` task depends on the `test` one ([reference](https://docs.gradle.org/current/userguide/java_plugin.html)).
 
 ## Deployment
 
@@ -196,7 +204,7 @@ This project exists thanks to all the people who contribute. [Contribute!](contr
 
 ### Creator
 
-<a href="https://goo.gl/D0Oedt">
+<a href="https://www.linkedin.com/in/daniloaraujosilva">
 <img align="left" width="60" height="60" src="https://avatars2.githubusercontent.com/u/1139202?s=88&v=4" />
 
 <p>
