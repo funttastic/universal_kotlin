@@ -92,8 +92,19 @@ Also, one of its goals is to use shared code from the common modules and librari
 
 ## Getting Started
 
+These instructions will get you a copy of the project up and running on your local machine.
+
+The configurations for the CIs can be found at:
+
+- [AppVeyor](appveyor.yml)
+- [CircleCI](.circleci/config.yml)
+- [Travis](.travis.yml)
+
+<!--
 These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes. See the [Running](https://github.com/funttastic/universal_kotlin#running) section for notes on how to deploy the project on a live system.
+purposes.
+See the [Deployment](https://github.com/funttastic/universal_kotlin#deployment) section for notes on how to deploy the project on a live system.
+-->
 
 ### Prerequisites
 
@@ -204,6 +215,10 @@ Note that the modules themselves have many other dependencies and you can find t
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/funttastic/universal-kotlin/tags).
 -->
+
+## FAQ
+
+Please take a look at this documentation file for the [Frequently Asked Questions](resources/documentation/faq.md).
 
 ## Authors
 
