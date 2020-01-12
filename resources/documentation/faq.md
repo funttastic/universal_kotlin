@@ -8,7 +8,7 @@ not use this convention, if needed. The convention is only used to
 make the modules, targets, and sources sets configurations easier to
 write.
 
-If you want to check how are these configurations that a look at
+If you want to check how are these configurations take a look at
 the following files:
 
 > com.company.team.project.dsl.model.enum_.ModuleEnum
