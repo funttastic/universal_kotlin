@@ -93,7 +93,7 @@ Also, one of its goals is to use shared code from the common modules and librari
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes. See the [Running](running) section for notes on how to deploy the project on a live system.
+purposes. See the [Running](https://github.com/funttastic/universal_kotlin#running) section for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
