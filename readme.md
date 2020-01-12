@@ -42,15 +42,15 @@ Also, one of its goals is to use shared code from the common modules in all othe
 
 - [x] <strong>[buildSrc](buildSrc)</strong>: Kotlin DSL module to help with the build scripts
 - common
-	- [x] <strong>[multiple_sources](common/multiple_sources)</strong>: Common module using multiple sources
-	- [x] <strong>[single_source](common/single_source)</strong>: Common module using just a single source
+	- [x] <strong>[multiple_sources](common/multiple_sources)</strong>: Common module using multiple sources folders
+	- [x] <strong>[single_source](common/single_source)</strong>: Common module using just a single source folders
 - library
-	- [x] <strong>[multiple_sources](library/multiple_sources)</strong>: Multiplatform library using multiple sources
-	- [x] <strong>[single_source](library/single_source)</strong>: Multiplatform library using just a single source
+	- [x] <strong>[multiple_sources](library/multiple_sources)</strong>: Multiplatform library using multiple sources folders
+	- [x] <strong>[single_source](library/single_source)</strong>: Multiplatform library using just a single source folders
 - application
 	- backend
 	    - js
-	        - [ ] <strong>[express](application/backend/js/express)</strong>: Express API application
+	        - [ ] <strong>[express](application/backend/js/express)</strong>: Express API application (not yet implemented)
 		- jvm
 			- [x] <strong>[spring_boot](application/backend/jvm/spring_boot)</strong>: Spring Boot API application
 	- browser
@@ -62,7 +62,7 @@ Also, one of its goals is to use shared code from the common modules in all othe
 			- [x] <strong>[wasm32](application/browser/native/wasm32)</strong>: WebAssembly application
 	- desktop
 		- jvm
-			- [x] <strong>[tornado_fx](application/desktop/jvm/tornado_fx)</strong>: TornadoFX application for Windows, Linux and Mac.
+			- [x] <strong>[tornado_fx](application/desktop/jvm/tornado_fx)</strong>: TornadoFX application for Windows, Linux and Mac
 	- mobile
 		- jvm
 			- [x] <strong>[android](application/mobile/jvm/android)</strong>: Android application
@@ -80,7 +80,7 @@ Also, one of its goals is to use shared code from the common modules in all othe
         - native
             - apple
                 - tvos
-                    - [ ] <strong>[tvos_x64](application/television/native/apple/tvos/tvos_x64)</strong>: tvOS X64 application
+                    - [ ] <strong>[tvos_x64](application/television/native/apple/tvos/tvos_x64)</strong>: tvOS X64 application (not yet implemented)
 	- terminal
 		- jvm
 			- [x] <strong>[terminal](application/terminal/jvm/terminal)</strong>: Terminal application
@@ -88,19 +88,21 @@ Also, one of its goals is to use shared code from the common modules in all othe
         - native
             - apple
                 - watchos
-                    - [ ] <strong>[watchos_x64](application/television/native/apple/watchos/watch_x64)</strong>: watchOS X64 application
+                    - [ ] <strong>[watchos_x64](application/television/native/apple/watchos/watch_x64)</strong>: watchOS X64 application (not yet implemented)
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes. See deployment for notes on how to deploy the project on a live system.
+purposes. See the Deployment section for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
 The project prerequisites are:
 
 - [JDK 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html)
-    (note that JavaFX support is needed for the TornadoFX module, if you are using OpenJDK, consider to change to Oracle or Zulu)
+
+Note that JavaFX support is needed for the TornadoFX module, if you are using OpenJDK, consider to change to Oracle
+or Zulu for a more straightforward configuration.
 
 Specific prerequisites:
 
@@ -109,7 +111,7 @@ Specific prerequisites:
 - [KScript](https://github.com/holgerbrandl/kscript) (if you're going to use the [script](application/script/jvm/script) module.)
 - [Konan](https://github.com/JetBrains/kotlin-native) (for Kotlin Native modules, but this dependency will be automatically installed when building these modules.)
 
-If you don't have `Java` or `KScript` installed yet, consider to use [SDKMAN](https://sdkman.io/install)
+If you don't have `Java` or `KScript` installed yet, consider to use [SDKMAN!](https://sdkman.io/install)
 to install these packages on a straightforward way.
 
 If you don't have the `Android SDK`, go to this [link](https://developer.android.com/studio#downloads)
@@ -160,6 +162,10 @@ But you can enable or disable modules going to this class inside the [buildSrc](
 Also you can enable or disable modules using environment variables.
 Check the [common-multiple_sources](common/multiple_sources) module for an example.
 
+The `buildSrc` method responsible to define which modules will be enabled and which don't is this one:
+
+> com.company.team.project.dsl.Util.initialize
+
 ## Running the tests
 
 To run the tests/checks do:
@@ -174,7 +180,7 @@ or
 ./gradlew test
 ```
 
-Note the `check` task depends on the `test` one ([reference](https://docs.gradle.org/current/userguide/java_plugin.html)).
+Note that the `check` task depends on the `test` one ([reference](https://docs.gradle.org/current/userguide/java_plugin.html)).
 
 ## Deployment
 
