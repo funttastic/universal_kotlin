@@ -1,5 +1,5 @@
 # Universal Kotlin
 
-## Application -> Terminal -> Jvm
+## Application -> Terminal -> JVM
 
-This is the place where jvm terminal / cli modules live.
+This is the place where JVM terminal/cli modules live.

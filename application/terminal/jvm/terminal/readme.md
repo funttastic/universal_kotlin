@@ -1,8 +1,8 @@
 # Universal Kotlin
 
-## Application -> Terminal -> Jvm -> Terminal
+## Application -> Terminal -> JVM -> Terminal
 
-Module with a Terminal / CLI application.
+Module with a terminal/cli application.
 
 It uses the common modules as dependencies.
 

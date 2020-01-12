@@ -7,7 +7,7 @@ Module with code common to all other modules.
 This module is so called `multiple_sources` because the code of each source set
 live in its own folder. This is the usual approach for multiplatform projects.
 
-For example, the code common to all jvm projects lives in the `src/jvmMain`
+For example, the code common to all JVM projects lives in the `src/jvmMain`
 (or `src/jvmTest` for tests) folder. And the code common to all JavaScript
 applications lives in the `src/jsMain` (or `src/jsTest` for tests) folder.
 

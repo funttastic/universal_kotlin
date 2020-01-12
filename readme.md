@@ -12,25 +12,25 @@
 
 ## Status
 <p>
+	<a href="https://ci.appveyor.com/project/funttastic/universal-kotlin/branch/master">
+			<img align="right" src="https://ci.appveyor.com/api/projects/status/158nax2h6hvw9bhv/branch/master?svg=true" />
+	</a>
+	AppVeyour (Windows)
+</p>
+<p>
 	<a href="https://travis-ci.com/funttastic/universal-kotlin">
 			<img
 					src="https://circleci.com/gh/funttastic/universal_kotlin/tree/master.svg?style=svg"
 					align="right"
 			/>
 	</a>
-	CircleCI (Linux (JDK 8))
+	CircleCI (Linux)
 </p>
 <p>
 	<a href="https://travis-ci.com/funttastic/universal-kotlin">
 			<img align="right" src="https://api.travis-ci.com/funttastic/universal_kotlin.svg?branch=master" />
 	</a>
-	Travis (MacOS, XCode 9.3 (JDK 8))
-</p>
-<p>
-	<a href="https://ci.appveyor.com/project/funttastic/universal-kotlin/branch/master">
-			<img align="right" src="https://ci.appveyor.com/api/projects/status/158nax2h6hvw9bhv/branch/master?svg=true" />
-	</a>
-	AppVeyour (Windows, Visual Studio 2017 (JDK 8))
+	Travis (MacOS)
 </p>
 
 ## Overview
@@ -49,6 +49,8 @@ Also, one of its goals is to use shared code from the common modules in all othe
 	- [x] <strong>[single_source](library/single_source)</strong>: Multiplatform library using just a single source
 - application
 	- backend
+	    - js
+	        - [ ] <strong>[express](application/backend/js/express)</strong>: Express API application
 		- jvm
 			- [x] <strong>[spring_boot](application/backend/jvm/spring_boot)</strong>: Spring Boot API application
 	- browser
@@ -60,7 +62,7 @@ Also, one of its goals is to use shared code from the common modules in all othe
 			- [x] <strong>[wasm32](application/browser/native/wasm32)</strong>: WebAssembly application
 	- desktop
 		- jvm
-			- [x] <strong>[tornado_fx](application/desktop/jvm/tornado_fx)</strong>: TornadoFX application
+			- [x] <strong>[tornado_fx](application/desktop/jvm/tornado_fx)</strong>: TornadoFX application for Windows, Linux and Mac.
 	- mobile
 		- jvm
 			- [x] <strong>[android](application/mobile/jvm/android)</strong>: Android application
@@ -73,14 +75,24 @@ Also, one of its goals is to use shared code from the common modules in all othe
 					- [x] <strong>[ios_x64_with_framework](application/mobile/native/apple/ios/ios_x64_with_framework)</strong>: iOS X64 application with a Kotlin framework
 	- script
   		- jvm
-  			- [x] <strong>[script](application/script/jvm/script)</strong>: Script application running through KScript
+  			- [x] <strong>[script](application/script/jvm/script)</strong>: Script application running through KScript (not using common modules yet)
+    - television
+        - native
+            - apple
+                - tvos
+                    - [ ] <strong>[tvos_x64](application/television/native/apple/tvos/tvos_x64)</strong>: tvOS X64 application
 	- terminal
 		- jvm
 			- [x] <strong>[terminal](application/terminal/jvm/terminal)</strong>: Terminal application
-	
+    - watch
+        - native
+            - apple
+                - watchos
+                    - [ ] <strong>[watchos_x64](application/television/native/apple/watchos/watch_x64)</strong>: watchOS X64 application
+
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing 
+These instructions will get you a copy of the project up and running on your local machine for development and testing
 purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
@@ -88,6 +100,7 @@ purposes. See deployment for notes on how to deploy the project on a live system
 The project prerequisites are:
 
 - [JDK 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html)
+    (note that JavaFX support is needed for the TornadoFX module, if you are using OpenJDK, consider to change to Oracle or Zulu)
 
 Specific prerequisites:
 
@@ -145,11 +158,11 @@ But you can enable or disable modules going to this class inside the [buildSrc](
 > com.company.team.project.dsl.model.enum_.ModuleEnum
 
 Also you can enable or disable modules using environment variables.
-Check the [common-single_sources](common/multiple_sources) module for an example.
+Check the [common-multiple_sources](common/multiple_sources) module for an example.
 
 ## Running the tests
 
-To run the tests / checks do:
+To run the tests/checks do:
 
 ```
 ./gradlew check
@@ -169,8 +182,8 @@ Please refer to the `readme` of the correspondent module that you would like to 
 
 ## Built With
 
-* [Kotlin](https://kotlinlang.org/) (`1.3.31`): Multi-purpose programming language
-* [Gradle](https://gradle.org/) (`5.4`): Dependency management
+* [Kotlin](https://kotlinlang.org/) (`1.3.61`): Multi-purpose programming language
+* [Gradle](https://gradle.org/) (`5.4.1`): Dependency management
 
 Note that the modules themselves have many other dependencies and you can find them in their `build.gradle.kts` files.
 
@@ -235,9 +248,9 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## Acknowledgments
 
-We would like to thank [all Kotlin's contributors](https://github.com/JetBrains/kotlin/graphs/contributors), 
+We would like to thank [all Kotlin's contributors](https://github.com/JetBrains/kotlin/graphs/contributors),
 which are doing a very good job. Thanks a lot!
-	
+
 ## License
 
 Licensed under the MIT License.

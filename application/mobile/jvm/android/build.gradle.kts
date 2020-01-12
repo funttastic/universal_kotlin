@@ -17,13 +17,18 @@ repositories {
 }
 
 android {
-	compileSdkVersion(28)
+	compileOptions {
+		sourceCompatibility = JavaVersion.VERSION_1_8
+		targetCompatibility = JavaVersion.VERSION_1_8
+	}
+
+	compileSdkVersion(29)
 //	buildToolsVersion = "28.0.0"
 
 	defaultConfig {
 		applicationId = "com.company.team.project.application.mobile.jvm.android"
 		minSdkVersion(15)
-		targetSdkVersion(28)
+		targetSdkVersion(29)
 		versionCode = 1
 		versionName = "1.0"
 		testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
@@ -56,9 +61,13 @@ android {
 
 dependencies {
 	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-	implementation("com.android.support:appcompat-v7:28.0.0")
-	implementation("com.android.support.constraint:constraint-layout:1.1.3")
-	androidTestImplementation("com.android.support.test:runner:1.0.2")
+	implementation("androidx.appcompat:appcompat:1.0.2")
+	implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+	implementation("androidx.legacy:legacy-support-v4:1.0.0")
+	implementation("com.google.android.material:material:1.1.0-alpha04")
+//	implementation("com.android.support:appcompat-v7:28.0.0")
+//	implementation("com.android.support.constraint:constraint-layout:1.1.3")
+//	androidTestImplementation("com.android.support.test:runner:1.0.2")
 }
 
 kotlin {

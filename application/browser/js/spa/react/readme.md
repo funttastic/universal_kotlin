@@ -1,6 +1,6 @@
 # Universal Kotlin
 
-## Application -> Browser -> Js -> SPA -> React
+## Application -> Browser -> JavaScript -> SPA -> React
 
 Module with a React with Webpack application.
 
@@ -65,6 +65,12 @@ Checking the application:
 Go to the url provided after running the `run` command. The default one is:
 
 - [http://localhost:3101/](http://localhost:3101/)
+
+The output should be similar to this one:
+
+```bash
+[com.company.team.project.common.multiple_sources.js, com.company.team.project.common.single_source.js.common, com.company.team.project.application.browser.js.spa.react]
+```
 
 Stop Webpack development server:
 

@@ -46,6 +46,16 @@ or in a simplified way (can run more tasks):
 ./gradlew check
 ```
 
+## Running
+
+Open the `index.html` file on the browser.
+
+The output should be similar to this one:
+
+```bash
+[com.company.team.project.common.multiple_sources.wasm32, com.company.team.project.common.single_source.linux_arm32_hfp.common, com.company.team.project.application.browser.native_.wasm32]
+```
+
 <!-- Fix documentation
 ## Running
 

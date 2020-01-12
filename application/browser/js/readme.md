@@ -1,5 +1,5 @@
 # Universal Kotlin
 
-## Application -> Browser -> Js
+## Application -> Browser -> JavaScript
 
 This is the place where JavaScript browser modules live.

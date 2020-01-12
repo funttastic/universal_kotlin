@@ -1,9 +1,10 @@
 package com.company.team.project.dsl.model.enum_
 
-import com.company.team.project.dsl.model.Properties
 import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
+import com.company.team.project.dsl.model.Properties
+import com.company.team.project.dsl.Util
 
 /**
  *
@@ -63,6 +64,21 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
+	var file: File? = null,
+
+	/**
+	 *
+	 */
+	var absolutePath: String? = null,
+
+	/**
+	 *
+	 */
+	var relativePath: String? = null,
+
+	/**
+	 *
+	 */
 	var targets: MutableList<TargetEnum> = mutableListOf(),
 
 	/**
@@ -83,7 +99,9 @@ enum class ModuleEnum(
 
 	root(
 		kotlinId = "",
-		path = Properties.projects.root.descriptor?.projectDir?.toPath(),
+		path = Properties.projects.root.path,
+		file = Properties.projects.root.file,
+		absolutePath = Properties.projects.root.absolutePath,
 		status = StatusEnum.disabled
 	),
 	common(
@@ -119,6 +137,13 @@ enum class ModuleEnum(
 	),
 	`application-backend`(
 		parent = application
+	),
+	`application-backend-js`(
+		parent = `application-backend`
+	),
+	`application-backend-js-express`(
+		parent = `application-backend-js`,
+		status = StatusEnum.disabled
 	),
 	`application-backend-jvm`(
 		parent = `application-backend`
@@ -209,6 +234,23 @@ enum class ModuleEnum(
 		parent = `application-script-jvm`,
 		status = StatusEnum.enabled
 	),
+	`application-television`(
+		parent = application
+	),
+	`application-television-native`(
+		parent = `application-television`
+	),
+	`application-television-native-apple`(
+		parent = `application-television-native`
+	),
+	`application-television-native-apple-tvos`(
+		parent = `application-television-native-apple`
+	),
+	`application-television-native-apple-tvos-tvos_x64`(
+		parent = `application-television-native-apple-tvos`,
+		status = StatusEnum.disabled,
+		path = Paths.get("application/television/native/apple/tvos/tvos_x64/application")
+	),
 	`application-terminal`(
 		parent = application
 	),
@@ -218,6 +260,23 @@ enum class ModuleEnum(
 	`application-terminal-jvm-terminal`(
 		parent = `application-terminal-jvm`,
 		status = StatusEnum.enabled
+	),
+	`application-watch`(
+		parent = application
+	),
+	`application-watch-native`(
+		parent = `application-watch`
+	),
+	`application-watch-native-apple`(
+		parent = `application-watch-native`
+	),
+	`application-watch-native-apple-watchos`(
+		parent = `application-watch-native-apple`
+	),
+	`application-watch-native-apple-watchos-watchos_x64`(
+		parent = `application-watch-native-apple-watchos`,
+		status = StatusEnum.disabled,
+		path = Paths.get("application/television/native/apple/watchos/watchos_x64/application")
 	),
 	;
 
@@ -252,6 +311,17 @@ enum class ModuleEnum(
 
 		if (path == null) path = Paths.get(name.replace("-", "/"))
 
+		if (file == null) {
+			file = Paths.get(
+				Properties.projects.root.absolutePath!!,
+				name.replace("-", "/")
+			).toFile()
+		}
+
+		if (absolutePath == null) absolutePath = file?.absolutePath
+
+		if (relativePath == null && absolutePath != null) relativePath = Util.relativePathFromRoot(absolutePath!!)
+
 		if (parent != null) parent!!.children.add(this)
 	}
 
@@ -278,11 +348,11 @@ enum class ModuleEnum(
 		/**
 		 *
 		 */
-		fun getByPath(file: File?): ModuleEnum? {
+		fun getByFile(file: File?): ModuleEnum? {
 			if (file == null) return null
 
 			for (item in values()) {
-				if (item.path?.toFile()?.absolutePath == file.absolutePath) {
+				if (item.absolutePath == file.absolutePath) {
 					return item
 				}
 			}

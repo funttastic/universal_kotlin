@@ -1,6 +1,6 @@
 # Universal Kotlin
 
-## Application -> Desktop -> Jvm -> Tornado FX
+## Application -> Desktop -> JVM -> Tornado FX
 
 Module with a Tornado FX desktop application.
 
@@ -69,3 +69,9 @@ java -jar application/desktop/jvm/tornado_fx/build/libs/application-desktop-jvm-
 -->
 
 You should see the TornadoFx application window.
+
+The output should be similar to this one:
+
+```bash
+["com.company.team.project.common.multiple_sources.jvm","com.company.team.project.common.single_source.common","com.company.team.project.common.single_source.jvm.common","com.company.team.project.application.desktop.jvm.tornado_fx"]
+```

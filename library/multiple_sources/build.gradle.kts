@@ -30,15 +30,21 @@ kotlin {
 	}
 
 	iosArm32(TargetEnum.`library-multiple_sources@ios_arm32`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	iosArm64(TargetEnum.`library-multiple_sources@ios_arm64`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	iosX64(TargetEnum.`library-multiple_sources@ios_x64`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	js(TargetEnum.`library-multiple_sources@js`) {

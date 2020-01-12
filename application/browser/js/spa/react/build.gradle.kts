@@ -52,10 +52,12 @@ kotlin {
 			dependencies {
 				implementation(kotlin("stdlib-js"))
 
+				implementation(npm("react", "16.9.0"))
+				implementation(npm("react-dom", "16.9.0"))
 				implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.6.12")
-				implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.10.0")
-				implementation("org.jetbrains:kotlin-react:16.6.0-pre.68-kotlin-1.3.20")
-				implementation("org.jetbrains:kotlin-react-dom:16.6.0-pre.68-kotlin-1.3.20")
+				implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.14.0")
+				implementation("org.jetbrains:kotlin-react:16.9.0-pre.89-kotlin-1.3.60")
+				implementation("org.jetbrains:kotlin-react-dom:16.9.0-pre.89-kotlin-1.3.60")
 			}
 		}
 
@@ -88,8 +90,8 @@ kotlinFrontend {
 	npm {
 		dependency("css-loader")
 		dependency("style-loader")
-		dependency("react")
-		dependency("react-dom")
+//		dependency("react")
+//		dependency("react-dom")
 
 		devDependency("karma")
 	}

@@ -1,5 +1,5 @@
 # Universal Kotlin
 
-## Application -> Desktop -> Jvm
+## Application -> Desktop -> JVM
 
-This is the place where jvm desktop modules live.
+This is the place where JVM desktop modules live.

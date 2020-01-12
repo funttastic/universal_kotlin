@@ -1,37 +1,14 @@
 image:
   - Visual Studio 2017
-#  - Visual Studio 2015
-#  - Visual Studio 2013
-#  - Ubuntu 16.04
-#  - Ubuntu 18.04
 environment:
-  matrix:
-    - ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
-#    - GRADLE_OPTS: "-Xmx3048m -Xms3048m"
-#for:
-#  -
-#    matrix:
-#      only:
-#        - image: Ubuntu
-#    build_script:
-#      - echo Ubuntu build script
-#matrix:
-#  allow_failures:
-#    - image: Visual Studio 2013
-#    - image: Visual Studio 2015
+    BASH_ENV: ~/.bashrc
+    BUILD_CI: APPVEYOR
+    BUILD_OS: WINDOWS
+    ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
+    GRADLE_OPTS: "-Xmx3048m -Xms3048m"
 install:
-  - RMDIR "%ProgramFiles(x86)%\\Android\\android-sdk" /S /Q
-  - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
-  - 7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
-  - echo off
-  - yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
-  - echo on
+  - bash resources/scripts/ci/install_java.sh
+  - resources/scripts/ci/install_android_sdk.bat
+  - bash resources/scripts/ci/show_relevant_information.sh
 build_script:
-  - java -version
-  - ./gradlew --version
-  - "
-    ./gradlew
-      clean
-      build
-      --warning-mode all
-    "
+  - bash resources/scripts/complete_run.sh

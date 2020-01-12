@@ -1,5 +1,5 @@
 # Universal Kotlin
 
-## Application -> Script -> Jvm
+## Application -> Script -> JVM
 
-This is the place where jvm script modules live.
+This is the place where JVM script modules live.

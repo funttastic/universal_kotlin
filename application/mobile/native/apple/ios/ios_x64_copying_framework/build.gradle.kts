@@ -1,7 +1,7 @@
 import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.enum_.*
 import com.company.team.project.dsl.model.extension.*
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeCompilation
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
 	kotlin("multiplatform")
@@ -19,13 +19,9 @@ kotlin {
 //	}
 
 	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
-		compilations[CompilationEnum.test.id!!].outputKinds("framework")
-
-//		This can change the framework name. Related: https://github.com/JetBrains/kotlin/blob/1.3.20/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/new-mpp-native-binaries/kotlin-dsl/build.gradle.kts#L69
-//		binaries {
-//			framework("app")
-//		}
+		binaries {
+			framework {}
+		}
 	}
 
 	sourceSets {
@@ -37,7 +33,7 @@ kotlin {
 				implementation(kotlin("stdlib-common"))
 			}
 		}
-		
+
 		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@test@ios_x64`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
@@ -66,10 +62,10 @@ task("copyFramework") {
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
 //	val target = project.findProperty("kotlin.target") ?: "iosX64"
 	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
-	dependsOn((kotlin.targets[target].compilations[CompilationEnum.main.id!!] as KotlinNativeCompilation).linkTaskName("FRAMEWORK", buildType))
+	dependsOn((kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask)
 
 	doLast {
-		val srcFile = (kotlin.targets[target].compilations[CompilationEnum.main.id!!] as KotlinNativeCompilation).getBinary("FRAMEWORK", buildType)
+		val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
 		val targetDir = project.properties["configuration.build.dir"]!!
 
 		copy {

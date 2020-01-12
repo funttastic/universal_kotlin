@@ -2,6 +2,7 @@ import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.enum_.*
 
+//rootProject.projectDir
 Properties.projects.root.descriptor = rootProject
 rootProject.name = "universal_kotlin"
 
@@ -42,6 +43,6 @@ ModuleEnum.values().forEach { module ->
 	) {
 		Util.logger.warn("Including ${module.kotlinId}")
 		include(module.kotlinId)
-		project(":${module.kotlinId}").projectDir = module.path!!.toFile()
+		project(":${module.kotlinId}").projectDir = module.file!!
 	}
 }

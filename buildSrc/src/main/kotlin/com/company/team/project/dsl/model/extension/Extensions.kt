@@ -174,7 +174,77 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.mingwX64(
 /**
  *
  */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.mingwX86(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.tvosArm64(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.tvosX64(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.wasm32(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.watchosArm32(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.watchosArm64(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.watchosX64(
+	target: TargetEnum,
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.watchosX86(
 	target: TargetEnum,
 	configure: KotlinNativeTarget.() -> Unit = { }
 ): KotlinNativeTarget? {
@@ -200,15 +270,23 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget
 		PresetEnum.ios_arm32 -> iosArm32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.ios_arm64 -> iosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.ios_x64 -> iosX64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.js -> js(id, configuration as KotlinOnlyTarget<KotlinJsCompilation>.() -> Unit)
+		PresetEnum.jvm -> jvm(id, configuration as KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit)
 		PresetEnum.linux_arm32_hfp -> linuxArm32Hfp(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mips32 -> linuxMips32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mipsel32 -> linuxMipsel32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_x64 -> linuxX64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.macos_x64 -> macosX64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.mingw_x64 -> mingwX64(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.js -> js(id, configuration as KotlinOnlyTarget<KotlinJsCompilation>.() -> Unit)
-		PresetEnum.jvm -> jvm(id, configuration as KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit)
+		PresetEnum.mingw_x86 -> mingwX86(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.tvos_arm64 -> tvosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.tvos_x64 -> tvosX64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.wasm32 -> wasm32(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.watchos_arm32 -> watchosArm32(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.watchos_arm64 -> watchosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
+//		// This is not supported yet in KotlinTargetContainerWithPresetFunctions
+//		PresetEnum.watchos_x64 -> watchosX64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.watchos_x86 -> watchosX86(id, configuration as KotlinNativeTarget.() -> Unit)
 		else -> throw IllegalArgumentException("""Unknown preset "${target.preset?.name ?: "unknown"} for target "${target.name}" in module "${target.module?.name ?: "unknown"}"""")
 	}
 
@@ -403,7 +481,7 @@ fun kotlinNativeTarget(configure: KotlinNativeTarget.() -> Unit): KotlinNativeTa
 }
 
 val Project.module: ModuleEnum
-	get() = ModuleEnum.getByPath(projectDir)
+	get() = ModuleEnum.getByFile(projectDir)
 		?: throw RuntimeException("""It wasn't possible to find the module with the path "$projectDir".""")
 
 fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {

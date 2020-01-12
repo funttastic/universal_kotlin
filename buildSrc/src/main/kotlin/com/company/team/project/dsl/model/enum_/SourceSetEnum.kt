@@ -226,6 +226,42 @@ enum class SourceSetEnum(
 			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
 		)
 	),
+	`common-multiple_sources@main@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
 	`common-multiple_sources@main@wasm32`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -234,6 +270,54 @@ enum class SourceSetEnum(
 	),
 	`common-multiple_sources@test@wasm32`(
 		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
+		)
+	),
+	`common-multiple_sources@main@watchos_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-multiple_sources@main@common`)
+		)
+	),
+	`common-multiple_sources@test@watchos_x86`(
+		status = StatusEnum.disabled,
 		dependencies = Dependencies(
 			sourceSets = mutableListOf(`common-multiple_sources@test@common`)
 		)
@@ -405,6 +489,42 @@ enum class SourceSetEnum(
 			sourceSets = mutableListOf(`common-single_source@test@common`)
 		)
 	),
+	`common-single_source@main@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
 	`common-single_source@main@wasm32`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -413,6 +533,54 @@ enum class SourceSetEnum(
 	),
 	`common-single_source@test@wasm32`(
 		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@test@common`)
+		)
+	),
+	`common-single_source@main@watchos_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`common-single_source@main@common`)
+		)
+	),
+	`common-single_source@test@watchos_x86`(
+		status = StatusEnum.disabled,
 		dependencies = Dependencies(
 			sourceSets = mutableListOf(`common-single_source@test@common`)
 		)
@@ -603,6 +771,42 @@ enum class SourceSetEnum(
 			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
 		)
 	),
+	`library-multiple_sources@main@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
 	`library-multiple_sources@main@wasm32`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -611,6 +815,54 @@ enum class SourceSetEnum(
 	),
 	`library-multiple_sources@test@wasm32`(
 		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
+		)
+	),
+	`library-multiple_sources@main@watchos_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-multiple_sources@main@common`)
+		)
+	),
+	`library-multiple_sources@test@watchos_x86`(
+		status = StatusEnum.disabled,
 		dependencies = Dependencies(
 			sourceSets = mutableListOf(`library-multiple_sources@test@common`)
 		)
@@ -801,6 +1053,42 @@ enum class SourceSetEnum(
 			sourceSets = mutableListOf(`library-single_source@test@common`)
 		)
 	),
+	`library-single_source@main@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@mingw_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
+	`library-single_source@main@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@tvos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
+	`library-single_source@main@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@tvos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
 	`library-single_source@main@wasm32`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -813,8 +1101,68 @@ enum class SourceSetEnum(
 			sourceSets = mutableListOf(`library-single_source@test@common`)
 		)
 	),
+	`library-single_source@main@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@watchos_arm32`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
+	`library-single_source@main@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@watchos_arm64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
+	`library-single_source@main@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@watchos_x64`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
+	`library-single_source@main@watchos_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@main@common`)
+		)
+	),
+	`library-single_source@test@watchos_x86`(
+		status = StatusEnum.disabled,
+		dependencies = Dependencies(
+			sourceSets = mutableListOf(`library-single_source@test@common`)
+		)
+	),
 
 
+	`application-backend-js-express@main@js`(
+		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			modules = mutableListOf(
+				ModuleEnum.`common-single_source`,
+				ModuleEnum.`common-multiple_sources`
+			)
+		)
+	),
+	`application-backend-js-express@test@js`(
+		status = StatusEnum.enabled
+	),
 	`application-backend-jvm-spring_boot@main@jvm`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -932,6 +1280,18 @@ enum class SourceSetEnum(
 	`application-script-jvm-script@test@jvm`(
 		status = StatusEnum.enabled
 	),
+	`application-television-native-apple-tvos-tvos_x64@main@tvos_x64`(
+		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			modules = mutableListOf(
+				ModuleEnum.`common-single_source`,
+				ModuleEnum.`common-multiple_sources`
+			)
+		)
+	),
+	`application-television-native-apple-tvos-tvos_x64@test@tvos_x64`(
+		status = StatusEnum.enabled
+	),
 	`application-terminal-jvm-terminal@main@jvm`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
@@ -942,6 +1302,18 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-terminal-jvm-terminal@test@jvm`(
+		status = StatusEnum.enabled
+	),
+	`application-watch-native-apple-watchos-watchos_x64@main@watchos_x64`(
+		status = StatusEnum.enabled,
+		dependencies = Dependencies(
+			modules = mutableListOf(
+				ModuleEnum.`common-single_source`,
+				ModuleEnum.`common-multiple_sources`
+			)
+		)
+	),
+	`application-watch-native-apple-watchos-watchos_x64@test@watchos_x64`(
 		status = StatusEnum.enabled
 	),
 	;

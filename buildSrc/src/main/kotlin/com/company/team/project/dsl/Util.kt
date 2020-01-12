@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.slf4j.LoggerFactory
+import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
@@ -40,6 +41,27 @@ object Util {
 	/**
 	 *
 	 */
+	fun relativePathFromRoot(absolutePath: String): String? {
+		return Properties.projects.root.absolutePath?.let { absolutePath.removePrefix(it) }
+	}
+
+	/**
+	 *
+	 */
+	fun relativePathFromRoot(file: File): String? {
+		return relativePathFromRoot(file.absolutePath)
+	}
+
+	/**
+	 *
+	 */
+	fun relativePathFromRoot(path: Path): String? {
+		return relativePathFromRoot(path.toFile())
+	}
+
+	/**
+	 *
+	 */
 	fun checkAndSetModulesAvailabilities() {
 		val enabledModules = Properties.properties.get<String>("enabledModules")
 		val disabledModules = Properties.properties.get<String>("disabledModules")
@@ -61,17 +83,17 @@ object Util {
 		SourceSetEnum.values()
 			.filter { it.module?.status == StatusEnum.enabled }
 			.forEach {
-				it.dependencies?.modules?.forEach {
-					it2 -> it2.status = StatusEnum.enabled
+				it.dependencies?.modules?.forEach { it2 ->
+					it2.status = StatusEnum.enabled
 				}
 
-				it.dependencies?.targets?.forEach {
-					it2 -> it2.status = StatusEnum.enabled
+				it.dependencies?.targets?.forEach { it2 ->
+					it2.status = StatusEnum.enabled
 					it2.module?.status = StatusEnum.enabled
 				}
 
-				it.dependencies?.sourceSets?.forEach {
-					it2 -> it2.status = StatusEnum.enabled
+				it.dependencies?.sourceSets?.forEach {it2 ->
+					it2.status = StatusEnum.enabled
 					it2.target?.status = StatusEnum.enabled
 					it2.module?.status = StatusEnum.enabled
 				}

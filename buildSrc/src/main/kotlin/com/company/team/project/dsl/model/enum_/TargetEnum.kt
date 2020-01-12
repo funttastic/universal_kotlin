@@ -99,8 +99,29 @@ enum class TargetEnum(
 	`common-multiple_sources@mingw_x64`(
 		status = StatusEnum.disabled
 	),
+	`common-multiple_sources@mingw_x86`(
+		status = StatusEnum.disabled
+	),
+	`common-multiple_sources@tvos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`common-multiple_sources@tvos_x64`(
+		status = StatusEnum.disabled
+	),
 	`common-multiple_sources@wasm32`(
 		status = StatusEnum.enabled
+	),
+	`common-multiple_sources@watchos_arm32`(
+		status = StatusEnum.disabled
+	),
+	`common-multiple_sources@watchos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`common-multiple_sources@watchos_x64`(
+		status = StatusEnum.disabled
+	),
+	`common-multiple_sources@watchos_x86`(
+		status = StatusEnum.disabled
 	),
 
 	`common-multiple_sources@ios_x64@mobile-native-ios_x64`(
@@ -186,10 +207,30 @@ enum class TargetEnum(
 	`common-single_source@mingw_x64`(
 		status = StatusEnum.disabled
 	),
+	`common-single_source@mingw_x86`(
+		status = StatusEnum.disabled
+	),
+	`common-single_source@tvos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`common-single_source@tvos_x64`(
+		status = StatusEnum.disabled
+	),
 	`common-single_source@wasm32`(
 		status = StatusEnum.enabled
 	),
-
+	`common-single_source@watchos_arm32`(
+		status = StatusEnum.disabled
+	),
+	`common-single_source@watchos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`common-single_source@watchos_x64`(
+		status = StatusEnum.disabled
+	),
+	`common-single_source@watchos_x86`(
+		status = StatusEnum.disabled
+	),
 	`common-single_source@ios_x64@mobile-native-ios_x64`(
 		status = StatusEnum.disabled
 	),
@@ -273,8 +314,29 @@ enum class TargetEnum(
 	`library-multiple_sources@mingw_x64`(
 		status = StatusEnum.disabled
 	),
+	`library-multiple_sources@mingw_x86`(
+		status = StatusEnum.disabled
+	),
+	`library-multiple_sources@tvos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`library-multiple_sources@tvos_x64`(
+		status = StatusEnum.disabled
+	),
 	`library-multiple_sources@wasm32`(
 		status = StatusEnum.enabled
+	),
+	`library-multiple_sources@watchos_arm32`(
+		status = StatusEnum.disabled
+	),
+	`library-multiple_sources@watchos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`library-multiple_sources@watchos_x64`(
+		status = StatusEnum.disabled
+	),
+	`library-multiple_sources@watchos_x86`(
+		status = StatusEnum.disabled
 	),
 
 
@@ -317,12 +379,36 @@ enum class TargetEnum(
 	`library-single_source@mingw_x64`(
 		status = StatusEnum.disabled
 	),
+	`library-single_source@mingw_x86`(
+		status = StatusEnum.disabled
+	),
+	`library-single_source@tvos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`library-single_source@tvos_x64`(
+		status = StatusEnum.disabled
+	),
 	`library-single_source@wasm32`(
 		status = StatusEnum.enabled
+	),
+	`library-single_source@watchos_arm32`(
+		status = StatusEnum.disabled
+	),
+	`library-single_source@watchos_arm64`(
+		status = StatusEnum.disabled
+	),
+	`library-single_source@watchos_x64`(
+		status = StatusEnum.disabled
+	),
+	`library-single_source@watchos_x86`(
+		status = StatusEnum.disabled
 	),
 
 
 
+	`application-backend-js-express@js`(
+		status = StatusEnum.enabled
+	),
 	`application-backend-jvm-spring_boot@jvm`(
 		status = StatusEnum.enabled
 	),
@@ -351,7 +437,13 @@ enum class TargetEnum(
 	`application-script-jvm-script@jvm`(
 		status = StatusEnum.enabled
 	),
+	`application-television-native-apple-tvos-tvos_x64@tvos_x64`(
+		status = StatusEnum.enabled
+	),
 	`application-terminal-jvm-terminal@jvm`(
+		status = StatusEnum.enabled
+	),
+	`application-watch-native-apple-watchos-watchos_x64@watchos_x64`(
 		status = StatusEnum.enabled
 	),
 	;

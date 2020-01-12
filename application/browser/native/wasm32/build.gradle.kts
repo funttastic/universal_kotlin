@@ -26,8 +26,11 @@ kotlin {
 //	}
 
 	wasm32(TargetEnum.`application-browser-native-wasm32@wasm32`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("EXECUTABLE")
-		compilations[CompilationEnum.main.id!!].entryPoint("com.company.team.project.application.browser.native_.wasm32.main")
+		binaries {
+			executable {
+				entryPoint = "com.company.team.project.application.browser.native_.wasm32.main"
+			}
+		}
 	}
 
 	sourceSets {

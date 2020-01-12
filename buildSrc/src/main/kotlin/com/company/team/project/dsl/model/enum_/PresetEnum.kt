@@ -153,6 +153,24 @@ enum class PresetEnum (
 		),
 		konanTarget = KonanTarget.MINGW_X64
 	),
+	mingw_x86(
+		supportedOSes = mutableListOf(
+			WINDOWS
+		),
+		konanTarget = KonanTarget.MINGW_X86
+	),
+	tvos_arm64(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.TVOS_ARM64
+	),
+	tvos_x64(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.TVOS_X64
+	),
 	wasm32(
 		supportedOSes = mutableListOf(
 			FREE_BSD,
@@ -163,6 +181,30 @@ enum class PresetEnum (
 			WINDOWS
 		),
 		konanTarget = KonanTarget.WASM32
+	),
+	watchos_arm32(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.WATCHOS_ARM32
+	),
+	watchos_arm64(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.WATCHOS_ARM64
+	),
+	watchos_x64(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.WATCHOS_X64
+	),
+	watchos_x86(
+		supportedOSes = mutableListOf(
+			MAC_OS
+		),
+		konanTarget = KonanTarget.WATCHOS_X86
 	),
 	;
 
@@ -189,7 +231,7 @@ enum class PresetEnum (
 		fun getByName(name: String?): PresetEnum? {
 			if (name == null) return null
 
-			for (item in PresetEnum.values()) {
+			for (item in values()) {
 				if (item.name == name) {
 					return item
 				}
@@ -204,7 +246,7 @@ enum class PresetEnum (
 		fun getById(id: String?): PresetEnum? {
 			if (id == null) return null
 
-			for (item in PresetEnum.values()) {
+			for (item in values()) {
 				if (item.id == id) {
 					return item
 				}

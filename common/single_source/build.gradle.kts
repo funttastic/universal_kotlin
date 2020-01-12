@@ -29,15 +29,21 @@ kotlin {
 	}
 
 	iosArm32(TargetEnum.`common-single_source@ios_arm32`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	iosArm64(TargetEnum.`common-single_source@ios_arm64`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	iosX64(TargetEnum.`common-single_source@ios_x64`) {
-		compilations[CompilationEnum.main.id!!].outputKinds("framework")
+		binaries {
+			framework {}
+		}
 	}
 
 	js(TargetEnum.`common-single_source@js`) {

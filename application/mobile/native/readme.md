@@ -2,4 +2,4 @@
 
 ## Application -> Mobile -> Native
 
-This is the place where jvm native modules live.
+This is the place where mobile native modules live.

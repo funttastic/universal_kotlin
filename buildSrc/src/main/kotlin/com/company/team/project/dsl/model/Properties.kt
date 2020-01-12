@@ -5,6 +5,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.gradle.api.Project
 import org.gradle.api.initialization.ProjectDescriptor
 import java.io.File
+import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Properties
 
@@ -179,6 +180,37 @@ object Properties {
 			var descriptor: ProjectDescriptor? = null
 
 			var project: Project? = null
+
+			var path: Path? = null
+				get() {
+					if (field != null) return field
+
+					if (descriptor != null) {
+						field = Paths.get(descriptor?.projectDir?.absolutePath)
+					} else if (project != null) {
+						field = Paths.get(project?.projectDir?.absolutePath)
+					}
+
+					return field
+				}
+
+			var file: File? = null
+				get() {
+					if (field != null) return field
+
+					field = path?.toFile()
+
+					return field
+				}
+
+			var absolutePath: String? = null
+				get() {
+					if (field != null) return field
+
+					field = file?.absolutePath
+
+					return field
+				}
 		}
 	}
 
@@ -188,7 +220,7 @@ object Properties {
 	object vendor {
 		val kotlin = properties.get<String>("kotlin.version")
 
-		val springBoot = "2.1.2.RELEASE"
+		val springBoot = "2.2.2.RELEASE"
 		val androidTools = "3.3.2"
 		val frontend = "0.0.45"
 	}

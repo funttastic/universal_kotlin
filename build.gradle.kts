@@ -37,7 +37,7 @@ buildscript {
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${vendorProperties.kotlin}")
 		classpath("org.jetbrains.kotlin:kotlin-frontend-plugin:${vendorProperties.frontend}")
 		classpath("org.jetbrains.kotlin:kotlin-serialization:${vendorProperties.kotlin}")
-		classpath("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${vendorProperties.kotlin}")
+//		classpath("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${vendorProperties.kotlin}")
 
 		classpath("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils:1.2.0")
 
@@ -108,7 +108,9 @@ allprojects {
 }
 
 for (project in rootProject.allprojects) {
-	Util.logger.warn("""${project.group}:${project.name}:${project.version} - ${project.module.name} - ${project.projectDir.absolutePath.removePrefix(project.rootDir.absolutePath)}""")
+	// Force initialization of the module property
+	project.module.name
+	Util.logger.warn("""${project.group}:${project.name}:${project.version} - ${project.module.name} - ${Util.relativePathFromRoot(project.projectDir)}""")
 }
 
 repositories {

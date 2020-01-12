@@ -1,5 +1,5 @@
 # Universal Kotlin
 
-## Application -> Backend -> Jvm
+## Application -> Backend -> JVM
 
-This is the place where jvm backend modules live.
+This is the place where JVM backend modules live.

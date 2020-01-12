@@ -5,92 +5,20 @@ jobs:
       - image: openjdk:8-jdk
       - image: circleci/openjdk:8-jdk-node-browsers
     environment:
+      BUILD_CI: CIRCLE_CI
+      BUILD_OS: LINUX
+      BASH_ENV: ~/.bashrc
       ANDROID_HOME: /root/android-sdk
       GRADLE_OPTS: -Xmx3048m -Xms3048m
-#      GRADLE_OPTS: -Xmx2048m -Dorg.gradle.daemon=false
     steps:
       - checkout
-      - run: apt-get update && apt-get install openjfx -y # Necessary for tornadofx
-      - run: curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o $HOME/tools.zip
-      - run: unzip -q $HOME/tools.zip -d $ANDROID_HOME
-      - run: (echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
-      - run: java -version
-      - run: ./gradlew --version
-      - run: "
-        ./gradlew
-          clean
-          build
-          --warning-mode all
-        "
-  jdk9:
-    docker:
-      - image: openjdk:9-jdk
-        user: root
-    steps:
-      - checkout
-      - run: apt-get update && apt-get install libncurses5 -y
-      - run: java -version
-      - run: ./gradlew --version
-      - run: "
-        ./gradlew
-          clean
-          build
-          --warning-mode all
-        "
-  jdk10:
-    docker:
-      - image: openjdk:10-jdk
-        user: root
-    steps:
-      - checkout
-      - run: apt-get update && apt-get install libncurses5 -y
-      - run: java -version
-      - run: ./gradlew --version
-      - run: "
-        ./gradlew
-          clean
-          build
-          --warning-mode all
-        "
-  jdk11:
-    docker:
-      - image: openjdk:11-jdk
-        user: root
-    steps:
-      - checkout
-      - run: apt-get update && apt-get install libncurses5 -y
-      - run: java -version
-      - run: ./gradlew --version
-      - run: "
-        ./gradlew
-          clean
-          build
-          --warning-mode all
-        "
-  android-28:
-    docker:
-      - image: circleci/android:api-28
-        user: root
-    steps:
-      - checkout
-      - run: java -version
-      - run: ./gradlew --version
-      - run: "
-        ./gradlew
-          clean
-          build
-          --warning-mode all
-        "
+      - run: ./resources/scripts/ci/install_java.sh
+      - run: ./resources/scripts/ci/install_android_sdk.sh
+      - run: ./resources/scripts/ci/install_npm.sh
+      - run: ./resources/scripts/ci/show_relevant_information.sh
+      - run: ./resources/scripts/complete_run.sh
 workflows:
   version: 2
   all:
     jobs:
       - jdk8
-#      - jdk9
-#      - jdk10
-#      - jdk11
-#      - android-28
-
-# Kotlin supported platforms: jvm, js, android, androidNativeArm32, androidNativeArm64, iosArm32, iosArm64, iosX64,
-#  linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64, wasm32
-

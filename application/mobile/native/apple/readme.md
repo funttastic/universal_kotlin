@@ -2,4 +2,4 @@
 
 ## Application -> Mobile -> Native -> Apple
 
-This is the place where jvm native apple modules live.
+This is the place where mobile native apple modules live.

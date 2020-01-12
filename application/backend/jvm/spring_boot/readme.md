@@ -1,8 +1,8 @@
 # Universal Kotlin
 
-## Application -> Backend -> Jvm -> Spring Boot
+## Application -> Backend -> JVM -> Spring Boot
 
-Module with a Spring Boot API.
+Module with a Spring Boot API JVM application.
 
 It uses the common modules as dependencies.
 
@@ -64,4 +64,10 @@ Calling the API:
 
 ```bash
 curl "http://localhost:8080/exampleController/exampleMethod"
+```
+
+The output should be similar to this one:
+
+```bash
+["com.company.team.project.common.multiple_sources.jvm","com.company.team.project.common.single_source.common","com.company.team.project.common.single_source.jvm.common","com.company.team.project.application.backend.jvm.spring_boot"]
 ```

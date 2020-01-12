@@ -1,11 +1,3 @@
-//
-//  ViewController.kt
-//  application
-//
-//  Created by Danilo Silva on 2019-04-13.
-//  Copyright © 2019 Company. All rights reserved.
-//
-
 import kotlinx.cinterop.*
 import platform.Foundation.*
 import platform.UIKit.*
@@ -13,20 +5,23 @@ import platform.UIKit.*
 @ExportObjCClass
 class ViewController : UIViewController {
 
-    constructor(aDecoder: NSCoder) : super(aDecoder)
-    override fun initWithCoder(aDecoder: NSCoder) = initBy(ViewController(aDecoder))
+	@OverrideInit
+	constructor() : super(nibName = null, bundle = null)
 
-    @ObjCOutlet
-    lateinit var label: UILabel
+	@OverrideInit
+	constructor(coder: NSCoder) : super(coder)
 
-    @ObjCOutlet
-    lateinit var textField: UITextField
+	@ObjCOutlet
+	lateinit var label: UILabel
 
-    @ObjCOutlet
-    lateinit var button: UIButton
+	@ObjCOutlet
+	lateinit var textField: UITextField
 
-    @ObjCAction
-    fun buttonPressed() {
-        label.text = "Konan says: 'Hello, ${textField.text}!'"
-    }
+	@ObjCOutlet
+	lateinit var button: UIButton
+
+	@ObjCAction
+	fun buttonPressed() {
+		label.text = "Konan says: 'Hello, ${textField.text}!'"
+	}
 }

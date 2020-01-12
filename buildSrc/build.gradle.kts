@@ -41,5 +41,5 @@ dependencies {
 	compile("com.android.tools.build:gradle:3.3.2")
 	compile("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 	compile(gradleApi())
-	compile("org.jetbrains.kotlin.xcode-compat:org.jetbrains.kotlin.xcode-compat.gradle.plugin:0.1")
+	compile("org.jetbrains.kotlin.xcode-compat:org.jetbrains.kotlin.xcode-compat.gradle.plugin:0.2.5")
 }

@@ -1,11 +1,3 @@
-//
-//  main.kt
-//  application
-//
-//  Created by Danilo Silva on 2019-04-13.
-//  Copyright © 2019 Company. All rights reserved.
-//
-
 import kotlinx.cinterop.*
 import platform.Foundation.*
 import platform.UIKit.*
