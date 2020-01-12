@@ -93,7 +93,7 @@ Also, one of its goals is to use shared code from the common modules and librari
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes. See the Deployment section for notes on how to deploy the project on a live system.
+purposes. See the [Running](running) section for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -182,9 +182,15 @@ or
 
 Note that the `check` task depends on the `test` one ([reference](https://docs.gradle.org/current/userguide/java_plugin.html)).
 
-## Deployment
+## Running
+
+Please refer to the `readme` of the correspondent module that you would like to run.
+
+<!--
+## Deploy
 
 Please refer to the `readme` of the correspondent module that you would like to deploy.
+-->
 
 ## Built With
 
