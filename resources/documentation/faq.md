@@ -12,5 +12,7 @@ If you want to check how are these configurations that a look at
 the following files:
 
 > com.company.team.project.dsl.model.enum_.ModuleEnum
+
 > com.company.team.project.dsl.model.enum_.TargetEnum
+
 > com.company.team.project.dsl.model.enum_.SourceSetEnum
