@@ -101,8 +101,8 @@ The project prerequisites are:
 
 - [JDK 8](https://www.oracle.com/technetwork/java/javaee/downloads/jdk8-downloads-2133151.html)
 
-Note that JavaFX support is needed for the TornadoFX module, if you are using OpenJDK, consider to change to Oracle
-or Zulu for a more straightforward configuration.
+Note that JavaFX support is needed for the TornadoFX module, if you are using OpenJDK, consider changing to Oracle
+or Zulu (FX) for a more straightforward configuration.
 
 Specific prerequisites:
 
