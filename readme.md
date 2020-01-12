@@ -18,7 +18,7 @@
 	AppVeyour (Windows)
 </p>
 <p>
-	<a href="https://travis-ci.com/funttastic/universal-kotlin">
+	<a href="https://circleci.com/gh/funttastic/universal_kotlin/tree/master">
 			<img
 					src="https://circleci.com/gh/funttastic/universal_kotlin/tree/master.svg?style=svg"
 					align="right"
@@ -27,7 +27,7 @@
 	CircleCI (Linux)
 </p>
 <p>
-	<a href="https://travis-ci.com/funttastic/universal-kotlin">
+	<a href="https://travis-ci.com/funttastic/universal_kotlin">
 			<img align="right" src="https://api.travis-ci.com/funttastic/universal_kotlin.svg?branch=master" />
 	</a>
 	Travis (MacOS)
