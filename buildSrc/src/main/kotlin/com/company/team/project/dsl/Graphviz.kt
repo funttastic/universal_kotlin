@@ -16,7 +16,7 @@ fun generateGraphviz() {
 	|	node [style=filled]
 	|
 	|	$modulesDefinitions
-	|	
+	|
 	|	$modulesLinks
 	|}
 	""".trimMargin()
@@ -28,15 +28,15 @@ fun generateModulesDefinitions(): String {
 	var output = ""
 
 	ModuleEnum.values().forEach {
-		output += "\n\t\"${it.name}\" [label=\"${it.title}\", color=darkorange]"
+		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"black\", color=\"#00C853\"]"
 	}
 
 	TargetEnum.values().forEach {
-		output += "\n\t\"${it.name}\" [label=\"${it.title}\", color=darkorange]"
+		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"black\", color=\"#FFD600\"]"
 	}
 
 	SourceSetEnum.values().forEach {
-		output += "\n\t\"${it.name}\" [label=\"${it.title}\", color=darkorange]"
+		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"white\", color=\"#0091EA\"]"
 	}
 
 	return output
@@ -46,13 +46,21 @@ fun generateModulesLinks(root: ModuleEnum = ModuleEnum.root): String {
 	var output = ""
 
 	root.children.forEach {module ->
-		output += "\n\t\"${module.parent?.name}\" -> \"${module.name}\""
+		output += "\n\t\"${module.parent?.name}\" -> \"${module.name}\" [color=\"#1B5E20\"]"
 
 		module.targets.forEach {target ->
-			output += "\n\t\"${module.name}\" -> \"${target.name}\""
+			output += "\n\t\"${module.name}\" -> \"${target.name}\" [color=\"#F57F17\"]"
 
 			target.sourceSets.forEach {sourceSet ->
-				output += "\n\t\"${target.name}\" -> \"${sourceSet.name}\""
+				output += "\n\t\"${target.name}\" -> \"${sourceSet.name}\" [color=\"#01579B\"]"
+
+				sourceSet.requiredAt.forEach { sourceSet2->
+					output += "\n\t\"${sourceSet2.name}\" -> \"${sourceSet.name}\" [color=\"#880E4F\"]"
+				}
+			}
+
+			target.requiredAt.forEach { sourceSet->
+				output += "\n\t\"${sourceSet.name}\" -> \"${target.name}\" [color=\"#880E4F\"]"
 			}
 		}
 
@@ -65,6 +73,6 @@ fun generateModulesLinks(root: ModuleEnum = ModuleEnum.root): String {
 fun save(content: String) {
 	Paths.get(
 		com.company.team.project.dsl.model.Properties.projects.root.absolutePath!!,
-		"resources/architecture/diagram/graphviz.txt"
+		"resources/architecture/diagram/graphviz/all_connections.txt"
 	).toFile().writeText(content)
 }
