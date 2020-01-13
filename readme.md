@@ -263,4 +263,4 @@ Licensed under the MIT License.
 
 See [license](license.md) for more information.
 
-<img src="https://raw.githubusercontent.com/funttastic/universal_kotlin/development/resources/architecture/diagram/graphviz/modules.svg" alt="Modules Diagram" width="1024" height="768">
+<img src="https://raw.githubusercontent.com/funttastic/universal_kotlin/development/resources/architecture/diagram/graphviz/modules.svg?sanitize=true" alt="Modules Diagram" width="1024" height="768">
