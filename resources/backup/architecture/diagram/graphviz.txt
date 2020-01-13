@@ -1,4 +1,4 @@
-# http://www_webgraphviz_com/
+# http://www.webgraphviz.com/
 
 digraph G {
 	ratio = fill
@@ -9,7 +9,7 @@ digraph G {
 	root_common_single_source [label=single_source, color=darkorange]
 	root_common_multiple_sources [label=multiple_sources, color=darkorange]
 	root_common_multiple_modules [label=multiple_modules, color=darkorange]
-
+;
 	root -> root_common
 	root_common -> root_common_single_source
 	root_common_single_source -> root_common_single_source_js

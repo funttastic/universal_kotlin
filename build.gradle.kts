@@ -2,6 +2,7 @@ import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.enum_.*
 import com.company.team.project.dsl.model.extension.*
+import com.company.team.project.dsl.generateGraphviz
 
 plugins {
 	kotlin("multiplatform")
@@ -120,4 +121,10 @@ repositories {
 	mavenLocal()
 	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
 	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+}
+
+tasks.register("generateGraphviz") {
+	doLast {
+		generateGraphviz()
+	}
 }

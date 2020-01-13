@@ -280,6 +280,6 @@ which are doing a very good job. Thanks a lot!
 
 ## License
 
-Licensed under the MIT License.
+Licensed under the Apache License 2.0.
 
 See [license](license.md) for more information.
