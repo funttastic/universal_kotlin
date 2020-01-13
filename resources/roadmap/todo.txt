@@ -1,13 +1,4 @@
 Enable the possibility to enable or disable modules using regex.
-Spring Boot module bootRun task is not available when using the kotlin multiplatform plugin.
-React application should have another name.
-Vanilla application should an entry in the readme showing how to run the project.
-Vanilla application should have a task to run the application through webpack.
-Wasm application should have a task to run the application through webpack.
-iOS application should have another name.
-Document missing readmes.
+Add tvOS, watchOS and Express modules.
 Example library is not publishing to maven local due error in android native target.
-Create a more elaborated way to handle the dependencies and its versions. Maybe compiling only the needed targets and modules,
-for example.
 Vanilla javascript is not accepting hot reload with webpack.
-Improving the project in a way that the setup process discard the need to pass the enabledModules environment variable.

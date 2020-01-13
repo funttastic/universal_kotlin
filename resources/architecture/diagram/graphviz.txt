@@ -1,37 +1,759 @@
-# http://www_webgraphviz_com/
-
 digraph G {
 	ratio = fill
 	node [style=filled]
 
-	root [label=root, color=darkorange]
-	root_common [label=common, color=darkorange]
-	root_common_single_source [label=single_source, color=darkorange]
-	root_common_multiple_sources [label=multiple_sources, color=darkorange]
-	root_common_multiple_modules [label=multiple_modules, color=darkorange]
-
-	root -> root_common
-	root_common -> root_common_single_source
-	root_common_single_source -> root_common_single_source_js
-	root_common_single_source_js -> root_common_single_source_js_jsVanilla
-	root_common_single_source_js -> root_common_single_source_js_jsSpa
-	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaReact
-	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaVue
-	root_common_single_source_js_jsSpa -> root_common_single_source_js_jsSpa_jsSpaAngular
-	root_common_single_source -> root_common_single_source_jvm
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm6
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm7
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm8
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm9
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm10
-	root_common_single_source_jvm -> root_common_single_source_jvm_jvm11
-	root_common_single_source -> root_common_single_source_native
-	root_common -> root_common_multiple_sources
-	root_common -> root_common_multiple_modules
-	root -> root_library
-	root_library -> root_library_example
-	root -> root_application
-	root_application -> root_application_backend
-	root_application_backend -> root_application_backend_jvm
-	root_application_backend_jvm -> root_application_backend_jvm_spring_boot
+	
+	"root" [label="Root", color=darkorange]
+	"common" [label="Common", color=darkorange]
+	"common-multiple_modules" [label="Common -> Multiple Modules", color=darkorange]
+	"common-multiple_sources" [label="Common -> Multiple Sources", color=darkorange]
+	"common-single_source" [label="Common -> Single Source", color=darkorange]
+	"library" [label="Library", color=darkorange]
+	"library-multiple_modules" [label="Library -> Multiple Modules", color=darkorange]
+	"library-multiple_sources" [label="Library -> Multiple Sources", color=darkorange]
+	"library-single_source" [label="Library -> Single Source", color=darkorange]
+	"application" [label="Application", color=darkorange]
+	"application-backend" [label="Application -> Backend", color=darkorange]
+	"application-backend-js" [label="Application -> Backend -> Js", color=darkorange]
+	"application-backend-js-express" [label="Application -> Backend -> Js -> Express", color=darkorange]
+	"application-backend-jvm" [label="Application -> Backend -> Jvm", color=darkorange]
+	"application-backend-jvm-spring_boot" [label="Application -> Backend -> Jvm -> Spring Boot", color=darkorange]
+	"application-browser" [label="Application -> Browser", color=darkorange]
+	"application-browser-js" [label="Application -> Browser -> Js", color=darkorange]
+	"application-browser-js-spa" [label="Application -> Browser -> Js -> Spa", color=darkorange]
+	"application-browser-js-spa-react" [label="Application -> Browser -> Js -> Spa -> React", color=darkorange]
+	"application-browser-js-vanilla" [label="Application -> Browser -> Js -> Vanilla", color=darkorange]
+	"application-browser-native" [label="Application -> Browser -> Native", color=darkorange]
+	"application-browser-native-wasm32" [label="Application -> Browser -> Native -> Wasm32", color=darkorange]
+	"application-desktop" [label="Application -> Desktop", color=darkorange]
+	"application-desktop-jvm" [label="Application -> Desktop -> Jvm", color=darkorange]
+	"application-desktop-jvm-tornado_fx" [label="Application -> Desktop -> Jvm -> Tornado Fx", color=darkorange]
+	"application-mobile" [label="Application -> Mobile", color=darkorange]
+	"application-mobile-jvm" [label="Application -> Mobile -> Jvm", color=darkorange]
+	"application-mobile-jvm-android" [label="Application -> Mobile -> Jvm -> Android", color=darkorange]
+	"application-mobile-native" [label="Application -> Mobile -> Native", color=darkorange]
+	"application-mobile-native-apple" [label="Application -> Mobile -> Native -> Apple", color=darkorange]
+	"application-mobile-native-apple-ios" [label="Application -> Mobile -> Native -> Apple -> Ios", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_copying_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Copying Framework", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Framework", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_with_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 With Framework", color=darkorange]
+	"application-script" [label="Application -> Script", color=darkorange]
+	"application-script-jvm" [label="Application -> Script -> Jvm", color=darkorange]
+	"application-script-jvm-script" [label="Application -> Script -> Jvm -> Script", color=darkorange]
+	"application-television" [label="Application -> Television", color=darkorange]
+	"application-television-native" [label="Application -> Television -> Native", color=darkorange]
+	"application-television-native-apple" [label="Application -> Television -> Native -> Apple", color=darkorange]
+	"application-television-native-apple-tvos" [label="Application -> Television -> Native -> Apple -> Tvos", color=darkorange]
+	"application-television-native-apple-tvos-tvos_x64" [label="Application -> Television -> Native -> Apple -> Tvos -> Tvos X64", color=darkorange]
+	"application-terminal" [label="Application -> Terminal", color=darkorange]
+	"application-terminal-jvm" [label="Application -> Terminal -> Jvm", color=darkorange]
+	"application-terminal-jvm-terminal" [label="Application -> Terminal -> Jvm -> Terminal", color=darkorange]
+	"application-watch" [label="Application -> Watch", color=darkorange]
+	"application-watch-native" [label="Application -> Watch -> Native", color=darkorange]
+	"application-watch-native-apple" [label="Application -> Watch -> Native -> Apple", color=darkorange]
+	"application-watch-native-apple-watchos" [label="Application -> Watch -> Native -> Apple -> Watchos", color=darkorange]
+	"application-watch-native-apple-watchos-watchos_x64" [label="Application -> Watch -> Native -> Apple -> Watchos -> Watchos X64", color=darkorange]
+	"common-multiple_sources@android_native_arm32" [label="Common -> Multiple Sources -> Android Native Arm32", color=darkorange]
+	"common-multiple_sources@android_native_arm64" [label="Common -> Multiple Sources -> Android Native Arm64", color=darkorange]
+	"common-multiple_sources@ios_arm32" [label="Common -> Multiple Sources -> Ios Arm32", color=darkorange]
+	"common-multiple_sources@ios_arm64" [label="Common -> Multiple Sources -> Ios Arm64", color=darkorange]
+	"common-multiple_sources@ios_x64" [label="Common -> Multiple Sources -> Ios X64", color=darkorange]
+	"common-multiple_sources@js" [label="Common -> Multiple Sources -> Js", color=darkorange]
+	"common-multiple_sources@jvm" [label="Common -> Multiple Sources -> Jvm", color=darkorange]
+	"common-multiple_sources@linux_arm32_hfp" [label="Common -> Multiple Sources -> Linux Arm32 Hfp", color=darkorange]
+	"common-multiple_sources@linux_mips32" [label="Common -> Multiple Sources -> Linux Mips32", color=darkorange]
+	"common-multiple_sources@linux_mipsel32" [label="Common -> Multiple Sources -> Linux Mipsel32", color=darkorange]
+	"common-multiple_sources@linux_x64" [label="Common -> Multiple Sources -> Linux X64", color=darkorange]
+	"common-multiple_sources@macos_x64" [label="Common -> Multiple Sources -> Macos X64", color=darkorange]
+	"common-multiple_sources@mingw_x64" [label="Common -> Multiple Sources -> Mingw X64", color=darkorange]
+	"common-multiple_sources@mingw_x86" [label="Common -> Multiple Sources -> Mingw X86", color=darkorange]
+	"common-multiple_sources@tvos_arm64" [label="Common -> Multiple Sources -> Tvos Arm64", color=darkorange]
+	"common-multiple_sources@tvos_x64" [label="Common -> Multiple Sources -> Tvos X64", color=darkorange]
+	"common-multiple_sources@wasm32" [label="Common -> Multiple Sources -> Wasm32", color=darkorange]
+	"common-multiple_sources@watchos_arm32" [label="Common -> Multiple Sources -> Watchos Arm32", color=darkorange]
+	"common-multiple_sources@watchos_arm64" [label="Common -> Multiple Sources -> Watchos Arm64", color=darkorange]
+	"common-multiple_sources@watchos_x64" [label="Common -> Multiple Sources -> Watchos X64", color=darkorange]
+	"common-multiple_sources@watchos_x86" [label="Common -> Multiple Sources -> Watchos X86", color=darkorange]
+	"common-multiple_sources@ios_x64@mobile-native-ios_x64" [label="Common -> Multiple Sources -> Ios X64 -> Mobile -> Native -> Ios X64", color=darkorange]
+	"common-multiple_sources@js@browser" [label="Common -> Multiple Sources -> Js -> Browser", color=darkorange]
+	"common-multiple_sources@js@browser-spa" [label="Common -> Multiple Sources -> Js -> Browser -> Spa", color=darkorange]
+	"common-multiple_sources@js@browser-spa-react" [label="Common -> Multiple Sources -> Js -> Browser -> Spa -> React", color=darkorange]
+	"common-multiple_sources@js@browser-vanilla" [label="Common -> Multiple Sources -> Js -> Browser -> Vanilla", color=darkorange]
+	"common-multiple_sources@jvm@backend" [label="Common -> Multiple Sources -> Jvm -> Backend", color=darkorange]
+	"common-multiple_sources@jvm@backend-spring_boot" [label="Common -> Multiple Sources -> Jvm -> Backend -> Spring Boot", color=darkorange]
+	"common-multiple_sources@jvm@desktop" [label="Common -> Multiple Sources -> Jvm -> Desktop", color=darkorange]
+	"common-multiple_sources@jvm@desktop-tornado_fx" [label="Common -> Multiple Sources -> Jvm -> Desktop -> Tornado Fx", color=darkorange]
+	"common-multiple_sources@jvm@mobile" [label="Common -> Multiple Sources -> Jvm -> Mobile", color=darkorange]
+	"common-multiple_sources@jvm@mobile-android" [label="Common -> Multiple Sources -> Jvm -> Mobile -> Android", color=darkorange]
+	"common-multiple_sources@jvm@script" [label="Common -> Multiple Sources -> Jvm -> Script", color=darkorange]
+	"common-multiple_sources@jvm@terminal" [label="Common -> Multiple Sources -> Jvm -> Terminal", color=darkorange]
+	"common-multiple_sources@wasm32@browser-native-wasm32" [label="Common -> Multiple Sources -> Wasm32 -> Browser -> Native -> Wasm32", color=darkorange]
+	"common-single_source@android_native_arm32" [label="Common -> Single Source -> Android Native Arm32", color=darkorange]
+	"common-single_source@android_native_arm64" [label="Common -> Single Source -> Android Native Arm64", color=darkorange]
+	"common-single_source@ios_arm32" [label="Common -> Single Source -> Ios Arm32", color=darkorange]
+	"common-single_source@ios_arm64" [label="Common -> Single Source -> Ios Arm64", color=darkorange]
+	"common-single_source@ios_x64" [label="Common -> Single Source -> Ios X64", color=darkorange]
+	"common-single_source@js" [label="Common -> Single Source -> Js", color=darkorange]
+	"common-single_source@jvm" [label="Common -> Single Source -> Jvm", color=darkorange]
+	"common-single_source@linux_arm32_hfp" [label="Common -> Single Source -> Linux Arm32 Hfp", color=darkorange]
+	"common-single_source@linux_mips32" [label="Common -> Single Source -> Linux Mips32", color=darkorange]
+	"common-single_source@linux_mipsel32" [label="Common -> Single Source -> Linux Mipsel32", color=darkorange]
+	"common-single_source@linux_x64" [label="Common -> Single Source -> Linux X64", color=darkorange]
+	"common-single_source@macos_x64" [label="Common -> Single Source -> Macos X64", color=darkorange]
+	"common-single_source@mingw_x64" [label="Common -> Single Source -> Mingw X64", color=darkorange]
+	"common-single_source@mingw_x86" [label="Common -> Single Source -> Mingw X86", color=darkorange]
+	"common-single_source@tvos_arm64" [label="Common -> Single Source -> Tvos Arm64", color=darkorange]
+	"common-single_source@tvos_x64" [label="Common -> Single Source -> Tvos X64", color=darkorange]
+	"common-single_source@wasm32" [label="Common -> Single Source -> Wasm32", color=darkorange]
+	"common-single_source@watchos_arm32" [label="Common -> Single Source -> Watchos Arm32", color=darkorange]
+	"common-single_source@watchos_arm64" [label="Common -> Single Source -> Watchos Arm64", color=darkorange]
+	"common-single_source@watchos_x64" [label="Common -> Single Source -> Watchos X64", color=darkorange]
+	"common-single_source@watchos_x86" [label="Common -> Single Source -> Watchos X86", color=darkorange]
+	"common-single_source@ios_x64@mobile-native-ios_x64" [label="Common -> Single Source -> Ios X64 -> Mobile -> Native -> Ios X64", color=darkorange]
+	"common-single_source@js@browser" [label="Common -> Single Source -> Js -> Browser", color=darkorange]
+	"common-single_source@js@browser-spa" [label="Common -> Single Source -> Js -> Browser -> Spa", color=darkorange]
+	"common-single_source@js@browser-spa-react" [label="Common -> Single Source -> Js -> Browser -> Spa -> React", color=darkorange]
+	"common-single_source@js@browser-vanilla" [label="Common -> Single Source -> Js -> Browser -> Vanilla", color=darkorange]
+	"common-single_source@jvm@backend" [label="Common -> Single Source -> Jvm -> Backend", color=darkorange]
+	"common-single_source@jvm@backend-spring_boot" [label="Common -> Single Source -> Jvm -> Backend -> Spring Boot", color=darkorange]
+	"common-single_source@jvm@desktop" [label="Common -> Single Source -> Jvm -> Desktop", color=darkorange]
+	"common-single_source@jvm@desktop-tornado_fx" [label="Common -> Single Source -> Jvm -> Desktop -> Tornado Fx", color=darkorange]
+	"common-single_source@jvm@mobile" [label="Common -> Single Source -> Jvm -> Mobile", color=darkorange]
+	"common-single_source@jvm@mobile-android" [label="Common -> Single Source -> Jvm -> Mobile -> Android", color=darkorange]
+	"common-single_source@jvm@script" [label="Common -> Single Source -> Jvm -> Script", color=darkorange]
+	"common-single_source@jvm@terminal" [label="Common -> Single Source -> Jvm -> Terminal", color=darkorange]
+	"common-single_source@wasm32@browser-native-wasm32" [label="Common -> Single Source -> Wasm32 -> Browser -> Native -> Wasm32", color=darkorange]
+	"library-multiple_sources@android_native_arm32" [label="Library -> Multiple Sources -> Android Native Arm32", color=darkorange]
+	"library-multiple_sources@android_native_arm64" [label="Library -> Multiple Sources -> Android Native Arm64", color=darkorange]
+	"library-multiple_sources@ios_arm32" [label="Library -> Multiple Sources -> Ios Arm32", color=darkorange]
+	"library-multiple_sources@ios_arm64" [label="Library -> Multiple Sources -> Ios Arm64", color=darkorange]
+	"library-multiple_sources@ios_x64" [label="Library -> Multiple Sources -> Ios X64", color=darkorange]
+	"library-multiple_sources@js" [label="Library -> Multiple Sources -> Js", color=darkorange]
+	"library-multiple_sources@jvm" [label="Library -> Multiple Sources -> Jvm", color=darkorange]
+	"library-multiple_sources@linux_arm32_hfp" [label="Library -> Multiple Sources -> Linux Arm32 Hfp", color=darkorange]
+	"library-multiple_sources@linux_mips32" [label="Library -> Multiple Sources -> Linux Mips32", color=darkorange]
+	"library-multiple_sources@linux_mipsel32" [label="Library -> Multiple Sources -> Linux Mipsel32", color=darkorange]
+	"library-multiple_sources@linux_x64" [label="Library -> Multiple Sources -> Linux X64", color=darkorange]
+	"library-multiple_sources@macos_x64" [label="Library -> Multiple Sources -> Macos X64", color=darkorange]
+	"library-multiple_sources@mingw_x64" [label="Library -> Multiple Sources -> Mingw X64", color=darkorange]
+	"library-multiple_sources@mingw_x86" [label="Library -> Multiple Sources -> Mingw X86", color=darkorange]
+	"library-multiple_sources@tvos_arm64" [label="Library -> Multiple Sources -> Tvos Arm64", color=darkorange]
+	"library-multiple_sources@tvos_x64" [label="Library -> Multiple Sources -> Tvos X64", color=darkorange]
+	"library-multiple_sources@wasm32" [label="Library -> Multiple Sources -> Wasm32", color=darkorange]
+	"library-multiple_sources@watchos_arm32" [label="Library -> Multiple Sources -> Watchos Arm32", color=darkorange]
+	"library-multiple_sources@watchos_arm64" [label="Library -> Multiple Sources -> Watchos Arm64", color=darkorange]
+	"library-multiple_sources@watchos_x64" [label="Library -> Multiple Sources -> Watchos X64", color=darkorange]
+	"library-multiple_sources@watchos_x86" [label="Library -> Multiple Sources -> Watchos X86", color=darkorange]
+	"library-single_source@android_native_arm32" [label="Library -> Single Source -> Android Native Arm32", color=darkorange]
+	"library-single_source@android_native_arm64" [label="Library -> Single Source -> Android Native Arm64", color=darkorange]
+	"library-single_source@ios_arm32" [label="Library -> Single Source -> Ios Arm32", color=darkorange]
+	"library-single_source@ios_arm64" [label="Library -> Single Source -> Ios Arm64", color=darkorange]
+	"library-single_source@ios_x64" [label="Library -> Single Source -> Ios X64", color=darkorange]
+	"library-single_source@js" [label="Library -> Single Source -> Js", color=darkorange]
+	"library-single_source@jvm" [label="Library -> Single Source -> Jvm", color=darkorange]
+	"library-single_source@linux_arm32_hfp" [label="Library -> Single Source -> Linux Arm32 Hfp", color=darkorange]
+	"library-single_source@linux_mips32" [label="Library -> Single Source -> Linux Mips32", color=darkorange]
+	"library-single_source@linux_mipsel32" [label="Library -> Single Source -> Linux Mipsel32", color=darkorange]
+	"library-single_source@linux_x64" [label="Library -> Single Source -> Linux X64", color=darkorange]
+	"library-single_source@macos_x64" [label="Library -> Single Source -> Macos X64", color=darkorange]
+	"library-single_source@mingw_x64" [label="Library -> Single Source -> Mingw X64", color=darkorange]
+	"library-single_source@mingw_x86" [label="Library -> Single Source -> Mingw X86", color=darkorange]
+	"library-single_source@tvos_arm64" [label="Library -> Single Source -> Tvos Arm64", color=darkorange]
+	"library-single_source@tvos_x64" [label="Library -> Single Source -> Tvos X64", color=darkorange]
+	"library-single_source@wasm32" [label="Library -> Single Source -> Wasm32", color=darkorange]
+	"library-single_source@watchos_arm32" [label="Library -> Single Source -> Watchos Arm32", color=darkorange]
+	"library-single_source@watchos_arm64" [label="Library -> Single Source -> Watchos Arm64", color=darkorange]
+	"library-single_source@watchos_x64" [label="Library -> Single Source -> Watchos X64", color=darkorange]
+	"library-single_source@watchos_x86" [label="Library -> Single Source -> Watchos X86", color=darkorange]
+	"application-backend-js-express@js" [label="Application -> Backend -> Js -> Express -> Js", color=darkorange]
+	"application-backend-jvm-spring_boot@jvm" [label="Application -> Backend -> Jvm -> Spring Boot -> Jvm", color=darkorange]
+	"application-browser-js-spa-react@js" [label="Application -> Browser -> Js -> Spa -> React -> Js", color=darkorange]
+	"application-browser-js-vanilla@js" [label="Application -> Browser -> Js -> Vanilla -> Js", color=darkorange]
+	"application-browser-native-wasm32@wasm32" [label="Application -> Browser -> Native -> Wasm32 -> Wasm32", color=darkorange]
+	"application-desktop-jvm-tornado_fx@jvm" [label="Application -> Desktop -> Jvm -> Tornado Fx -> Jvm", color=darkorange]
+	"application-mobile-jvm-android@android" [label="Application -> Mobile -> Jvm -> Android -> Android", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Copying Framework -> Ios X64", color=darkorange]
+	"application-script-jvm-script@jvm" [label="Application -> Script -> Jvm -> Script -> Jvm", color=darkorange]
+	"application-television-native-apple-tvos-tvos_x64@tvos_x64" [label="Application -> Television -> Native -> Apple -> Tvos -> Tvos X64 -> Tvos X64", color=darkorange]
+	"application-terminal-jvm-terminal@jvm" [label="Application -> Terminal -> Jvm -> Terminal -> Jvm", color=darkorange]
+	"application-watch-native-apple-watchos-watchos_x64@watchos_x64" [label="Application -> Watch -> Native -> Apple -> Watchos -> Watchos X64 -> Watchos X64", color=darkorange]
+	"common-multiple_sources@main@common" [label="Common -> Multiple Sources -> Main -> Common", color=darkorange]
+	"common-multiple_sources@test@common" [label="Common -> Multiple Sources -> Test -> Common", color=darkorange]
+	"common-multiple_sources@main@android_native_arm32" [label="Common -> Multiple Sources -> Main -> Android Native Arm32", color=darkorange]
+	"common-multiple_sources@test@android_native_arm32" [label="Common -> Multiple Sources -> Test -> Android Native Arm32", color=darkorange]
+	"common-multiple_sources@main@android_native_arm64" [label="Common -> Multiple Sources -> Main -> Android Native Arm64", color=darkorange]
+	"common-multiple_sources@test@android_native_arm64" [label="Common -> Multiple Sources -> Test -> Android Native Arm64", color=darkorange]
+	"common-multiple_sources@main@ios_arm32" [label="Common -> Multiple Sources -> Main -> Ios Arm32", color=darkorange]
+	"common-multiple_sources@test@ios_arm32" [label="Common -> Multiple Sources -> Test -> Ios Arm32", color=darkorange]
+	"common-multiple_sources@main@ios_arm64" [label="Common -> Multiple Sources -> Main -> Ios Arm64", color=darkorange]
+	"common-multiple_sources@test@ios_arm64" [label="Common -> Multiple Sources -> Test -> Ios Arm64", color=darkorange]
+	"common-multiple_sources@main@ios_x64" [label="Common -> Multiple Sources -> Main -> Ios X64", color=darkorange]
+	"common-multiple_sources@test@ios_x64" [label="Common -> Multiple Sources -> Test -> Ios X64", color=darkorange]
+	"common-multiple_sources@main@js" [label="Common -> Multiple Sources -> Main -> Js", color=darkorange]
+	"common-multiple_sources@test@js" [label="Common -> Multiple Sources -> Test -> Js", color=darkorange]
+	"common-multiple_sources@main@jvm" [label="Common -> Multiple Sources -> Main -> Jvm", color=darkorange]
+	"common-multiple_sources@test@jvm" [label="Common -> Multiple Sources -> Test -> Jvm", color=darkorange]
+	"common-multiple_sources@main@linux_arm32_hfp" [label="Common -> Multiple Sources -> Main -> Linux Arm32 Hfp", color=darkorange]
+	"common-multiple_sources@test@linux_arm32_hfp" [label="Common -> Multiple Sources -> Test -> Linux Arm32 Hfp", color=darkorange]
+	"common-multiple_sources@main@linux_mips32" [label="Common -> Multiple Sources -> Main -> Linux Mips32", color=darkorange]
+	"common-multiple_sources@test@linux_mips32" [label="Common -> Multiple Sources -> Test -> Linux Mips32", color=darkorange]
+	"common-multiple_sources@main@linux_mipsel32" [label="Common -> Multiple Sources -> Main -> Linux Mipsel32", color=darkorange]
+	"common-multiple_sources@test@linux_mipsel32" [label="Common -> Multiple Sources -> Test -> Linux Mipsel32", color=darkorange]
+	"common-multiple_sources@main@linux_x64" [label="Common -> Multiple Sources -> Main -> Linux X64", color=darkorange]
+	"common-multiple_sources@test@linux_x64" [label="Common -> Multiple Sources -> Test -> Linux X64", color=darkorange]
+	"common-multiple_sources@main@macos_x64" [label="Common -> Multiple Sources -> Main -> Macos X64", color=darkorange]
+	"common-multiple_sources@test@macos_x64" [label="Common -> Multiple Sources -> Test -> Macos X64", color=darkorange]
+	"common-multiple_sources@main@mingw_x64" [label="Common -> Multiple Sources -> Main -> Mingw X64", color=darkorange]
+	"common-multiple_sources@test@mingw_x64" [label="Common -> Multiple Sources -> Test -> Mingw X64", color=darkorange]
+	"common-multiple_sources@main@mingw_x86" [label="Common -> Multiple Sources -> Main -> Mingw X86", color=darkorange]
+	"common-multiple_sources@test@mingw_x86" [label="Common -> Multiple Sources -> Test -> Mingw X86", color=darkorange]
+	"common-multiple_sources@main@tvos_arm64" [label="Common -> Multiple Sources -> Main -> Tvos Arm64", color=darkorange]
+	"common-multiple_sources@test@tvos_arm64" [label="Common -> Multiple Sources -> Test -> Tvos Arm64", color=darkorange]
+	"common-multiple_sources@main@tvos_x64" [label="Common -> Multiple Sources -> Main -> Tvos X64", color=darkorange]
+	"common-multiple_sources@test@tvos_x64" [label="Common -> Multiple Sources -> Test -> Tvos X64", color=darkorange]
+	"common-multiple_sources@main@wasm32" [label="Common -> Multiple Sources -> Main -> Wasm32", color=darkorange]
+	"common-multiple_sources@test@wasm32" [label="Common -> Multiple Sources -> Test -> Wasm32", color=darkorange]
+	"common-multiple_sources@main@watchos_arm32" [label="Common -> Multiple Sources -> Main -> Watchos Arm32", color=darkorange]
+	"common-multiple_sources@test@watchos_arm32" [label="Common -> Multiple Sources -> Test -> Watchos Arm32", color=darkorange]
+	"common-multiple_sources@main@watchos_arm64" [label="Common -> Multiple Sources -> Main -> Watchos Arm64", color=darkorange]
+	"common-multiple_sources@test@watchos_arm64" [label="Common -> Multiple Sources -> Test -> Watchos Arm64", color=darkorange]
+	"common-multiple_sources@main@watchos_x64" [label="Common -> Multiple Sources -> Main -> Watchos X64", color=darkorange]
+	"common-multiple_sources@test@watchos_x64" [label="Common -> Multiple Sources -> Test -> Watchos X64", color=darkorange]
+	"common-multiple_sources@main@watchos_x86" [label="Common -> Multiple Sources -> Main -> Watchos X86", color=darkorange]
+	"common-multiple_sources@test@watchos_x86" [label="Common -> Multiple Sources -> Test -> Watchos X86", color=darkorange]
+	"common-single_source@main@common" [label="Common -> Single Source -> Main -> Common", color=darkorange]
+	"common-single_source@test@common" [label="Common -> Single Source -> Test -> Common", color=darkorange]
+	"common-single_source@main@android_native_arm32" [label="Common -> Single Source -> Main -> Android Native Arm32", color=darkorange]
+	"common-single_source@test@android_native_arm32" [label="Common -> Single Source -> Test -> Android Native Arm32", color=darkorange]
+	"common-single_source@main@android_native_arm64" [label="Common -> Single Source -> Main -> Android Native Arm64", color=darkorange]
+	"common-single_source@test@android_native_arm64" [label="Common -> Single Source -> Test -> Android Native Arm64", color=darkorange]
+	"common-single_source@main@ios_arm32" [label="Common -> Single Source -> Main -> Ios Arm32", color=darkorange]
+	"common-single_source@test@ios_arm32" [label="Common -> Single Source -> Test -> Ios Arm32", color=darkorange]
+	"common-single_source@main@ios_arm64" [label="Common -> Single Source -> Main -> Ios Arm64", color=darkorange]
+	"common-single_source@test@ios_arm64" [label="Common -> Single Source -> Test -> Ios Arm64", color=darkorange]
+	"common-single_source@main@ios_x64" [label="Common -> Single Source -> Main -> Ios X64", color=darkorange]
+	"common-single_source@test@ios_x64" [label="Common -> Single Source -> Test -> Ios X64", color=darkorange]
+	"common-single_source@main@js" [label="Common -> Single Source -> Main -> Js", color=darkorange]
+	"common-single_source@test@js" [label="Common -> Single Source -> Test -> Js", color=darkorange]
+	"common-single_source@main@jvm" [label="Common -> Single Source -> Main -> Jvm", color=darkorange]
+	"common-single_source@test@jvm" [label="Common -> Single Source -> Test -> Jvm", color=darkorange]
+	"common-single_source@main@linux_arm32_hfp" [label="Common -> Single Source -> Main -> Linux Arm32 Hfp", color=darkorange]
+	"common-single_source@test@linux_arm32_hfp" [label="Common -> Single Source -> Test -> Linux Arm32 Hfp", color=darkorange]
+	"common-single_source@main@linux_mips32" [label="Common -> Single Source -> Main -> Linux Mips32", color=darkorange]
+	"common-single_source@test@linux_mips32" [label="Common -> Single Source -> Test -> Linux Mips32", color=darkorange]
+	"common-single_source@main@linux_mipsel32" [label="Common -> Single Source -> Main -> Linux Mipsel32", color=darkorange]
+	"common-single_source@test@linux_mipsel32" [label="Common -> Single Source -> Test -> Linux Mipsel32", color=darkorange]
+	"common-single_source@main@linux_x64" [label="Common -> Single Source -> Main -> Linux X64", color=darkorange]
+	"common-single_source@test@linux_x64" [label="Common -> Single Source -> Test -> Linux X64", color=darkorange]
+	"common-single_source@main@macos_x64" [label="Common -> Single Source -> Main -> Macos X64", color=darkorange]
+	"common-single_source@test@macos_x64" [label="Common -> Single Source -> Test -> Macos X64", color=darkorange]
+	"common-single_source@main@mingw_x64" [label="Common -> Single Source -> Main -> Mingw X64", color=darkorange]
+	"common-single_source@test@mingw_x64" [label="Common -> Single Source -> Test -> Mingw X64", color=darkorange]
+	"common-single_source@main@mingw_x86" [label="Common -> Single Source -> Main -> Mingw X86", color=darkorange]
+	"common-single_source@test@mingw_x86" [label="Common -> Single Source -> Test -> Mingw X86", color=darkorange]
+	"common-single_source@main@tvos_arm64" [label="Common -> Single Source -> Main -> Tvos Arm64", color=darkorange]
+	"common-single_source@test@tvos_arm64" [label="Common -> Single Source -> Test -> Tvos Arm64", color=darkorange]
+	"common-single_source@main@tvos_x64" [label="Common -> Single Source -> Main -> Tvos X64", color=darkorange]
+	"common-single_source@test@tvos_x64" [label="Common -> Single Source -> Test -> Tvos X64", color=darkorange]
+	"common-single_source@main@wasm32" [label="Common -> Single Source -> Main -> Wasm32", color=darkorange]
+	"common-single_source@test@wasm32" [label="Common -> Single Source -> Test -> Wasm32", color=darkorange]
+	"common-single_source@main@watchos_arm32" [label="Common -> Single Source -> Main -> Watchos Arm32", color=darkorange]
+	"common-single_source@test@watchos_arm32" [label="Common -> Single Source -> Test -> Watchos Arm32", color=darkorange]
+	"common-single_source@main@watchos_arm64" [label="Common -> Single Source -> Main -> Watchos Arm64", color=darkorange]
+	"common-single_source@test@watchos_arm64" [label="Common -> Single Source -> Test -> Watchos Arm64", color=darkorange]
+	"common-single_source@main@watchos_x64" [label="Common -> Single Source -> Main -> Watchos X64", color=darkorange]
+	"common-single_source@test@watchos_x64" [label="Common -> Single Source -> Test -> Watchos X64", color=darkorange]
+	"common-single_source@main@watchos_x86" [label="Common -> Single Source -> Main -> Watchos X86", color=darkorange]
+	"common-single_source@test@watchos_x86" [label="Common -> Single Source -> Test -> Watchos X86", color=darkorange]
+	"library-multiple_sources@main@common" [label="Library -> Multiple Sources -> Main -> Common", color=darkorange]
+	"library-multiple_sources@test@common" [label="Library -> Multiple Sources -> Test -> Common", color=darkorange]
+	"library-multiple_sources@main@native" [label="Library -> Multiple Sources -> Main -> Native", color=darkorange]
+	"library-multiple_sources@test@native" [label="Library -> Multiple Sources -> Test -> Native", color=darkorange]
+	"library-multiple_sources@main@android_native_arm32" [label="Library -> Multiple Sources -> Main -> Android Native Arm32", color=darkorange]
+	"library-multiple_sources@test@android_native_arm32" [label="Library -> Multiple Sources -> Test -> Android Native Arm32", color=darkorange]
+	"library-multiple_sources@main@android_native_arm64" [label="Library -> Multiple Sources -> Main -> Android Native Arm64", color=darkorange]
+	"library-multiple_sources@test@android_native_arm64" [label="Library -> Multiple Sources -> Test -> Android Native Arm64", color=darkorange]
+	"library-multiple_sources@main@ios_arm32" [label="Library -> Multiple Sources -> Main -> Ios Arm32", color=darkorange]
+	"library-multiple_sources@test@ios_arm32" [label="Library -> Multiple Sources -> Test -> Ios Arm32", color=darkorange]
+	"library-multiple_sources@main@ios_arm64" [label="Library -> Multiple Sources -> Main -> Ios Arm64", color=darkorange]
+	"library-multiple_sources@test@ios_arm64" [label="Library -> Multiple Sources -> Test -> Ios Arm64", color=darkorange]
+	"library-multiple_sources@main@ios_x64" [label="Library -> Multiple Sources -> Main -> Ios X64", color=darkorange]
+	"library-multiple_sources@test@ios_x64" [label="Library -> Multiple Sources -> Test -> Ios X64", color=darkorange]
+	"library-multiple_sources@main@js" [label="Library -> Multiple Sources -> Main -> Js", color=darkorange]
+	"library-multiple_sources@test@js" [label="Library -> Multiple Sources -> Test -> Js", color=darkorange]
+	"library-multiple_sources@main@jvm" [label="Library -> Multiple Sources -> Main -> Jvm", color=darkorange]
+	"library-multiple_sources@test@jvm" [label="Library -> Multiple Sources -> Test -> Jvm", color=darkorange]
+	"library-multiple_sources@main@linux_arm32_hfp" [label="Library -> Multiple Sources -> Main -> Linux Arm32 Hfp", color=darkorange]
+	"library-multiple_sources@test@linux_arm32_hfp" [label="Library -> Multiple Sources -> Test -> Linux Arm32 Hfp", color=darkorange]
+	"library-multiple_sources@main@linux_mips32" [label="Library -> Multiple Sources -> Main -> Linux Mips32", color=darkorange]
+	"library-multiple_sources@test@linux_mips32" [label="Library -> Multiple Sources -> Test -> Linux Mips32", color=darkorange]
+	"library-multiple_sources@main@linux_mipsel32" [label="Library -> Multiple Sources -> Main -> Linux Mipsel32", color=darkorange]
+	"library-multiple_sources@test@linux_mipsel32" [label="Library -> Multiple Sources -> Test -> Linux Mipsel32", color=darkorange]
+	"library-multiple_sources@main@linux_x64" [label="Library -> Multiple Sources -> Main -> Linux X64", color=darkorange]
+	"library-multiple_sources@test@linux_x64" [label="Library -> Multiple Sources -> Test -> Linux X64", color=darkorange]
+	"library-multiple_sources@main@macos_x64" [label="Library -> Multiple Sources -> Main -> Macos X64", color=darkorange]
+	"library-multiple_sources@test@macos_x64" [label="Library -> Multiple Sources -> Test -> Macos X64", color=darkorange]
+	"library-multiple_sources@main@mingw_x64" [label="Library -> Multiple Sources -> Main -> Mingw X64", color=darkorange]
+	"library-multiple_sources@test@mingw_x64" [label="Library -> Multiple Sources -> Test -> Mingw X64", color=darkorange]
+	"library-multiple_sources@main@mingw_x86" [label="Library -> Multiple Sources -> Main -> Mingw X86", color=darkorange]
+	"library-multiple_sources@test@mingw_x86" [label="Library -> Multiple Sources -> Test -> Mingw X86", color=darkorange]
+	"library-multiple_sources@main@tvos_arm64" [label="Library -> Multiple Sources -> Main -> Tvos Arm64", color=darkorange]
+	"library-multiple_sources@test@tvos_arm64" [label="Library -> Multiple Sources -> Test -> Tvos Arm64", color=darkorange]
+	"library-multiple_sources@main@tvos_x64" [label="Library -> Multiple Sources -> Main -> Tvos X64", color=darkorange]
+	"library-multiple_sources@test@tvos_x64" [label="Library -> Multiple Sources -> Test -> Tvos X64", color=darkorange]
+	"library-multiple_sources@main@wasm32" [label="Library -> Multiple Sources -> Main -> Wasm32", color=darkorange]
+	"library-multiple_sources@test@wasm32" [label="Library -> Multiple Sources -> Test -> Wasm32", color=darkorange]
+	"library-multiple_sources@main@watchos_arm32" [label="Library -> Multiple Sources -> Main -> Watchos Arm32", color=darkorange]
+	"library-multiple_sources@test@watchos_arm32" [label="Library -> Multiple Sources -> Test -> Watchos Arm32", color=darkorange]
+	"library-multiple_sources@main@watchos_arm64" [label="Library -> Multiple Sources -> Main -> Watchos Arm64", color=darkorange]
+	"library-multiple_sources@test@watchos_arm64" [label="Library -> Multiple Sources -> Test -> Watchos Arm64", color=darkorange]
+	"library-multiple_sources@main@watchos_x64" [label="Library -> Multiple Sources -> Main -> Watchos X64", color=darkorange]
+	"library-multiple_sources@test@watchos_x64" [label="Library -> Multiple Sources -> Test -> Watchos X64", color=darkorange]
+	"library-multiple_sources@main@watchos_x86" [label="Library -> Multiple Sources -> Main -> Watchos X86", color=darkorange]
+	"library-multiple_sources@test@watchos_x86" [label="Library -> Multiple Sources -> Test -> Watchos X86", color=darkorange]
+	"library-single_source@main@common" [label="Library -> Single Source -> Main -> Common", color=darkorange]
+	"library-single_source@test@common" [label="Library -> Single Source -> Test -> Common", color=darkorange]
+	"library-single_source@main@native" [label="Library -> Single Source -> Main -> Native", color=darkorange]
+	"library-single_source@test@native" [label="Library -> Single Source -> Test -> Native", color=darkorange]
+	"library-single_source@main@android_native_arm32" [label="Library -> Single Source -> Main -> Android Native Arm32", color=darkorange]
+	"library-single_source@test@android_native_arm32" [label="Library -> Single Source -> Test -> Android Native Arm32", color=darkorange]
+	"library-single_source@main@android_native_arm64" [label="Library -> Single Source -> Main -> Android Native Arm64", color=darkorange]
+	"library-single_source@test@android_native_arm64" [label="Library -> Single Source -> Test -> Android Native Arm64", color=darkorange]
+	"library-single_source@main@ios_arm32" [label="Library -> Single Source -> Main -> Ios Arm32", color=darkorange]
+	"library-single_source@test@ios_arm32" [label="Library -> Single Source -> Test -> Ios Arm32", color=darkorange]
+	"library-single_source@main@ios_arm64" [label="Library -> Single Source -> Main -> Ios Arm64", color=darkorange]
+	"library-single_source@test@ios_arm64" [label="Library -> Single Source -> Test -> Ios Arm64", color=darkorange]
+	"library-single_source@main@ios_x64" [label="Library -> Single Source -> Main -> Ios X64", color=darkorange]
+	"library-single_source@test@ios_x64" [label="Library -> Single Source -> Test -> Ios X64", color=darkorange]
+	"library-single_source@main@js" [label="Library -> Single Source -> Main -> Js", color=darkorange]
+	"library-single_source@test@js" [label="Library -> Single Source -> Test -> Js", color=darkorange]
+	"library-single_source@main@jvm" [label="Library -> Single Source -> Main -> Jvm", color=darkorange]
+	"library-single_source@test@jvm" [label="Library -> Single Source -> Test -> Jvm", color=darkorange]
+	"library-single_source@main@linux_arm32_hfp" [label="Library -> Single Source -> Main -> Linux Arm32 Hfp", color=darkorange]
+	"library-single_source@test@linux_arm32_hfp" [label="Library -> Single Source -> Test -> Linux Arm32 Hfp", color=darkorange]
+	"library-single_source@main@linux_mips32" [label="Library -> Single Source -> Main -> Linux Mips32", color=darkorange]
+	"library-single_source@test@linux_mips32" [label="Library -> Single Source -> Test -> Linux Mips32", color=darkorange]
+	"library-single_source@main@linux_mipsel32" [label="Library -> Single Source -> Main -> Linux Mipsel32", color=darkorange]
+	"library-single_source@test@linux_mipsel32" [label="Library -> Single Source -> Test -> Linux Mipsel32", color=darkorange]
+	"library-single_source@main@linux_x64" [label="Library -> Single Source -> Main -> Linux X64", color=darkorange]
+	"library-single_source@test@linux_x64" [label="Library -> Single Source -> Test -> Linux X64", color=darkorange]
+	"library-single_source@main@macos_x64" [label="Library -> Single Source -> Main -> Macos X64", color=darkorange]
+	"library-single_source@test@macos_x64" [label="Library -> Single Source -> Test -> Macos X64", color=darkorange]
+	"library-single_source@main@mingw_x64" [label="Library -> Single Source -> Main -> Mingw X64", color=darkorange]
+	"library-single_source@test@mingw_x64" [label="Library -> Single Source -> Test -> Mingw X64", color=darkorange]
+	"library-single_source@main@mingw_x86" [label="Library -> Single Source -> Main -> Mingw X86", color=darkorange]
+	"library-single_source@test@mingw_x86" [label="Library -> Single Source -> Test -> Mingw X86", color=darkorange]
+	"library-single_source@main@tvos_arm64" [label="Library -> Single Source -> Main -> Tvos Arm64", color=darkorange]
+	"library-single_source@test@tvos_arm64" [label="Library -> Single Source -> Test -> Tvos Arm64", color=darkorange]
+	"library-single_source@main@tvos_x64" [label="Library -> Single Source -> Main -> Tvos X64", color=darkorange]
+	"library-single_source@test@tvos_x64" [label="Library -> Single Source -> Test -> Tvos X64", color=darkorange]
+	"library-single_source@main@wasm32" [label="Library -> Single Source -> Main -> Wasm32", color=darkorange]
+	"library-single_source@test@wasm32" [label="Library -> Single Source -> Test -> Wasm32", color=darkorange]
+	"library-single_source@main@watchos_arm32" [label="Library -> Single Source -> Main -> Watchos Arm32", color=darkorange]
+	"library-single_source@test@watchos_arm32" [label="Library -> Single Source -> Test -> Watchos Arm32", color=darkorange]
+	"library-single_source@main@watchos_arm64" [label="Library -> Single Source -> Main -> Watchos Arm64", color=darkorange]
+	"library-single_source@test@watchos_arm64" [label="Library -> Single Source -> Test -> Watchos Arm64", color=darkorange]
+	"library-single_source@main@watchos_x64" [label="Library -> Single Source -> Main -> Watchos X64", color=darkorange]
+	"library-single_source@test@watchos_x64" [label="Library -> Single Source -> Test -> Watchos X64", color=darkorange]
+	"library-single_source@main@watchos_x86" [label="Library -> Single Source -> Main -> Watchos X86", color=darkorange]
+	"library-single_source@test@watchos_x86" [label="Library -> Single Source -> Test -> Watchos X86", color=darkorange]
+	"application-backend-js-express@main@js" [label="Application -> Backend -> Js -> Express -> Main -> Js", color=darkorange]
+	"application-backend-js-express@test@js" [label="Application -> Backend -> Js -> Express -> Test -> Js", color=darkorange]
+	"application-backend-jvm-spring_boot@main@jvm" [label="Application -> Backend -> Jvm -> Spring Boot -> Main -> Jvm", color=darkorange]
+	"application-backend-jvm-spring_boot@test@jvm" [label="Application -> Backend -> Jvm -> Spring Boot -> Test -> Jvm", color=darkorange]
+	"application-browser-js-spa-react@main@js" [label="Application -> Browser -> Js -> Spa -> React -> Main -> Js", color=darkorange]
+	"application-browser-js-spa-react@test@js" [label="Application -> Browser -> Js -> Spa -> React -> Test -> Js", color=darkorange]
+	"application-browser-js-vanilla@main@js" [label="Application -> Browser -> Js -> Vanilla -> Main -> Js", color=darkorange]
+	"application-browser-js-vanilla@test@js" [label="Application -> Browser -> Js -> Vanilla -> Test -> Js", color=darkorange]
+	"application-browser-native-wasm32@main@wasm32" [label="Application -> Browser -> Native -> Wasm32 -> Main -> Wasm32", color=darkorange]
+	"application-browser-native-wasm32@test@wasm32" [label="Application -> Browser -> Native -> Wasm32 -> Test -> Wasm32", color=darkorange]
+	"application-desktop-jvm-tornado_fx@main@jvm" [label="Application -> Desktop -> Jvm -> Tornado Fx -> Main -> Jvm", color=darkorange]
+	"application-desktop-jvm-tornado_fx@test@jvm" [label="Application -> Desktop -> Jvm -> Tornado Fx -> Test -> Jvm", color=darkorange]
+	"application-mobile-jvm-android@main@android" [label="Application -> Mobile -> Jvm -> Android -> Main -> Android", color=darkorange]
+	"application-mobile-jvm-android@test@android" [label="Application -> Mobile -> Jvm -> Android -> Test -> Android", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64@main@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 -> Main -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64@test@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 -> Test -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_copying_framework@main@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Copying Framework -> Main -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_copying_framework@test@ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Copying Framework -> Test -> Ios X64", color=darkorange]
+	"application-script-jvm-script@main@jvm" [label="Application -> Script -> Jvm -> Script -> Main -> Jvm", color=darkorange]
+	"application-script-jvm-script@test@jvm" [label="Application -> Script -> Jvm -> Script -> Test -> Jvm", color=darkorange]
+	"application-television-native-apple-tvos-tvos_x64@main@tvos_x64" [label="Application -> Television -> Native -> Apple -> Tvos -> Tvos X64 -> Main -> Tvos X64", color=darkorange]
+	"application-television-native-apple-tvos-tvos_x64@test@tvos_x64" [label="Application -> Television -> Native -> Apple -> Tvos -> Tvos X64 -> Test -> Tvos X64", color=darkorange]
+	"application-terminal-jvm-terminal@main@jvm" [label="Application -> Terminal -> Jvm -> Terminal -> Main -> Jvm", color=darkorange]
+	"application-terminal-jvm-terminal@test@jvm" [label="Application -> Terminal -> Jvm -> Terminal -> Test -> Jvm", color=darkorange]
+	"application-watch-native-apple-watchos-watchos_x64@main@watchos_x64" [label="Application -> Watch -> Native -> Apple -> Watchos -> Watchos X64 -> Main -> Watchos X64", color=darkorange]
+	"application-watch-native-apple-watchos-watchos_x64@test@watchos_x64" [label="Application -> Watch -> Native -> Apple -> Watchos -> Watchos X64 -> Test -> Watchos X64", color=darkorange]
+	
+	
+	"root" -> "common"
+	"common" -> "common-multiple_modules"
+	"common" -> "common-multiple_sources"
+	"common-multiple_sources" -> "common-multiple_sources@android_native_arm32"
+	"common-multiple_sources@android_native_arm32" -> "common-multiple_sources@main@android_native_arm32"
+	"common-multiple_sources@android_native_arm32" -> "common-multiple_sources@test@android_native_arm32"
+	"common-multiple_sources" -> "common-multiple_sources@android_native_arm64"
+	"common-multiple_sources@android_native_arm64" -> "common-multiple_sources@main@android_native_arm64"
+	"common-multiple_sources@android_native_arm64" -> "common-multiple_sources@test@android_native_arm64"
+	"common-multiple_sources" -> "common-multiple_sources@ios_arm32"
+	"common-multiple_sources@ios_arm32" -> "common-multiple_sources@main@ios_arm32"
+	"common-multiple_sources@ios_arm32" -> "common-multiple_sources@test@ios_arm32"
+	"common-multiple_sources" -> "common-multiple_sources@ios_arm64"
+	"common-multiple_sources@ios_arm64" -> "common-multiple_sources@main@ios_arm64"
+	"common-multiple_sources@ios_arm64" -> "common-multiple_sources@test@ios_arm64"
+	"common-multiple_sources" -> "common-multiple_sources@ios_x64"
+	"common-multiple_sources@ios_x64" -> "common-multiple_sources@main@ios_x64"
+	"common-multiple_sources@ios_x64" -> "common-multiple_sources@test@ios_x64"
+	"common-multiple_sources" -> "common-multiple_sources@js"
+	"common-multiple_sources@js" -> "common-multiple_sources@main@js"
+	"common-multiple_sources@js" -> "common-multiple_sources@test@js"
+	"common-multiple_sources" -> "common-multiple_sources@jvm"
+	"common-multiple_sources@jvm" -> "common-multiple_sources@main@jvm"
+	"common-multiple_sources@jvm" -> "common-multiple_sources@test@jvm"
+	"common-multiple_sources" -> "common-multiple_sources@linux_arm32_hfp"
+	"common-multiple_sources@linux_arm32_hfp" -> "common-multiple_sources@main@linux_arm32_hfp"
+	"common-multiple_sources@linux_arm32_hfp" -> "common-multiple_sources@test@linux_arm32_hfp"
+	"common-multiple_sources" -> "common-multiple_sources@linux_mips32"
+	"common-multiple_sources@linux_mips32" -> "common-multiple_sources@main@linux_mips32"
+	"common-multiple_sources@linux_mips32" -> "common-multiple_sources@test@linux_mips32"
+	"common-multiple_sources" -> "common-multiple_sources@linux_mipsel32"
+	"common-multiple_sources@linux_mipsel32" -> "common-multiple_sources@main@linux_mipsel32"
+	"common-multiple_sources@linux_mipsel32" -> "common-multiple_sources@test@linux_mipsel32"
+	"common-multiple_sources" -> "common-multiple_sources@linux_x64"
+	"common-multiple_sources@linux_x64" -> "common-multiple_sources@main@linux_x64"
+	"common-multiple_sources@linux_x64" -> "common-multiple_sources@test@linux_x64"
+	"common-multiple_sources" -> "common-multiple_sources@macos_x64"
+	"common-multiple_sources@macos_x64" -> "common-multiple_sources@main@macos_x64"
+	"common-multiple_sources@macos_x64" -> "common-multiple_sources@test@macos_x64"
+	"common-multiple_sources" -> "common-multiple_sources@mingw_x64"
+	"common-multiple_sources@mingw_x64" -> "common-multiple_sources@main@mingw_x64"
+	"common-multiple_sources@mingw_x64" -> "common-multiple_sources@test@mingw_x64"
+	"common-multiple_sources" -> "common-multiple_sources@mingw_x86"
+	"common-multiple_sources@mingw_x86" -> "common-multiple_sources@main@mingw_x86"
+	"common-multiple_sources@mingw_x86" -> "common-multiple_sources@test@mingw_x86"
+	"common-multiple_sources" -> "common-multiple_sources@tvos_arm64"
+	"common-multiple_sources@tvos_arm64" -> "common-multiple_sources@main@tvos_arm64"
+	"common-multiple_sources@tvos_arm64" -> "common-multiple_sources@test@tvos_arm64"
+	"common-multiple_sources" -> "common-multiple_sources@tvos_x64"
+	"common-multiple_sources@tvos_x64" -> "common-multiple_sources@main@tvos_x64"
+	"common-multiple_sources@tvos_x64" -> "common-multiple_sources@test@tvos_x64"
+	"common-multiple_sources" -> "common-multiple_sources@wasm32"
+	"common-multiple_sources@wasm32" -> "common-multiple_sources@main@wasm32"
+	"common-multiple_sources@wasm32" -> "common-multiple_sources@test@wasm32"
+	"common-multiple_sources" -> "common-multiple_sources@watchos_arm32"
+	"common-multiple_sources@watchos_arm32" -> "common-multiple_sources@main@watchos_arm32"
+	"common-multiple_sources@watchos_arm32" -> "common-multiple_sources@test@watchos_arm32"
+	"common-multiple_sources" -> "common-multiple_sources@watchos_arm64"
+	"common-multiple_sources@watchos_arm64" -> "common-multiple_sources@main@watchos_arm64"
+	"common-multiple_sources@watchos_arm64" -> "common-multiple_sources@test@watchos_arm64"
+	"common-multiple_sources" -> "common-multiple_sources@watchos_x64"
+	"common-multiple_sources@watchos_x64" -> "common-multiple_sources@main@watchos_x64"
+	"common-multiple_sources@watchos_x64" -> "common-multiple_sources@test@watchos_x64"
+	"common-multiple_sources" -> "common-multiple_sources@watchos_x86"
+	"common-multiple_sources@watchos_x86" -> "common-multiple_sources@main@watchos_x86"
+	"common-multiple_sources@watchos_x86" -> "common-multiple_sources@test@watchos_x86"
+	"common-multiple_sources" -> "common-multiple_sources@ios_x64@mobile-native-ios_x64"
+	"common-multiple_sources" -> "common-multiple_sources@js@browser"
+	"common-multiple_sources" -> "common-multiple_sources@js@browser-spa"
+	"common-multiple_sources" -> "common-multiple_sources@js@browser-spa-react"
+	"common-multiple_sources" -> "common-multiple_sources@js@browser-vanilla"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@backend"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@backend-spring_boot"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@desktop"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@desktop-tornado_fx"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@mobile"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@mobile-android"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@script"
+	"common-multiple_sources" -> "common-multiple_sources@jvm@terminal"
+	"common-multiple_sources" -> "common-multiple_sources@wasm32@browser-native-wasm32"
+	"common" -> "common-single_source"
+	"common-single_source" -> "common-single_source@android_native_arm32"
+	"common-single_source@android_native_arm32" -> "common-single_source@main@android_native_arm32"
+	"common-single_source@android_native_arm32" -> "common-single_source@test@android_native_arm32"
+	"common-single_source" -> "common-single_source@android_native_arm64"
+	"common-single_source@android_native_arm64" -> "common-single_source@main@android_native_arm64"
+	"common-single_source@android_native_arm64" -> "common-single_source@test@android_native_arm64"
+	"common-single_source" -> "common-single_source@ios_arm32"
+	"common-single_source@ios_arm32" -> "common-single_source@main@ios_arm32"
+	"common-single_source@ios_arm32" -> "common-single_source@test@ios_arm32"
+	"common-single_source" -> "common-single_source@ios_arm64"
+	"common-single_source@ios_arm64" -> "common-single_source@main@ios_arm64"
+	"common-single_source@ios_arm64" -> "common-single_source@test@ios_arm64"
+	"common-single_source" -> "common-single_source@ios_x64"
+	"common-single_source@ios_x64" -> "common-single_source@main@ios_x64"
+	"common-single_source@ios_x64" -> "common-single_source@test@ios_x64"
+	"common-single_source" -> "common-single_source@js"
+	"common-single_source@js" -> "common-single_source@main@js"
+	"common-single_source@js" -> "common-single_source@test@js"
+	"common-single_source" -> "common-single_source@jvm"
+	"common-single_source@jvm" -> "common-single_source@main@jvm"
+	"common-single_source@jvm" -> "common-single_source@test@jvm"
+	"common-single_source" -> "common-single_source@linux_arm32_hfp"
+	"common-single_source@linux_arm32_hfp" -> "common-single_source@main@linux_arm32_hfp"
+	"common-single_source@linux_arm32_hfp" -> "common-single_source@test@linux_arm32_hfp"
+	"common-single_source" -> "common-single_source@linux_mips32"
+	"common-single_source@linux_mips32" -> "common-single_source@main@linux_mips32"
+	"common-single_source@linux_mips32" -> "common-single_source@test@linux_mips32"
+	"common-single_source" -> "common-single_source@linux_mipsel32"
+	"common-single_source@linux_mipsel32" -> "common-single_source@main@linux_mipsel32"
+	"common-single_source@linux_mipsel32" -> "common-single_source@test@linux_mipsel32"
+	"common-single_source" -> "common-single_source@linux_x64"
+	"common-single_source@linux_x64" -> "common-single_source@main@linux_x64"
+	"common-single_source@linux_x64" -> "common-single_source@test@linux_x64"
+	"common-single_source" -> "common-single_source@macos_x64"
+	"common-single_source@macos_x64" -> "common-single_source@main@macos_x64"
+	"common-single_source@macos_x64" -> "common-single_source@test@macos_x64"
+	"common-single_source" -> "common-single_source@mingw_x64"
+	"common-single_source@mingw_x64" -> "common-single_source@main@mingw_x64"
+	"common-single_source@mingw_x64" -> "common-single_source@test@mingw_x64"
+	"common-single_source" -> "common-single_source@mingw_x86"
+	"common-single_source@mingw_x86" -> "common-single_source@main@mingw_x86"
+	"common-single_source@mingw_x86" -> "common-single_source@test@mingw_x86"
+	"common-single_source" -> "common-single_source@tvos_arm64"
+	"common-single_source@tvos_arm64" -> "common-single_source@main@tvos_arm64"
+	"common-single_source@tvos_arm64" -> "common-single_source@test@tvos_arm64"
+	"common-single_source" -> "common-single_source@tvos_x64"
+	"common-single_source@tvos_x64" -> "common-single_source@main@tvos_x64"
+	"common-single_source@tvos_x64" -> "common-single_source@test@tvos_x64"
+	"common-single_source" -> "common-single_source@wasm32"
+	"common-single_source@wasm32" -> "common-single_source@main@wasm32"
+	"common-single_source@wasm32" -> "common-single_source@test@wasm32"
+	"common-single_source" -> "common-single_source@watchos_arm32"
+	"common-single_source@watchos_arm32" -> "common-single_source@main@watchos_arm32"
+	"common-single_source@watchos_arm32" -> "common-single_source@test@watchos_arm32"
+	"common-single_source" -> "common-single_source@watchos_arm64"
+	"common-single_source@watchos_arm64" -> "common-single_source@main@watchos_arm64"
+	"common-single_source@watchos_arm64" -> "common-single_source@test@watchos_arm64"
+	"common-single_source" -> "common-single_source@watchos_x64"
+	"common-single_source@watchos_x64" -> "common-single_source@main@watchos_x64"
+	"common-single_source@watchos_x64" -> "common-single_source@test@watchos_x64"
+	"common-single_source" -> "common-single_source@watchos_x86"
+	"common-single_source@watchos_x86" -> "common-single_source@main@watchos_x86"
+	"common-single_source@watchos_x86" -> "common-single_source@test@watchos_x86"
+	"common-single_source" -> "common-single_source@ios_x64@mobile-native-ios_x64"
+	"common-single_source" -> "common-single_source@js@browser"
+	"common-single_source" -> "common-single_source@js@browser-spa"
+	"common-single_source" -> "common-single_source@js@browser-spa-react"
+	"common-single_source" -> "common-single_source@js@browser-vanilla"
+	"common-single_source" -> "common-single_source@jvm@backend"
+	"common-single_source" -> "common-single_source@jvm@backend-spring_boot"
+	"common-single_source" -> "common-single_source@jvm@desktop"
+	"common-single_source" -> "common-single_source@jvm@desktop-tornado_fx"
+	"common-single_source" -> "common-single_source@jvm@mobile"
+	"common-single_source" -> "common-single_source@jvm@mobile-android"
+	"common-single_source" -> "common-single_source@jvm@script"
+	"common-single_source" -> "common-single_source@jvm@terminal"
+	"common-single_source" -> "common-single_source@wasm32@browser-native-wasm32"
+	"root" -> "library"
+	"library" -> "library-multiple_modules"
+	"library" -> "library-multiple_sources"
+	"library-multiple_sources" -> "library-multiple_sources@android_native_arm32"
+	"library-multiple_sources@android_native_arm32" -> "library-multiple_sources@main@android_native_arm32"
+	"library-multiple_sources@android_native_arm32" -> "library-multiple_sources@test@android_native_arm32"
+	"library-multiple_sources" -> "library-multiple_sources@android_native_arm64"
+	"library-multiple_sources@android_native_arm64" -> "library-multiple_sources@main@android_native_arm64"
+	"library-multiple_sources@android_native_arm64" -> "library-multiple_sources@test@android_native_arm64"
+	"library-multiple_sources" -> "library-multiple_sources@ios_arm32"
+	"library-multiple_sources@ios_arm32" -> "library-multiple_sources@main@ios_arm32"
+	"library-multiple_sources@ios_arm32" -> "library-multiple_sources@test@ios_arm32"
+	"library-multiple_sources" -> "library-multiple_sources@ios_arm64"
+	"library-multiple_sources@ios_arm64" -> "library-multiple_sources@main@ios_arm64"
+	"library-multiple_sources@ios_arm64" -> "library-multiple_sources@test@ios_arm64"
+	"library-multiple_sources" -> "library-multiple_sources@ios_x64"
+	"library-multiple_sources@ios_x64" -> "library-multiple_sources@main@ios_x64"
+	"library-multiple_sources@ios_x64" -> "library-multiple_sources@test@ios_x64"
+	"library-multiple_sources" -> "library-multiple_sources@js"
+	"library-multiple_sources@js" -> "library-multiple_sources@main@js"
+	"library-multiple_sources@js" -> "library-multiple_sources@test@js"
+	"library-multiple_sources" -> "library-multiple_sources@jvm"
+	"library-multiple_sources@jvm" -> "library-multiple_sources@main@jvm"
+	"library-multiple_sources@jvm" -> "library-multiple_sources@test@jvm"
+	"library-multiple_sources" -> "library-multiple_sources@linux_arm32_hfp"
+	"library-multiple_sources@linux_arm32_hfp" -> "library-multiple_sources@main@linux_arm32_hfp"
+	"library-multiple_sources@linux_arm32_hfp" -> "library-multiple_sources@test@linux_arm32_hfp"
+	"library-multiple_sources" -> "library-multiple_sources@linux_mips32"
+	"library-multiple_sources@linux_mips32" -> "library-multiple_sources@main@linux_mips32"
+	"library-multiple_sources@linux_mips32" -> "library-multiple_sources@test@linux_mips32"
+	"library-multiple_sources" -> "library-multiple_sources@linux_mipsel32"
+	"library-multiple_sources@linux_mipsel32" -> "library-multiple_sources@main@linux_mipsel32"
+	"library-multiple_sources@linux_mipsel32" -> "library-multiple_sources@test@linux_mipsel32"
+	"library-multiple_sources" -> "library-multiple_sources@linux_x64"
+	"library-multiple_sources@linux_x64" -> "library-multiple_sources@main@linux_x64"
+	"library-multiple_sources@linux_x64" -> "library-multiple_sources@test@linux_x64"
+	"library-multiple_sources" -> "library-multiple_sources@macos_x64"
+	"library-multiple_sources@macos_x64" -> "library-multiple_sources@main@macos_x64"
+	"library-multiple_sources@macos_x64" -> "library-multiple_sources@test@macos_x64"
+	"library-multiple_sources" -> "library-multiple_sources@mingw_x64"
+	"library-multiple_sources@mingw_x64" -> "library-multiple_sources@main@mingw_x64"
+	"library-multiple_sources@mingw_x64" -> "library-multiple_sources@test@mingw_x64"
+	"library-multiple_sources" -> "library-multiple_sources@mingw_x86"
+	"library-multiple_sources@mingw_x86" -> "library-multiple_sources@main@mingw_x86"
+	"library-multiple_sources@mingw_x86" -> "library-multiple_sources@test@mingw_x86"
+	"library-multiple_sources" -> "library-multiple_sources@tvos_arm64"
+	"library-multiple_sources@tvos_arm64" -> "library-multiple_sources@main@tvos_arm64"
+	"library-multiple_sources@tvos_arm64" -> "library-multiple_sources@test@tvos_arm64"
+	"library-multiple_sources" -> "library-multiple_sources@tvos_x64"
+	"library-multiple_sources@tvos_x64" -> "library-multiple_sources@main@tvos_x64"
+	"library-multiple_sources@tvos_x64" -> "library-multiple_sources@test@tvos_x64"
+	"library-multiple_sources" -> "library-multiple_sources@wasm32"
+	"library-multiple_sources@wasm32" -> "library-multiple_sources@main@wasm32"
+	"library-multiple_sources@wasm32" -> "library-multiple_sources@test@wasm32"
+	"library-multiple_sources" -> "library-multiple_sources@watchos_arm32"
+	"library-multiple_sources@watchos_arm32" -> "library-multiple_sources@main@watchos_arm32"
+	"library-multiple_sources@watchos_arm32" -> "library-multiple_sources@test@watchos_arm32"
+	"library-multiple_sources" -> "library-multiple_sources@watchos_arm64"
+	"library-multiple_sources@watchos_arm64" -> "library-multiple_sources@main@watchos_arm64"
+	"library-multiple_sources@watchos_arm64" -> "library-multiple_sources@test@watchos_arm64"
+	"library-multiple_sources" -> "library-multiple_sources@watchos_x64"
+	"library-multiple_sources@watchos_x64" -> "library-multiple_sources@main@watchos_x64"
+	"library-multiple_sources@watchos_x64" -> "library-multiple_sources@test@watchos_x64"
+	"library-multiple_sources" -> "library-multiple_sources@watchos_x86"
+	"library-multiple_sources@watchos_x86" -> "library-multiple_sources@main@watchos_x86"
+	"library-multiple_sources@watchos_x86" -> "library-multiple_sources@test@watchos_x86"
+	"library" -> "library-single_source"
+	"library-single_source" -> "library-single_source@android_native_arm32"
+	"library-single_source@android_native_arm32" -> "library-single_source@main@android_native_arm32"
+	"library-single_source@android_native_arm32" -> "library-single_source@test@android_native_arm32"
+	"library-single_source" -> "library-single_source@android_native_arm64"
+	"library-single_source@android_native_arm64" -> "library-single_source@main@android_native_arm64"
+	"library-single_source@android_native_arm64" -> "library-single_source@test@android_native_arm64"
+	"library-single_source" -> "library-single_source@ios_arm32"
+	"library-single_source@ios_arm32" -> "library-single_source@main@ios_arm32"
+	"library-single_source@ios_arm32" -> "library-single_source@test@ios_arm32"
+	"library-single_source" -> "library-single_source@ios_arm64"
+	"library-single_source@ios_arm64" -> "library-single_source@main@ios_arm64"
+	"library-single_source@ios_arm64" -> "library-single_source@test@ios_arm64"
+	"library-single_source" -> "library-single_source@ios_x64"
+	"library-single_source@ios_x64" -> "library-single_source@main@ios_x64"
+	"library-single_source@ios_x64" -> "library-single_source@test@ios_x64"
+	"library-single_source" -> "library-single_source@js"
+	"library-single_source@js" -> "library-single_source@main@js"
+	"library-single_source@js" -> "library-single_source@test@js"
+	"library-single_source" -> "library-single_source@jvm"
+	"library-single_source@jvm" -> "library-single_source@main@jvm"
+	"library-single_source@jvm" -> "library-single_source@test@jvm"
+	"library-single_source" -> "library-single_source@linux_arm32_hfp"
+	"library-single_source@linux_arm32_hfp" -> "library-single_source@main@linux_arm32_hfp"
+	"library-single_source@linux_arm32_hfp" -> "library-single_source@test@linux_arm32_hfp"
+	"library-single_source" -> "library-single_source@linux_mips32"
+	"library-single_source@linux_mips32" -> "library-single_source@main@linux_mips32"
+	"library-single_source@linux_mips32" -> "library-single_source@test@linux_mips32"
+	"library-single_source" -> "library-single_source@linux_mipsel32"
+	"library-single_source@linux_mipsel32" -> "library-single_source@main@linux_mipsel32"
+	"library-single_source@linux_mipsel32" -> "library-single_source@test@linux_mipsel32"
+	"library-single_source" -> "library-single_source@linux_x64"
+	"library-single_source@linux_x64" -> "library-single_source@main@linux_x64"
+	"library-single_source@linux_x64" -> "library-single_source@test@linux_x64"
+	"library-single_source" -> "library-single_source@macos_x64"
+	"library-single_source@macos_x64" -> "library-single_source@main@macos_x64"
+	"library-single_source@macos_x64" -> "library-single_source@test@macos_x64"
+	"library-single_source" -> "library-single_source@mingw_x64"
+	"library-single_source@mingw_x64" -> "library-single_source@main@mingw_x64"
+	"library-single_source@mingw_x64" -> "library-single_source@test@mingw_x64"
+	"library-single_source" -> "library-single_source@mingw_x86"
+	"library-single_source@mingw_x86" -> "library-single_source@main@mingw_x86"
+	"library-single_source@mingw_x86" -> "library-single_source@test@mingw_x86"
+	"library-single_source" -> "library-single_source@tvos_arm64"
+	"library-single_source@tvos_arm64" -> "library-single_source@main@tvos_arm64"
+	"library-single_source@tvos_arm64" -> "library-single_source@test@tvos_arm64"
+	"library-single_source" -> "library-single_source@tvos_x64"
+	"library-single_source@tvos_x64" -> "library-single_source@main@tvos_x64"
+	"library-single_source@tvos_x64" -> "library-single_source@test@tvos_x64"
+	"library-single_source" -> "library-single_source@wasm32"
+	"library-single_source@wasm32" -> "library-single_source@main@wasm32"
+	"library-single_source@wasm32" -> "library-single_source@test@wasm32"
+	"library-single_source" -> "library-single_source@watchos_arm32"
+	"library-single_source@watchos_arm32" -> "library-single_source@main@watchos_arm32"
+	"library-single_source@watchos_arm32" -> "library-single_source@test@watchos_arm32"
+	"library-single_source" -> "library-single_source@watchos_arm64"
+	"library-single_source@watchos_arm64" -> "library-single_source@main@watchos_arm64"
+	"library-single_source@watchos_arm64" -> "library-single_source@test@watchos_arm64"
+	"library-single_source" -> "library-single_source@watchos_x64"
+	"library-single_source@watchos_x64" -> "library-single_source@main@watchos_x64"
+	"library-single_source@watchos_x64" -> "library-single_source@test@watchos_x64"
+	"library-single_source" -> "library-single_source@watchos_x86"
+	"library-single_source@watchos_x86" -> "library-single_source@main@watchos_x86"
+	"library-single_source@watchos_x86" -> "library-single_source@test@watchos_x86"
+	"root" -> "application"
+	"application" -> "application-backend"
+	"application-backend" -> "application-backend-js"
+	"application-backend-js" -> "application-backend-js-express"
+	"application-backend-js-express" -> "application-backend-js-express@js"
+	"application-backend-js-express@js" -> "application-backend-js-express@main@js"
+	"application-backend-js-express@js" -> "application-backend-js-express@test@js"
+	"application-backend" -> "application-backend-jvm"
+	"application-backend-jvm" -> "application-backend-jvm-spring_boot"
+	"application-backend-jvm-spring_boot" -> "application-backend-jvm-spring_boot@jvm"
+	"application-backend-jvm-spring_boot@jvm" -> "application-backend-jvm-spring_boot@main@jvm"
+	"application-backend-jvm-spring_boot@jvm" -> "application-backend-jvm-spring_boot@test@jvm"
+	"application" -> "application-browser"
+	"application-browser" -> "application-browser-js"
+	"application-browser-js" -> "application-browser-js-spa"
+	"application-browser-js-spa" -> "application-browser-js-spa-react"
+	"application-browser-js-spa-react" -> "application-browser-js-spa-react@js"
+	"application-browser-js-spa-react@js" -> "application-browser-js-spa-react@main@js"
+	"application-browser-js-spa-react@js" -> "application-browser-js-spa-react@test@js"
+	"application-browser-js" -> "application-browser-js-vanilla"
+	"application-browser-js-vanilla" -> "application-browser-js-vanilla@js"
+	"application-browser-js-vanilla@js" -> "application-browser-js-vanilla@main@js"
+	"application-browser-js-vanilla@js" -> "application-browser-js-vanilla@test@js"
+	"application-browser" -> "application-browser-native"
+	"application-browser-native" -> "application-browser-native-wasm32"
+	"application-browser-native-wasm32" -> "application-browser-native-wasm32@wasm32"
+	"application-browser-native-wasm32@wasm32" -> "application-browser-native-wasm32@main@wasm32"
+	"application-browser-native-wasm32@wasm32" -> "application-browser-native-wasm32@test@wasm32"
+	"application" -> "application-desktop"
+	"application-desktop" -> "application-desktop-jvm"
+	"application-desktop-jvm" -> "application-desktop-jvm-tornado_fx"
+	"application-desktop-jvm-tornado_fx" -> "application-desktop-jvm-tornado_fx@jvm"
+	"application-desktop-jvm-tornado_fx@jvm" -> "application-desktop-jvm-tornado_fx@main@jvm"
+	"application-desktop-jvm-tornado_fx@jvm" -> "application-desktop-jvm-tornado_fx@test@jvm"
+	"application" -> "application-mobile"
+	"application-mobile" -> "application-mobile-jvm"
+	"application-mobile-jvm" -> "application-mobile-jvm-android"
+	"application-mobile-jvm-android" -> "application-mobile-jvm-android@android"
+	"application-mobile-jvm-android@android" -> "application-mobile-jvm-android@main@android"
+	"application-mobile-jvm-android@android" -> "application-mobile-jvm-android@test@android"
+	"application-mobile" -> "application-mobile-native"
+	"application-mobile-native" -> "application-mobile-native-apple"
+	"application-mobile-native-apple" -> "application-mobile-native-apple-ios"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64"
+	"application-mobile-native-apple-ios-ios_x64" -> "application-mobile-native-apple-ios-ios_x64@ios_x64"
+	"application-mobile-native-apple-ios-ios_x64@ios_x64" -> "application-mobile-native-apple-ios-ios_x64@main@ios_x64"
+	"application-mobile-native-apple-ios-ios_x64@ios_x64" -> "application-mobile-native-apple-ios-ios_x64@test@ios_x64"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_copying_framework"
+	"application-mobile-native-apple-ios-ios_x64_copying_framework" -> "application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64"
+	"application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64" -> "application-mobile-native-apple-ios-ios_x64_copying_framework@main@ios_x64"
+	"application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64" -> "application-mobile-native-apple-ios-ios_x64_copying_framework@test@ios_x64"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_framework"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_with_framework"
+	"application" -> "application-script"
+	"application-script" -> "application-script-jvm"
+	"application-script-jvm" -> "application-script-jvm-script"
+	"application-script-jvm-script" -> "application-script-jvm-script@jvm"
+	"application-script-jvm-script@jvm" -> "application-script-jvm-script@main@jvm"
+	"application-script-jvm-script@jvm" -> "application-script-jvm-script@test@jvm"
+	"application" -> "application-television"
+	"application-television" -> "application-television-native"
+	"application-television-native" -> "application-television-native-apple"
+	"application-television-native-apple" -> "application-television-native-apple-tvos"
+	"application-television-native-apple-tvos" -> "application-television-native-apple-tvos-tvos_x64"
+	"application-television-native-apple-tvos-tvos_x64" -> "application-television-native-apple-tvos-tvos_x64@tvos_x64"
+	"application-television-native-apple-tvos-tvos_x64@tvos_x64" -> "application-television-native-apple-tvos-tvos_x64@main@tvos_x64"
+	"application-television-native-apple-tvos-tvos_x64@tvos_x64" -> "application-television-native-apple-tvos-tvos_x64@test@tvos_x64"
+	"application" -> "application-terminal"
+	"application-terminal" -> "application-terminal-jvm"
+	"application-terminal-jvm" -> "application-terminal-jvm-terminal"
+	"application-terminal-jvm-terminal" -> "application-terminal-jvm-terminal@jvm"
+	"application-terminal-jvm-terminal@jvm" -> "application-terminal-jvm-terminal@main@jvm"
+	"application-terminal-jvm-terminal@jvm" -> "application-terminal-jvm-terminal@test@jvm"
+	"application" -> "application-watch"
+	"application-watch" -> "application-watch-native"
+	"application-watch-native" -> "application-watch-native-apple"
+	"application-watch-native-apple" -> "application-watch-native-apple-watchos"
+	"application-watch-native-apple-watchos" -> "application-watch-native-apple-watchos-watchos_x64"
+	"application-watch-native-apple-watchos-watchos_x64" -> "application-watch-native-apple-watchos-watchos_x64@watchos_x64"
+	"application-watch-native-apple-watchos-watchos_x64@watchos_x64" -> "application-watch-native-apple-watchos-watchos_x64@main@watchos_x64"
+	"application-watch-native-apple-watchos-watchos_x64@watchos_x64" -> "application-watch-native-apple-watchos-watchos_x64@test@watchos_x64"
 }

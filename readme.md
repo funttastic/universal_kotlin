@@ -18,7 +18,7 @@
 	AppVeyour (Windows)
 </p>
 <p>
-	<a href="https://travis-ci.com/funttastic/universal-kotlin">
+	<a href="https://circleci.com/gh/funttastic/universal_kotlin/tree/master">
 			<img
 					src="https://circleci.com/gh/funttastic/universal_kotlin/tree/master.svg?style=svg"
 					align="right"
@@ -27,7 +27,7 @@
 	CircleCI (Linux)
 </p>
 <p>
-	<a href="https://travis-ci.com/funttastic/universal-kotlin">
+	<a href="https://travis-ci.com/funttastic/universal_kotlin">
 			<img align="right" src="https://api.travis-ci.com/funttastic/universal_kotlin.svg?branch=master" />
 	</a>
 	Travis (MacOS)
@@ -36,7 +36,7 @@
 ## Overview
 
 Universal Kotlin is a project that aims to run on the most popular platforms using just Kotlin.
-Also, one of its goals is to use shared code from the common modules in all other ones.
+Also, one of its goals is to use shared code from the common modules and libraries in all other ones.
 
 ## Architecture
 
@@ -92,8 +92,19 @@ Also, one of its goals is to use shared code from the common modules in all othe
 
 ## Getting Started
 
+These instructions will get you a copy of the project up and running on your local machine.
+
+The configurations for the CIs can be found at:
+
+- [AppVeyor](appveyor.yml)
+- [CircleCI](.circleci/config.yml)
+- [Travis](.travis.yml)
+
+<!--
 These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes. See the Deployment section for notes on how to deploy the project on a live system.
+purposes.
+See the [Deployment](https://github.com/funttastic/universal_kotlin#deployment) section for notes on how to deploy the project on a live system.
+-->
 
 ### Prerequisites
 
@@ -182,9 +193,15 @@ or
 
 Note that the `check` task depends on the `test` one ([reference](https://docs.gradle.org/current/userguide/java_plugin.html)).
 
-## Deployment
+## Running
+
+Please refer to the `readme` of the correspondent module that you would like to run.
+
+<!--
+## Deploy
 
 Please refer to the `readme` of the correspondent module that you would like to deploy.
+-->
 
 ## Built With
 
@@ -198,6 +215,10 @@ Note that the modules themselves have many other dependencies and you can find t
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/funttastic/universal-kotlin/tags).
 -->
+
+## FAQ
+
+Please take a look at this documentation file for the [Frequently Asked Questions](resources/documentation/faq.md).
 
 ## Authors
 
@@ -259,7 +280,7 @@ which are doing a very good job. Thanks a lot!
 
 ## License
 
-Licensed under the MIT License.
+Licensed under the Apache License 2.0.
 
 See [license](license.md) for more information.
 

@@ -1,2 +1,0 @@
-Update root readme.md.
-Update buildSrc/src/main/kotlin/com/company/team/project/dsl/Util.kt.
