@@ -1,0 +1,511 @@
+<svg width="5222pt" height="476pt" viewBox="0.00 0.00 5222.00 476.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 472)">
+<title>G</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-472 5219,-472 5219,5 -4,5"></polygon>
+<!-- root -->
+<g id="node1" class="node"><title>root</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1179" cy="-450" rx="29.2296" ry="18"></ellipse>
+<text text-anchor="middle" x="1179" y="-445.8" font-family="Times,serif" font-size="14.00">Root</text>
+</g>
+<!-- common -->
+<g id="node2" class="node"><title>common</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="534" cy="-378" rx="46.4798" ry="18"></ellipse>
+<text text-anchor="middle" x="534" y="-373.8" font-family="Times,serif" font-size="14.00">Common</text>
+</g>
+<!-- root&#45;&gt;common -->
+<g id="edge2" class="edge"><title>root-&gt;common</title>
+<path fill="none" stroke="black" d="M1150.03,-445.856C1050.27,-435.029 719.876,-399.173 588.532,-384.918"></path>
+<polygon fill="black" stroke="black" points="588.627,-381.408 578.308,-383.809 587.872,-388.367 588.627,-381.408"></polygon>
+</g>
+<!-- library -->
+<g id="node6" class="node"><title>library</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1179" cy="-378" rx="39.4894" ry="18"></ellipse>
+<text text-anchor="middle" x="1179" y="-373.8" font-family="Times,serif" font-size="14.00">Library</text>
+</g>
+<!-- root&#45;&gt;library -->
+<g id="edge10" class="edge"><title>root-&gt;library</title>
+<path fill="none" stroke="black" d="M1179,-431.697C1179,-423.983 1179,-414.712 1179,-406.112"></path>
+<polygon fill="black" stroke="black" points="1182.5,-406.104 1179,-396.104 1175.5,-406.104 1182.5,-406.104"></polygon>
+</g>
+<!-- application -->
+<g id="node10" class="node"><title>application</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3306" cy="-378" rx="56.4443" ry="18"></ellipse>
+<text text-anchor="middle" x="3306" y="-373.8" font-family="Times,serif" font-size="14.00">Application</text>
+</g>
+<!-- root&#45;&gt;application -->
+<g id="edge18" class="edge"><title>root-&gt;application</title>
+<path fill="none" stroke="black" d="M1208.26,-448.037C1434.76,-440.583 2908.62,-392.078 3239.94,-381.174"></path>
+<polygon fill="black" stroke="black" points="3240.45,-384.659 3250.33,-380.832 3240.22,-377.663 3240.45,-384.659"></polygon>
+</g>
+<!-- common&#45;multiple_modules -->
+<g id="node3" class="node"><title>common-multiple_modules</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="129" cy="-306" rx="129.421" ry="18"></ellipse>
+<text text-anchor="middle" x="129" y="-301.8" font-family="Times,serif" font-size="14.00">Common -&gt; Multiple Modules</text>
+</g>
+<!-- common&#45;&gt;common&#45;multiple_modules -->
+<g id="edge4" class="edge"><title>common-&gt;common-multiple_modules</title>
+<path fill="none" stroke="black" d="M492.561,-369.838C427.984,-358.676 301.911,-336.886 216.563,-322.134"></path>
+<polygon fill="black" stroke="black" points="217.073,-318.671 206.623,-320.416 215.881,-325.568 217.073,-318.671"></polygon>
+</g>
+<!-- common&#45;multiple_sources -->
+<g id="node4" class="node"><title>common-multiple_sources</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="404" cy="-306" rx="126.581" ry="18"></ellipse>
+<text text-anchor="middle" x="404" y="-301.8" font-family="Times,serif" font-size="14.00">Common -&gt; Multiple Sources</text>
+</g>
+<!-- common&#45;&gt;common&#45;multiple_sources -->
+<g id="edge6" class="edge"><title>common-&gt;common-multiple_sources</title>
+<path fill="none" stroke="black" d="M508.005,-363.003C489.674,-353.132 464.776,-339.726 443.937,-328.504"></path>
+<polygon fill="black" stroke="black" points="445.45,-325.344 434.986,-323.685 442.131,-331.507 445.45,-325.344"></polygon>
+</g>
+<!-- common&#45;single_source -->
+<g id="node5" class="node"><title>common-single_source</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="663" cy="-306" rx="114.074" ry="18"></ellipse>
+<text text-anchor="middle" x="663" y="-301.8" font-family="Times,serif" font-size="14.00">Common -&gt; Single Source</text>
+</g>
+<!-- common&#45;&gt;common&#45;single_source -->
+<g id="edge8" class="edge"><title>common-&gt;common-single_source</title>
+<path fill="none" stroke="black" d="M559.795,-363.003C578.113,-353.063 603.04,-339.537 623.807,-328.268"></path>
+<polygon fill="black" stroke="black" points="625.598,-331.278 632.718,-323.432 622.26,-325.125 625.598,-331.278"></polygon>
+</g>
+<!-- library&#45;multiple_modules -->
+<g id="node7" class="node"><title>library-multiple_modules</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="918" cy="-306" rx="122.431" ry="18"></ellipse>
+<text text-anchor="middle" x="918" y="-301.8" font-family="Times,serif" font-size="14.00">Library -&gt; Multiple Modules</text>
+</g>
+<!-- library&#45;&gt;library&#45;multiple_modules -->
+<g id="edge12" class="edge"><title>library-&gt;library-multiple_modules</title>
+<path fill="none" stroke="black" d="M1145.94,-368.134C1105.35,-357.248 1035.53,-338.523 983.836,-324.657"></path>
+<polygon fill="black" stroke="black" points="984.644,-321.25 974.079,-322.04 982.831,-328.011 984.644,-321.25"></polygon>
+</g>
+<!-- library&#45;multiple_sources -->
+<g id="node8" class="node"><title>library-multiple_sources</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1179" cy="-306" rx="119.591" ry="18"></ellipse>
+<text text-anchor="middle" x="1179" y="-301.8" font-family="Times,serif" font-size="14.00">Library -&gt; Multiple Sources</text>
+</g>
+<!-- library&#45;&gt;library&#45;multiple_sources -->
+<g id="edge14" class="edge"><title>library-&gt;library-multiple_sources</title>
+<path fill="none" stroke="black" d="M1179,-359.697C1179,-351.983 1179,-342.712 1179,-334.112"></path>
+<polygon fill="black" stroke="black" points="1182.5,-334.104 1179,-324.104 1175.5,-334.104 1182.5,-334.104"></polygon>
+</g>
+<!-- library&#45;single_source -->
+<g id="node9" class="node"><title>library-single_source</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1424" cy="-306" rx="107.083" ry="18"></ellipse>
+<text text-anchor="middle" x="1424" y="-301.8" font-family="Times,serif" font-size="14.00">Library -&gt; Single Source</text>
+</g>
+<!-- library&#45;&gt;library&#45;single_source -->
+<g id="edge16" class="edge"><title>library-&gt;library-single_source</title>
+<path fill="none" stroke="black" d="M1211.53,-367.705C1249.89,-356.745 1314.48,-338.29 1362.4,-324.6"></path>
+<polygon fill="black" stroke="black" points="1363.4,-327.955 1372.05,-321.842 1361.48,-321.224 1363.4,-327.955"></polygon>
+</g>
+<!-- application&#45;backend -->
+<g id="node11" class="node"><title>application-backend</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1653" cy="-306" rx="103.357" ry="18"></ellipse>
+<text text-anchor="middle" x="1653" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Backend</text>
+</g>
+<!-- application&#45;&gt;application&#45;backend -->
+<g id="edge20" class="edge"><title>application-&gt;application-backend</title>
+<path fill="none" stroke="black" d="M3250.53,-374.651C3013.52,-364.614 2083.33,-325.223 1762.49,-311.637"></path>
+<polygon fill="black" stroke="black" points="1762.4,-308.13 1752.26,-311.203 1762.1,-315.123 1762.4,-308.13"></polygon>
+</g>
+<!-- application&#45;browser -->
+<g id="node16" class="node"><title>application-browser</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2302" cy="-306" rx="102.247" ry="18"></ellipse>
+<text text-anchor="middle" x="2302" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser</text>
+</g>
+<!-- application&#45;&gt;application&#45;browser -->
+<g id="edge30" class="edge"><title>application-&gt;application-browser</title>
+<path fill="none" stroke="black" d="M3251.66,-373.212C3091.09,-362.016 2616.82,-328.95 2405.56,-314.22"></path>
+<polygon fill="black" stroke="black" points="2405.61,-310.715 2395.39,-313.511 2405.12,-317.698 2405.61,-310.715"></polygon>
+</g>
+<!-- application&#45;desktop -->
+<g id="node23" class="node"><title>application-desktop</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2844" cy="-306" rx="101.953" ry="18"></ellipse>
+<text text-anchor="middle" x="2844" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Desktop</text>
+</g>
+<!-- application&#45;&gt;application&#45;desktop -->
+<g id="edge44" class="edge"><title>application-&gt;application-desktop</title>
+<path fill="none" stroke="black" d="M3256.12,-369.442C3177.7,-357.56 3024.64,-334.37 2928.73,-319.838"></path>
+<polygon fill="black" stroke="black" points="2929.18,-316.366 2918.77,-318.329 2928.13,-323.287 2929.18,-316.366"></polygon>
+</g>
+<!-- application&#45;mobile -->
+<g id="node26" class="node"><title>application-mobile</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3306" cy="-306" rx="98.0206" ry="18"></ellipse>
+<text text-anchor="middle" x="3306" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile</text>
+</g>
+<!-- application&#45;&gt;application&#45;mobile -->
+<g id="edge50" class="edge"><title>application-&gt;application-mobile</title>
+<path fill="none" stroke="black" d="M3306,-359.697C3306,-351.983 3306,-342.712 3306,-334.112"></path>
+<polygon fill="black" stroke="black" points="3309.5,-334.104 3306,-324.104 3302.5,-334.104 3309.5,-334.104"></polygon>
+</g>
+<!-- application&#45;script -->
+<g id="node36" class="node"><title>application-script</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3701" cy="-306" rx="93.2766" ry="18"></ellipse>
+<text text-anchor="middle" x="3701" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Script</text>
+</g>
+<!-- application&#45;&gt;application&#45;script -->
+<g id="edge70" class="edge"><title>application-&gt;application-script</title>
+<path fill="none" stroke="black" d="M3354.04,-368.487C3421.47,-356.537 3544.88,-334.666 3624.89,-320.489"></path>
+<polygon fill="black" stroke="black" points="3625.67,-323.904 3634.91,-318.713 3624.45,-317.012 3625.67,-323.904"></polygon>
+</g>
+<!-- application&#45;television -->
+<g id="node39" class="node"><title>application-television</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4054" cy="-306" rx="110.326" ry="18"></ellipse>
+<text text-anchor="middle" x="4054" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Television</text>
+</g>
+<!-- application&#45;&gt;application&#45;television -->
+<g id="edge76" class="edge"><title>application-&gt;application-television</title>
+<path fill="none" stroke="black" d="M3359.19,-372.022C3482.32,-360.499 3788.72,-331.826 3950.37,-316.698"></path>
+<polygon fill="black" stroke="black" points="3951.17,-320.138 3960.8,-315.722 3950.52,-313.169 3951.17,-320.138"></polygon>
+</g>
+<!-- application&#45;terminal -->
+<g id="node44" class="node"><title>application-terminal</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4428" cy="-306" rx="105.271" ry="18"></ellipse>
+<text text-anchor="middle" x="4428" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Terminal</text>
+</g>
+<!-- application&#45;&gt;application&#45;terminal -->
+<g id="edge86" class="edge"><title>application-&gt;application-terminal</title>
+<path fill="none" stroke="black" d="M3360.78,-373.756C3497.72,-365.625 3865.99,-343.617 4173,-324 4221.88,-320.876 4276.03,-317.285 4321.81,-314.211"></path>
+<polygon fill="black" stroke="black" points="4322.3,-317.686 4332.04,-313.523 4321.83,-310.701 4322.3,-317.686"></polygon>
+</g>
+<!-- application&#45;watch -->
+<g id="node47" class="node"><title>application-watch</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4722" cy="-306" rx="94.9798" ry="18"></ellipse>
+<text text-anchor="middle" x="4722" y="-301.8" font-family="Times,serif" font-size="14.00">Application -&gt; Watch</text>
+</g>
+<!-- application&#45;&gt;application&#45;watch -->
+<g id="edge92" class="edge"><title>application-&gt;application-watch</title>
+<path fill="none" stroke="black" d="M3362.11,-375.62C3536.91,-371.099 4087.2,-355.207 4542,-324 4570.87,-322.019 4602.28,-319.261 4630.67,-316.542"></path>
+<polygon fill="black" stroke="black" points="4631.36,-319.991 4640.98,-315.543 4630.69,-313.023 4631.36,-319.991"></polygon>
+</g>
+<!-- application&#45;backend&#45;js -->
+<g id="node12" class="node"><title>application-backend-js</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1112" cy="-234" rx="124.357" ry="18"></ellipse>
+<text text-anchor="middle" x="1112" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Backend -&gt; Js</text>
+</g>
+<!-- application&#45;backend&#45;&gt;application&#45;backend&#45;js -->
+<g id="edge22" class="edge"><title>application-backend-&gt;application-backend-js</title>
+<path fill="none" stroke="black" d="M1578.28,-293.477C1565.51,-291.59 1552.38,-289.698 1540,-288 1429.4,-272.835 1302.45,-257.357 1215.71,-247.075"></path>
+<polygon fill="black" stroke="black" points="1215.94,-243.578 1205.6,-245.878 1215.12,-250.529 1215.94,-243.578"></polygon>
+</g>
+<!-- application&#45;backend&#45;jvm -->
+<g id="node14" class="node"><title>application-backend-jvm</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1440" cy="-234" rx="133.234" ry="18"></ellipse>
+<text text-anchor="middle" x="1440" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Backend -&gt; Jvm</text>
+</g>
+<!-- application&#45;backend&#45;&gt;application&#45;backend&#45;jvm -->
+<g id="edge26" class="edge"><title>application-backend-&gt;application-backend-jvm</title>
+<path fill="none" stroke="black" d="M1606.78,-289.811C1574.93,-279.344 1532.36,-265.353 1498.2,-254.126"></path>
+<polygon fill="black" stroke="black" points="1498.94,-250.685 1488.35,-250.888 1496.75,-257.335 1498.94,-250.685"></polygon>
+</g>
+<!-- application&#45;backend&#45;js&#45;express -->
+<g id="node13" class="node"><title>application-backend-js-express</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="847" cy="-162" rx="168.444" ry="18"></ellipse>
+<text text-anchor="middle" x="847" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Backend -&gt; Js -&gt; Express</text>
+</g>
+<!-- application&#45;backend&#45;js&#45;&gt;application&#45;backend&#45;js&#45;express -->
+<g id="edge24" class="edge"><title>application-backend-js-&gt;application-backend-js-express</title>
+<path fill="none" stroke="black" d="M1055.15,-217.983C1014.66,-207.287 959.988,-192.846 916.838,-181.448"></path>
+<polygon fill="black" stroke="black" points="917.538,-178.013 906.976,-178.843 915.751,-184.781 917.538,-178.013"></polygon>
+</g>
+<!-- application&#45;backend&#45;jvm&#45;spring_boot -->
+<g id="node15" class="node"><title>application-backend-jvm-spring_boot</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1228" cy="-162" rx="193.388" ry="18"></ellipse>
+<text text-anchor="middle" x="1228" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Backend -&gt; Jvm -&gt; Spring Boot</text>
+</g>
+<!-- application&#45;backend&#45;jvm&#45;&gt;application&#45;backend&#45;jvm&#45;spring_boot -->
+<g id="edge28" class="edge"><title>application-backend-jvm-&gt;application-backend-jvm-spring_boot</title>
+<path fill="none" stroke="black" d="M1391.89,-217.116C1360.87,-206.873 1320.31,-193.479 1287.3,-182.579"></path>
+<polygon fill="black" stroke="black" points="1288.35,-179.241 1277.76,-179.429 1286.16,-185.888 1288.35,-179.241"></polygon>
+</g>
+<!-- application&#45;browser&#45;js -->
+<g id="node17" class="node"><title>application-browser-js</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1928" cy="-234" rx="123.247" ry="18"></ellipse>
+<text text-anchor="middle" x="1928" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Js</text>
+</g>
+<!-- application&#45;browser&#45;&gt;application&#45;browser&#45;js -->
+<g id="edge32" class="edge"><title>application-browser-&gt;application-browser-js</title>
+<path fill="none" stroke="black" d="M2234.7,-292.405C2171.89,-280.648 2078,-263.074 2010.65,-250.47"></path>
+<polygon fill="black" stroke="black" points="2010.97,-246.969 2000.5,-248.57 2009.69,-253.85 2010.97,-246.969"></polygon>
+</g>
+<!-- application&#45;browser&#45;native -->
+<g id="node21" class="node"><title>application-browser-native</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2302" cy="-234" rx="142.09" ry="18"></ellipse>
+<text text-anchor="middle" x="2302" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Native</text>
+</g>
+<!-- application&#45;browser&#45;&gt;application&#45;browser&#45;native -->
+<g id="edge40" class="edge"><title>application-browser-&gt;application-browser-native</title>
+<path fill="none" stroke="black" d="M2302,-287.697C2302,-279.983 2302,-270.712 2302,-262.112"></path>
+<polygon fill="black" stroke="black" points="2305.5,-262.104 2302,-252.104 2298.5,-262.104 2305.5,-262.104"></polygon>
+</g>
+<!-- application&#45;browser&#45;js&#45;spa -->
+<g id="node18" class="node"><title>application-browser-js-spa</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1592" cy="-162" rx="151.205" ry="18"></ellipse>
+<text text-anchor="middle" x="1592" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Js -&gt; Spa</text>
+</g>
+<!-- application&#45;browser&#45;js&#45;&gt;application&#45;browser&#45;js&#45;spa -->
+<g id="edge34" class="edge"><title>application-browser-js-&gt;application-browser-js-spa</title>
+<path fill="none" stroke="black" d="M1860.41,-218.919C1806.54,-207.695 1730.91,-191.939 1673.65,-180.01"></path>
+<polygon fill="black" stroke="black" points="1674.05,-176.518 1663.54,-177.905 1672.62,-183.371 1674.05,-176.518"></polygon>
+</g>
+<!-- application&#45;browser&#45;js&#45;vanilla -->
+<g id="node20" class="node"><title>application-browser-js-vanilla</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1928" cy="-162" rx="165.615" ry="18"></ellipse>
+<text text-anchor="middle" x="1928" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Js -&gt; Vanilla</text>
+</g>
+<!-- application&#45;browser&#45;js&#45;&gt;application&#45;browser&#45;js&#45;vanilla -->
+<g id="edge38" class="edge"><title>application-browser-js-&gt;application-browser-js-vanilla</title>
+<path fill="none" stroke="black" d="M1928,-215.697C1928,-207.983 1928,-198.712 1928,-190.112"></path>
+<polygon fill="black" stroke="black" points="1931.5,-190.104 1928,-180.104 1924.5,-190.104 1931.5,-190.104"></polygon>
+</g>
+<!-- application&#45;browser&#45;js&#45;spa&#45;react -->
+<g id="node19" class="node"><title>application-browser-js-spa-react</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1592" cy="-90" rx="186.914" ry="18"></ellipse>
+<text text-anchor="middle" x="1592" y="-85.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Js -&gt; Spa -&gt; React</text>
+</g>
+<!-- application&#45;browser&#45;js&#45;spa&#45;&gt;application&#45;browser&#45;js&#45;spa&#45;react -->
+<g id="edge36" class="edge"><title>application-browser-js-spa-&gt;application-browser-js-spa-react</title>
+<path fill="none" stroke="black" d="M1592,-143.697C1592,-135.983 1592,-126.712 1592,-118.112"></path>
+<polygon fill="black" stroke="black" points="1595.5,-118.104 1592,-108.104 1588.5,-118.104 1595.5,-118.104"></polygon>
+</g>
+<!-- application&#45;browser&#45;native&#45;wasm32 -->
+<g id="node22" class="node"><title>application-browser-native-wasm32</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2302" cy="-162" rx="189.313" ry="18"></ellipse>
+<text text-anchor="middle" x="2302" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Browser -&gt; Native -&gt; Wasm32</text>
+</g>
+<!-- application&#45;browser&#45;native&#45;&gt;application&#45;browser&#45;native&#45;wasm32 -->
+<g id="edge42" class="edge"><title>application-browser-native-&gt;application-browser-native-wasm32</title>
+<path fill="none" stroke="black" d="M2302,-215.697C2302,-207.983 2302,-198.712 2302,-190.112"></path>
+<polygon fill="black" stroke="black" points="2305.5,-190.104 2302,-180.104 2298.5,-190.104 2305.5,-190.104"></polygon>
+</g>
+<!-- application&#45;desktop&#45;jvm -->
+<g id="node24" class="node"><title>application-desktop-jvm</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2764" cy="-234" rx="131.33" ry="18"></ellipse>
+<text text-anchor="middle" x="2764" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Desktop -&gt; Jvm</text>
+</g>
+<!-- application&#45;desktop&#45;&gt;application&#45;desktop&#45;jvm -->
+<g id="edge46" class="edge"><title>application-desktop-&gt;application-desktop-jvm</title>
+<path fill="none" stroke="black" d="M2824.63,-288.055C2814.59,-279.264 2802.15,-268.38 2791.16,-258.763"></path>
+<polygon fill="black" stroke="black" points="2793.3,-255.983 2783.46,-252.032 2788.69,-261.251 2793.3,-255.983"></polygon>
+</g>
+<!-- application&#45;desktop&#45;jvm&#45;tornado_fx -->
+<g id="node25" class="node"><title>application-desktop-jvm-tornado_fx</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2701" cy="-162" rx="190.551" ry="18"></ellipse>
+<text text-anchor="middle" x="2701" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Desktop -&gt; Jvm -&gt; Tornado Fx</text>
+</g>
+<!-- application&#45;desktop&#45;jvm&#45;&gt;application&#45;desktop&#45;jvm&#45;tornado_fx -->
+<g id="edge48" class="edge"><title>application-desktop-jvm-&gt;application-desktop-jvm-tornado_fx</title>
+<path fill="none" stroke="black" d="M2748.75,-216.055C2741.12,-207.583 2731.75,-197.168 2723.33,-187.815"></path>
+<polygon fill="black" stroke="black" points="2725.84,-185.367 2716.55,-180.275 2720.64,-190.05 2725.84,-185.367"></polygon>
+</g>
+<!-- application&#45;mobile&#45;jvm -->
+<g id="node27" class="node"><title>application-mobile-jvm</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3104" cy="-234" rx="127.398" ry="18"></ellipse>
+<text text-anchor="middle" x="3104" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Jvm</text>
+</g>
+<!-- application&#45;mobile&#45;&gt;application&#45;mobile&#45;jvm -->
+<g id="edge52" class="edge"><title>application-mobile-&gt;application-mobile-jvm</title>
+<path fill="none" stroke="black" d="M3262.17,-289.811C3232.09,-279.389 3191.94,-265.473 3159.61,-254.271"></path>
+<polygon fill="black" stroke="black" points="3160.44,-250.856 3149.85,-250.888 3158.15,-257.47 3160.44,-250.856"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native -->
+<g id="node29" class="node"><title>application-mobile-native</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3428" cy="-234" rx="137.365" ry="18"></ellipse>
+<text text-anchor="middle" x="3428" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native</text>
+</g>
+<!-- application&#45;mobile&#45;&gt;application&#45;mobile&#45;native -->
+<g id="edge56" class="edge"><title>application-mobile-&gt;application-mobile-native</title>
+<path fill="none" stroke="black" d="M3334.3,-288.765C3350.84,-279.272 3371.94,-267.165 3389.93,-256.844"></path>
+<polygon fill="black" stroke="black" points="3392.08,-259.646 3399.01,-251.633 3388.59,-253.574 3392.08,-259.646"></polygon>
+</g>
+<!-- application&#45;mobile&#45;jvm&#45;android -->
+<g id="node28" class="node"><title>application-mobile-jvm-android</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3083" cy="-162" rx="172.907" ry="18"></ellipse>
+<text text-anchor="middle" x="3083" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Jvm -&gt; Android</text>
+</g>
+<!-- application&#45;mobile&#45;jvm&#45;&gt;application&#45;mobile&#45;jvm&#45;android -->
+<g id="edge54" class="edge"><title>application-mobile-jvm-&gt;application-mobile-jvm-android</title>
+<path fill="none" stroke="black" d="M3098.81,-215.697C3096.47,-207.898 3093.65,-198.509 3091.05,-189.829"></path>
+<polygon fill="black" stroke="black" points="3094.36,-188.677 3088.13,-180.104 3087.65,-190.688 3094.36,-188.677"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple -->
+<g id="node30" class="node"><title>application-mobile-native-apple</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3449" cy="-162" rx="173.996" ry="18"></ellipse>
+<text text-anchor="middle" x="3449" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;&gt;application&#45;mobile&#45;native&#45;apple -->
+<g id="edge58" class="edge"><title>application-mobile-native-&gt;application-mobile-native-apple</title>
+<path fill="none" stroke="black" d="M3433.19,-215.697C3435.53,-207.898 3438.35,-198.509 3440.95,-189.829"></path>
+<polygon fill="black" stroke="black" points="3444.35,-190.688 3443.87,-180.104 3437.64,-188.677 3444.35,-190.688"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios -->
+<g id="node31" class="node"><title>application-mobile-native-apple-ios</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3037" cy="-90" rx="199.427" ry="18"></ellipse>
+<text text-anchor="middle" x="3037" y="-85.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple -&gt; Ios</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;&gt;application&#45;mobile&#45;native&#45;apple&#45;ios -->
+<g id="edge60" class="edge"><title>application-mobile-native-apple-&gt;application-mobile-native-apple-ios</title>
+<path fill="none" stroke="black" d="M3362.63,-146.326C3296.51,-135.092 3205.23,-119.582 3136.13,-107.842"></path>
+<polygon fill="black" stroke="black" points="3136.55,-104.363 3126.1,-106.138 3135.37,-111.264 3136.55,-104.363"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64 -->
+<g id="node32" class="node"><title>application-mobile-native-apple-ios-ios_x64</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="1813" cy="-18" rx="243.423" ry="18"></ellipse>
+<text text-anchor="middle" x="1813" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple -&gt; Ios -&gt; Ios X64</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;&gt;application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64 -->
+<g id="edge62" class="edge"><title>application-mobile-native-apple-ios-&gt;application-mobile-native-apple-ios-ios_x64</title>
+<path fill="none" stroke="black" d="M2868.13,-80.427C2674.4,-70.4422 2347.21,-53.1217 2066,-36 2042.93,-34.5954 2018.68,-33.052 1994.71,-31.4857"></path>
+<polygon fill="black" stroke="black" points="1994.67,-27.9753 1984.46,-30.8133 1994.21,-34.9603 1994.67,-27.9753"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_copying_framework -->
+<g id="node33" class="node"><title>application-mobile-native-apple-ios-ios_x64_copying_framework</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="2402" cy="-18" rx="326.332" ry="18"></ellipse>
+<text text-anchor="middle" x="2402" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple -&gt; Ios -&gt; Ios X64 Copying Framework</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;&gt;application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_copying_framework -->
+<g id="edge64" class="edge"><title>application-mobile-native-apple-ios-&gt;application-mobile-native-apple-ios-ios_x64_copying_framework</title>
+<path fill="none" stroke="black" d="M2916.07,-75.6688C2812.24,-64.223 2662.17,-47.6801 2550.96,-35.4202"></path>
+<polygon fill="black" stroke="black" points="2551.32,-31.939 2540.99,-34.3222 2550.55,-38.8969 2551.32,-31.939"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_framework -->
+<g id="node34" class="node"><title>application-mobile-native-apple-ios-ios_x64_framework</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3037" cy="-18" rx="290.312" ry="18"></ellipse>
+<text text-anchor="middle" x="3037" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple -&gt; Ios -&gt; Ios X64 Framework</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;&gt;application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_framework -->
+<g id="edge66" class="edge"><title>application-mobile-native-apple-ios-&gt;application-mobile-native-apple-ios-ios_x64_framework</title>
+<path fill="none" stroke="black" d="M3037,-71.6966C3037,-63.9827 3037,-54.7125 3037,-46.1124"></path>
+<polygon fill="black" stroke="black" points="3040.5,-46.1043 3037,-36.1043 3033.5,-46.1044 3040.5,-46.1043"></polygon>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_with_framework -->
+<g id="node35" class="node"><title>application-mobile-native-apple-ios-ios_x64_with_framework</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3658" cy="-18" rx="312.4" ry="18"></ellipse>
+<text text-anchor="middle" x="3658" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Mobile -&gt; Native -&gt; Apple -&gt; Ios -&gt; Ios X64 With Framework</text>
+</g>
+<!-- application&#45;mobile&#45;native&#45;apple&#45;ios&#45;&gt;application&#45;mobile&#45;native&#45;apple&#45;ios&#45;ios_x64_with_framework -->
+<g id="edge68" class="edge"><title>application-mobile-native-apple-ios-&gt;application-mobile-native-apple-ios-ios_x64_with_framework</title>
+<path fill="none" stroke="black" d="M3156.37,-75.5447C3258.01,-64.0875 3404.37,-47.5893 3512.79,-35.3685"></path>
+<polygon fill="black" stroke="black" points="3513.28,-38.8349 3522.83,-34.2367 3512.5,-31.8789 3513.28,-38.8349"></polygon>
+</g>
+<!-- application&#45;script&#45;jvm -->
+<g id="node37" class="node"><title>application-script-jvm</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3764" cy="-234" rx="122.155" ry="18"></ellipse>
+<text text-anchor="middle" x="3764" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Script -&gt; Jvm</text>
+</g>
+<!-- application&#45;script&#45;&gt;application&#45;script&#45;jvm -->
+<g id="edge72" class="edge"><title>application-script-&gt;application-script-jvm</title>
+<path fill="none" stroke="black" d="M3716.25,-288.055C3723.88,-279.583 3733.25,-269.168 3741.67,-259.815"></path>
+<polygon fill="black" stroke="black" points="3744.36,-262.05 3748.45,-252.275 3739.16,-257.367 3744.36,-262.05"></polygon>
+</g>
+<!-- application&#45;script&#45;jvm&#45;script -->
+<g id="node38" class="node"><title>application-script-jvm-script</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="3801" cy="-162" rx="158.986" ry="18"></ellipse>
+<text text-anchor="middle" x="3801" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Script -&gt; Jvm -&gt; Script</text>
+</g>
+<!-- application&#45;script&#45;jvm&#45;&gt;application&#45;script&#45;jvm&#45;script -->
+<g id="edge74" class="edge"><title>application-script-jvm-&gt;application-script-jvm-script</title>
+<path fill="none" stroke="black" d="M3773.15,-215.697C3777.4,-207.644 3782.56,-197.894 3787.27,-188.982"></path>
+<polygon fill="black" stroke="black" points="3790.38,-190.581 3791.96,-180.104 3784.19,-187.31 3790.38,-190.581"></polygon>
+</g>
+<!-- application&#45;television&#45;native -->
+<g id="node40" class="node"><title>application-television-native</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4121" cy="-234" rx="150.169" ry="18"></ellipse>
+<text text-anchor="middle" x="4121" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Television -&gt; Native</text>
+</g>
+<!-- application&#45;television&#45;&gt;application&#45;television&#45;native -->
+<g id="edge78" class="edge"><title>application-television-&gt;application-television-native</title>
+<path fill="none" stroke="black" d="M4070.22,-288.055C4078.41,-279.498 4088.5,-268.959 4097.52,-259.535"></path>
+<polygon fill="black" stroke="black" points="4100.08,-261.92 4104.47,-252.275 4095.02,-257.079 4100.08,-261.92"></polygon>
+</g>
+<!-- application&#45;television&#45;native&#45;apple -->
+<g id="node41" class="node"><title>application-television-native-apple</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4166" cy="-162" rx="187.301" ry="18"></ellipse>
+<text text-anchor="middle" x="4166" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Television -&gt; Native -&gt; Apple</text>
+</g>
+<!-- application&#45;television&#45;native&#45;&gt;application&#45;television&#45;native&#45;apple -->
+<g id="edge80" class="edge"><title>application-television-native-&gt;application-television-native-apple</title>
+<path fill="none" stroke="black" d="M4132.12,-215.697C4137.36,-207.559 4143.7,-197.689 4149.48,-188.701"></path>
+<polygon fill="black" stroke="black" points="4152.54,-190.409 4155,-180.104 4146.65,-186.623 4152.54,-190.409"></polygon>
+</g>
+<!-- application&#45;television&#45;native&#45;apple&#45;tvos -->
+<g id="node42" class="node"><title>application-television-native-apple-tvos</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4213" cy="-90" rx="220.002" ry="18"></ellipse>
+<text text-anchor="middle" x="4213" y="-85.8" font-family="Times,serif" font-size="14.00">Application -&gt; Television -&gt; Native -&gt; Apple -&gt; Tvos</text>
+</g>
+<!-- application&#45;television&#45;native&#45;apple&#45;&gt;application&#45;television&#45;native&#45;apple&#45;tvos -->
+<g id="edge82" class="edge"><title>application-television-native-apple-&gt;application-television-native-apple-tvos</title>
+<path fill="none" stroke="black" d="M4177.62,-143.697C4183.14,-135.474 4189.85,-125.483 4195.93,-116.421"></path>
+<polygon fill="black" stroke="black" points="4198.85,-118.358 4201.52,-108.104 4193.04,-114.456 4198.85,-118.358"></polygon>
+</g>
+<!-- application&#45;television&#45;native&#45;apple&#45;tvos&#45;tvos_x64 -->
+<g id="node43" class="node"><title>application-television-native-apple-tvos-tvos_x64</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4260" cy="-18" rx="271.267" ry="18"></ellipse>
+<text text-anchor="middle" x="4260" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Television -&gt; Native -&gt; Apple -&gt; Tvos -&gt; Tvos X64</text>
+</g>
+<!-- application&#45;television&#45;native&#45;apple&#45;tvos&#45;&gt;application&#45;television&#45;native&#45;apple&#45;tvos&#45;tvos_x64 -->
+<g id="edge84" class="edge"><title>application-television-native-apple-tvos-&gt;application-television-native-apple-tvos-tvos_x64</title>
+<path fill="none" stroke="black" d="M4224.62,-71.6966C4230.14,-63.4741 4236.85,-53.4832 4242.93,-44.4207"></path>
+<polygon fill="black" stroke="black" points="4245.85,-46.3576 4248.52,-36.1043 4240.04,-42.4555 4245.85,-46.3576"></polygon>
+</g>
+<!-- application&#45;terminal&#45;jvm -->
+<g id="node45" class="node"><title>application-terminal-jvm</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4500" cy="-234" rx="135.149" ry="18"></ellipse>
+<text text-anchor="middle" x="4500" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Terminal -&gt; Jvm</text>
+</g>
+<!-- application&#45;terminal&#45;&gt;application&#45;terminal&#45;jvm -->
+<g id="edge88" class="edge"><title>application-terminal-&gt;application-terminal-jvm</title>
+<path fill="none" stroke="black" d="M4445.43,-288.055C4454.38,-279.349 4465.45,-268.591 4475.27,-259.043"></path>
+<polygon fill="black" stroke="black" points="4477.75,-261.512 4482.48,-252.032 4472.87,-256.493 4477.75,-261.512"></polygon>
+</g>
+<!-- application&#45;terminal&#45;jvm&#45;terminal -->
+<g id="node46" class="node"><title>application-terminal-jvm-terminal</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4555" cy="-162" rx="183.476" ry="18"></ellipse>
+<text text-anchor="middle" x="4555" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Terminal -&gt; Jvm -&gt; Terminal</text>
+</g>
+<!-- application&#45;terminal&#45;jvm&#45;&gt;application&#45;terminal&#45;jvm&#45;terminal -->
+<g id="edge90" class="edge"><title>application-terminal-jvm-&gt;application-terminal-jvm-terminal</title>
+<path fill="none" stroke="black" d="M4513.31,-216.055C4519.84,-207.753 4527.83,-197.584 4535.06,-188.378"></path>
+<polygon fill="black" stroke="black" points="4538,-190.301 4541.43,-180.275 4532.5,-185.976 4538,-190.301"></polygon>
+</g>
+<!-- application&#45;watch&#45;native -->
+<g id="node48" class="node"><title>application-watch-native</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4869" cy="-234" rx="134.323" ry="18"></ellipse>
+<text text-anchor="middle" x="4869" y="-229.8" font-family="Times,serif" font-size="14.00">Application -&gt; Watch -&gt; Native</text>
+</g>
+<!-- application&#45;watch&#45;&gt;application&#45;watch&#45;native -->
+<g id="edge94" class="edge"><title>application-watch-&gt;application-watch-native</title>
+<path fill="none" stroke="black" d="M4755.36,-289.116C4776.04,-279.268 4802.83,-266.509 4825.21,-255.853"></path>
+<polygon fill="black" stroke="black" points="4826.97,-258.889 4834.5,-251.429 4823.97,-252.569 4826.97,-258.889"></polygon>
+</g>
+<!-- application&#45;watch&#45;native&#45;apple -->
+<g id="node49" class="node"><title>application-watch-native-apple</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4929" cy="-162" rx="171.454" ry="18"></ellipse>
+<text text-anchor="middle" x="4929" y="-157.8" font-family="Times,serif" font-size="14.00">Application -&gt; Watch -&gt; Native -&gt; Apple</text>
+</g>
+<!-- application&#45;watch&#45;native&#45;&gt;application&#45;watch&#45;native&#45;apple -->
+<g id="edge96" class="edge"><title>application-watch-native-&gt;application-watch-native-apple</title>
+<path fill="none" stroke="black" d="M4883.52,-216.055C4890.71,-207.668 4899.53,-197.376 4907.49,-188.096"></path>
+<polygon fill="black" stroke="black" points="4910.34,-190.146 4914.19,-180.275 4905.03,-185.59 4910.34,-190.146"></polygon>
+</g>
+<!-- application&#45;watch&#45;native&#45;apple&#45;watchos -->
+<g id="node50" class="node"><title>application-watch-native-apple-watchos</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4929" cy="-90" rx="218.365" ry="18"></ellipse>
+<text text-anchor="middle" x="4929" y="-85.8" font-family="Times,serif" font-size="14.00">Application -&gt; Watch -&gt; Native -&gt; Apple -&gt; Watchos</text>
+</g>
+<!-- application&#45;watch&#45;native&#45;apple&#45;&gt;application&#45;watch&#45;native&#45;apple&#45;watchos -->
+<g id="edge98" class="edge"><title>application-watch-native-apple-&gt;application-watch-native-apple-watchos</title>
+<path fill="none" stroke="black" d="M4929,-143.697C4929,-135.983 4929,-126.712 4929,-118.112"></path>
+<polygon fill="black" stroke="black" points="4932.5,-118.104 4929,-108.104 4925.5,-118.104 4932.5,-118.104"></polygon>
+</g>
+<!-- application&#45;watch&#45;native&#45;apple&#45;watchos&#45;watchos_x64 -->
+<g id="node51" class="node"><title>application-watch-native-apple-watchos-watchos_x64</title>
+<ellipse fill="darkorange" stroke="darkorange" cx="4929" cy="-18" rx="285.339" ry="18"></ellipse>
+<text text-anchor="middle" x="4929" y="-13.8" font-family="Times,serif" font-size="14.00">Application -&gt; Watch -&gt; Native -&gt; Apple -&gt; Watchos -&gt; Watchos X64</text>
+</g>
+<!-- application&#45;watch&#45;native&#45;apple&#45;watchos&#45;&gt;application&#45;watch&#45;native&#45;apple&#45;watchos&#45;watchos_x64 -->
+<g id="edge100" class="edge"><title>application-watch-native-apple-watchos-&gt;application-watch-native-apple-watchos-watchos_x64</title>
+<path fill="none" stroke="black" d="M4929,-71.6966C4929,-63.9827 4929,-54.7125 4929,-46.1124"></path>
+<polygon fill="black" stroke="black" points="4932.5,-46.1043 4929,-36.1043 4925.5,-46.1044 4932.5,-46.1043"></polygon>
+</g>
+</g>
+</svg>

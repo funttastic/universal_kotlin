@@ -1,0 +1,109 @@
+digraph G {
+	ratio = fill
+	node [style=filled]
+
+	
+	"root" [label="Root", color=darkorange]
+	"common" [label="Common", color=darkorange]
+	"common-multiple_modules" [label="Common -> Multiple Modules", color=darkorange]
+	"common-multiple_sources" [label="Common -> Multiple Sources", color=darkorange]
+	"common-single_source" [label="Common -> Single Source", color=darkorange]
+	"library" [label="Library", color=darkorange]
+	"library-multiple_modules" [label="Library -> Multiple Modules", color=darkorange]
+	"library-multiple_sources" [label="Library -> Multiple Sources", color=darkorange]
+	"library-single_source" [label="Library -> Single Source", color=darkorange]
+	"application" [label="Application", color=darkorange]
+	"application-backend" [label="Application -> Backend", color=darkorange]
+	"application-backend-js" [label="Application -> Backend -> Js", color=darkorange]
+	"application-backend-js-express" [label="Application -> Backend -> Js -> Express", color=darkorange]
+	"application-backend-jvm" [label="Application -> Backend -> Jvm", color=darkorange]
+	"application-backend-jvm-spring_boot" [label="Application -> Backend -> Jvm -> Spring Boot", color=darkorange]
+	"application-browser" [label="Application -> Browser", color=darkorange]
+	"application-browser-js" [label="Application -> Browser -> Js", color=darkorange]
+	"application-browser-js-spa" [label="Application -> Browser -> Js -> Spa", color=darkorange]
+	"application-browser-js-spa-react" [label="Application -> Browser -> Js -> Spa -> React", color=darkorange]
+	"application-browser-js-vanilla" [label="Application -> Browser -> Js -> Vanilla", color=darkorange]
+	"application-browser-native" [label="Application -> Browser -> Native", color=darkorange]
+	"application-browser-native-wasm32" [label="Application -> Browser -> Native -> Wasm32", color=darkorange]
+	"application-desktop" [label="Application -> Desktop", color=darkorange]
+	"application-desktop-jvm" [label="Application -> Desktop -> Jvm", color=darkorange]
+	"application-desktop-jvm-tornado_fx" [label="Application -> Desktop -> Jvm -> Tornado Fx", color=darkorange]
+	"application-mobile" [label="Application -> Mobile", color=darkorange]
+	"application-mobile-jvm" [label="Application -> Mobile -> Jvm", color=darkorange]
+	"application-mobile-jvm-android" [label="Application -> Mobile -> Jvm -> Android", color=darkorange]
+	"application-mobile-native" [label="Application -> Mobile -> Native", color=darkorange]
+	"application-mobile-native-apple" [label="Application -> Mobile -> Native -> Apple", color=darkorange]
+	"application-mobile-native-apple-ios" [label="Application -> Mobile -> Native -> Apple -> Ios", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_copying_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Copying Framework", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 Framework", color=darkorange]
+	"application-mobile-native-apple-ios-ios_x64_with_framework" [label="Application -> Mobile -> Native -> Apple -> Ios -> Ios X64 With Framework", color=darkorange]
+	"application-script" [label="Application -> Script", color=darkorange]
+	"application-script-jvm" [label="Application -> Script -> Jvm", color=darkorange]
+	"application-script-jvm-script" [label="Application -> Script -> Jvm -> Script", color=darkorange]
+	"application-television" [label="Application -> Television", color=darkorange]
+	"application-television-native" [label="Application -> Television -> Native", color=darkorange]
+	"application-television-native-apple" [label="Application -> Television -> Native -> Apple", color=darkorange]
+	"application-television-native-apple-tvos" [label="Application -> Television -> Native -> Apple -> Tvos", color=darkorange]
+	"application-television-native-apple-tvos-tvos_x64" [label="Application -> Television -> Native -> Apple -> Tvos -> Tvos X64", color=darkorange]
+	"application-terminal" [label="Application -> Terminal", color=darkorange]
+	"application-terminal-jvm" [label="Application -> Terminal -> Jvm", color=darkorange]
+	"application-terminal-jvm-terminal" [label="Application -> Terminal -> Jvm -> Terminal", color=darkorange]
+	"application-watch" [label="Application -> Watch", color=darkorange]
+	"application-watch-native" [label="Application -> Watch -> Native", color=darkorange]
+	"application-watch-native-apple" [label="Application -> Watch -> Native -> Apple", color=darkorange]
+	"application-watch-native-apple-watchos" [label="Application -> Watch -> Native -> Apple -> Watchos", color=darkorange]
+	"application-watch-native-apple-watchos-watchos_x64" [label="Application -> Watch -> Native -> Apple -> Watchos -> Watchos X64", color=darkorange]
+
+	
+	"root" -> "common"
+	"common" -> "common-multiple_modules"
+	"common" -> "common-multiple_sources"
+	"common" -> "common-single_source"
+	"root" -> "library"
+	"library" -> "library-multiple_modules"
+	"library" -> "library-multiple_sources"
+	"library" -> "library-single_source"
+	"root" -> "application"
+	"application" -> "application-backend"
+	"application-backend" -> "application-backend-js"
+	"application-backend-js" -> "application-backend-js-express"
+	"application-backend" -> "application-backend-jvm"
+	"application-backend-jvm" -> "application-backend-jvm-spring_boot"
+	"application" -> "application-browser"
+	"application-browser" -> "application-browser-js"
+	"application-browser-js" -> "application-browser-js-spa"
+	"application-browser-js-spa" -> "application-browser-js-spa-react"
+	"application-browser-js" -> "application-browser-js-vanilla"
+	"application-browser" -> "application-browser-native"
+	"application-browser-native" -> "application-browser-native-wasm32"
+	"application" -> "application-desktop"
+	"application-desktop" -> "application-desktop-jvm"
+	"application-desktop-jvm" -> "application-desktop-jvm-tornado_fx"
+	"application" -> "application-mobile"
+	"application-mobile" -> "application-mobile-jvm"
+	"application-mobile-jvm" -> "application-mobile-jvm-android"
+	"application-mobile" -> "application-mobile-native"
+	"application-mobile-native" -> "application-mobile-native-apple"
+	"application-mobile-native-apple" -> "application-mobile-native-apple-ios"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_copying_framework"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_framework"
+	"application-mobile-native-apple-ios" -> "application-mobile-native-apple-ios-ios_x64_with_framework"
+	"application" -> "application-script"
+	"application-script" -> "application-script-jvm"
+	"application-script-jvm" -> "application-script-jvm-script"
+	"application" -> "application-television"
+	"application-television" -> "application-television-native"
+	"application-television-native" -> "application-television-native-apple"
+	"application-television-native-apple" -> "application-television-native-apple-tvos"
+	"application-television-native-apple-tvos" -> "application-television-native-apple-tvos-tvos_x64"
+	"application" -> "application-terminal"
+	"application-terminal" -> "application-terminal-jvm"
+	"application-terminal-jvm" -> "application-terminal-jvm-terminal"
+	"application" -> "application-watch"
+	"application-watch" -> "application-watch-native"
+	"application-watch-native" -> "application-watch-native-apple"
+	"application-watch-native-apple" -> "application-watch-native-apple-watchos"
+	"application-watch-native-apple-watchos" -> "application-watch-native-apple-watchos-watchos_x64"
+}
