@@ -25,7 +25,7 @@ kotlin {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@main@ios_x64`) {
+		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -34,7 +34,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@test@ios_x64`) {
+		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

@@ -45,7 +45,7 @@ kotlin {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@main@js`) {
+		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@js@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -61,7 +61,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@test@js`) {
+		configureSourceSet(SourceSetEnum.`application-browser-js-spa-react@js@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

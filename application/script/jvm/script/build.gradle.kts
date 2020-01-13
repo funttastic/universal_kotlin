@@ -15,12 +15,12 @@ kotlin {
 //				}
 //			}
 //	}
-	
+
 	jvm(TargetEnum.`application-script-jvm-script@jvm`) {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-script-jvm-script@main@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-script-jvm-script@jvm@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -29,7 +29,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-script-jvm-script@test@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-script-jvm-script@jvm@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

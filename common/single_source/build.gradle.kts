@@ -103,8 +103,8 @@ kotlin {
 		all {
 			val sourceSetEnum =
 				when (name) {
-					SourceSetEnum.`common-single_source@main@common`.kotlinId -> SourceSetEnum.`common-single_source@main@common`
-					SourceSetEnum.`common-single_source@test@common`.kotlinId -> SourceSetEnum.`common-single_source@test@common`
+					SourceSetEnum.`common-single_source@common@main`.kotlinId -> SourceSetEnum.`common-single_source@common@main`
+					SourceSetEnum.`common-single_source@common@test`.kotlinId -> SourceSetEnum.`common-single_source@common@test`
 					else -> SourceSetEnum.getByKotlinIdAndModule(name, ModuleEnum.`common-single_source`)!!
 				}
 
@@ -121,7 +121,7 @@ kotlin {
 //			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@common`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@common@main`) {
 			kotlin.srcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
 			resources.srcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
 			dependencies {
@@ -137,114 +137,114 @@ kotlin {
 //			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@common`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@common@test`) {
 			dependencies {
 				implementation(kotlin("test-common"))
 				implementation(kotlin("test-annotations-common"))
 			}
 		}
 
-//		configureSourceSet(SourceSetEnum.`common-single_source@main@android`) {
+//		configureSourceSet(SourceSetEnum.`common-single_source@android@main`) {
 //		}
 //
-//		configureSourceSet(SourceSetEnum.`common-single_source@test@android`) {
+//		configureSourceSet(SourceSetEnum.`common-single_source@android@test`) {
 //		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@android_native_arm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@android_native_arm32@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@android_native_arm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@android_native_arm32@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@android_native_arm64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@android_native_arm64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@android_native_arm64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@android_native_arm64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@ios_arm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_arm32@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@ios_arm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_arm32@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@ios_arm64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_arm64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@ios_arm64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_arm64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@ios_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_x64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@ios_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@ios_x64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@js`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@js@main`) {
 			dependencies {
 				implementation(kotlin("stdlib-js"))
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@js`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@js@test`) {
 			dependencies {
 				implementation(kotlin("test-js"))
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@jvm`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@jvm@main`) {
 			dependencies {
 				implementation(kotlin("stdlib-jdk8"))
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@jvm`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@jvm@test`) {
 			dependencies {
 				implementation(kotlin("test"))
 				implementation(kotlin("test-junit"))
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@linux_arm32_hfp`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_arm32_hfp@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@linux_arm32_hfp`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_arm32_hfp@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@linux_mips32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_mips32@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@linux_mips32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_mips32@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@linux_mipsel32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_mipsel32@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@linux_mipsel32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_mipsel32@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@linux_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_x64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@linux_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@linux_x64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@macos_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@macos_x64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@macos_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@macos_x64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@mingw_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@mingw_x64@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@mingw_x64`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@mingw_x64@test`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@main@wasm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@wasm32@main`) {
 		}
 
-		configureSourceSet(SourceSetEnum.`common-single_source@test@wasm32`) {
+		configureSourceSet(SourceSetEnum.`common-single_source@wasm32@test`) {
 		}
 	}
 }

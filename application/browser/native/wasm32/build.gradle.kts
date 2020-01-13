@@ -34,7 +34,7 @@ kotlin {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@main@wasm32`) {
+		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@wasm32@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -42,7 +42,7 @@ kotlin {
 				implementation(files(jsinteropKlibFileName))
 			}
 		}
-		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@test@wasm32`) {
+		configureSourceSet(SourceSetEnum.`application-browser-native-wasm32@wasm32@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

@@ -22,12 +22,12 @@ kotlin {
 //				}
 //			}
 //	}
-	
+
 	jvm(TargetEnum.`application-terminal-jvm-terminal@jvm`) {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@main@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@jvm@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -36,7 +36,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@test@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-terminal-jvm-terminal@jvm@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

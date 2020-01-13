@@ -48,7 +48,7 @@ kotlin {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-browser-js-vanilla@main@js`) {
+		configureSourceSet(SourceSetEnum.`application-browser-js-vanilla@js@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -57,7 +57,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-browser-js-vanilla@test@js`) {
+		configureSourceSet(SourceSetEnum.`application-browser-js-vanilla@js@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 

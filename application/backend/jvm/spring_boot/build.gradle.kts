@@ -22,7 +22,7 @@ kotlin {
 	}
 
 	sourceSets {
-		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@main@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@jvm@main`) {
 			kotlin.srcDir("src/main/kotlin")
 			resources.srcDir("src/main/resources")
 
@@ -40,7 +40,7 @@ kotlin {
 			}
 		}
 
-		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@test@jvm`) {
+		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@jvm@test`) {
 			kotlin.srcDir("src/test/kotlin")
 			resources.srcDir("src/test/resources")
 
