@@ -90,16 +90,16 @@ Also, one of its goals is to use shared code from the common modules and librari
                 - watchos
                     - [ ] <strong>[watchos_x64](application/television/native/apple/watchos/watch_x64)</strong>: watchOS X64 application (not yet implemented)
 
-The modules diagram is this one (click to open a bigger version of it):
+This structure is also available in this diagram:
 
 <img
-    src="https://raw.githubusercontent.com/funttastic/universal_kotlin/development/resources/architecture/diagram/graphviz/modules.svg?sanitize=true"
+    src="https://raw.githubusercontent.com/funttastic/universal_kotlin/development/resources/architecture/diagram/graphviz/images/modules.svg?sanitize=true"
     alt="Modules Diagram"
     width="1024"
     height="768"
->
+/>
 
-Other diagrams can be found at the [diagrams](resources/architecture/diagram/graphviz) folder.
+Other diagrams can be found in the [diagrams](resources/architecture/diagram/graphviz) folder.
 
 ## Getting Started
 
