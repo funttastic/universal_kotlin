@@ -5,12 +5,23 @@ import com.company.team.project.dsl.model.enum_.TargetEnum
 import com.company.team.project.dsl.model.enum_.SourceSetEnum
 import java.nio.file.Paths
 
-fun generateGraphviz() {
-	val modulesDefinitions = generateModulesDefinitions()
+enum class GraphvizDiagram {
+	modules,
+	all
+}
 
-	val modulesLinks = generateModulesLinks()
+fun generateGraphvizDiagrams() {
+	GraphvizDiagram.values().forEach {
+		generateGraphvizDiagram(it)
+	}
+}
 
-	val graphviz = """
+fun generateGraphvizDiagram(diagram: GraphvizDiagram) {
+	val modulesDefinitions = generateModulesDefinitions(diagram)
+
+	val modulesLinks = generateModulesLinks(diagram)
+
+	val content = """
 	|digraph G {
 	|	ratio = fill
 	|	node [style=filled]
@@ -21,58 +32,62 @@ fun generateGraphviz() {
 	|}
 	""".trimMargin()
 
-	save(graphviz)
+	save(diagram, content)
 }
 
-fun generateModulesDefinitions(): String {
+fun generateModulesDefinitions(diagram: GraphvizDiagram): String {
 	var output = ""
 
 	ModuleEnum.values().forEach {
 		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"black\", color=\"#00C853\"]"
 	}
 
-	TargetEnum.values().forEach {
-		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"black\", color=\"#FFD600\"]"
-	}
+	if (GraphvizDiagram.all == diagram) {
+		TargetEnum.values().forEach {
+			output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"black\", color=\"#FFD600\"]"
+		}
 
-	SourceSetEnum.values().forEach {
-		output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"white\", color=\"#0091EA\"]"
+		SourceSetEnum.values().forEach {
+			output += "\n\t\"${it.name}\" [label=\"${it.title}\", fontcolor=\"white\", color=\"#0091EA\"]"
+		}
 	}
 
 	return output
 }
 
-fun generateModulesLinks(root: ModuleEnum = ModuleEnum.root): String {
+fun generateModulesLinks(diagram: GraphvizDiagram, root: ModuleEnum = ModuleEnum.root): String {
 	var output = ""
 
 	root.children.forEach {module ->
 		output += "\n\t\"${module.parent?.name}\" -> \"${module.name}\" [color=\"#1B5E20\"]"
 
-		module.targets.forEach {target ->
-			output += "\n\t\"${module.name}\" -> \"${target.name}\" [color=\"#F57F17\"]"
+		if (GraphvizDiagram.all == diagram) {
+			module.targets.forEach { target ->
+				output += "\n\t\"${module.name}\" -> \"${target.name}\" [color=\"#F57F17\"]"
 
-			target.sourceSets.forEach {sourceSet ->
-				output += "\n\t\"${target.name}\" -> \"${sourceSet.name}\" [color=\"#01579B\"]"
+				target.sourceSets.forEach { sourceSet ->
+					output += "\n\t\"${target.name}\" -> \"${sourceSet.name}\" [color=\"#01579B\"]"
 
-				sourceSet.requiredAt.forEach { sourceSet2->
-					output += "\n\t\"${sourceSet2.name}\" -> \"${sourceSet.name}\" [color=\"#880E4F\"]"
+					sourceSet.requiredAt.forEach { sourceSet2 ->
+						output += "\n\t\"${sourceSet2.name}\" -> \"${sourceSet.name}\" [color=\"#880E4F\"]"
+					}
 				}
-			}
 
-			target.requiredAt.forEach { sourceSet->
-				output += "\n\t\"${sourceSet.name}\" -> \"${target.name}\" [color=\"#880E4F\"]"
+				target.requiredAt.forEach { sourceSet ->
+					output += "\n\t\"${sourceSet.name}\" -> \"${target.name}\" [color=\"#880E4F\"]"
+				}
 			}
 		}
 
-		output += generateModulesLinks(module)
+		output += generateModulesLinks(diagram, module)
 	}
 
 	return output
 }
 
-fun save(content: String) {
+fun save(diagram: GraphvizDiagram, content: String) {
 	Paths.get(
 		com.company.team.project.dsl.model.Properties.projects.root.absolutePath!!,
-		"resources/architecture/diagram/graphviz/all_connections.txt"
+		"resources/architecture/diagram/graphviz/definitions/${diagram.name}.txt"
 	).toFile().writeText(content)
 }

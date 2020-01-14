@@ -1,8 +1,7 @@
 import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
-import com.company.team.project.dsl.model.enum_.*
 import com.company.team.project.dsl.model.extension.*
-import com.company.team.project.dsl.generateGraphviz
+import com.company.team.project.dsl.generateGraphvizDiagrams
 
 plugins {
 	kotlin("multiplatform")
@@ -123,8 +122,8 @@ repositories {
 	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
 }
 
-tasks.register("generateGraphviz") {
+tasks.register("generateGraphvizDiagrams") {
 	doLast {
-		generateGraphviz()
+		generateGraphvizDiagrams()
 	}
 }
