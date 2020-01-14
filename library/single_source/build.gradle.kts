@@ -98,7 +98,7 @@ kotlin {
 	}
 
 	sourceSets {
-		all {gra
+		all {
 			val sourceSetEnum =
 				when (name) {
 					SourceSetEnum.`common-single_source@common@main`.kotlinId -> SourceSetEnum.`common-single_source@common@main`
