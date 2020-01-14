@@ -95,8 +95,8 @@ This structure is also available in this diagram:
 <img
     src="https://raw.githubusercontent.com/funttastic/universal_kotlin/development/resources/architecture/diagram/graphviz/images/modules.svg?sanitize=true"
     alt="Modules Diagram"
-    width="1024"
-    height="768"
+    width="882"
+    height="90"
 />
 
 Other diagrams can be found in the [diagrams](resources/architecture/diagram/graphviz) folder.
