@@ -105,11 +105,11 @@ Other diagrams can be found in the [diagrams](resources/architecture/diagram/gra
 
 These instructions will get you a copy of the project up and running on your local machine.
 
-The configurations for the CIs can be found at:
+The CIs configurations can be found at:
 
-- [AppVeyor](appveyor.yml)
-- [CircleCI](.circleci/config.yml)
-- [Travis](.travis.yml)
+- [AppVeyor](appveyor.yml) (being used for Windows)
+- [CircleCI](.circleci/config.yml) (being used for Linux)
+- [Travis](.travis.yml) (being used for MacOS)
 
 <!--
 These instructions will get you a copy of the project up and running on your local machine for development and testing
