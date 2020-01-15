@@ -13,3 +13,5 @@
 **/out/
 
 local.properties
+nohup.out
+
