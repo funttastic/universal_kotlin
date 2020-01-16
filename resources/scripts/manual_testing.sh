@@ -26,6 +26,9 @@ nohup ./gradlew :application:application-desktop:application-desktop-jvm:applica
 printf "\nPreparing JVM Terminal\n"
 nohup ./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar
 
+printf "\nPreparing Android\n"
+nohup ./gradlew :application:application-terminal:application-mobile-jvm:application-mobile-jvm-android:build
+
 # Test
 printf "\nRunning TornadoFX\n"
 nohup ./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run
@@ -43,7 +46,9 @@ open -na "Google Chrome" --args "http://localhost:10003"
 open -na "Google Chrome" --args "http://localhost:10004"
 open -na "Google Chrome" --args $(pwd)"/application/browser/native/wasm32/index.html"
 read -p "It is needed to wait until the servers start propertly"
-# android
+
+printf "\nRunning Android\n"
+nohup ./gradlew :application:application-terminal:application-mobile-jvm:application-mobile-jvm-android:installDebug
 # ios
 
 # Finish
