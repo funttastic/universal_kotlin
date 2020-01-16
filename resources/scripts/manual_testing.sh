@@ -1,17 +1,19 @@
 # Preparation
 clear
 
+mkdir -p temporary
+
 printf "\nRunning Webpack server for React\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run &
+nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run >> temporary/log.out 2>&1 &
 
 printf "\nRunning NodeJS server for Wasm32\n"
-nohup node $(pwd)"/application/browser/native/wasm32/express.js" &
+nohup node $(pwd)"/application/browser/native/wasm32/express.js" >> temporary/log.out 2>&1 &
 
 printf "\nRunning Webpack server for Vanilla JavaScript\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run &
+nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run >> temporary/log.out 2>&1 &
 
 printf "\nRunning Spring Boot server\n"
-nohup ./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun &
+nohup ./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun >> temporary/log.out 2>&1 &
 springBootPid=$!
 printf "Spring Boot PID: $springBootPid\n"
 
