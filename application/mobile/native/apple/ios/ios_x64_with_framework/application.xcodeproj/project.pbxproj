@@ -385,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -z \"$KOTLIN_NATIVE_BUILD_CAPABLE\" ]; then\n# cd \"$SRCROOT/Supporting Files\"\ncd ../../../../../../ # Project root\nsh -c \". gradlew :applicationMobileNativeAppleIosIosX64WithFramework:buildForXcode\"\nfi\n            \n";
+			shellScript = "if [ -z \"$KOTLIN_NATIVE_BUILD_CAPABLE\" ]; then\n# cd \"$SRCROOT/Supporting Files\"\ncd ../../../../../../ # Project root\nsh -c \". gradlew :application:application-mobile:application-mobile-native:application-mobile-native-apple:application-mobile-native-apple-ios:application-mobile-native-apple-ios-ios_x64_with_framework:buildForXcode\"\nfi\n            \n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
