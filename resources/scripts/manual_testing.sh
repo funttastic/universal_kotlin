@@ -1,6 +1,5 @@
 #!/bin/zsh
 #	Improvements
-# Create a function to run the commands in background or not and append a prefix before the logs
 # Check if it is possible to use webpack for wasm32
 # Fix react compilation
 # Find a way to wait for the background servers before opening the browser
@@ -8,6 +7,7 @@
 # Open a new terminal grepping for key lines
 # Secure spring boot shutdown and improve readme
 # Upgrade to latest spring boot
+# Move index.html from wasm to resources folder
 
 # Variables
 currentDir=$(pwd)
@@ -19,8 +19,15 @@ emulatorId=Nexus_5X_API_29_x86_64
 androidPackage=com.company.team.project.application.mobile.jvm.android
 unset enabled
 declare -A enabled
-enabled[spring_boot]=true
-enabled[vanilla]=true
+enabled[spring_boot]=false
+enabled[vanilla]=false
+enabled[tornadofx]=false
+enabled[android]=false
+enabled[kscript]=false
+enabled[terminal]=false
+enabled[was32]=false
+enabled[react]=false
+enabled[ios]=false
 
 # Functions
 # run -t "Title" -p "Prefix" -c "full command" -r true -b true -o "temporary/log.out"
@@ -31,8 +38,6 @@ function run() {
     key=$arguments[-k]
 
     if [ "$enabled[$key]" != "true" ]; then
-        echo "Skipping $key"
-
         return
     fi
 
@@ -112,7 +117,7 @@ run -k was32 -t "Running NodeJS server for Wasm32" -p "Wasm32" -c "node "$curren
 
 run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run"
 
-run -k terminal -t "Preparing JVM Terminal" -p "JVM Terminal" -c "./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar"
+run -k terminal -t "Preparing JVM Terminal" -p "JVM Terminal" -c "./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar" -b false
 
 # Test
 run -k tornadofx -t "Running TornadoFX" -p "Tornado FX" -c "./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run"
@@ -127,13 +132,16 @@ run -k react -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b fa
 run -k vanilla -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
 run -k was32 -c "open -na 'Google Chrome' --args '$currentDir/application/browser/native/wasm32/index.html'" -b false -r false
 
-run -k android -t "Running Android" -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug && $androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false -r false
+run -k android -t "Running Android" -p "Android" -c "$androidSdkDir/platform-tools/adb wait-for-device" -b false
+run -k android -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug" -b false
+run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false
 
 printf "\nRunning iOS\n"
 # ios-sim launch "$currentDir/application/mobile/native/apple/ios/ios_x64"
 
 # Finish
-read -s -k '?Press any key to proceed with the shutdown.'
+read -s -k "?Press any key to proceed with the shutdown."
+printf "\n"
 
 run -k was32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10003"
 
@@ -145,5 +153,7 @@ run -k vanilla -t "Closing Vanilla JavaScript Google Chrome tab" -p "Vanilla JS"
 
 run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -sS -X POST localhost:10001/actuator/shutdown"
 run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -c "closeChromeTab http://localhost:10001"
+
+run -k android -t "Stopping Android emulator" -p "Android" -c "$androidSdkDir/platform-tools/adb -s emulator-5554 emu kill"
 
 for pid in $pids ; do ps -ax $pid ; done
