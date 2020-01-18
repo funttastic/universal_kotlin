@@ -68,11 +68,21 @@ task("copyFramework") {
 		val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
 		val targetDir = project.properties["configuration.build.dir"]!!
 
+		Util.dump(srcFile.parent)
+		Util.dump(targetDir)
+
 		copy {
 			from(srcFile.parent)
 			into(targetDir)
-			include("main.framework/**")
-			include("main.framework.dSYM")
+			include("${ModuleEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework`.name}.framework/**")
+			include("${ModuleEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework`.name}.framework.dSYM")
 		}
+
+		// copy {
+		// 	from(srcFile.parent)
+		// 	into(targetDir)
+		// 	include("main.framework/**")
+		// 	include("main.framework.dSYM")
+		// }
 	}
 }
