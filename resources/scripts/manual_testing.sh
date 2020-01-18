@@ -1,62 +1,149 @@
+#!/bin/zsh
+#	Improvements
+# Create a function to run the commands in background or not and append a prefix before the logs
+# Check if it is possible to use webpack for wasm32
+# Fix react compilation
+# Find a way to wait for the background servers before opening the browser
+# Run ios projects
+# Open a new terminal grepping for key lines
+# Secure spring boot shutdown and improve readme
+# Upgrade to latest spring boot
+
+# Variables
+currentDir=$(pwd)
+enabledModules=""
+pids=()
+logPath="temporary/log.out"
+androidSdkDir=/Users/$USER/Library/Android/sdk
+emulatorId=Nexus_5X_API_29_x86_64
+androidPackage=com.company.team.project.application.mobile.jvm.android
+unset enabled
+declare -A enabled
+enabled[spring_boot]=true
+enabled[vanilla]=true
+
+# Functions
+# run -t "Title" -p "Prefix" -c "full command" -r true -b true -o "temporary/log.out"
+function run() {
+    zmodload zsh/zutil
+    zparseopts -A arguments k: c: r: b: p: o: t:
+
+    key=$arguments[-k]
+
+    if [ "$enabled[$key]" != "true" ]; then
+        echo "Skipping $key"
+
+        return
+    fi
+
+    title=$arguments[-t]
+    command=$arguments[-c]
+    redirectOutput="${arguments[-r]-true}"
+    runInBackground="${arguments[-b]-true}"
+    logLinesPrefix="${arguments[-p]-''}"
+    outputFile="${arguments[-o]-$logPath}"
+
+    fullCommand="$command"
+
+    if [[ $title = *[!\ ]* ]]; then
+        echo "$title"
+    fi
+
+    # if [ ! -z "$logLinesPrefix" ]; then
+    #     fullCommand="$fullCommand | sed  's/^/[$logLinesPrefix] /'"
+    # fi
+
+    if [ "$redirectOutput" = "true" ]; then
+        fullCommand="$fullCommand >> $outputFile 2>&1"
+    fi
+
+    if [ "$runInBackground" = "true" ]; then
+        fullCommand="$fullCommand &"
+    fi
+
+    # printf "command: $command\nredirectOutput: $redirectOutput\nrunInBackground: $runInBackground\nlogLinesPrefix: $logLinesPrefix\noutputFile: $outputFile\ntitle: $title\nfullCommand: $fullCommand"
+
+    unset command redirectOutput runInBackground logLinesPrefix outputFile title
+
+    eval $fullCommand
+
+    if [ "$runInBackground" = "true" ]; then
+        pids+=( $! ) 2>&1
+    fi
+
+    unset fullCommand
+}
+
+function closeChromeTab() {
+    url=$1
+
+    osascript -e '
+        tell application "Google Chrome"
+            set windowList to every tab of every window whose URL starts with "'"$url"'"
+            repeat with tabList in windowList
+                set tabList to tabList as any
+                repeat with tabItr in tabList
+                    set tabItr to tabItr as any
+                    delete tabItr
+                end repeat
+            end repeat
+        end tell
+    '
+}
+
+
 # Preparation
 clear
 
 mkdir -p temporary
+: > temporary/log.out
 
-printf "\nRunning Webpack server for React\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run >> temporary/log.out 2>&1 &
+run -k build -t "Cleaning, building and checking" -p "Build" -c "./gradlew build check" -b false
 
-printf "\nRunning NodeJS server for Wasm32\n"
-nohup node $(pwd)"/application/browser/native/wasm32/express.js" >> temporary/log.out 2>&1 &
+# ttab tail -f $logPath | grep "running at http://localhost:10002"
 
-printf "\nRunning Webpack server for Vanilla JavaScript\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run >> temporary/log.out 2>&1 &
+run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/emulator -avd $emulatorId"
 
-printf "\nRunning Spring Boot server\n"
-nohup ./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun >> temporary/log.out 2>&1 &
-springBootPid=$!
-printf "Spring Boot PID: $springBootPid\n"
+run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun"
 
-printf "\nPreparing Wasm32\n"
-nohup ./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:build
+run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run"
 
-printf "\nPreparing TornadoFX\n"
-nohup ./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:build
+run -k was32 -t "Running NodeJS server for Wasm32" -p "Wasm32" -c "node "$currentDir/application/browser/native/wasm32/express.js""
 
-printf "\nPreparing JVM Terminal\n"
-nohup ./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar
+run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run"
 
-printf "\nPreparing Android\n"
-nohup ./gradlew :application:application-terminal:application-mobile-jvm:application-mobile-jvm-android:build
+run -k terminal -t "Preparing JVM Terminal" -p "JVM Terminal" -c "./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar"
 
 # Test
-printf "\nRunning TornadoFX\n"
-nohup ./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run
+run -k tornadofx -t "Running TornadoFX" -p "Tornado FX" -c "./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run"
 
-printf "\nRunning KScript\n"
-kscript application/script/jvm/script/src/main/kotlin/com/company/team/project/application/script/jvm/script/Example.kt
+run -k kscript -t "Running KScript" -p "KScript" -c "kscript application/script/jvm/script/src/main/kotlin/com/company/team/project/application/script/jvm/script/Example.kt" -b false -r false
 
-printf "\nRunning JVM Terminal\n"
-java -jar application/terminal/jvm/terminal/build/libs/application-terminal-jvm-terminal-0.0.1-all.jar
+run -k terminal -t "Running JVM Terminal" -p "JVM Terminal" -c "java -jar application/terminal/jvm/terminal/build/libs/application-terminal-jvm-terminal-0.0.1-all.jar" -b false -r false
 
 printf "\nOpening Google Chrome\n"
-open -na "Google Chrome" --args --new-window "http://localhost:10001/exampleController/exampleMethod"
-open -na "Google Chrome" --args "http://localhost:10002"
-open -na "Google Chrome" --args "http://localhost:10003"
-open -na "Google Chrome" --args "http://localhost:10004"
-open -na "Google Chrome" --args $(pwd)"/application/browser/native/wasm32/index.html"
-read -p "It is needed to wait until the servers start propertly"
+run -k spring_boot -c "open -na 'Google Chrome' --args 'http://localhost:10001/exampleController/exampleMethod'" -b false -r false
+run -k react -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b false -r false
+run -k vanilla -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
+run -k was32 -c "open -na 'Google Chrome' --args '$currentDir/application/browser/native/wasm32/index.html'" -b false -r false
 
-printf "\nRunning Android\n"
-nohup ./gradlew :application:application-terminal:application-mobile-jvm:application-mobile-jvm-android:installDebug
-# ios
+run -k android -t "Running Android" -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug && $androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false -r false
+
+printf "\nRunning iOS\n"
+# ios-sim launch "$currentDir/application/mobile/native/apple/ios/ios_x64"
 
 # Finish
-printf "\Stopping React Webpack server\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop
+read -s -k '?Press any key to proceed with the shutdown.'
 
-printf "\Stopping Vanilla JavaScript Webpack server\n"
-nohup ./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:stop
+run -k was32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10003"
 
-printf "\Killing Spring Boot server\n"
-kill $springBootPid
+run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop"
+run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002"
+
+run -k vanilla -t "Stopping Vanilla JavaScript Webpack server" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:stop"
+run -k vanilla -t "Closing Vanilla JavaScript Google Chrome tab" -p "Vanilla JS" -c "closeChromeTab http://localhost:10003"
+
+run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -sS -X POST localhost:10001/actuator/shutdown"
+run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -c "closeChromeTab http://localhost:10001"
+
+for pid in $pids ; do ps -ax $pid ; done
