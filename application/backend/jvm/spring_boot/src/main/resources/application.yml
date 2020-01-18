@@ -1,2 +1,10 @@
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 server:
-  port : 10001
+  port: 10001
