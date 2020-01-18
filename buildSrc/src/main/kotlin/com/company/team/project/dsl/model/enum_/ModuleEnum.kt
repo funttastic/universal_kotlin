@@ -208,7 +208,10 @@ enum class ModuleEnum(
 	`application-mobile-native-apple-ios-ios_x64`(
 		parent = `application-mobile-native-apple-ios`,
 		status = StatusEnum.enabled,
-		path = Paths.get("application/mobile/native/apple/ios/ios_x64/application")
+		file = Paths.get(
+			Properties.projects.root.absolutePath!!,
+			"application/mobile/native/apple/ios/ios_x64/application"
+		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework`(
 		parent = `application-mobile-native-apple-ios`,
@@ -217,12 +220,18 @@ enum class ModuleEnum(
 	`application-mobile-native-apple-ios-ios_x64_framework`(
 		parent = `application-mobile-native-apple-ios`,
 		status = StatusEnum.enabled,
-		path = Paths.get("application/mobile/native/apple/ios/ios_x64_framework/framework")
+		file = Paths.get(
+			Properties.projects.root.absolutePath!!,
+			"application/mobile/native/apple/ios/ios_x64_framework/framework"
+		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework`(
 		parent = `application-mobile-native-apple-ios`,
 		status = StatusEnum.enabled,
-		path = Paths.get("application/mobile/native/apple/ios/ios_x64_with_framework/KotlinNativeFramework")
+		file = Paths.get(
+			Properties.projects.root.absolutePath!!,
+			"application/mobile/native/apple/ios/ios_x64_with_framework/KotlinNativeFramework"
+		).toFile()
 	),
 	`application-script`(
 		parent = application
@@ -249,7 +258,10 @@ enum class ModuleEnum(
 	`application-television-native-apple-tvos-tvos_x64`(
 		parent = `application-television-native-apple-tvos`,
 		status = StatusEnum.disabled,
-		path = Paths.get("application/television/native/apple/tvos/tvos_x64/application")
+		file = Paths.get(
+			Properties.projects.root.absolutePath!!,
+			"application/television/native/apple/tvos/tvos_x64/application"
+		).toFile()
 	),
 	`application-terminal`(
 		parent = application
@@ -276,7 +288,10 @@ enum class ModuleEnum(
 	`application-watch-native-apple-watchos-watchos_x64`(
 		parent = `application-watch-native-apple-watchos`,
 		status = StatusEnum.disabled,
-		path = Paths.get("application/television/native/apple/watchos/watchos_x64/application")
+		file = Paths.get(
+			Properties.projects.root.absolutePath!!,
+			"application/television/native/apple/watchos/watchos_x64/application"
+		).toFile()
 	),
 	;
 
@@ -309,8 +324,6 @@ enum class ModuleEnum(
 
 		if (fullIdentifier == null) fullIdentifier = "$group:$artifact:$version"
 
-		if (path == null) path = Paths.get(name.replace("-", "/"))
-
 		if (file == null) {
 			file = Paths.get(
 				Properties.projects.root.absolutePath!!,
@@ -321,6 +334,8 @@ enum class ModuleEnum(
 		if (absolutePath == null) absolutePath = file?.absolutePath
 
 		if (relativePath == null && absolutePath != null) relativePath = Util.relativePathFromRoot(absolutePath!!)
+
+		if (path == null) path = Paths.get(relativePath)
 
 		if (parent != null) parent!!.children.add(this)
 	}
