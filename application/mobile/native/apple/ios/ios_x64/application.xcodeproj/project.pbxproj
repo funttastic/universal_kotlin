@@ -206,7 +206,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -f \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\n\nif [ -z \"$KOTLIN_NATIVE_BUILD_CAPABLE\" ]; then\n  cd \"$SRCROOT/../../../../../../\"\n  sh -c \". gradlew :applicationMobileNativeAppleIosIosX64:buildForXcode\"\nfi\n\necho \"TARGET_BUILD_DIR: $TARGET_BUILD_DIR\"\necho \"TARGET_NAME: $TARGET_NAME\"\necho \"EXECUTABLE_PATH: $EXECUTABLE_PATH\"\n\nmkdir -p \"$TARGET_BUILD_DIR/$TARGET_NAME.app\"\n\ntree $TARGET_BUILD_DIR\n\ncp \"$TARGET_BUILD_DIR/$TARGET_NAME.kexe\" \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\n";
+			shellScript = "cd $SRCROOT/../../../../../.. && module=application-mobile-native-apple-ios-ios_x64 ./resources/scripts/apple/xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
