@@ -90,8 +90,8 @@ kotlinFrontend {
 	npm {
 		dependency("css-loader")
 		dependency("style-loader")
-//		dependency("react")
-//		dependency("react-dom")
+		dependency("react")
+		dependency("react-dom")
 
 		devDependency("karma")
 	}
