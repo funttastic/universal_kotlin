@@ -1,13 +1,13 @@
 #!/bin/zsh
 #	Improvements
 # Check if it is possible to use webpack for wasm32
-# Fix react compilation
 # Find a way to wait for the background servers before opening the browser
 # Run ios projects
 # Open a new terminal grepping for key lines
 # Secure spring boot shutdown and improve readme
 # Upgrade to latest spring boot
 # Move index.html from wasm to resources folder
+# Improve react module to use new plugin
 
 # Variables
 currentDir=$(pwd)
@@ -25,7 +25,7 @@ enabled[tornadofx]=false
 enabled[android]=false
 enabled[kscript]=false
 enabled[terminal]=false
-enabled[was32]=false
+enabled[was32]=true
 enabled[react]=false
 enabled[ios]=false
 
@@ -37,7 +37,7 @@ function run() {
 
     key=$arguments[-k]
 
-    if [ "$enabled[$key]" != "true" ]; then
+    if [ "$enabled[$key]" != "true" ] && [[ "$key" != "all" ]]; then
         return
     fi
 
@@ -68,15 +68,13 @@ function run() {
 
     # printf "command: $command\nredirectOutput: $redirectOutput\nrunInBackground: $runInBackground\nlogLinesPrefix: $logLinesPrefix\noutputFile: $outputFile\ntitle: $title\nfullCommand: $fullCommand"
 
-    unset command redirectOutput runInBackground logLinesPrefix outputFile title
-
     eval $fullCommand
 
     if [ "$runInBackground" = "true" ]; then
         pids+=( $! ) 2>&1
     fi
 
-    unset fullCommand
+    unset fullCommand command redirectOutput runInBackground logLinesPrefix outputFile title
 }
 
 function closeChromeTab() {
@@ -113,7 +111,7 @@ run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradle
 
 run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run"
 
-run -k was32 -t "Running NodeJS server for Wasm32" -p "Wasm32" -c "node "$currentDir/application/browser/native/wasm32/express.js""
+run -k was32 -t "Running server for Wasm32" -p "Wasm32" -c "serve -l 10004 '$currentDir/application/browser/native/wasm32'"
 
 run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run"
 
@@ -130,20 +128,20 @@ printf "\nOpening Google Chrome\n"
 run -k spring_boot -c "open -na 'Google Chrome' --args 'http://localhost:10001/exampleController/exampleMethod'" -b false -r false
 run -k react -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b false -r false
 run -k vanilla -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
-run -k was32 -c "open -na 'Google Chrome' --args '$currentDir/application/browser/native/wasm32/index.html'" -b false -r false
+run -k was32 -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
 
 run -k android -t "Running Android" -p "Android" -c "$androidSdkDir/platform-tools/adb wait-for-device" -b false
 run -k android -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug" -b false
 run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false
 
-printf "\nRunning iOS\n"
+# printf "\nRunning iOS\n"
 # ios-sim launch "$currentDir/application/mobile/native/apple/ios/ios_x64"
 
 # Finish
 read -s -k "?Press any key to proceed with the shutdown."
 printf "\n"
 
-run -k was32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10003"
+run -k was32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004"
 
 run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop"
 run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002"
@@ -156,4 +154,4 @@ run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -
 
 run -k android -t "Stopping Android emulator" -p "Android" -c "$androidSdkDir/platform-tools/adb -s emulator-5554 emu kill"
 
-for pid in $pids ; do ps -ax $pid ; done
+run -k all -t "Killing remaining processes" -p "All" -c "for pid in \$pids ; do kill \$pid ; done"
