@@ -50,7 +50,7 @@ fi
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64" ]; then
     # TODO Improve to use environment variable instead of hardcoded names
     mkdir -p $TARGET_BUILD_DIR/application.app
-    mv "$TARGET_BUILD_DIR/$module.kexe" $TARGET_BUILD_DIR/application.app/application
+    mv "$TARGET_BUILD_DIR/application.kexe" $TARGET_BUILD_DIR/application.app/application
 fi
 
 printf "TARGET_BUILD_DIR - Contents - After\n"
