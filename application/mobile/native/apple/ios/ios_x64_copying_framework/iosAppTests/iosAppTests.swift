@@ -5,11 +5,11 @@ import main
  *
  */
 class iosAppTests: XCTestCase {
-    
-    /**
-     *
-     */
-    func testExample() {
+
+	/**
+	 *
+	 */
+	func testExample() {
 		assert(!ExampleKt.exampleValue.isEmpty)
 	}
 }
