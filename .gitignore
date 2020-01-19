@@ -16,3 +16,4 @@ local.properties
 /temporary/
 
 nohup.out
+/application/mobile/native/apple/ios/ios_x64/application.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/
