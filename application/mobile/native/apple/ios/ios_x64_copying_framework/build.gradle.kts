@@ -53,7 +53,7 @@ configurations {
  */
 task("copyFramework") {
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
-	val target = project.findProperty("kotlin.target")
+	val target = project.findProperty("kotlin.target") as String?
 		?: TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
 	val linkTask = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask
 

@@ -1,5 +1,10 @@
 import com.company.team.project.dsl.model.enum_.ModuleEnum
+import com.company.team.project.dsl.model.enum_.SourceSetEnum
+import com.company.team.project.dsl.model.enum_.TargetEnum
+import com.company.team.project.dsl.model.extension.configureSourceSet
 import com.company.team.project.dsl.model.extension.configureTargetAttributes
+import com.company.team.project.dsl.model.extension.iosX64
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
 	kotlin("multiplatform")
@@ -23,7 +28,7 @@ kotlin {
 	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`) {
 		binaries {
 			framework {
-				baseName = "main"
+				baseName = "framework"
 			}
 		}
 	}
