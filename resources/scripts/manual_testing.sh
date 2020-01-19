@@ -8,7 +8,7 @@
 # Upgrade to latest spring boot
 # Move index.html from wasm to resources folder
 # Improve react module to use new plugin
-# Fix ios_framework and ios_with_framework (not including main and test source sets), remove frameworkMain source set
+# Fix ios modules (not including main and test source sets), remove the other source sets they are using
 
 # Variables
 currentDir=$(pwd)
