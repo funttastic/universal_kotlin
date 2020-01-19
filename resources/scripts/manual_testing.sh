@@ -135,7 +135,8 @@ run -k android -p "Android" -c "./gradlew :application:application-mobile:applic
 run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false
 
 # printf "\nRunning iOS\n"
-# ios-sim launch "$currentDir/application/mobile/native/apple/ios/ios_x64"
+# plutil -convert binary1 Info.plist
+# ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64/application -d iPhone-11-Pro-Max
 
 # Finish
 read -s -k "?Press any key to proceed with the shutdown."
