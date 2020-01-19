@@ -20,7 +20,9 @@ kotlin {
 
 	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`) {
 		binaries {
-			framework {}
+			framework {
+				baseName = "main"
+			}
 		}
 	}
 
@@ -58,11 +60,13 @@ configurations {
 // Before opening the project from iosApp directory in Xcode,
 // make sure all Gradle infrastructure exists (gradle.wrapper, gradlew).
 task("copyFramework") {
-	Util.dump(kotlin.targets.asMap)
+	// Util.dump(kotlin.targets.asMap)
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
 //	val target = project.findProperty("kotlin.target") ?: "iosX64"
 	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
-	dependsOn((kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask)
+	val linkTask = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask
+	
+	dependsOn(linkTask)
 
 	doLast {
 		val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
@@ -74,15 +78,8 @@ task("copyFramework") {
 		copy {
 			from(srcFile.parent)
 			into(targetDir)
-			include("${ModuleEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework`.name}.framework/**")
-			include("${ModuleEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework`.name}.framework.dSYM")
+			include("main.framework/**")
+			include("main.framework.dSYM")
 		}
-
-		// copy {
-		// 	from(srcFile.parent)
-		// 	into(targetDir)
-		// 	include("main.framework/**")
-		// 	include("main.framework.dSYM")
-		// }
 	}
 }
