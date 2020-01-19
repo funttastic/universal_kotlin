@@ -23,6 +23,8 @@ kotlin {
 //	}
 
     xcode {
-        setupFramework("framework")
+        setupFramework("framework") {
+            baseName = "framework"
+        }
     }
 }

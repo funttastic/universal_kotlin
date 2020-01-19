@@ -23,6 +23,8 @@ kotlin {
 //	}
 
     xcode {
-        setupApplication("application")
+        setupApplication("application") {
+            baseName = "application"
+        }
     }
 }

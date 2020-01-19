@@ -23,6 +23,8 @@ kotlin {
 //	}
 
     xcode {
-        setupFramework("KotlinNativeFramework")
+        setupFramework("KotlinNativeFramework") {
+            baseName = "KotlinNativeFramework"
+        }
     }
 }
