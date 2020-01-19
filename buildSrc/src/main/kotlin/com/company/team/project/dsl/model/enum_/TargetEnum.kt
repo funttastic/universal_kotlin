@@ -434,6 +434,12 @@ enum class TargetEnum(
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`(
 		status = StatusEnum.enabled
 	),
+	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`(
+		status = StatusEnum.enabled
+	),
+	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64`(
+		status = StatusEnum.enabled
+	),
 	`application-script-jvm-script@jvm`(
 		status = StatusEnum.enabled
 	),

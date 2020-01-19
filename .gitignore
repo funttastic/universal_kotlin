@@ -13,3 +13,7 @@
 **/out/
 
 local.properties
+/temporary/
+
+nohup.out
+**/*.xcuserdatad/

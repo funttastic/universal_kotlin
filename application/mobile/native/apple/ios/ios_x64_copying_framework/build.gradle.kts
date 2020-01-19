@@ -1,6 +1,9 @@
-import com.company.team.project.dsl.Util
-import com.company.team.project.dsl.model.enum_.*
-import com.company.team.project.dsl.model.extension.*
+import com.company.team.project.dsl.model.enum_.ModuleEnum
+import com.company.team.project.dsl.model.enum_.SourceSetEnum
+import com.company.team.project.dsl.model.enum_.TargetEnum
+import com.company.team.project.dsl.model.extension.configureSourceSet
+import com.company.team.project.dsl.model.extension.configureTargetAttributes
+import com.company.team.project.dsl.model.extension.iosX64
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -10,17 +13,11 @@ plugins {
 kotlin {
 	configureTargetAttributes(ModuleEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework`)
 
-//	targets.all {
-//			compilations.all {
-//				tasks[compileKotlinTaskName].kotlinOptions {
-//					allWarningsAsErrors = true
-//				}
-//			}
-//	}
-
 	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`) {
 		binaries {
-			framework {}
+			framework {
+				baseName = "main"
+			}
 		}
 	}
 
@@ -51,23 +48,25 @@ configurations {
 	}
 }
 
-
-// This task attaches native framework built from ios module to Xcode project
-// (see iosApp directory). Don"t run this task directly,
-// Xcode runs this task itself during its build process.
-// Before opening the project from iosApp directory in Xcode,
-// make sure all Gradle infrastructure exists (gradle.wrapper, gradlew).
+/**
+ * This task will be automatically called by Xcode.
+ */
 task("copyFramework") {
-	Util.dump(kotlin.targets.asMap)
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
-//	val target = project.findProperty("kotlin.target") ?: "iosX64"
-	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
-	dependsOn((kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask)
+	val target = project.findProperty("kotlin.target") as String?
+		?: TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
+	val linkTask = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask
+
+	dependsOn(linkTask)
 
 	doLast {
 		val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
 		val targetDir = project.properties["configuration.build.dir"]!!
 
+		/*
+		These names need to be coincident with the imported framework inside of the ios project,
+			also the name configured in the target -> binaries -> framework -> baseName.
+		 */
 		copy {
 			from(srcFile.parent)
 			into(targetDir)

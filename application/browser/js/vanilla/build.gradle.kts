@@ -87,7 +87,7 @@ kotlinFrontend {
 			contentPath = file("src/main/resources/public")
 			publicPath = "/"
 			host = "localhost"
-			port = 3100
+			port = 10003
 			mode = "development" // or "production"
 //			proxyUrl = "http://localhost:30000"
 //			stats = "errors-only"

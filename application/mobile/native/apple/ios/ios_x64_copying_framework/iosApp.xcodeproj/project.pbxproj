@@ -246,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../../../../../..//gradlew\" --stacktrace --warning-mode all -p \"$SRCROOT/\" :applicationMobileNativeAppleIosIosX64CopyingFramework:copyFramework \\\n-Pconfiguration.build.dir=\"$CONFIGURATION_BUILD_DIR\"          \\\n-Pkotlin.build.type=\"$KOTLIN_BUILD_TYPE\"                      \\\n-Pkotlin.target=\"$KOTLIN_TARGET\"\n";
+			shellScript = "cd $SRCROOT/../../../../../.. && module=application-mobile-native-apple-ios-ios_x64_copying_framework ./resources/scripts/apple/xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
