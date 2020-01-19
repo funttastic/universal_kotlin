@@ -25,8 +25,8 @@ enabled[tornadofx]=false
 enabled[android]=false
 enabled[kscript]=false
 enabled[terminal]=false
-enabled[was32]=true
 enabled[react]=false
+enabled[was32]=true
 enabled[ios]=false
 
 # Functions

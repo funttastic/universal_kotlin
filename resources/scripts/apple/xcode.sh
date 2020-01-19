@@ -16,10 +16,15 @@ export enabledModules="$module"
 export task=":application:application-mobile:application-mobile-native:application-mobile-native-apple:application-mobile-native-apple-ios:$module"
 
 printf "Environment Variables:\n"
-env | sort
+# env | sort
+( set -o posix ; set ) | sort
+echo KOTLIN_TARGET=$KOTLIN_TARGET
+echo KOTLIN_BUILD_TYPE=$KOTLIN_BUILD_TYPE
+echo KOTLIN_NATIVE_BUILD_CAPABLE=$KOTLIN_NATIVE_BUILD_CAPABLE
 
 
-printf "Before - Contents of $TARGET_BUILD_DIR"
+printf "TARGET_BUILD_DIR - Contents - Before\n"
+printf "$TARGET_BUILD_DIR\n"
 tree $TARGET_BUILD_DIR
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64" ]; then
@@ -43,9 +48,10 @@ else
 fi
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64" ]; then
+    # TODO Improve to use environment variable instead of hardcoded names
     mkdir -p $TARGET_BUILD_DIR/application.app
     mv "$TARGET_BUILD_DIR/$module.kexe" $TARGET_BUILD_DIR/application.app/application
 fi
 
-printf "After - Contents of $TARGET_BUILD_DIR"
-tree $TARGET_BUILD_DIR
+printf "TARGET_BUILD_DIR - Contents - After\n"
+printf "$TARGET_BUILD_DIR\n"
