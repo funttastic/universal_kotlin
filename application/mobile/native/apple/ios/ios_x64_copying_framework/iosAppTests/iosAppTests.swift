@@ -1,5 +1,5 @@
 import XCTest
-import main
+import KotlinFramework
 
 /**
  *

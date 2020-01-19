@@ -12,8 +12,8 @@
 		F861D7E6207FA40F0085E80D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E4207FA40F0085E80D /* Main.storyboard */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
 		F861D7F6207FA4100085E80D /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7F5207FA4100085E80D /* iosAppTests.swift */; };
-		F861D80C207FA4200085E80D /* main.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* main.framework */; };
-		F861D80D207FA4200085E80D /* main.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* main.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F861D80C207FA4200085E80D /* KotlinFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* KotlinFramework.framework */; };
+		F861D80D207FA4200085E80D /* KotlinFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* KotlinFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,7 @@
 			containerPortal = F861D7D5207FA40F0085E80D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F861D804207FA4200085E80D;
-			remoteInfo = main;
+			remoteInfo = KotlinFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,7 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F861D80D207FA4200085E80D /* main.framework in Embed Frameworks */,
+				F861D80D207FA4200085E80D /* KotlinFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +57,7 @@
 		F861D7F1207FA4100085E80D /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861D7F5207FA4100085E80D /* iosAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppTests.swift; sourceTree = "<group>"; };
 		F861D7F7207FA4100085E80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F861D805207FA4200085E80D /* main.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = main.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F861D805207FA4200085E80D /* KotlinFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KotlinFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F861D80C207FA4200085E80D /* main.framework in Frameworks */,
+				F861D80C207FA4200085E80D /* KotlinFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 			children = (
 				F861D7DD207FA40F0085E80D /* iosApp.app */,
 				F861D7F1207FA4100085E80D /* iosAppTests.xctest */,
-				F861D805207FA4200085E80D /* main.framework */,
+				F861D805207FA4200085E80D /* KotlinFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,9 +159,9 @@
 			productReference = F861D7F1207FA4100085E80D /* iosAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F861D804207FA4200085E80D /* main */ = {
+		F861D804207FA4200085E80D /* KotlinFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F861D80E207FA4200085E80D /* Build configuration list for PBXNativeTarget "main" */;
+			buildConfigurationList = F861D80E207FA4200085E80D /* Build configuration list for PBXNativeTarget "KotlinFramework" */;
 			buildPhases = (
 				F861D812207FA4320085E80D /* ShellScript */,
 			);
@@ -169,9 +169,9 @@
 			);
 			dependencies = (
 			);
-			name = main;
-			productName = main;
-			productReference = F861D805207FA4200085E80D /* main.framework */;
+			name = KotlinFramework;
+			productName = KotlinFramework;
+			productReference = F861D805207FA4200085E80D /* KotlinFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,6 @@
 			targets = (
 				F861D7DC207FA40F0085E80D /* iosApp */,
 				F861D7F0207FA4100085E80D /* iosAppTests */,
-				F861D804207FA4200085E80D /* main */,
 			);
 		};
 /* End PBXProject section */
@@ -278,7 +277,7 @@
 		};
 		F861D80B207FA4200085E80D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F861D804207FA4200085E80D /* main */;
+			target = F861D804207FA4200085E80D /* KotlinFramework */;
 			targetProxy = F861D80A207FA4200085E80D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -593,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F861D80E207FA4200085E80D /* Build configuration list for PBXNativeTarget "main" */ = {
+		F861D80E207FA4200085E80D /* Build configuration list for PBXNativeTarget "KotlinFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F861D80F207FA4200085E80D /* Debug */,
