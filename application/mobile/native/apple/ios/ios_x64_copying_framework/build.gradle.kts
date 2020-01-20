@@ -16,7 +16,7 @@ kotlin {
 	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`) {
 		binaries {
 			framework {
-				baseName = "main"
+				baseName = "UniversalKotlin"
 			}
 		}
 	}
@@ -53,8 +53,7 @@ configurations {
  */
 task("copyFramework") {
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
-	val target = project.findProperty("kotlin.target") as String?
-		?: TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
+	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
 	val linkTask = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask
 
 	dependsOn(linkTask)
@@ -70,8 +69,8 @@ task("copyFramework") {
 		copy {
 			from(srcFile.parent)
 			into(targetDir)
-			include("main.framework/**")
-			include("main.framework.dSYM")
+			include("UniversalKotlin.framework/**")
+			include("UniversalKotlin.framework.dSYM")
 		}
 	}
 }
