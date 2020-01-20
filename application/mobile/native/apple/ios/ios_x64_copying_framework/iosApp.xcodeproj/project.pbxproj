@@ -316,8 +316,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UniversalKotlin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				KOTLIN_BUILD_TYPE = DEBUG;
+				KOTLIN_TARGET = "";
+				"KOTLIN_TARGET[sdk=iphoneos*]" = applicationMobileNativeAppleIosIosX64CopyingFramework;
+				"KOTLIN_TARGET[sdk=iphonesimulator*]" = applicationMobileNativeAppleIosIosX64CopyingFramework;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,8 +348,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = UniversalKotlin/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				KOTLIN_BUILD_TYPE = DEBUG;
+				KOTLIN_TARGET = "";
+				"KOTLIN_TARGET[sdk=iphoneos*]" = applicationMobileNativeAppleIosIosX64CopyingFramework;
+				"KOTLIN_TARGET[sdk=iphonesimulator*]" = applicationMobileNativeAppleIosIosX64CopyingFramework;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
