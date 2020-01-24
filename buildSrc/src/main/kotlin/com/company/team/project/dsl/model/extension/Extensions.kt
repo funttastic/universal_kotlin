@@ -1,6 +1,7 @@
 package com.company.team.project.dsl.model.extension
 
 import com.company.team.project.dsl.Util
+// TODO Fix
 import com.company.team.project.dsl.model.enum_.*
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
@@ -13,8 +14,12 @@ import org.gradle.kotlin.dsl.get
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+// TODO Fix
 import org.jetbrains.kotlin.gradle.plugin.mpp.*
 import java.lang.RuntimeException
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.xcodecompat.KotlinXcodeExtension
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
 
 /**
  *
@@ -500,4 +505,14 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
 		configurationName(project(it))
 	}
+}
+
+fun KotlinXcodeExtension.setupFramework(kotlinNativeTarget: KotlinNativeTarget?) {
+}
+
+fun KotlinXcodeExtension.setupTask(nativeBinary: NativeBinary) {
+	val `class` = KotlinXcodeExtension::class.java
+	val method = `class`.getDeclaredMethod("setupTask", NativeBinary::class.java)
+	method.setAccessible(true)
+	method.invoke(this, nativeBinary)
 }
