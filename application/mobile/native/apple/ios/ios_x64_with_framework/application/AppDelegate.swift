@@ -1,5 +1,5 @@
 import UIKit
-import KotlinNativeFramework
+import UniversalKotlin
 
 /**
  *
@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// KNFKotlinNativeFramework class is located in the framework that is generated during build.
 		// If it is not resolved, try building for the device (not simulator) and reopening the project
-		NSLog("%@", KotlinNativeFramework().helloFromKotlin())
+        NSLog("%@", ExampleKt.exampleValue)
 
 		return true
 	}

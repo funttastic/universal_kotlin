@@ -230,7 +230,7 @@ enum class ModuleEnum(
 		status = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
-			"application/mobile/native/apple/ios/ios_x64_with_framework/KotlinNativeFramework"
+			"application/mobile/native/apple/ios/ios_x64_with_framework/UniversalKotlin"
 		).toFile()
 	),
 	`application-script`(
@@ -292,6 +292,16 @@ enum class ModuleEnum(
 			Properties.projects.root.absolutePath!!,
 			"application/television/native/apple/watchos/watchos_x64/application"
 		).toFile()
+	),
+	`plugin`(
+		parent = root
+	),
+	`plugin-jvm`(
+		parent = `plugin`
+	),
+	`plugin-jvm-gradle`(
+		parent = `plugin-jvm`,
+		status = StatusEnum.enabled
 	),
 	;
 
