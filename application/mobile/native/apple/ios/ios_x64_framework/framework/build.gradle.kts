@@ -4,6 +4,7 @@ import com.company.team.project.dsl.model.enum_.TargetEnum
 import com.company.team.project.dsl.model.extension.configureSourceSet
 import com.company.team.project.dsl.model.extension.configureTargetAttributes
 import com.company.team.project.dsl.model.extension.iosX64
+import com.company.team.project.dsl.model.extension.setupFramework
 
 plugins {
 	kotlin("multiplatform")
@@ -19,17 +20,15 @@ kotlin {
 	configureTargetAttributes(ModuleEnum.`application-mobile-native-apple-ios-ios_x64_framework`)
 
 	xcode {
-		setupFramework("framework") {
-			baseName = "framework"
-		}
-	}
-
-	iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`) {
-		binaries {
-			framework {
-				baseName = "framework"
+		setupFramework(
+			iosX64(TargetEnum.`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`) {
+				binaries {
+					framework {
+						baseName = "UniversalKotlin"
+					}
+				}
 			}
-		}
+		)
 	}
 
 	sourceSets {
