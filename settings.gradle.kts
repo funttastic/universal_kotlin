@@ -2,22 +2,26 @@ import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.enum_.*
 
-//rootProject.projectDir
 Properties.projects.root.descriptor = rootProject
 rootProject.name = "universal_kotlin"
 
 pluginManagement {
 	repositories {
+		// TODO Fix
+		flatDir {
+			dirs("plugin")
+		}
+		mavenLocal()
 		gradlePluginPortal()
 		mavenCentral()
 		jcenter()
 		google()
-		mavenLocal()
-		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+		maven( url = "https://plugins.gradle.org/m2" )
+		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
+		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
+		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 
-		maven(url = "https://plugins.gradle.org/m2/")
-		maven(url = "https://dl.bintray.com/salomonbrys/gradle-plugins")
+		maven( url = "https://dl.bintray.com/salomonbrys/gradle-plugins" )
 	}
 
 	resolutionStrategy {

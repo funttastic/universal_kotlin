@@ -15,19 +15,26 @@ buildscript {
 	val vendorProperties = com.company.team.project.dsl.model.Properties.vendor
 
 	repositories {
+		// TODO Fix
+		flatDir {
+			dirs("plugin")
+		}
+		mavenLocal()
+		gradlePluginPortal()
 		mavenCentral()
 		jcenter()
 		google()
-		mavenLocal()
-		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-		maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
+		maven( url = "https://plugins.gradle.org/m2" )
+		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
+		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
+		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 
-		maven { url = uri("http://dl.bintray.com/kotlinx/kotlinx") }
-		maven { url = uri("https://kotlin.bintray.com/kotlinx") }
-		maven { url = uri("http://dl.bintray.com/kotlin/kotlin-js-wrappers") }
-		maven { url = uri("https://dl.bintray.com/jetbrains/kotlin-native-dependencies") }
+		maven( url = "http://dl.bintray.com/kotlinx/kotlinx" )
+		maven( url = "https://kotlin.bintray.com/kotlinx" )
+		maven( url = "http://dl.bintray.com/kotlin/kotlin-js-wrappers" )
+		maven( url = "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" )
 
-		maven { url = uri("https://dl.bintray.com/salomonbrys/gradle-plugins") }
+		maven( url = "https://dl.bintray.com/salomonbrys/gradle-plugins" )
 	}
 
 	dependencies {
@@ -45,8 +52,14 @@ buildscript {
 
 //		classpath("no.tornado:fxlauncher-gradle-plugin:1.0.20")
 //		classpath("de.dynamicfiles.projects.gradle.plugins:javafx-gradle-plugin:8.8.2")
+
+		// TODO Fix
+//		classpath ("com.company.team.project:plugin-jvm-gradle")
 	}
 }
+
+// TODO Fix
+//apply(plugin = "com.company.team.project:plugin-jvm-gradle")
 
 //group = Properties.general.group
 //version = Properties.general.version
