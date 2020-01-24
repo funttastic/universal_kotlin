@@ -89,6 +89,9 @@ Also, one of its goals is to use shared code from the common modules and librari
             - apple
                 - watchos
                     - [ ] <strong>[watchos_x64](application/television/native/apple/watchos/watch_x64)</strong>: watchOS X64 application (not yet implemented)
+- plugin
+	- [ ] <strong>[gradle](plugin/jvm/gradle)</strong>: Gradle plugin (not using common modules)
+
 
 This structure is also available in this diagram:
 
@@ -153,14 +156,21 @@ cd universal_kotlin
 
 2. Configure:
 
-Create your `local.properties` configuration file.
-A template is available at `local.properties.template`.
+If you are going to use the Android module, it is needed to configure `ANDROID_HOME` as system environment variable:
 
 ```bash
-cp local.properties.template local.properties
+export ANDROID_HOME="/Users/<username>/Library/Android/sdk"
 ```
 
-Then change the `local.properties` file accordingly.
+or create a `local.properties` file and configure it appropriately. A template is available at
+`local.properties.template`.
+
+Also the Android module can be disabled directly in the `com.company.team.project.dsl.model.enum_.ModuleEnum` enum
+or exporting the `disabledModules` environment variable:
+
+```bash
+export disabledModules="application-mobile-jvm-android"
+```
 
 <!--
 The build script will automatically try to define the `ANDROID_HOME` system variable looking at the default paths.
@@ -181,7 +191,7 @@ But you can enable or disable modules going to this class inside the [buildSrc](
 
 > com.company.team.project.dsl.model.enum_.ModuleEnum
 
-Also you can enable or disable modules using environment variables.
+Also you can enable or disable modules using environment variables (`enabledModules` and `disabledModules`).
 Check the [common-multiple_sources](common/multiple_sources) module for an example.
 
 The `buildSrc` method responsible to define which modules will be enabled and which don't is this one:
