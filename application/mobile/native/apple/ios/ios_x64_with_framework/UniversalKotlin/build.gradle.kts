@@ -4,6 +4,8 @@ import com.company.team.project.dsl.model.enum_.TargetEnum
 import com.company.team.project.dsl.model.extension.configureSourceSet
 import com.company.team.project.dsl.model.extension.configureTargetAttributes
 import com.company.team.project.dsl.model.extension.iosX64
+import com.company.team.project.dsl.model.extension.setupFramework
+import com.company.team.project.dsl.model.extension.setupTask
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,11 +18,6 @@ import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.task
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.mpp.*
-import java.io.File
-import java.security.MessageDigest
-import com.company.team.project.dsl.model.extension.setupFramework
-import com.company.team.project.dsl.model.extension.setupTask
 
 
 plugins {
