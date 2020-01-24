@@ -1,5 +1,5 @@
 import java.io.FileInputStream
-import java.util.*
+import java.util.Properties
 
 plugins {
 	`kotlin-dsl`
@@ -20,14 +20,19 @@ group = project.properties["project.group"].toString()
 version = project.properties["project.version"].toString()
 
 repositories {
+	// TODO Fix
+	flatDir {
+		dirs("plugin")
+	}
+	mavenLocal()
+	gradlePluginPortal()
 	mavenCentral()
 	jcenter()
 	google()
-	mavenLocal()
-	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-//	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
-	maven { url = uri("https://repo.gradle.org/gradle/libs-releases-local")}
-	gradlePluginPortal()
+	maven( url = "https://plugins.gradle.org/m2" )
+	maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
+	maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
+	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 }
 
 dependencies {
