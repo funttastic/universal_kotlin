@@ -12,6 +12,8 @@
 # Run command when executing Ctrl+C to kill the remaining processes
 # Open new termminal tab with the full log
 # Divide the terminal screen to grep the important messages from the background process
+# Improve output for all modules
+# Upgrade gradle
 
 # Variables
 currentDir=$(pwd)
