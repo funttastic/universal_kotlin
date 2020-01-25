@@ -9,15 +9,20 @@
 # Move index.html from wasm to resources folder
 # Improve react module to use new plugin
 # Fix ios modules (not including main and test source sets), remove the other source sets they are using
+# Run command when executing Ctrl+C to kill the remaining processes
+# Open new termminal tab with the full log
+# Divide the terminal screen to grep the important messages from the background process
 
 # Variables
 currentDir=$(pwd)
 enabledModules=""
+disabledModules=""
 pids=()
 logPath="temporary/log.out"
 androidSdkDir=/Users/$USER/Library/Android/sdk
-emulatorId=Nexus_5X_API_29_x86_64
+androidEmulatorId=Nexus_5X_API_29_x86_64
 androidPackage=com.company.team.project.application.mobile.jvm.android
+iosEmulatorId=iPhone-11-Pro-Max
 unset enabled
 declare -A enabled
 enabled[spring_boot]=false
@@ -27,8 +32,12 @@ enabled[android]=false
 enabled[kscript]=false
 enabled[terminal]=false
 enabled[react]=false
-enabled[was32]=true
-enabled[ios]=false
+enabled[was32]=false
+enabled[ios_copying_framework]=false
+enabled[ios_framework]=false
+enabled[ios_with_framework]=false
+enabled[ios_without_framework]=false
+enabled[plugin]=false
 
 # Functions
 # run -t "Title" -p "Prefix" -c "full command" -r true -b true -o "temporary/log.out"
@@ -95,6 +104,11 @@ function closeChromeTab() {
     '
 }
 
+function killRemainingProcesses() {
+    # TODO Improve to kill only processes that still exist
+    for pid in $pids ; do kill $pid ; done
+}
+
 
 # Preparation
 clear
@@ -106,7 +120,7 @@ run -k build -t "Cleaning, building and checking" -p "Build" -c "./gradlew build
 
 # ttab tail -f $logPath | grep "running at http://localhost:10002"
 
-run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/emulator -avd $emulatorId"
+run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/emulator -avd $androidEmulatorId"
 
 run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun"
 
@@ -125,19 +139,21 @@ run -k kscript -t "Running KScript" -p "KScript" -c "kscript application/script/
 
 run -k terminal -t "Running JVM Terminal" -p "JVM Terminal" -c "java -jar application/terminal/jvm/terminal/build/libs/application-terminal-jvm-terminal-0.0.1-all.jar" -b false -r false
 
-printf "\nOpening Google Chrome\n"
-run -k spring_boot -c "open -na 'Google Chrome' --args 'http://localhost:10001/exampleController/exampleMethod'" -b false -r false
-run -k react -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b false -r false
-run -k vanilla -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
-run -k was32 -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
+run -k spring_boot -t "Opening Chrome tab for Spring Boot" -c "open -na 'Google Chrome' --args 'http://localhost:10001/exampleController/exampleMethod'" -b false -r false
+run -k react -t "Opening Chrome tab for React" -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b false -r false
+run -k vanilla -t "Opening Chrome tab for Vanilla JavaScript" -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
+run -k was32 -t "Opening Chrome tab for Wasm32" -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
 
 run -k android -t "Running Android" -p "Android" -c "$androidSdkDir/platform-tools/adb wait-for-device" -b false
 run -k android -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug" -b false
 run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false
 
-# printf "\nRunning iOS\n"
+# TODO check paths
 # plutil -convert binary1 Info.plist
-# ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64/application -d iPhone-11-Pro-Max
+run -k ios_copying_framework -t "Running iOS copying framework" -p "iOS X64 copying Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/application -d $iOSEmulatorId"
+run -k ios_framework -t "Running iOS framework" -p "iOS X64 Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_framework/framework -d $iOSEmulatorId"
+run -k ios_with_framework -t "Running iOS with framework" -p "iOS X64 with Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_with_framework/application -d $iOSEmulatorId"
+run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 without Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_without_framework/application -d $iOSEmulatorId"
 
 # Finish
 read -s -k "?Press any key to proceed with the shutdown."
