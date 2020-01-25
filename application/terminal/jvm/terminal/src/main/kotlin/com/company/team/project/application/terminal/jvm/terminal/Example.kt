@@ -10,7 +10,7 @@ fun main() {
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = com.company.team.project.common.single_source.common.formatOuput(exampleFunction(), true)
 
 /**
  *

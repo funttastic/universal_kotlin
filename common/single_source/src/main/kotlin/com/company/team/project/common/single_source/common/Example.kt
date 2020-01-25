@@ -3,7 +3,7 @@ package com.company.team.project.common.single_source.common
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOuput(exampleFunction())
 
 /**
  *
@@ -33,20 +33,29 @@ object ExampleObject {
 	}
 }
 
-fun formatOuput(input: List<String>?): String {
-	var output = """
-		_|    _|            _|                                                      _|      _|    _|              _|      _|  _|
-		_|    _|  _|_|_|        _|      _|    _|_|    _|  _|_|    _|_|_|    _|_|_|  _|      _|  _|      _|_|    _|_|_|_|  _|      _|_|_|
-		_|    _|  _|    _|  _|  _|      _|  _|_|_|_|  _|_|      _|_|      _|    _|  _|      _|_|      _|    _|    _|      _|  _|  _|    _|
-		_|    _|  _|    _|  _|    _|  _|    _|        _|            _|_|  _|    _|  _|      _|  _|    _|    _|    _|      _|  _|  _|    _|
-		  _|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
+fun formatOuput(input: List<String>?, showBanner: Boolean = false): String {
+	var output = ""
 
-	Modules used:
-	""".trimIndent()
+	if (showBanner) {
+		output = """
+		|
+		|	_|    _|            _|                                                      _|      _|    _|              _|      _|  _|
+		|	_|    _|  _|_|_|        _|      _|    _|_|    _|  _|_|    _|_|_|    _|_|_|  _|      _|  _|      _|_|    _|_|_|_|  _|      _|_|_|
+		|	_|    _|  _|    _|  _|  _|      _|  _|_|_|_|  _|_|      _|_|      _|    _|  _|      _|_|      _|    _|    _|      _|  _|  _|    _|
+		|	_|    _|  _|    _|  _|    _|  _|    _|        _|            _|_|  _|    _|  _|      _|  _|    _|    _|    _|      _|  _|  _|    _|
+		|	_|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
+		|
+		|
+		""".trimMargin()
+	}
+
+	output += "Modules used:\n"
 
 	input?.forEach {
 		output += "\n$it"
 	}
+
+	output += "\n"
 
 	return output
 }
