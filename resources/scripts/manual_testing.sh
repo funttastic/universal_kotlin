@@ -15,6 +15,14 @@
 # Improve output for all modules
 # Upgrade gradle
 
+# Prerequisites
+#   npm install -g serve
+#   sdk install kscript
+#   sdk install java 8.0.202-zulufx
+#   sdk use java 8.0.202-zulufx
+#   XCode command line tools (@see: https://stackoverflow.com/questions/40743713/command-line-tool-error-xcrun-error-unable-to-find-utility-xcodebuild-n)
+
+
 # Variables
 currentDir=$(pwd)
 enabledModules=""
@@ -34,7 +42,7 @@ enabled[android]=false
 enabled[kscript]=false
 enabled[terminal]=false
 enabled[react]=false
-enabled[was32]=false
+enabled[wasm32]=true
 enabled[ios_copying_framework]=false
 enabled[ios_framework]=false
 enabled[ios_with_framework]=false
@@ -128,7 +136,8 @@ run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradle
 
 run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run"
 
-run -k was32 -t "Running server for Wasm32" -p "Wasm32" -c "serve -l 10004 '$currentDir/application/browser/native/wasm32'"
+run -k wasm32 -t "Preparing Wasm32" -p "Wasm32" -c "./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:build" -b false -r true
+run -k wasm32 -t "Running server for Wasm32" -p "Wasm32" -c "serve -l 10004 '$currentDir/application/browser/native/wasm32'"
 
 run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run"
 
@@ -144,7 +153,7 @@ run -k terminal -t "Running JVM Terminal" -p "JVM Terminal" -c "java -jar applic
 run -k spring_boot -t "Opening Chrome tab for Spring Boot" -c "open -na 'Google Chrome' --args 'http://localhost:10001/exampleController/exampleMethod'" -b false -r false
 run -k react -t "Opening Chrome tab for React" -c "open -na 'Google Chrome' --args 'http://localhost:10002'" -b false -r false
 run -k vanilla -t "Opening Chrome tab for Vanilla JavaScript" -c "open -na 'Google Chrome' --args 'http://localhost:10003'" -b false -r false
-run -k was32 -t "Opening Chrome tab for Wasm32" -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
+run -k wasm32 -t "Opening Chrome tab for Wasm32" -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
 
 run -k android -t "Running Android" -p "Android" -c "$androidSdkDir/platform-tools/adb wait-for-device" -b false
 run -k android -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug" -b false
@@ -161,7 +170,7 @@ run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 with
 read -s -k "?Press any key to proceed with the shutdown."
 printf "\n"
 
-run -k was32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004"
+run -k wasm32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004"
 
 run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop"
 run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002"
