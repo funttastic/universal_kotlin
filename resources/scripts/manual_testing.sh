@@ -1,19 +1,4 @@
 #!/bin/zsh
-#	Improvements
-# Check if it is possible to use webpack for wasm32
-# Find a way to wait for the background servers before opening the browser
-# Run ios projects
-# Open a new terminal grepping for key lines
-# Secure spring boot shutdown and improve readme
-# Upgrade to latest spring boot
-# Move index.html from wasm to resources folder
-# Improve react module to use new plugin
-# Fix ios modules (not including main and test source sets), remove the other source sets they are using
-# Run command when executing Ctrl+C to kill the remaining processes
-# Open new termminal tab with the full log
-# Divide the terminal screen to grep the important messages from the background process
-# Improve output for all modules
-# Upgrade gradle
 
 # Prerequisites
 #   npm install -g serve
