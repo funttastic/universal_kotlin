@@ -312,11 +312,13 @@ enum class ModuleEnum(
 		val splitName = name.split("-")
 
 		if (kotlinId == null) {
-			kotlinId = when {
-				parent == null -> ""
-				splitName.size == 1 -> name
-				else -> parent?.kotlinId?.plus(":").plus(name)
-			}
+			kotlinId = name
+
+//			kotlinId = when {
+//				parent == null -> ""
+//				splitName.size == 1 -> name
+//				else -> parent?.kotlinId?.plus(":").plus(name)
+//			}
 		}
 
 		println("""Module "$name", kotlinId "$kotlinId".""")
