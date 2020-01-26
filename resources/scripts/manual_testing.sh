@@ -152,7 +152,7 @@ run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -
 
 # TODO check paths
 # plutil -convert binary1 Info.plist
-run -k ios_copying_framework -t "Running iOS copying framework" -p "iOS X64 copying Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/application -d $iOSEmulatorId"
+run -k ios_copying_framework -t "Running iOS copying framework" -p "iOS X64 copying Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework -d $iOSEmulatorId"
 run -k ios_framework -t "Running iOS framework" -p "iOS X64 Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_framework/framework -d $iOSEmulatorId"
 run -k ios_with_framework -t "Running iOS with framework" -p "iOS X64 with Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_with_framework/application -d $iOSEmulatorId"
 run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 without Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_without_framework/application -d $iOSEmulatorId"
