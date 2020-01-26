@@ -85,6 +85,9 @@ object Util {
 			modulesEnabledByTask.forEach {
 				it.status = StatusEnum.enabled
 			}
+		} else {
+			// TODO Find a better way to enable the modules, probably have a default status and the current status may help.
+			ModuleEnum.values().map { it.status = StatusEnum.enabled }
 		}
 
 		if (!disabledModules.isNullOrBlank()) {
