@@ -428,7 +428,7 @@ enum class TargetEnum(
 		status = StatusEnum.enabled,
 		kotlinId = "android"
 	),
-	`application-mobile-native-apple-ios-ios_x64@ios_x64`(
+	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64`(
 		status = StatusEnum.enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`(

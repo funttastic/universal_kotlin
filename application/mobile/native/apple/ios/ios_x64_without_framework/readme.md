@@ -1,8 +1,8 @@
 # Universal Kotlin
 
-## Application -> Mobile -> Native -> Apple -> iOS X64
+## Application -> Mobile -> Native -> Apple -> iOS X64 Without Framework
 
-Module with an iOS X64 application.
+Module with an iOS X64 application without framework.
 
 It uses the common modules as dependencies.
 
@@ -19,13 +19,13 @@ It uses the common modules as dependencies.
 ## Setting Up
 
 ```bash
-export enabledModules="application-mobile-native-apple-ios-ios_x64"
+export enabledModules="application-mobile-native-apple-ios-ios_x64_without_framework"
 ```
 
 ## Building
 
 ```bash
-./gradlew :application-mobile-native-apple-ios-ios_x64:build
+./gradlew :application-mobile-native-apple-ios-ios_x64_without_framework:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application-mobile-native-apple-ios-ios_x64:check
+./gradlew :application-mobile-native-apple-ios-ios_x64_without_framework:check
 ```
 
 or in a simplified way (can run more tasks):

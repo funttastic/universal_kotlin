@@ -507,6 +507,9 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 	}
 }
 
+fun KotlinXcodeExtension.setupApplication(kotlinNativeTarget: KotlinNativeTarget?) {
+}
+
 fun KotlinXcodeExtension.setupFramework(kotlinNativeTarget: KotlinNativeTarget?) {
 }
 

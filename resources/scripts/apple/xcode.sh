@@ -27,8 +27,8 @@ printf "TARGET_BUILD_DIR - Contents - Before\n"
 printf "$TARGET_BUILD_DIR\n"
 tree $TARGET_BUILD_DIR
 
-if [ "$module" = "application-mobile-native-apple-ios-ios_x64" ]; then
-	 rm -f $TARGET_BUILD_DIR/application.app/application
+if [ "$module" = "application-mobile-native-apple-ios-ios_x64_without_framework" ]; then
+	 rm -f "$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
 fi
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64_copying_framework" ]; then
@@ -46,10 +46,9 @@ else
 	exit 2
 fi
 
-if [ "$module" = "application-mobile-native-apple-ios-ios_x64" ]; then
-	# TODO Improve to use environment variable instead of hardcoded names
-	mkdir -p $TARGET_BUILD_DIR/application.app
-	mv "$TARGET_BUILD_DIR/application.kexe" $TARGET_BUILD_DIR/application.app/application
+if [ "$module" = "application-mobile-native-apple-ios-ios_x64_without_framework" ]; then
+	# $EXECUTABLE_FOLDER_PATH finishes with .app
+	mv "$TARGET_BUILD_DIR/$EXECUTABLE_NAME.kexe" "$TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH"
 fi
 
 printf "TARGET_BUILD_DIR - Contents - After\n"

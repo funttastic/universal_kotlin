@@ -205,12 +205,12 @@ enum class ModuleEnum(
 	`application-mobile-native-apple-ios`(
 		parent = `application-mobile-native-apple`
 	),
-	`application-mobile-native-apple-ios-ios_x64`(
+	`application-mobile-native-apple-ios-ios_x64_without_framework`(
 		parent = `application-mobile-native-apple-ios`,
 		status = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
-			"application/mobile/native/apple/ios/ios_x64/application"
+			"application/mobile/native/apple/ios/ios_x64_without_framework/WithoutFramework"
 		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework`(
@@ -222,7 +222,7 @@ enum class ModuleEnum(
 		status = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
-			"application/mobile/native/apple/ios/ios_x64_framework/framework"
+			"application/mobile/native/apple/ios/ios_x64_framework/Framework"
 		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework`(

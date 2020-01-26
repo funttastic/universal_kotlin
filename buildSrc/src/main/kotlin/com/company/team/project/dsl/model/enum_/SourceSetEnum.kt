@@ -1244,7 +1244,7 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64@ios_x64@main`(
+	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@main`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
 			modules = mutableListOf(
@@ -1253,7 +1253,7 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64@ios_x64@test`(
+	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@test`(
 		status = StatusEnum.enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@main`(
