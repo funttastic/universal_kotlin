@@ -42,11 +42,11 @@ Also, one of its goals is to use shared code from the common modules and librari
 
 - [x] <strong>[buildSrc](buildSrc)</strong>: Kotlin DSL module to help with the build scripts
 - common
-	- [x] <strong>[multiple_sources](common/multiple_sources)</strong>: Common module using multiple sources folders
-	- [x] <strong>[single_source](common/single_source)</strong>: Common module using just a single source folders
+	- [x] <strong>[multiple_sources](common/multiple_sources)</strong>: Common module using multiple source folders
+	- [x] <strong>[single_source](common/single_source)</strong>: Common module using just a single souce folder
 - library
-	- [x] <strong>[multiple_sources](library/multiple_sources)</strong>: Multiplatform library using multiple sources folders
-	- [x] <strong>[single_source](library/single_source)</strong>: Multiplatform library using just a single source folders
+	- [x] <strong>[multiple_sources](library/multiple_sources)</strong>: Multiplatform library using multiple source folders
+	- [x] <strong>[single_source](library/single_source)</strong>: Multiplatform library using just a single souce folder
 - application
 	- backend
 	    - js
