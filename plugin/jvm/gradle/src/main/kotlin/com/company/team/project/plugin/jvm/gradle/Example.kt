@@ -1,6 +1,7 @@
 package com.company.team.project.plugin.jvm.gradle
 
-import import org.gradle.api.Plugin as GradlePlugin
+import org.gradle.api.Project
+import org.gradle.api.Plugin as GradlePlugin
 
 /**
  *
