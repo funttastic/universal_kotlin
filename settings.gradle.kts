@@ -39,7 +39,7 @@ pluginManagement {
 
 enableFeaturePreview("GRADLE_METADATA")
 
-Util.initialize()
+Util.initialize(gradle.startParameter.taskNames)
 
 ModuleEnum.values().forEach { module ->
 	if (

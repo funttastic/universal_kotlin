@@ -33,9 +33,9 @@ object Util {
 	/**
 	 *
 	 */
-	fun initialize() {
+	fun initialize(taskNames: List<String>) {
 		// automaticallyDefineAndroidHomeIfPossible()
-		checkAndSetModulesAvailabilities()
+		checkAndSetModulesAvailabilities(taskNames)
 	}
 
 	/**
@@ -62,15 +62,28 @@ object Util {
 	/**
 	 *
 	 */
-	fun checkAndSetModulesAvailabilities() {
+	fun checkAndSetModulesAvailabilities(taskNames: List<String>) {
 		val enabledModules = Properties.properties.get<String>("enabledModules")
 		val disabledModules = Properties.properties.get<String>("disabledModules")
 
-		if (!enabledModules.isNullOrBlank()) {
+		val modulesEnabledByTask = mutableListOf<ModuleEnum>()
+		taskNames.forEach {
+			val module = it.split(":").asReversed().getOrNull(1)
+
+			if (module != null) {
+				modulesEnabledByTask.add(ModuleEnum.getByName(module)!!)
+			}
+		}
+
+		if (!enabledModules.isNullOrBlank() || modulesEnabledByTask.isNotEmpty()) {
 			ModuleEnum.values().map { it.status = StatusEnum.disabled }
 
-			enabledModules.split(",").map {
+			enabledModules?.split(",")?.map {
 				ModuleEnum.getByName(it.trim())!!.status = StatusEnum.enabled
+			}
+
+			modulesEnabledByTask.forEach {
+				it.status = StatusEnum.enabled
 			}
 		}
 
