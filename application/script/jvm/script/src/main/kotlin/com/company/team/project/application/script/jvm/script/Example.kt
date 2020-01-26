@@ -27,7 +27,7 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	private val exampleProperty = ExampleObject::class.java.`package`.toString()
+	private val exampleProperty = ExampleObject::class.java.`package`.name
 
 	/**
 	 *
