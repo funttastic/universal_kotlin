@@ -72,32 +72,37 @@ task("copyApplication", Copy::class) {
 	val kotlinBinary = (kotlin.targets[target] as KotlinNativeTarget).binaries.getExecutable(buildType)
 	val linkTask = kotlinBinary.linkTask
 
-	val targetBuildDir: String = System.getenv("TARGET_BUILD_DIR")
-	val executablePath: String = System.getenv("EXECUTABLE_PATH")
-	val dsymSource = kotlinBinary.outputFile.absolutePath + ".dSYM"
-	val dsymDestination = File(executablePath).parentFile.name + ".dSYM"
-	val oldExecName = kotlinBinary.outputFile.name
-	val newExecName = File(executablePath).name
+	val targetBuildDir: String? = System.getenv("TARGET_BUILD_DIR")
+	val executablePath: String? = System.getenv("EXECUTABLE_PATH")
 
-	println("""
+	if (targetBuildDir != null && executablePath != null) {
+		val dsymSource = kotlinBinary.outputFile.absolutePath + ".dSYM"
+		val dsymDestination = File(executablePath).parentFile.name + ".dSYM"
+		val oldExecName = kotlinBinary.outputFile.name
+		val newExecName = File(executablePath).name
+
+		println(
+			"""
 			targetBuildDir: $targetBuildDir
 			executablePath: $executablePath
 			dsymSource: $dsymSource
 			dsymDestination: $dsymDestination
 			oldExecName: $oldExecName
 			newExecName: $newExecName
-		""".trimIndent())
+		""".trimIndent()
+		)
 
-	dependsOn(linkTask)
+		dependsOn(linkTask)
 
-	destinationDir = file(targetBuildDir)
+		destinationDir = file(targetBuildDir)
 
-	from(dsymSource) {
-		into(dsymDestination)
-		rename(oldExecName, newExecName)
-	}
+		from(dsymSource) {
+			into(dsymDestination)
+			rename(oldExecName, newExecName)
+		}
 
-	from(kotlinBinary.outputFile) {
-		rename { executablePath }
+		from(kotlinBinary.outputFile) {
+			rename { executablePath }
+		}
 	}
 }
