@@ -7,7 +7,7 @@
 #   sdk use java 8.0.202-zulufx
 #   XCode command line tools (@see: https://stackoverflow.com/questions/40743713/command-line-tool-error-xcrun-error-unable-to-find-utility-xcodebuild-n)
 
-trap "killRemainingProcesses" SIGINT
+trap "printf \"\nInterruption found! \" && killRemainingProcesses && printf \" Press any key to proceed with the shutdown.\"" SIGINT
 
 # Variables
 currentDir=$(pwd)
@@ -101,13 +101,13 @@ function closeChromeTab() {
 }
 
 function killRemainingProcesses() {
-    printf "\nInterruption found. Killing remaining opened processes.\n"
+    printf "Killing remaining opened processes.\n"
     for pid in $pids; do
         if ps -p $pid > /dev/null; then
            kill $pid
         fi
     done
-    printf "\nDone. Press any key to proceed with the shutdown."
+    printf "Done."
 }
 
 
@@ -173,3 +173,5 @@ run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -s
 run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -c "closeChromeTab http://localhost:10001"
 
 run -k android -t "Stopping Android emulator" -p "Android" -c "$androidSdkDir/platform-tools/adb -s emulator-5554 emu kill"
+
+run -k all -p "All" -c "killRemainingProcesses"
