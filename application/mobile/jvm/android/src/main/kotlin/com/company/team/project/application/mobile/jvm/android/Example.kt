@@ -3,6 +3,7 @@ package com.company.team.project.application.mobile.jvm.android
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import com.company.team.project.common.single_source.common.formatOuput
 
 /**
  *
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

@@ -4,6 +4,7 @@ import tornadofx.App
 import tornadofx.label
 import tornadofx.launch
 import tornadofx.vbox
+import com.company.team.project.common.single_source.common.formatOuput
 
 /**
  *
@@ -29,7 +30,7 @@ class View: tornadofx.View() {
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

@@ -309,7 +309,7 @@ enum class ModuleEnum(
 	 *
 	 */
 	init {
-		val splitName = name.split("-")
+//		val splitName = name.split("-")
 
 		if (kotlinId == null) {
 			kotlinId = name

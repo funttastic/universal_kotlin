@@ -1,9 +1,11 @@
 package com.company.team.project.library.multiple_sources.linux_arm32_hfp
 
+import com.company.team.project.common.single_source.common.formatOuput
+
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

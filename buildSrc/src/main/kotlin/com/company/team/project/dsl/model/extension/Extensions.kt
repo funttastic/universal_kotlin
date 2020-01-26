@@ -507,9 +507,11 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 	}
 }
 
+@Suppress("UNUSED_PARAMETER")
 fun KotlinXcodeExtension.setupApplication(kotlinNativeTarget: KotlinNativeTarget?) {
 }
 
+@Suppress("UNUSED_PARAMETER")
 fun KotlinXcodeExtension.setupFramework(kotlinNativeTarget: KotlinNativeTarget?) {
 }
 

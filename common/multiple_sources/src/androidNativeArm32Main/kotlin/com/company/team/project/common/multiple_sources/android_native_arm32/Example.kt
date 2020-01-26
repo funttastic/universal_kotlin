@@ -1,9 +1,11 @@
 package com.company.team.project.common.multiple_sources.android_native_arm32
 
+import com.company.team.project.common.single_source.common.formatOuput
+
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

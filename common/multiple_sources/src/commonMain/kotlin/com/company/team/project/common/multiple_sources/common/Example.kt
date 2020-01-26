@@ -3,7 +3,7 @@ package com.company.team.project.common.multiple_sources.common
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *
@@ -34,3 +34,36 @@ object ExampleObject {
 }
 
 //fun getPackage(`class`: KClass<*>): String? = `class`.qualifiedName?.replace(".${`class`.simpleName}", "")
+
+/**
+ *
+ */
+fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
+	val prefix = "com.company.team.project."
+
+	var output = ""
+
+	if (showBanner) {
+		output = """
+		|
+		|	_|    _|            _|                                                      _|      _|    _|              _|      _|  _|
+		|	_|    _|  _|_|_|        _|      _|    _|_|    _|  _|_|    _|_|_|    _|_|_|  _|      _|  _|      _|_|    _|_|_|_|  _|      _|_|_|
+		|	_|    _|  _|    _|  _|  _|      _|  _|_|_|_|  _|_|      _|_|      _|    _|  _|      _|_|      _|    _|    _|      _|  _|  _|    _|
+		|	_|    _|  _|    _|  _|    _|  _|    _|        _|            _|_|  _|    _|  _|      _|  _|    _|    _|    _|      _|  _|  _|    _|
+		|	_|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
+		|
+		|
+		|
+		""".trimMargin()
+	}
+
+	output += "Used modules:\n"
+
+	input?.forEach {
+		output += "\n${it.removePrefix(prefix)}"
+	}
+
+	output += "\n\n"
+
+	return output
+}

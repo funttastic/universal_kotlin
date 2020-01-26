@@ -1,9 +1,11 @@
 package com.company.team.project.common.multiple_sources.jvm
 
+import com.company.team.project.common.multiple_sources.common.formatOuput
+
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

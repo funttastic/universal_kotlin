@@ -1,9 +1,11 @@
 package com.company.team.project.common.single_source.linux_x64.common
 
+import com.company.team.project.common.single_source.common.formatOuput
+
 /**
  *
  */
-val exampleValue = exampleFunction().toString()
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *
