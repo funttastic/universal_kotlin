@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F7DAE6D23DDF72800097728 /* main.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE5223DDF72800097728 /* main.kt */; };
 		9F7DAE6E23DDF72800097728 /* Example.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE5D23DDF72800097728 /* Example.kt */; };
 		9F7DAE6F23DDF72800097728 /* AppDelegate.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE5E23DDF72800097728 /* AppDelegate.kt */; };
 		9F7DAE7023DDF72800097728 /* ViewController.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE5F23DDF72800097728 /* ViewController.kt */; };
 		9F7DAE7123DDF72800097728 /* ExampleTests.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE6C23DDF72800097728 /* ExampleTests.kt */; };
+		9F7DAE7323DE14C400097728 /* main.kt in Resources */ = {isa = PBXBuildFile; fileRef = 9F7DAE7223DE14C400097728 /* main.kt */; };
 		B02F1156C5E6103E92A69974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F190B94E031D8A2955EFD /* LaunchScreen.storyboard */; };
 		B02F133DB32543926B9F76D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02F1D249D7DDA16FE61D81B /* Main.storyboard */; };
 		B02F1F2FCC03AC100FD6794E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02F1DBB1DE2D3022BC6C7EF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F7DAE5223DDF72800097728 /* main.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.kt; sourceTree = "<group>"; };
 		9F7DAE5D23DDF72800097728 /* Example.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.kt; path = Example.kt; sourceTree = "<group>"; };
 		9F7DAE5E23DDF72800097728 /* AppDelegate.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.kt; path = AppDelegate.kt; sourceTree = "<group>"; };
 		9F7DAE5F23DDF72800097728 /* ViewController.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.kt; path = ViewController.kt; sourceTree = "<group>"; };
 		9F7DAE6C23DDF72800097728 /* ExampleTests.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.kt; path = ExampleTests.kt; sourceTree = "<group>"; };
+		9F7DAE7223DE14C400097728 /* main.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.kt; path = main.kt; sourceTree = "<group>"; };
 		B02F11C8AAE96911C3161108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B02F13B2A72DFDDFDC6EA472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B02F18F8F4E9936D7E865602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +53,6 @@
 		9F7DAE5123DDF72800097728 /* kotlin */ = {
 			isa = PBXGroup;
 			children = (
-				9F7DAE5223DDF72800097728 /* main.kt */,
 				9F7DAE5323DDF72800097728 /* com */,
 			);
 			path = kotlin;
@@ -134,6 +133,7 @@
 		9F7DAE5C23DDF72800097728 /* ios_x64 */ = {
 			isa = PBXGroup;
 			children = (
+				9F7DAE7223DE14C400097728 /* main.kt */,
 				9F7DAE5D23DDF72800097728 /* Example.kt */,
 				9F7DAE5E23DDF72800097728 /* AppDelegate.kt */,
 				9F7DAE5F23DDF72800097728 /* ViewController.kt */,
@@ -336,11 +336,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02F1F2FCC03AC100FD6794E /* Assets.xcassets in Resources */,
+				9F7DAE7323DE14C400097728 /* main.kt in Resources */,
 				9F7DAE6F23DDF72800097728 /* AppDelegate.kt in Resources */,
 				9F7DAE6E23DDF72800097728 /* Example.kt in Resources */,
 				9F7DAE7123DDF72800097728 /* ExampleTests.kt in Resources */,
 				9F7DAE7023DDF72800097728 /* ViewController.kt in Resources */,
-				9F7DAE6D23DDF72800097728 /* main.kt in Resources */,
 				B02F1156C5E6103E92A69974 /* LaunchScreen.storyboard in Resources */,
 				B02F133DB32543926B9F76D6 /* Main.storyboard in Resources */,
 			);
