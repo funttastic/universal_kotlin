@@ -58,6 +58,7 @@ class ViewController : UIViewController {
 			textAlignment = NSTextAlignmentCenter
 			text = exampleValue
 			header.addSubview(this)
+			lineBreakMode = NSLineBreakByWordWrapping
 		}
 	}
 }

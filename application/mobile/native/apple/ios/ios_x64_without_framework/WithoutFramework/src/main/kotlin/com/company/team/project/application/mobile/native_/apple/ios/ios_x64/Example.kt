@@ -5,7 +5,8 @@ import com.company.team.project.common.single_source.common.formatOuput
 /**
  *
  */
-val exampleValue = formatOuput(exampleFunction())
+//val exampleValue = formatOuput(exampleFunction())
+val exampleValue = exampleFunction().toString()
 
 /**
  *
