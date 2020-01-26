@@ -33,7 +33,12 @@ object ExampleObject {
 	}
 }
 
+/**
+ *
+ */
 fun formatOuput(input: List<String>?, showBanner: Boolean = false): String {
+	val prefix = "com.company.team.project."
+
 	var output = ""
 
 	if (showBanner) {
@@ -46,16 +51,17 @@ fun formatOuput(input: List<String>?, showBanner: Boolean = false): String {
 		|	_|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
 		|
 		|
+		|
 		""".trimMargin()
 	}
 
-	output += "Modules used:\n"
+	output += "Used modules:\n"
 
 	input?.forEach {
-		output += "\n$it"
+		output += "\n${it.removePrefix(prefix)}"
 	}
 
-	output += "\n"
+	output += "\n\n"
 
 	return output
 }
