@@ -72,7 +72,7 @@ Also, one of its goals is to use shared code from the common modules and librari
 					- [x] <strong>[ios_x64_copying_framework](application/mobile/native/apple/ios/ios_x64_copying_framework)</strong>: iOS X64 application copying a Kotlin framework
 					- [x] <strong>[ios_x64_framework](application/mobile/native/apple/ios/ios_x64_framework)</strong>: iOS X64 Kotlin framework only
 					- [x] <strong>[ios_x64_with_framework](application/mobile/native/apple/ios/ios_x64_with_framework)</strong>: iOS X64 application with a Kotlin framework
-					- [ ] <strong>[ios_x64_without_framework](application/mobile/native/apple/ios/ios_x64_witout_framework)</strong>: iOS X64 application using only Kotlin
+					- [x] <strong>[ios_x64_without_framework](application/mobile/native/apple/ios/ios_x64_witout_framework)</strong>: iOS X64 application using only Kotlin
 	- script
   		- jvm
   			- [x] <strong>[script](application/script/jvm/script)</strong>: Script application running through KScript (not using common modules yet)
