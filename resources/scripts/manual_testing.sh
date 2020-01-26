@@ -123,6 +123,11 @@ run -k build -t "Cleaning, building and checking" -p "Build" -c "./gradlew build
 
 run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/emulator -avd $androidEmulatorId"
 
+run -k ios_copying_framework -t "Opening iOS Simulator" -p "iOS X64 copying Framework" -c "open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" -b false
+# xcrun simctl boot 'iPhone 11 Pro Max'
+
+run -k ios_copying_framework -t "Building iOS copying framework" -p "iOS X64 copying Framework" -c "xcodebuild build -project $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator TARGET_BUILD_DIR=$currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final" -b false
+
 run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application-backend-jvm-spring_boot:bootRun"
 
 run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application-browser-js-spa-react:run"
@@ -152,7 +157,10 @@ run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -
 
 # TODO check paths
 # plutil -convert binary1 Info.plist
-run -k ios_copying_framework -t "Running iOS copying framework" -p "iOS X64 copying Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework -d $iOSEmulatorId"
+run -k ios_copying_framework -t "Installing iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl install booted $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final/iosApp.app" -b false
+run -k ios_copying_framework -t "Launching iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl launch booted com.example.iosApp" -b false
+# xcodebuild clean build -project iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator
+# xcodebuild test -project iosApp.xcodeproj -scheme iosApp -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
 run -k ios_framework -t "Running iOS framework" -p "iOS X64 Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_framework/framework -d $iOSEmulatorId"
 run -k ios_with_framework -t "Running iOS with framework" -p "iOS X64 with Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_with_framework/application -d $iOSEmulatorId"
 run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 without Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_without_framework/application -d $iOSEmulatorId"
@@ -161,17 +169,20 @@ run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 with
 read -s -k "?Press any key to proceed with the shutdown."
 printf "\n"
 
-run -k wasm32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004"
+run -k wasm32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004" -b false
 
-run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application-browser-js-spa-react:stop"
-run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002"
+run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application-browser-js-spa-react:stop" -b false
+run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002" -b false
 
-run -k vanilla -t "Stopping Vanilla JavaScript Webpack server" -p "Vanilla JS" -c "./gradlew :application-browser-js-vanilla:stop"
-run -k vanilla -t "Closing Vanilla JavaScript Google Chrome tab" -p "Vanilla JS" -c "closeChromeTab http://localhost:10003"
+run -k vanilla -t "Stopping Vanilla JavaScript Webpack server" -p "Vanilla JS" -c "./gradlew :application-browser-js-vanilla:stop" -b false
+run -k vanilla -t "Closing Vanilla JavaScript Google Chrome tab" -p "Vanilla JS" -c "closeChromeTab http://localhost:10003" -b false
 
-run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -sS -X POST localhost:10001/actuator/shutdown"
-run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -c "closeChromeTab http://localhost:10001"
+run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -sS -X POST localhost:10001/actuator/shutdown" -b false
+run -k spring_boot -t "Closing Spring Boot Google Chrome tab" -p "Spring Boot" -c "closeChromeTab http://localhost:10001" -b false
 
-run -k android -t "Stopping Android emulator" -p "Android" -c "$androidSdkDir/platform-tools/adb -s emulator-5554 emu kill"
+run -k android -t "Stopping Android emulator" -p "Android" -c "$androidSdkDir/platform-tools/adb -s emulator-5554 emu kill" -b false
+
+run -k ios_copying_framework -t "Stopping iOS emulator" -p "iOS X64 copying Framework" -c "osascript -e 'quit app \"Simulator\"'" -b false
+# xcrun simctl shutdown 'iPhone 11 Pro Max'
 
 run -k all -p "All" -c "killRemainingProcesses"
