@@ -29,7 +29,7 @@ enabled[kscript]=false
 enabled[terminal]=false
 enabled[react]=false
 enabled[wasm32]=false
-enabled[ios_copying_framework]=false
+enabled[ios_copying_framework]=true
 enabled[ios_framework]=false
 enabled[ios_with_framework]=false
 enabled[ios_without_framework]=false
@@ -158,7 +158,7 @@ run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -
 # TODO check paths
 # plutil -convert binary1 Info.plist
 run -k ios_copying_framework -t "Installing iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl install booted $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final/iosApp.app" -b false
-run -k ios_copying_framework -t "Launching iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl launch booted com.example.iosApp" -b false
+run -k ios_copying_framework -t "Launching iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl launch booted com.company.team.project.application.mobile.native.apple.ios.ios-x64-copying-framework" -b false
 # xcodebuild clean build -project iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator
 # xcodebuild test -project iosApp.xcodeproj -scheme iosApp -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
 run -k ios_framework -t "Running iOS framework" -p "iOS X64 Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_framework/framework -d $iOSEmulatorId"
