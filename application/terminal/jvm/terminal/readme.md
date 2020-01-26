@@ -25,7 +25,7 @@ export enabledModules="application-terminal-jvm-terminal"
 ## Building
 
 ```bash
-./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:build
+./gradlew :application-terminal-jvm-terminal:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:check
+./gradlew :application-terminal-jvm-terminal:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -51,7 +51,7 @@ or in a simplified way (can run more tasks):
 Create a fatJar with:
 
 ```bash
-./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar
+./gradlew :application-terminal-jvm-terminal:shadowJar
 ```
 
 or in a simplified way (can run more tasks):

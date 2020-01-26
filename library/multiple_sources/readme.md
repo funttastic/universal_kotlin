@@ -30,7 +30,7 @@ The other modules, on which this module depends, will be automatically enabled.
 ## Building
 
 ```bash
-./gradlew :library:library-multiple_sources:build
+./gradlew :library-multiple_sources:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -42,7 +42,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :library:library-multiple_sources:check
+./gradlew :library-multiple_sources:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -56,7 +56,7 @@ or in a simplified way (can run more tasks):
 Testing if the library can be published to the local maven repository:
 
 ```bash
-./gradlew :library:library-multiple_sources:publishToMavenLocal
+./gradlew :library-multiple_sources:publishToMavenLocal
 ```
 
 or in a simplified way (can run more tasks):

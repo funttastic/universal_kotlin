@@ -25,7 +25,7 @@ export enabledModules="application-desktop-jvm-tornado_fx"
 ## Building
 
 ```bash
-./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:build
+./gradlew :application-desktop-jvm-tornado_fx:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:check
+./gradlew :application-desktop-jvm-tornado_fx:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -51,14 +51,14 @@ or in a simplified way (can run more tasks):
 Run with:
 
 ```bash
-./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run
+./gradlew :application-desktop-jvm-tornado_fx:run
 ```
 
 <!--
 Or create a fatJar with:
 
 ```bash
-./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:shadowJar
+./gradlew :application-desktop-jvm-tornado_fx:shadowJar
 ```
 
 and run the fatJar with:

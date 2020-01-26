@@ -25,7 +25,7 @@ export enabledModules="application-backend-js-express"
 ## Building
 
 ```bash
-./gradlew :application:application-backend:application-backend-js:application-backend-js-express:build
+./gradlew :application-backend-js-express:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-backend:application-backend-js:application-backend-js-express:check
+./gradlew :application-backend-js-express:check
 ```
 
 or in a simplified way (can run more tasks):

@@ -25,7 +25,7 @@ export enabledModules="application-browser-js-spa-react"
 ## Building
 
 ```bash
-./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:build
+./gradlew :application-browser-js-spa-react:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:check
+./gradlew :application-browser-js-spa-react:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -51,7 +51,7 @@ or in a simplified way (can run more tasks):
 Start Webpack development server:
 
 ```bash
-./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run
+./gradlew :application-browser-js-spa-react:run
 ```
 
 or in a simplified way (can run more tasks):
@@ -75,7 +75,7 @@ The output should be similar to this one:
 Stop Webpack development server:
 
 ```bash
-./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop
+./gradlew :application-browser-js-spa-react:stop
 ```
 
 or in a simplified way (can run more tasks):

@@ -25,7 +25,7 @@ The other modules, on which this module depends, will be automatically enabled.
 ## Building
 
 ```bash
-./gradlew :plugin:plugin-jvm:plugin-jvm-gradle:build
+./gradlew :plugin-jvm-gradle:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :plugin:plugin-jvm:plugin-jvm-gradle:check
+./gradlew :plugin-jvm-gradle:check
 ```
 
 or in a simplified way (can run more tasks):

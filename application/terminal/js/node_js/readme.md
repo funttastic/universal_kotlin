@@ -25,7 +25,7 @@ export enabledModules="application-terminal-js-node_js"
 ## Building
 
 ```bash
-./gradlew :application:application-terminal:application-terminal-js:application-terminal-js-node_js:build
+./gradlew :application-terminal-js-node_js:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-terminal:application-terminal-js:application-terminal-js-node_js:check
+./gradlew :application-terminal-js-node_js:check
 ```
 
 or in a simplified way (can run more tasks):

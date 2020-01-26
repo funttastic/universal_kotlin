@@ -36,7 +36,7 @@ Usually there's no need to build this module separately since it's used as a
 dependency in other modules. But if you would like to build only this module do:
 
 ```bash
-./gradlew :common:common-multiple_sources:build
+./gradlew :common-multiple_sources:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -48,7 +48,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :common:common-multiple_sources:check
+./gradlew :common-multiple_sources:check
 ```
 
 or in a simplified way (can run more tasks):

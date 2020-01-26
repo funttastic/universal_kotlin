@@ -25,7 +25,7 @@ export enabledModules="application-mobile-jvm-android"
 ## Building
 
 ```bash
-./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:build
+./gradlew :application-mobile-jvm-android:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:check
+./gradlew :application-mobile-jvm-android:check
 ```
 
 or in a simplified way (can run more tasks):

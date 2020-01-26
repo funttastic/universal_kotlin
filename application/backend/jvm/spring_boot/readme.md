@@ -25,7 +25,7 @@ export enabledModules="application-backend-jvm-spring_boot"
 ## Building
 
 ```bash
-./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:build
+./gradlew :application-backend-jvm-spring_boot:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:check
+./gradlew :application-backend-jvm-spring_boot:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -51,7 +51,7 @@ or in a simplified way (can run more tasks):
 Starting:
 
 ```bash
-./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun
+./gradlew :application-backend-jvm-spring_boot:bootRun
 ```
 
 or in a simplified way (can run more tasks):

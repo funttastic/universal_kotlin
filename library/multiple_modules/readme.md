@@ -22,10 +22,10 @@ for more information.
 
 ```bash
 export enabledModules="
-	common:multiple_modules:submodule_1
-	, common:multiple_modules:submodule_2
+	library-multiple_modules-submodule_1
+	, library-multiple_modules-submodule_2
 	... and so on ...
-	, common:multiple_modules:submodule_n
+	, library-multiple_modules-submodule_n
 "
 ```
 
@@ -36,10 +36,10 @@ dependency in other modules. But if you would like to build only this module do:
 
 ```bash
 ./gradlew \
- :common:multiple_modules:submodule_1:build \
- :common:multiple_modules:submodule_2:build \
- ... and so on ...
- :common:multiple_modules:submodule_n:build \
+library-multiple_modules-submodule_1:build \
+, library-multiple_modules-submodule_2:build \
+... and so on ...
+, library-multiple_modules-submodule_n:build
 
 ```
 
@@ -47,11 +47,10 @@ dependency in other modules. But if you would like to build only this module do:
 
 ```bash
 ./gradlew \
- :common:multiple_modules:submodule_1:check \
- :common:multiple_modules:submodule_2:check \
- ... and so on ...
- :common:multiple_modules:submodule_n:check \
-
+library-multiple_modules-submodule_1:check \
+, library-multiple_modules-submodule_2:check \
+... and so on ...
+, library-multiple_modules-submodule_n:check
 ```
 
 ## Running

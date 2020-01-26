@@ -5,7 +5,7 @@
 Module with code common to all other modules.
 
 This module is so called `single_source` because all code, from all source sets,
-live in the same folder (`src/main` or `src/test` for tests). This is possible 
+live in the same folder (`src/main` or `src/test` for tests). This is possible
 because all packages are well organized preventing conflicts.
 
 Another alternative is to use the `multiple_sources` module, which is the most
@@ -36,7 +36,7 @@ Usually there's no need to build this module separately since it's used as a
 dependency in other modules. But if you would like to build only this module do:
 
 ```bash
-./gradlew :common:common-single_source:build
+./gradlew :common-single_source:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -48,7 +48,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :common:common-single_source:check
+./gradlew :common-single_source:check
 ```
 
 or in a simplified way (can run more tasks):

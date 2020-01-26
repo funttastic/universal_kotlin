@@ -25,7 +25,7 @@ export enabledModules="application-browser-native-wasm32"
 ## Building
 
 ```bash
-./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:build
+./gradlew :application-browser-native-wasm32:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:check
+./gradlew :application-browser-native-wasm32:check
 ```
 
 or in a simplified way (can run more tasks):
@@ -62,7 +62,7 @@ The output should be similar to this one:
 Start Webpack development server:
 
 ```bash
-./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:run
+./gradlew :application-browser-native-wasm32:run
 ```
 
 or in a simplified way (can run more tasks):
@@ -80,7 +80,7 @@ Go to the url provided after running the `run` command. The default one is:
 Stop Webpack development server:
 
 ```bash
-./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:stop
+./gradlew :application-browser-native-wasm32:stop
 ```
 
 or in a simplified way (can run more tasks):

@@ -25,7 +25,7 @@ export enabledModules="application-mobile-native-apple-ios-ios_x64_copying_frame
 ## Building
 
 ```bash
-./gradlew :application:application-mobile:application-mobile-native:application-mobile-native-apple:application-mobile-native-apple-ios:application-mobile-native-apple-ios-ios_x64_copying_framework:build
+./gradlew :application-mobile-native-apple-ios-ios_x64_copying_framework:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -37,7 +37,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-mobile:application-mobile-native:application-mobile-native-apple:application-mobile-native-apple-ios:application-mobile-native-apple-ios-ios_x64_copying_framework:check
+./gradlew :application-mobile-native-apple-ios-ios_x64_copying_framework:check
 ```
 
 or in a simplified way (can run more tasks):

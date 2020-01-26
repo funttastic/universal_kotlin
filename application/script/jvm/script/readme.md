@@ -27,7 +27,7 @@ export enabledModules="application-script-jvm-script"
 ## Building
 
 ```bash
-./gradlew :application:application-script:application-script-jvm:application-script-jvm-script:build
+./gradlew :application-script-jvm-script:build
 ```
 
 or in a simplified way (can run more tasks):
@@ -39,7 +39,7 @@ or in a simplified way (can run more tasks):
 ## Testing
 
 ```bash
-./gradlew :application:application-script:application-script-jvm:application-script-jvm-script:check
+./gradlew :application-script-jvm-script:check
 ```
 
 or in a simplified way (can run more tasks):
