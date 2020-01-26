@@ -11,9 +11,10 @@
 **/.gradle/
 **/build/
 **/out/
+*.hprof
+nohup.out
 
 local.properties
 /temporary/
 
-nohup.out
 **/*.xcuserdatad/
