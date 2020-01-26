@@ -13,7 +13,7 @@ if [[ -z "$module" ]]; then
 fi
 
 export enabledModules="$module"
-export task=":application:application-mobile:application-mobile-native:application-mobile-native-apple:application-mobile-native-apple-ios:$module"
+export task=":$module"
 
 printf "Environment Variables:\n"
 # env | sort

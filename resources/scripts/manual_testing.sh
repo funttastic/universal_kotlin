@@ -117,19 +117,19 @@ run -k build -t "Cleaning, building and checking" -p "Build" -c "./gradlew build
 
 run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/emulator -avd $androidEmulatorId"
 
-run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application:application-backend:application-backend-jvm:application-backend-jvm-spring_boot:bootRun"
+run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application-backend-jvm-spring_boot:bootRun"
 
-run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:run"
+run -k react -t "Running Webpack server for React" -p "React" -c "./gradlew :application-browser-js-spa-react:run"
 
-run -k wasm32 -t "Preparing Wasm32" -p "Wasm32" -c "./gradlew :application:application-browser:application-browser-native:application-browser-native-wasm32:build" -b false -r true
+run -k wasm32 -t "Preparing Wasm32" -p "Wasm32" -c "./gradlew :application-browser-native-wasm32:build" -b false -r true
 run -k wasm32 -t "Running server for Wasm32" -p "Wasm32" -c "serve -l 10004 '$currentDir/application/browser/native/wasm32'"
 
-run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:run"
+run -k vanilla -t "Running Webpack server for Vanilla JavaScript" -p "Vanilla JS" -c "./gradlew :application-browser-js-vanilla:run"
 
-run -k terminal -t "Preparing JVM Terminal" -p "JVM Terminal" -c "./gradlew :application:application-terminal:application-terminal-jvm:application-terminal-jvm-terminal:shadowJar" -b false
+run -k terminal -t "Preparing JVM Terminal" -p "JVM Terminal" -c "./gradlew :application-terminal-jvm-terminal:shadowJar" -b false
 
 # Test
-run -k tornadofx -t "Running TornadoFX" -p "Tornado FX" -c "./gradlew :application:application-desktop:application-desktop-jvm:application-desktop-jvm-tornado_fx:run"
+run -k tornadofx -t "Running TornadoFX" -p "Tornado FX" -c "./gradlew :application-desktop-jvm-tornado_fx:run"
 
 run -k kscript -t "Running KScript" -p "KScript" -c "kscript application/script/jvm/script/src/main/kotlin/com/company/team/project/application/script/jvm/script/Example.kt" -b false -r false
 
@@ -141,7 +141,7 @@ run -k vanilla -t "Opening Chrome tab for Vanilla JavaScript" -c "open -na 'Goog
 run -k wasm32 -t "Opening Chrome tab for Wasm32" -c "open -na 'Google Chrome' --args 'http://localhost:10004'" -b false -r false
 
 run -k android -t "Running Android" -p "Android" -c "$androidSdkDir/platform-tools/adb wait-for-device" -b false
-run -k android -p "Android" -c "./gradlew :application:application-mobile:application-mobile-jvm:application-mobile-jvm-android:installDebug" -b false
+run -k android -p "Android" -c "./gradlew :application-mobile-jvm-android:installDebug" -b false
 run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -p $androidPackage 1" -b false
 
 # TODO check paths
@@ -157,10 +157,10 @@ printf "\n"
 
 run -k wasm32 -t "Closing Wasm32 Google Chrome tab" -p "Wasm32" -c "closeChromeTab http://localhost:10004"
 
-run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-spa:application-browser-js-spa-react:stop"
+run -k react -t "Stopping React Webpack server" -p "React" -c "./gradlew :application-browser-js-spa-react:stop"
 run -k react -t "Closing React Google Chrome tab" -p "React" -c "closeChromeTab http://localhost:10002"
 
-run -k vanilla -t "Stopping Vanilla JavaScript Webpack server" -p "Vanilla JS" -c "./gradlew :application:application-browser:application-browser-js:application-browser-js-vanilla:stop"
+run -k vanilla -t "Stopping Vanilla JavaScript Webpack server" -p "Vanilla JS" -c "./gradlew :application-browser-js-vanilla:stop"
 run -k vanilla -t "Closing Vanilla JavaScript Google Chrome tab" -p "Vanilla JS" -c "closeChromeTab http://localhost:10003"
 
 run -k spring_boot -t "Stopping Spring Boot server" -p "Spring Boot" -c "curl -sS -X POST localhost:10001/actuator/shutdown"
