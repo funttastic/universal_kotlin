@@ -126,7 +126,7 @@ run -k android -t "Preparing Android" -p "Android" -c "$androidSdkDir/emulator/e
 run -k ios_copying_framework -t "Opening iOS Simulator" -p "iOS X64 copying Framework" -c "open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" -b false
 # xcrun simctl boot 'iPhone 11 Pro Max'
 
-run -k ios_copying_framework -t "Building iOS copying framework" -p "iOS X64 copying Framework" -c "xcodebuild build -project $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator TARGET_BUILD_DIR=$currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final" -b false
+run -k ios_copying_framework -t "Building iOS copying framework" -p "iOS X64 copying Framework" -c "xcodebuild build -project $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/CopyingFramework.xcodeproj -scheme CopyingFramework -sdk iphonesimulator TARGET_BUILD_DIR=$currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final" -b false
 
 run -k spring_boot -t "Running Spring Boot server" -p "Spring Boot" -c "./gradlew :application-backend-jvm-spring_boot:bootRun"
 
@@ -157,10 +157,10 @@ run -k android -p "Android" -c "$androidSdkDir/platform-tools/adb shell monkey -
 
 # TODO check paths
 # plutil -convert binary1 Info.plist
-run -k ios_copying_framework -t "Installing iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl install booted $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final/iosApp.app" -b false
+run -k ios_copying_framework -t "Installing iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl install booted $currentDir/application/mobile/native/apple/ios/ios_x64_copying_framework/build/final/CopyingFramework.app" -b false
 run -k ios_copying_framework -t "Launching iOS copying framework App" -p "iOS X64 copying Framework" -c "xcrun simctl launch booted com.company.team.project.application.mobile.native.apple.ios.ios-x64-copying-framework" -b false
-# xcodebuild clean build -project iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator
-# xcodebuild test -project iosApp.xcodeproj -scheme iosApp -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+# xcodebuild clean build -project CopyingFramework.xcodeproj -scheme CopyingFramework -sdk iphonesimulator
+# xcodebuild test -project CopyingFramework.xcodeproj -scheme CopyingFramework -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
 run -k ios_framework -t "Running iOS framework" -p "iOS X64 Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_framework/framework -d $iOSEmulatorId"
 run -k ios_with_framework -t "Running iOS with framework" -p "iOS X64 with Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_with_framework/application -d $iOSEmulatorId"
 run -k ios_without_framework -t "Running iOS without framework" -p "iOS X64 without Framework" -c "ios-sim launch $currentDir/application/mobile/native/apple/ios/ios_x64_without_framework/application -d $iOSEmulatorId"
