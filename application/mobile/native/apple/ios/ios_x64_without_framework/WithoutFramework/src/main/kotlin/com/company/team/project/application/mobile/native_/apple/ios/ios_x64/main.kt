@@ -1,7 +1,9 @@
+package com.company.team.project.application.mobile.native_.apple.ios.ios_x64
+
 import kotlinx.cinterop.*
 import platform.Foundation.*
 import platform.UIKit.*
-import com.company.team.project.application.mobile.native_.apple.ios.ios_x64.AppDelegate
+import com.company.team.project.application.mobile.native_.apple.ios.ios_x64.ViewController
 
 /**
  *

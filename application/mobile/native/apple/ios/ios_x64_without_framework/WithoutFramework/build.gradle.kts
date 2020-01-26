@@ -47,6 +47,7 @@ kotlin {
 				binaries {
 					executable {
 						baseName = "WithoutFramework"
+						entryPoint = "ccom.company.team.project.application.mobile.native_.apple.ios.ios_x64.main"
 						setupTask(this)
 					}
 				}

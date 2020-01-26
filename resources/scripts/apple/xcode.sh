@@ -28,7 +28,8 @@ printf "$TARGET_BUILD_DIR\n"
 tree $TARGET_BUILD_DIR
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64_without_framework" ]; then
-	 rm -f "$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
+	echo ""
+#	 rm -f "$TARGET_BUILD_DIR/$EXECUTABLE_PATH"
 fi
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64_copying_framework" ]; then
@@ -47,8 +48,7 @@ else
 fi
 
 if [ "$module" = "application-mobile-native-apple-ios-ios_x64_without_framework" ]; then
-	# $EXECUTABLE_FOLDER_PATH finishes with .app
-	mv "$TARGET_BUILD_DIR/$EXECUTABLE_NAME.kexe" "$TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH"
+	mv "$TARGET_BUILD_DIR/$EXECUTABLE_NAME.kexe" "$TARGET_BUILD_DIR/$EXECUTABLE_NAME.app"
 fi
 
 printf "TARGET_BUILD_DIR - Contents - After\n"
