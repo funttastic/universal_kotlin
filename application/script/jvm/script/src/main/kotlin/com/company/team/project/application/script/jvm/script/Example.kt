@@ -3,7 +3,7 @@
 
 package com.company.team.project.application.script.jvm.script
 
-import com.company.team.project.common.single_source.common.formatOutput
+//import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *
@@ -15,7 +15,8 @@ fun main() {
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = exampleFunction().toString()
+//val exampleValue = formatOutput(exampleFunction())
 
 /**
  *
