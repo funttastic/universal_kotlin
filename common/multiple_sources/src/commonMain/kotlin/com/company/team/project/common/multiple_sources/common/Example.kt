@@ -54,7 +54,9 @@ fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
 		|
 		|
 		|
-		|																									One language to rule them all!
+		|                                                        One language to rule them all!
+		|
+		|
 		|
 		""".trimMargin()
 	}
