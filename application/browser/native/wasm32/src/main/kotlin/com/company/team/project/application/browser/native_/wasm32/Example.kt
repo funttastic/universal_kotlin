@@ -2,7 +2,7 @@ package com.company.team.project.application.browser.native_.wasm32
 
 import kotlinx.interop.wasm.dom.*
 import kotlinx.wasm.jsinterop.*
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 fun main() {
 	document.getElementById("target").setter("textContent", exampleValue)

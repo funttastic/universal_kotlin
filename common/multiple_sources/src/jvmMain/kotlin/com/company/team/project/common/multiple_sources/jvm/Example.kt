@@ -1,6 +1,6 @@
 package com.company.team.project.common.multiple_sources.jvm
 
-import com.company.team.project.common.multiple_sources.common.formatOuput
+import com.company.team.project.common.multiple_sources.common.formatOutput
 
 /**
  *

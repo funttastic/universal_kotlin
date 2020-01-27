@@ -3,7 +3,7 @@
 
 package com.company.team.project.application.script.jvm.script
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *

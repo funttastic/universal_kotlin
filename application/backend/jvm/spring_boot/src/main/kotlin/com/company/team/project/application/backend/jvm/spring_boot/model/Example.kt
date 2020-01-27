@@ -1,6 +1,6 @@
 package com.company.team.project.application.backend.jvm.spring_boot.model
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *

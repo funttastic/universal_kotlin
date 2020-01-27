@@ -1,6 +1,6 @@
 package com.company.team.project.common.single_source.linux_arm32_hfp.common
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *

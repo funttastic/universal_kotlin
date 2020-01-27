@@ -1,6 +1,6 @@
 package com.company.team.project.library.single_source.ios_x64.common
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *

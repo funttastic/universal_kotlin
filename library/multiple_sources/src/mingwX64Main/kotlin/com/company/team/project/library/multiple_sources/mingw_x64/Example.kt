@@ -1,6 +1,6 @@
 package com.company.team.project.library.multiple_sources.mingw_x64
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *

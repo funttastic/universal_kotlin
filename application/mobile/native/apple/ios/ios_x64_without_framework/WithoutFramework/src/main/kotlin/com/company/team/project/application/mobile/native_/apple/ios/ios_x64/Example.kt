@@ -1,11 +1,11 @@
 package com.company.team.project.application.mobile.native_.apple.ios.ios_x64
 
-import com.company.team.project.common.single_source.common.formatOuput
+import com.company.team.project.common.single_source.common.formatOutput
 
 /**
  *
  */
-val exampleValue = formatOuput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *

@@ -3,7 +3,7 @@ package com.company.team.project.common.single_source.common
 /**
  *
  */
-val exampleValue = formatOuput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction())
 
 /**
  *
@@ -36,7 +36,7 @@ object ExampleObject {
 /**
  *
  */
-fun formatOuput(input: List<String>?, showBanner: Boolean = false): String {
+fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
 	val prefix = "com.company.team.project."
 
 	var output = ""
@@ -51,6 +51,8 @@ fun formatOuput(input: List<String>?, showBanner: Boolean = false): String {
 		|	_|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
 		|
 		|
+		|
+		|																									One language to rule them all!
 		|
 		""".trimMargin()
 	}
