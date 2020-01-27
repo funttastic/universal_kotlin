@@ -1,6 +1,6 @@
 package com.company.team.project.application.backend.jvm.spring_boot.controller
 
-import com.company.team.project.application.backend.jvm.spring_boot.model.exampleFunction
+import com.company.team.project.application.backend.jvm.spring_boot.model.exampleValue
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
@@ -21,7 +21,7 @@ class ExampleController {
 	 */
 	@RequestMapping("exampleMethod", method= [RequestMethod.GET])
 	@Throws(Exception::class)
-	fun example(): ResponseEntity<List<String>> {
-		return ResponseEntity(exampleFunction(), HttpStatus.OK)
+	fun example(): ResponseEntity<String> {
+		return ResponseEntity(exampleValue, HttpStatus.OK)
 	}
 }
