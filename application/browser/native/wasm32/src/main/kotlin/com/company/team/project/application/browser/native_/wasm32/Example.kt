@@ -5,7 +5,7 @@ import kotlinx.wasm.jsinterop.*
 import com.company.team.project.common.single_source.common.formatOutput
 
 fun main() {
-	document.getElementById("target").setter("textContent", exampleValue)
+	document.getElementById("target").setter("innerHTML", "<pre>$exampleValue</pre>")
 }
 
 /**

@@ -5,6 +5,7 @@ import react.RComponent
 import react.RProps
 import react.RState
 import react.dom.div
+import react.dom.pre
 
 /**
  *
@@ -34,7 +35,9 @@ class Root(props: RootProps) : RComponent<RootProps, RootState>(props) {
 	 */
 	override fun RBuilder.render() {
 		div {
-			+exampleValue
+			pre {
+				+exampleValue
+			}
 		}
 	}
 }

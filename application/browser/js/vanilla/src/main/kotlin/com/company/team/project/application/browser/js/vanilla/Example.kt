@@ -1,6 +1,7 @@
 package com.company.team.project.application.browser.js.vanilla
 
 import kotlin.browser.document
+import org.w3c.dom.*
 import com.company.team.project.common.single_source.common.formatOutput
 
 /**
@@ -15,7 +16,7 @@ fun main() {
  */
 @JsName("updateTargetContent")
 fun updateTargetContent() {
-	document.getElementById("target")?.textContent = exampleValue
+	document.getElementById("target")?.innerHTML = "<pre>$exampleValue</pre>"
 }
 
 /**
