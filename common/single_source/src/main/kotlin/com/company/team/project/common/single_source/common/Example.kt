@@ -61,7 +61,7 @@ fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
 
 	output += "Modules:\n"
 
-	output += input?.joinToString("\n") { it.removePrefix(prefix) }
+	output += input?.distinct()?.sorted()?.joinToString("\n") { it.removePrefix(prefix) }
 
 	return output
 }

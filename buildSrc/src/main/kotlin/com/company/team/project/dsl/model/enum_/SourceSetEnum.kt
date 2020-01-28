@@ -1168,7 +1168,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1180,7 +1182,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1192,7 +1196,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1204,7 +1210,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1216,7 +1224,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1229,7 +1239,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1240,7 +1252,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1249,7 +1263,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1261,7 +1277,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1273,7 +1291,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1285,7 +1305,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1297,7 +1319,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1309,7 +1333,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1319,9 +1345,11 @@ enum class SourceSetEnum(
 	`application-terminal-jvm-terminal@jvm@main`(
 		status = StatusEnum.enabled,
 		dependencies = Dependencies(
-			targets = mutableListOf(
-				TargetEnum.`common-multiple_sources@jvm`
-				, TargetEnum.`common-single_source@jvm`
+			modules = mutableListOf(
+				ModuleEnum.`common-single_source`,
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
@@ -1333,7 +1361,9 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			modules = mutableListOf(
 				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`library-single_source`,
+				ModuleEnum.`library-multiple_sources`
 			)
 		)
 	),
