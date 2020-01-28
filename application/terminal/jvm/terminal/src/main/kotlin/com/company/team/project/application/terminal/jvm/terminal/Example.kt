@@ -10,7 +10,7 @@ fun main() {
 /**
  *
  */
-val exampleValue = com.company.team.project.common.single_source.common.formatOutput(exampleFunction(), true)
+val exampleValue = com.company.team.project.common.single_source.common.formatOutput(exampleFunction())
 
 /**
  *
