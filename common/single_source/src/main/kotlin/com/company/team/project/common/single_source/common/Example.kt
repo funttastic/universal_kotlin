@@ -59,7 +59,7 @@ fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
 		""".trimMargin()
 	}
 
-	output += "Used modules:\n"
+	output += "Modules:\n"
 
 	output += input?.joinToString("\n") { it.removePrefix(prefix) }
 
