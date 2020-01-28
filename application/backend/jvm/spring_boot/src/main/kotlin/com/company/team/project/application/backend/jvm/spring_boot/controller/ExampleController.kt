@@ -22,6 +22,6 @@ class ExampleController {
 	@RequestMapping("exampleMethod", method= [RequestMethod.GET])
 	@Throws(Exception::class)
 	fun example(): ResponseEntity<String> {
-		return ResponseEntity(exampleValue, HttpStatus.OK)
+		return ResponseEntity("<pre>$exampleValue</pre>", HttpStatus.OK)
 	}
 }
