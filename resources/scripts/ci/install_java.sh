@@ -1,7 +1,7 @@
 echo "CI: $BUILD_CI"
 echo "OS: $BUILD_OS"
 
-JAVA_VERSION="8.0.202-zulufx"
+JAVA_VERSION="8.0.232.fx-zulu"
 
 echo "Installing Java $JAVA_VERSION:"
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
