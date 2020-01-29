@@ -16,7 +16,6 @@ fun main() {
 /**
  *
  */
-// val exampleValue = exampleFunction().toString()
 val exampleValue = formatOutput(exampleFunction())
 
 /**
