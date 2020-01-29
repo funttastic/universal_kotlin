@@ -316,7 +316,7 @@ fun customizeForMavenCentral(pom: org.gradle.api.publish.maven.MavenPom) = pom.w
     }
 
     asNode().run {
-        add("description", "Universal Kotlin Multiplatform library using multiple sources.")
+        add("description", "Universal Kotlin multiplatform library using multiple sources folders.")
         add("name", "Multiple Sources Multiplatform Library - Universal Kotlin")
         add("url", "https://github.com/funttastic/universal_kotlin")
         node("organization") {

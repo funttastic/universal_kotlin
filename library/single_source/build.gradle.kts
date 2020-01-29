@@ -1,10 +1,12 @@
 import com.company.team.project.dsl.model.enum_.*
 import com.company.team.project.dsl.model.extension.*
 import com.github.salomonbrys.gradle.kotlin.js.jstests.node.Engine.Companion.mocha
+import groovy.util.Node
 
 plugins {
 	kotlin("multiplatform")
 	id("maven-publish")
+	id("signing")
 
 	id("com.github.salomonbrys.gradle.kotlin.js.mpp-tests.node")
 }
@@ -285,3 +287,93 @@ fun getMainResourcesPath(sourceSetEnum: SourceSetEnum): String {
 fun getTestResourcesPath(sourceSetEnum: SourceSetEnum): String {
 	return getResourcesPath(CompilationEnum.test, sourceSetEnum)
 }
+
+publishing {
+    repositories {
+       mavenLocal()
+    }
+}
+
+// Add a Javadoc JAR to each publication as required by Maven Central
+
+val javadocJar by tasks.creating(Jar::class) {
+    archiveClassifier.value("javadoc")
+    // TODO: instead of a single empty Javadoc JAR, generate real documentation for each module
+}
+
+publishing {
+    publications.withType<MavenPublication>().all {
+        artifact(javadocJar)
+    }
+}
+
+//// The root publication also needs a sources JAR as it does not have one by default
+
+val sourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.value("sources")
+}
+
+publishing.publications.withType<MavenPublication>().getByName("kotlinMultiplatform").artifact(sourcesJar)
+
+//// Customize the POMs adding the content required by Maven Central
+
+fun customizeForMavenCentral(pom: org.gradle.api.publish.maven.MavenPom) = pom.withXml {
+    fun Node.add(key: String, value: String) {
+        appendNode(key).setValue(value)
+    }
+
+    fun Node.node(key: String, content: Node.() -> Unit) {
+        appendNode(key).also(content)
+    }
+
+    asNode().run {
+        add("description", "Universal Kotlin multiplatform library using a single source folder.")
+        add("name", "Single Source Multiplatform Library - Universal Kotlin")
+        add("url", "https://github.com/funttastic/universal_kotlin")
+        node("organization") {
+            add("name", "com.github.funttastic")
+            add("url", "https://github.com/funttastic")
+        }
+        node("issueManagement") {
+            add("system", "github")
+            add("url", "https://github.com/funttastic/universal_kotlin/issues")
+        }
+        node("licenses") {
+            node("license") {
+                add("name", "MIT")
+                add("url", "https://github.com/funttastic/universal_kotlin/blob/master/license.md")
+                add("distribution", "repo")
+            }
+        }
+        node("scm") {
+            add("url", "https://github.com/funttastic/universal_kotlin")
+            add("connection", "scm:git:git://github.com/funttastic/universal_kotlin.git")
+            add("developerConnection", "scm:git:ssh://github.com/funttastic/universal_kotlin.git")
+        }
+        node("developers") {
+            node("developer") {
+                add("name", "funttastic")
+            }
+        }
+    }
+}
+
+publishing {
+    publications.withType<MavenPublication>().all {
+        customizeForMavenCentral(pom)
+    }
+}
+
+//// Sign the publications:
+
+////// Also requires that signing.keyId, signing.password, and signing.secretKeyRingFile are provided as Gradle
+////// properties.
+
+////// No complex signing configuration is required here, as the signing plugin interoperates with maven-publish
+////// and can simply add the signature files directly to the publications:
+
+// publishing {
+//     publications.withType<MavenPublication>().all {
+//         signing.sign(this@all)
+//     }
+// }

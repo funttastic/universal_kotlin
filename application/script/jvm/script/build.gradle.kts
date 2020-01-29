@@ -30,7 +30,10 @@ kotlin {
 			resources.srcDir("src/main/resources")
 
 			dependencies {
-				implementation(kotlin("stdlib-jdk8"))
+				// implementation(kotlin("stdlib-jdk8"))
+				implementation(kotlin("stdlib"))
+				implementation(kotlin("script-runtime"))
+				implementation("com.github.holgerbrandl:kscript-annotations:1.4")
 			}
 		}
 
