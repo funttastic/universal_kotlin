@@ -32,7 +32,12 @@ enum class TargetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = StatusEnum.enabled,
+	var defaultStatus: StatusEnum = StatusEnum.enabled,
+
+	/**
+	 *
+	 */
+	var status: StatusEnum = defaultStatus,
 
 	/**
 	 *
@@ -61,396 +66,396 @@ enum class TargetEnum(
 ) {
 
 	`common-multiple_sources@android_native_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@android_native_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@ios_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@ios_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-multiple_sources@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-multiple_sources@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-multiple_sources@linux_arm32_hfp`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@linux_mips32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@linux_mipsel32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@linux_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@macos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-multiple_sources@mingw_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@mingw_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@tvos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@tvos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@wasm32`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-multiple_sources@watchos_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@watchos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@watchos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@watchos_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 
 	`common-multiple_sources@ios_x64@mobile-native-ios_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@js@browser`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@js@browser-spa`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@js@browser-spa-react`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@js@browser-vanilla`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@backend`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@backend-spring_boot`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@desktop`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@desktop-tornado_fx`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@mobile`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@mobile-android`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@script`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@jvm@terminal`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-multiple_sources@wasm32@browser-native-wasm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 
 
 	`common-single_source@android_native_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@android_native_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@ios_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@ios_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-single_source@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-single_source@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-single_source@linux_arm32_hfp`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@linux_mips32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@linux_mipsel32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@linux_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@macos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-single_source@mingw_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@mingw_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@tvos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@tvos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@wasm32`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`common-single_source@watchos_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@watchos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@watchos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@watchos_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@ios_x64@mobile-native-ios_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@js@browser`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@js@browser-spa`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@js@browser-spa-react`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@js@browser-vanilla`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@backend`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@backend-spring_boot`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@desktop`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@desktop-tornado_fx`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@mobile`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@mobile-android`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@script`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@jvm@terminal`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`common-single_source@wasm32@browser-native-wasm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 
 
 	`library-multiple_sources@android_native_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@android_native_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@ios_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@ios_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-multiple_sources@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-multiple_sources@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-multiple_sources@linux_arm32_hfp`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@linux_mips32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@linux_mipsel32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@linux_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@macos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-multiple_sources@mingw_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@mingw_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@tvos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@tvos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@wasm32`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-multiple_sources@watchos_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@watchos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@watchos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-multiple_sources@watchos_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 
 
 	`library-single_source@android_native_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@android_native_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@ios_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@ios_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-single_source@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-single_source@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-single_source@linux_arm32_hfp`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@linux_mips32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@linux_mipsel32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@linux_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@macos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-single_source@mingw_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@mingw_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@tvos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@tvos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@wasm32`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`library-single_source@watchos_arm32`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@watchos_arm64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@watchos_x64`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 	`library-single_source@watchos_x86`(
-		status = StatusEnum.disabled
+		defaultStatus = StatusEnum.disabled
 	),
 
 
 
 	`application-backend-js-express@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-backend-jvm-spring_boot@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-browser-js-spa-react@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-browser-js-vanilla@js`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-browser-native-wasm32@wasm32`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-desktop-jvm-tornado_fx@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-mobile-jvm-android@android`(
-		status = StatusEnum.enabled,
+		defaultStatus = StatusEnum.enabled,
 		kotlinId = "android"
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-script-jvm-script@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-television-native-apple-tvos-tvos_x64@tvos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-terminal-jvm-terminal@jvm`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	`application-watch-native-apple-watchos-watchos_x64@watchos_x64`(
-		status = StatusEnum.enabled
+		defaultStatus = StatusEnum.enabled
 	),
 	;
 

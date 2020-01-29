@@ -86,8 +86,7 @@ object Util {
 				it.status = StatusEnum.enabled
 			}
 		} else {
-			// TODO Find a better way to enable the modules, probably have a default status and the current status may help.
-			ModuleEnum.values().map { it.status = StatusEnum.enabled }
+			ModuleEnum.values().map { it.status = it.defaultStatus }
 		}
 
 		if (!disabledModules.isNullOrBlank()) {
