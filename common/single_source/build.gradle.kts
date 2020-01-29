@@ -109,12 +109,14 @@ kotlin {
 				}
 
 			if (CompilationEnum.main == sourceSetEnum.compilation) {
-				kotlin.srcDir(getMainSourcesPath(sourceSetEnum))
-				resources.srcDir(getMainResourcesPath(sourceSetEnum))
+				kotlin.setSrcDirs(listOf(getMainSourcesPath(sourceSetEnum)))
+				resources.setSrcDirs(listOf(getMainResourcesPath(sourceSetEnum)))
 			} else if (CompilationEnum.test == sourceSetEnum.compilation) {
-				kotlin.srcDir(getTestSourcesPath(sourceSetEnum))
-				resources.srcDir(getTestResourcesPath(sourceSetEnum))
+				kotlin.setSrcDirs(listOf(getTestSourcesPath(sourceSetEnum)))
+				resources.setSrcDirs(listOf(getTestResourcesPath(sourceSetEnum)))
 			}
+
+			println("${"common-ss".padEnd(20)}${name.padEnd(20)}${sourceSetEnum.name.padEnd(50)}${kotlin.getSrcDirs()}")
 
 //			languageSettings {
 //				progressiveMode = true

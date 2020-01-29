@@ -99,18 +99,20 @@ kotlin {
 		all {
 			val sourceSetEnum =
 				when (name) {
-					SourceSetEnum.`common-single_source@common@main`.kotlinId -> SourceSetEnum.`common-single_source@common@main`
-					SourceSetEnum.`common-single_source@common@test`.kotlinId -> SourceSetEnum.`common-single_source@common@test`
+					SourceSetEnum.`common-multiple_sources@common@main`.kotlinId -> SourceSetEnum.`common-multiple_sources@common@main`
+					SourceSetEnum.`common-multiple_sources@common@test`.kotlinId -> SourceSetEnum.`common-multiple_sources@common@test`
 					else -> SourceSetEnum.getByKotlinIdAndModule(name, ModuleEnum.`common-multiple_sources`)!!
 				}
 
 			if (CompilationEnum.main == sourceSetEnum.compilation) {
-				kotlin.srcDir(getMainSourcesPath(sourceSetEnum))
-				resources.srcDir(getMainResourcesPath(sourceSetEnum))
+				kotlin.setSrcDirs(listOf(getMainSourcesPath(sourceSetEnum)))
+				resources.setSrcDirs(listOf(getMainResourcesPath(sourceSetEnum)))
 			} else if (CompilationEnum.test == sourceSetEnum.compilation) {
-				kotlin.srcDir(getTestSourcesPath(sourceSetEnum))
-				resources.srcDir(getTestResourcesPath(sourceSetEnum))
+				kotlin.setSrcDirs(listOf(getTestSourcesPath(sourceSetEnum)))
+				resources.setSrcDirs(listOf(getTestResourcesPath(sourceSetEnum)))
 			}
+
+			println("${"common-ms".padEnd(20)}${name.padEnd(20)}${sourceSetEnum.name.padEnd(50)}${kotlin.getSrcDirs()}")
 
 //			languageSettings {
 //				progressiveMode = true

@@ -26,7 +26,7 @@ enabled[vanilla]=false
 enabled[tornadofx]=false
 enabled[android]=false
 enabled[kscript]=false
-enabled[terminal]=true
+enabled[terminal]=false
 enabled[react]=false
 enabled[wasm32]=false
 enabled[ios_copying_framework]=false
@@ -107,7 +107,7 @@ function killRemainingProcesses() {
            kill $pid
         fi
     done
-    printf "Done."
+    printf "Done.\n"
 }
 
 

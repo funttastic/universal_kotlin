@@ -592,8 +592,8 @@ enum class SourceSetEnum(
 		kotlinId = commonMain,
 		dependencies = Dependencies(
 			modules = mutableListOf(
-				ModuleEnum.`common-multiple_sources`
-				, ModuleEnum.`common-single_source`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`common-single_source`
 			)
 		)
 	),
@@ -874,8 +874,8 @@ enum class SourceSetEnum(
 		kotlinId = commonMain,
 		dependencies = Dependencies(
 			modules = mutableListOf(
-				ModuleEnum.`common-multiple_sources`
-				, ModuleEnum.`common-single_source`
+				ModuleEnum.`common-multiple_sources`,
+				ModuleEnum.`common-single_source`
 			)
 		)
 	),
