@@ -48,6 +48,8 @@ object ExampleObject {
 		val output = ArrayList<String>()
 		output.addAll(com.company.team.project.common.multiple_sources.js.exampleFunction())
 		output.addAll(com.company.team.project.common.single_source.js.common.exampleFunction())
+		output.addAll(com.company.team.project.library.multiple_sources.js.exampleFunction())
+		output.addAll(com.company.team.project.library.single_source.js.common.exampleFunction())
 		output.add(exampleProperty)
 
 		return output

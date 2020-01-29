@@ -38,6 +38,8 @@ object ExampleObject {
 		val output = ArrayList<String>()
 		output.addAll(com.company.team.project.common.multiple_sources.ios_x64.exampleFunction())
 		output.addAll(com.company.team.project.common.single_source.ios_x64.common.exampleFunction())
+		output.addAll(com.company.team.project.library.multiple_sources.ios_x64.exampleFunction())
+		output.addAll(com.company.team.project.library.single_source.ios_x64.common.exampleFunction())
 		output.add(exampleProperty)
 
 		return output

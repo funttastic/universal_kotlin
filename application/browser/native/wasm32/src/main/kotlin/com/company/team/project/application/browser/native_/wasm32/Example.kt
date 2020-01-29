@@ -37,6 +37,8 @@ object ExampleObject {
 		val output = ArrayList<String>()
 		output.addAll(com.company.team.project.common.multiple_sources.wasm32.exampleFunction())
 		output.addAll(com.company.team.project.common.single_source.wasm32.common.exampleFunction())
+		output.addAll(com.company.team.project.library.multiple_sources.wasm32.exampleFunction())
+		output.addAll(com.company.team.project.library.single_source.wasm32.common.exampleFunction())
 		output.add(exampleProperty)
 
 		return output
