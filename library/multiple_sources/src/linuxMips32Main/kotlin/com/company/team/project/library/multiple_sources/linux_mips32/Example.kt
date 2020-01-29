@@ -22,7 +22,7 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	private const val exampleProperty = "com.company.team.project.common.multiple_sources.linux_mips32"
+	private const val exampleProperty = "com.company.team.project.library.multiple_sources.linux_mips32"
 
 	/**
 	 *
