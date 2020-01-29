@@ -1,10 +1,9 @@
-//// @file:MavenRepository("local", "file:///Users/danilo/.m2/repository/")
-////@file:DependsOnMaven("com.company.team.project:library-multiple_sources-jvm:0.0.1")
-//DEPS com.company.team.project:library-multiple_sources-jvm:0.0.1
-//DEPS com.company.team.project:library-single_source-jvm:0.0.1
+@file:DependsOnMaven("com.company.team.project:library-multiple_sources-jvm:0.0.1")
+@file:DependsOnMaven("com.company.team.project:library-single_source-jvm:0.0.1")
 
 package com.company.team.project.application.script.jvm.script
 
+import DependsOnMaven
 import com.company.team.project.common.single_source.common.formatOutput
 
 /**
