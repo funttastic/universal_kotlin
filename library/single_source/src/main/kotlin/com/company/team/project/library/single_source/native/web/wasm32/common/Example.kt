@@ -22,7 +22,7 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	private const val exampleProperty = "com.company.team.project.library.single_source.native.web.wasm32.common"
+	private const val exampleProperty = "com.company.team.project.library.single_source.js.spa.react.common"
 
 	/**
 	 *

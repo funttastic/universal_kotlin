@@ -22,7 +22,7 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	private val exampleProperty = "com.company.team.project.application.backend.jvm.spring_boot"
+	private val exampleProperty = ExampleObject::class.java.`package`.name
 
 	/**
 	 *

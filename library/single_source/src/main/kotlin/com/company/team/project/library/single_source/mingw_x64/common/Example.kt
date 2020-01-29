@@ -22,7 +22,7 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	private const val exampleProperty = "com.company.team.project.library.single_source.linux_arm32_hfp.common"
+	private const val exampleProperty = "com.company.team.project.library.single_source.mingw_x64.common"
 
 	/**
 	 *
