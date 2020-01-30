@@ -1,5 +1,8 @@
 package com.company.team.project.application.terminal.jvm.terminal
 
+import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.TERMINAL
+
 /**
  *
  */
@@ -10,7 +13,7 @@ fun main() {
 /**
  *
  */
-val exampleValue = com.company.team.project.common.single_source.common.formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), TERMINAL, 208)
 
 /**
  *

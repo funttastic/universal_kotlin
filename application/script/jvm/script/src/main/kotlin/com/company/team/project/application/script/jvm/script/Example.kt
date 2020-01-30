@@ -5,6 +5,7 @@ package com.company.team.project.application.script.jvm.script
 
 import DependsOnMaven
 import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.TERMINAL
 
 /**
  *
@@ -16,7 +17,7 @@ fun main() {
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), TERMINAL, 208)
 
 /**
  *

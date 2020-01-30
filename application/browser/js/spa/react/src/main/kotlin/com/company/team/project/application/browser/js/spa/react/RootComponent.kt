@@ -35,9 +35,7 @@ class Root(props: RootProps) : RComponent<RootProps, RootState>(props) {
 	 */
 	override fun RBuilder.render() {
 		div {
-			pre {
-				+exampleValue
-			}
+			attrs["dangerouslySetInnerHTML"] = InnerHTML(exampleValue)
 		}
 	}
 }
@@ -47,3 +45,10 @@ class Root(props: RootProps) : RComponent<RootProps, RootState>(props) {
  */
 fun RBuilder.root() = child(Root::class) {
 }
+
+/**
+ *
+ */
+class InnerHTML(
+	val __html: String
+)

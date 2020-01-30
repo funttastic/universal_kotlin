@@ -3,6 +3,7 @@ package com.company.team.project.application.browser.js.vanilla
 import kotlin.browser.document
 import org.w3c.dom.*
 import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.BROWSER
 
 /**
  *
@@ -16,13 +17,13 @@ fun main() {
  */
 @JsName("updateTargetContent")
 fun updateTargetContent() {
-	document.getElementById("target")?.innerHTML = "<pre>$exampleValue</pre>"
+	document.getElementById("target")?.innerHTML = exampleValue
 }
 
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), BROWSER)
 
 /**
  *

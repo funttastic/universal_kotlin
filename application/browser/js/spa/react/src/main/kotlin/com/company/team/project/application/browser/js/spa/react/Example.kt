@@ -1,11 +1,12 @@
 package com.company.team.project.application.browser.js.spa.react
 
 import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.BROWSER
 
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), BROWSER)
 
 /**
  *

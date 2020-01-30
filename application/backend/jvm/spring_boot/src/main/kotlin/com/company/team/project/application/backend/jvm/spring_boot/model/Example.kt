@@ -1,11 +1,13 @@
 package com.company.team.project.application.backend.jvm.spring_boot.model
 
 import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.BROWSER
+
 
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), BROWSER)
 
 /**
  *

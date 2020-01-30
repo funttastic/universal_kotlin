@@ -3,15 +3,16 @@ package com.company.team.project.application.browser.native_.wasm32
 import kotlinx.interop.wasm.dom.*
 import kotlinx.wasm.jsinterop.*
 import com.company.team.project.common.single_source.common.formatOutput
+import com.company.team.project.common.single_source.common.OutputType.BROWSER
 
 fun main() {
-	document.getElementById("target").setter("innerHTML", "<pre>$exampleValue</pre>")
+	document.getElementById("target").setter("innerHTML", exampleValue)
 }
 
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction())
+val exampleValue = formatOutput(exampleFunction(), BROWSER)
 
 /**
  *

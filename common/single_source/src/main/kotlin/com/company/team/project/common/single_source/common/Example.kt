@@ -32,36 +32,3 @@ object ExampleObject {
 		return output
 	}
 }
-
-/**
- *
- */
-fun formatOutput(input: List<String>?, showBanner: Boolean = false): String {
-	val prefix = "com.company.team.project."
-
-	var output = ""
-
-	if (showBanner) {
-		output = """
-		|
-		| _|    _|            _|                                                      _|      _|    _|              _|      _|  _|
-		| _|    _|  _|_|_|        _|      _|    _|_|    _|  _|_|    _|_|_|    _|_|_|  _|      _|  _|      _|_|    _|_|_|_|  _|      _|_|_|
-		| _|    _|  _|    _|  _|  _|      _|  _|_|_|_|  _|_|      _|_|      _|    _|  _|      _|_|      _|    _|    _|      _|  _|  _|    _|
-		| _|    _|  _|    _|  _|    _|  _|    _|        _|            _|_|  _|    _|  _|      _|  _|    _|    _|    _|      _|  _|  _|    _|
-		| _|_|    _|    _|  _|      _|        _|_|_|  _|        _|_|_|      _|_|_|  _|      _|    _|    _|_|        _|_|  _|  _|  _|    _|
-		|
-		|
-		|
-		|                                                        One language to rule them all!
-		|
-		|
-		|
-		""".trimMargin()
-	}
-
-	output += "Modules:\n"
-
-	output += input?.distinct()?.sorted()?.joinToString("\n") { it.removePrefix(prefix) }
-
-	return output
-}
