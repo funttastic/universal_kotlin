@@ -1,11 +1,13 @@
+@file:DependsOnMaven("org.jline:jline-terminal:3.13.3")
 @file:DependsOnMaven("com.company.team.project:library-multiple_sources-jvm:0.0.1")
 @file:DependsOnMaven("com.company.team.project:library-single_source-jvm:0.0.1")
 
 package com.company.team.project.application.script.jvm.script
 
 import DependsOnMaven
-import com.company.team.project.common.single_source.common.formatOutput
 import com.company.team.project.common.single_source.common.OutputType.TERMINAL
+import com.company.team.project.common.single_source.common.formatOutput
+import org.jline.terminal.TerminalBuilder
 
 /**
  *
@@ -17,7 +19,7 @@ fun main() {
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction(), TERMINAL, 208)
+val exampleValue = formatOutput(exampleFunction(), TERMINAL, TerminalBuilder.terminal().width)
 
 /**
  *
