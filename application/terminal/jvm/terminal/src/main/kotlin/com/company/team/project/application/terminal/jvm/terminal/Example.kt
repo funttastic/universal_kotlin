@@ -2,6 +2,7 @@ package com.company.team.project.application.terminal.jvm.terminal
 
 import com.company.team.project.common.single_source.common.formatOutput
 import com.company.team.project.common.single_source.common.OutputType.TERMINAL
+import org.jline.terminal.TerminalBuilder.terminal
 
 /**
  *
@@ -10,10 +11,12 @@ fun main() {
 	println(exampleValue)
 }
 
+
+
 /**
  *
  */
-val exampleValue = formatOutput(exampleFunction(), TERMINAL, 208)
+val exampleValue = formatOutput(exampleFunction(), TERMINAL, terminal().width)
 
 /**
  *
