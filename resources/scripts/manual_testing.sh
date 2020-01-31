@@ -116,6 +116,7 @@ clear
 
 mkdir -p temporary
 : > temporary/log.out
+#export COLUMNS LINES
 
 run -k build -t "Cleaning, building and checking" -p "Build" -c "./gradlew build check" -b false
 
