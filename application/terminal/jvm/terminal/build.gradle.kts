@@ -33,6 +33,7 @@ kotlin {
 
 			dependencies {
 				implementation(kotlin("stdlib-jdk8"))
+				implementation("org.jline:jline-terminal:3.13.3")
 			}
 		}
 

@@ -34,6 +34,7 @@ kotlin {
 				implementation(kotlin("stdlib"))
 				implementation(kotlin("script-runtime"))
 				implementation("com.github.holgerbrandl:kscript-annotations:1.4")
+				implementation("org.jline:jline-terminal:3.13.3")
 			}
 		}
 
