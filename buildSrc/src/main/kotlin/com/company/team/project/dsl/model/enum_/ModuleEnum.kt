@@ -54,12 +54,7 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var defaultStatus: StatusEnum = StatusEnum.enabled,
-
-	/**
-	 *
-	 */
-	var status: StatusEnum = defaultStatus,
+	var defaultStatus: StatusEnum = StatusEnum.disabled,
 
 	/**
 	 *
@@ -84,30 +79,29 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var targets: MutableList<TargetEnum> = mutableListOf(),
+	val targets: MutableSet<TargetEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var sourceSets: MutableList<SourceSetEnum> = mutableListOf(),
+	val sourceSets: MutableSet<SourceSetEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var children: MutableList<ModuleEnum> = mutableListOf(),
+	val children: MutableSet<ModuleEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var requiredAt: MutableList<SourceSetEnum> = mutableListOf()
+	val requiredAt: MutableSet<SourceSetEnum> = mutableSetOf()
 ) {
 
 	root(
 		kotlinId = "",
 		path = Properties.projects.root.path,
 		file = Properties.projects.root.file,
-		absolutePath = Properties.projects.root.absolutePath,
-		defaultStatus = StatusEnum.disabled
+		absolutePath = Properties.projects.root.absolutePath
 	),
 	common(
 		parent = root
@@ -116,12 +110,10 @@ enum class ModuleEnum(
 		parent = common
 	),
 	`common-multiple_sources`(
-		parent = common,
-		defaultStatus = StatusEnum.enabled
+		parent = common
 	),
 	`common-single_source`(
-		parent = common,
-		defaultStatus = StatusEnum.enabled
+		parent = common
 	),
 	library(
 		parent = root
@@ -130,12 +122,10 @@ enum class ModuleEnum(
 		parent = library
 	),
 	`library-multiple_sources`(
-		parent = library,
-		defaultStatus = StatusEnum.enabled
+		parent = library
 	),
 	`library-single_source`(
-		parent = library,
-		defaultStatus = StatusEnum.enabled
+		parent = library
 	),
 	application(
 		parent = root
@@ -147,15 +137,13 @@ enum class ModuleEnum(
 		parent = `application-backend`
 	),
 	`application-backend-js-express`(
-		parent = `application-backend-js`,
-		defaultStatus = StatusEnum.disabled
+		parent = `application-backend-js`
 	),
 	`application-backend-jvm`(
 		parent = `application-backend`
 	),
 	`application-backend-jvm-spring_boot`(
-		parent = `application-backend-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-backend-jvm`
 	),
 	`application-browser`(
 		parent = application
@@ -167,19 +155,16 @@ enum class ModuleEnum(
 		parent = `application-browser-js`
 	),
 	`application-browser-js-spa-react`(
-		parent = `application-browser-js-spa`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-browser-js-spa`
 	),
 	`application-browser-js-vanilla`(
-		parent = `application-browser-js`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-browser-js`
 	),
 	`application-browser-native`(
 		parent = `application-browser`
 	),
 	`application-browser-native-wasm32`(
-		parent = `application-browser-native`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-browser-native`
 	),
 	`application-desktop`(
 		parent = application
@@ -188,8 +173,7 @@ enum class ModuleEnum(
 		parent = `application-desktop`
 	),
 	`application-desktop-jvm-tornado_fx`(
-		parent = `application-desktop-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-desktop-jvm`
 	),
 	`application-mobile`(
 		parent = application
@@ -198,8 +182,7 @@ enum class ModuleEnum(
 		parent = `application-mobile`
 	),
 	`application-mobile-jvm-android`(
-		parent = `application-mobile-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-mobile-jvm`
 	),
 	`application-mobile-native`(
 		parent = `application-mobile`
@@ -212,19 +195,16 @@ enum class ModuleEnum(
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework`(
 		parent = `application-mobile-native-apple-ios`,
-		defaultStatus = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_without_framework/WithoutFramework"
 		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework`(
-		parent = `application-mobile-native-apple-ios`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-mobile-native-apple-ios`
 	),
 	`application-mobile-native-apple-ios-ios_x64_framework`(
 		parent = `application-mobile-native-apple-ios`,
-		defaultStatus = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_framework/Framework"
@@ -232,7 +212,6 @@ enum class ModuleEnum(
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework`(
 		parent = `application-mobile-native-apple-ios`,
-		defaultStatus = StatusEnum.enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_with_framework/UniversalKotlin"
@@ -245,8 +224,7 @@ enum class ModuleEnum(
 		parent = `application-script`
 	),
 	`application-script-jvm-script`(
-		parent = `application-script-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-script-jvm`
 	),
 	`application-television`(
 		parent = application
@@ -262,7 +240,6 @@ enum class ModuleEnum(
 	),
 	`application-television-native-apple-tvos-tvos_x64`(
 		parent = `application-television-native-apple-tvos`,
-		defaultStatus = StatusEnum.disabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/television/native/apple/tvos/tvos_x64/application"
@@ -275,8 +252,7 @@ enum class ModuleEnum(
 		parent = `application-terminal`
 	),
 	`application-terminal-jvm-terminal`(
-		parent = `application-terminal-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `application-terminal-jvm`
 	),
 	`application-watch`(
 		parent = application
@@ -292,7 +268,6 @@ enum class ModuleEnum(
 	),
 	`application-watch-native-apple-watchos-watchos_x64`(
 		parent = `application-watch-native-apple-watchos`,
-		defaultStatus = StatusEnum.disabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/television/native/apple/watchos/watchos_x64/application"
@@ -305,10 +280,19 @@ enum class ModuleEnum(
 		parent = `plugin`
 	),
 	`plugin-jvm-gradle`(
-		parent = `plugin-jvm`,
-		defaultStatus = StatusEnum.enabled
+		parent = `plugin-jvm`
 	),
 	;
+
+	/**
+	 *
+	 */
+	var status: StatusEnum = defaultStatus
+		set(value) {
+			val caller = Thread.currentThread().stackTrace[2]
+			println("Status update to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+			field = value
+		}
 
 	/**
 	 *

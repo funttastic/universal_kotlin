@@ -43,17 +43,7 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var dependencies: Dependencies? = null,
-
-	/**
-	 *
-	 */
-	var defaultStatus: StatusEnum = StatusEnum.enabled,
-
-	/**
-	 *
-	 */
-	var status: StatusEnum = defaultStatus,
+	var defaultStatus: StatusEnum = StatusEnum.disabled,
 
 	/**
 	 *
@@ -63,1115 +53,942 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var requiredAt: MutableList<SourceSetEnum> = mutableListOf()
+	val dependencies: Dependencies = Dependencies(),
+
+	/**
+	 *
+	 */
+	val requiredAt: MutableSet<SourceSetEnum> = mutableSetOf()
 ) {
 
 	`common-multiple_sources@common@main`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonMain
 	),
 	`common-multiple_sources@common@test`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonTest
 	),
 
 	`common-multiple_sources@android_native_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@android_native_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@android_native_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@android_native_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@ios_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@ios_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@ios_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@js@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@jvm@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@linux_arm32_hfp@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_arm32_hfp@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@linux_mips32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_mips32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@linux_mipsel32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_mipsel32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@linux_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@macos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@macos_x64@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@mingw_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@mingw_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@mingw_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@mingw_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@tvos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@tvos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@tvos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@tvos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@wasm32@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@wasm32@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@watchos_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@watchos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@watchos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 	`common-multiple_sources@watchos_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`common-multiple_sources@common@test`)
 		)
 	),
 
 
 	`common-single_source@common@main`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonMain
 	),
 	`common-single_source@common@test`(
-		defaultStatus = StatusEnum.enabled,
-		kotlinId = commonTest
+		kotlinId = commonTest,
+		dependencies = Dependencies(
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
+		)
 	),
 
 	`common-single_source@android_native_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@android_native_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@android_native_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@android_native_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@ios_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@ios_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@ios_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@ios_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@ios_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@ios_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
-	`common-single_source@js@main`(
-		defaultStatus = StatusEnum.enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
-		)
-	),
-	`common-single_source@js@test`(
-		defaultStatus = StatusEnum.enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
-		)
-	),
+ 	`common-single_source@js@main`(
+ 		dependencies = Dependencies(
+ 			sourceSets = mutableSetOf(`common-single_source@common@main`)
+ 		)
+ 	),
+ 	`common-single_source@js@test`(
+ 		dependencies = Dependencies(
+ 			sourceSets = mutableSetOf(`common-single_source@common@test`)
+ 		)
+ 	),
 	`common-single_source@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@jvm@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(
+				`common-single_source@common@test`,
+				`common-single_source@jvm@main`
+			)
 		)
 	),
 	`common-single_source@linux_arm32_hfp@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@linux_arm32_hfp@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@linux_mips32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@linux_mips32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@linux_mipsel32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@linux_mipsel32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@linux_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@linux_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@macos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@macos_x64@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@mingw_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@mingw_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@mingw_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@mingw_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@tvos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@tvos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@tvos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@tvos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
-	`common-single_source@wasm32@main`(
-		defaultStatus = StatusEnum.enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
-		)
-	),
-	`common-single_source@wasm32@test`(
-		defaultStatus = StatusEnum.enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
-		)
-	),
+ 	`common-single_source@wasm32@main`(
+ 		dependencies = Dependencies(
+ 			sourceSets = mutableSetOf(`common-single_source@common@main`)
+ 		)
+ 	),
+ 	`common-single_source@wasm32@test`(
+ 		dependencies = Dependencies(
+ 			sourceSets = mutableSetOf(`common-single_source@common@test`)
+ 		)
+ 	),
 	`common-single_source@watchos_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@watchos_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@watchos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@watchos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@watchos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@watchos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 	`common-single_source@watchos_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@main`)
+			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@watchos_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`common-single_source@common@test`)
+			sourceSets = mutableSetOf(`common-single_source@common@test`)
 		)
 	),
 
 
 	`library-multiple_sources@common@main`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonMain,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`common-single_source`
 			)
 		)
 	),
 	`library-multiple_sources@common@test`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonTest
 	),
 	`library-multiple_sources@native@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@native@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@android_native_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@android_native_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@android_native_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@android_native_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@ios_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@ios_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@ios_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@ios_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@ios_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@ios_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-//			targets = mutableListOf(TargetEnum.`common-single_source@js`),
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+//			targets = mutableSetOf(TargetEnum.`common-single_source@js`),
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@js@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-//			targets = mutableListOf(TargetEnum.`common-single_source@js`),
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+//			targets = mutableSetOf(TargetEnum.`common-single_source@js`),
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@jvm@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@linux_arm32_hfp@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@linux_arm32_hfp@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@linux_mips32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@linux_mips32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@linux_mipsel32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@linux_mipsel32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@linux_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@linux_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@macos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@macos_x64@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@mingw_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@mingw_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@mingw_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@mingw_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@tvos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@tvos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@tvos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@tvos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@wasm32@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@wasm32@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@watchos_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@watchos_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@watchos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@watchos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@watchos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@watchos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 	`library-multiple_sources@watchos_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@main`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@main`)
 		)
 	),
 	`library-multiple_sources@watchos_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-multiple_sources@common@test`)
+			sourceSets = mutableSetOf(`library-multiple_sources@common@test`)
 		)
 	),
 
 
 	`library-single_source@common@main`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonMain,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`common-single_source`
 			)
 		)
 	),
 	`library-single_source@common@test`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = commonTest
 	),
 	`library-single_source@native@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@native@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@android_native_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@android_native_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@android_native_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@android_native_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@ios_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@ios_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@ios_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@ios_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@ios_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@ios_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-//			targets = mutableListOf(TargetEnum.`common-single_source@js`),
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+//			targets = mutableSetOf(TargetEnum.`common-single_source@js`),
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@js@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-//			targets = mutableListOf(TargetEnum.`common-single_source@js`),
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+//			targets = mutableSetOf(TargetEnum.`common-single_source@js`),
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@jvm@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@linux_arm32_hfp@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@linux_arm32_hfp@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@linux_mips32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@linux_mips32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@linux_mipsel32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@linux_mipsel32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@linux_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@linux_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@macos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@macos_x64@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@mingw_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@mingw_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@mingw_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@mingw_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@tvos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@tvos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@tvos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@tvos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@wasm32@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@wasm32@test`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@watchos_arm32@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@watchos_arm32@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@watchos_arm64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@watchos_arm64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@watchos_x64@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@watchos_x64@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 	`library-single_source@watchos_x86@main`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@main`)
+			sourceSets = mutableSetOf(`library-single_source@common@main`)
 		)
 	),
 	`library-single_source@watchos_x86@test`(
-		defaultStatus = StatusEnum.disabled,
 		dependencies = Dependencies(
-			sourceSets = mutableListOf(`library-single_source@common@test`)
+			sourceSets = mutableSetOf(`library-single_source@common@test`)
 		)
 	),
 
 
 	`application-backend-js-express@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`
 			)
 		)
 	),
-	`application-backend-js-express@js@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-backend-js-express@js@test`(),
 	`application-backend-jvm-spring_boot@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1179,13 +996,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-backend-jvm-spring_boot@jvm@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-backend-jvm-spring_boot@jvm@test`(),
 	`application-browser-js-spa-react@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1193,13 +1007,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-browser-js-spa-react@js@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-browser-js-spa-react@js@test`(),
 	`application-browser-js-vanilla@js@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1207,13 +1018,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-browser-js-vanilla@js@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-browser-js-vanilla@js@test`(),
 	`application-browser-native-wasm32@wasm32@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1221,13 +1029,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-browser-native-wasm32@wasm32@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-browser-native-wasm32@wasm32@test`(),
 	`application-desktop-jvm-tornado_fx@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1235,14 +1040,11 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-desktop-jvm-tornado_fx@jvm@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-desktop-jvm-tornado_fx@jvm@test`(),
 	`application-mobile-jvm-android@android@main`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = "androidMain",
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1251,11 +1053,10 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-jvm-android@android@test`(
-		defaultStatus = StatusEnum.enabled,
 		kotlinId = "androidTest",
 		// This is needed as an workaround to the this issue: https://youtrack.jetbrains.com/issue/KT-29343
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1264,9 +1065,8 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1274,13 +1074,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@test`(),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1288,13 +1085,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@test`(),
 	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1302,13 +1096,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64@test`(),
 	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1316,13 +1107,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64@test`(),
 	`application-script-jvm-script@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1330,13 +1118,10 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-script-jvm-script@jvm@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-script-jvm-script@jvm@test`(),
 	`application-television-native-apple-tvos-tvos_x64@tvos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1344,27 +1129,28 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-television-native-apple-tvos-tvos_x64@tvos_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-television-native-apple-tvos-tvos_x64@tvos_x64@test`(),
 	`application-terminal-jvm-terminal@jvm@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
-				ModuleEnum.`common-single_source`,
-				ModuleEnum.`common-multiple_sources`,
-				ModuleEnum.`library-single_source`,
-				ModuleEnum.`library-multiple_sources`
+			sourceSets = mutableSetOf(
+				`common-single_source@jvm@main`,
+				`common-multiple_sources@jvm@main`,
+				`library-single_source@jvm@main`,
+				`library-multiple_sources@jvm@main`
 			)
 		)
 	),
 	`application-terminal-jvm-terminal@jvm@test`(
-		defaultStatus = StatusEnum.enabled
+		dependencies = Dependencies(
+			sourceSets = mutableSetOf(
+				`common-single_source@jvm@test`,
+				`application-terminal-jvm-terminal@jvm@main`
+			)
+		)
 	),
 	`application-watch-native-apple-watchos-watchos_x64@watchos_x64@main`(
-		defaultStatus = StatusEnum.enabled,
 		dependencies = Dependencies(
-			modules = mutableListOf(
+			modules = mutableSetOf(
 				ModuleEnum.`common-single_source`,
 				ModuleEnum.`common-multiple_sources`,
 				ModuleEnum.`library-single_source`,
@@ -1372,10 +1158,18 @@ enum class SourceSetEnum(
 			)
 		)
 	),
-	`application-watch-native-apple-watchos-watchos_x64@watchos_x64@test`(
-		defaultStatus = StatusEnum.enabled
-	),
+	`application-watch-native-apple-watchos-watchos_x64@watchos_x64@test`(),
 	;
+
+	/**
+	 *
+	 */
+	var status: StatusEnum = defaultStatus
+		set(value) {
+			val caller = Thread.currentThread().stackTrace[2]
+			println("Status update to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+			field = value
+		}
 
 	init {
 		val splitName = name.split("@")
@@ -1411,6 +1205,8 @@ enum class SourceSetEnum(
 		if (StatusEnum.disabled == target?.status) {
 			status = StatusEnum.disabled
 		}
+
+		maintainEnabledIfOSSupportsOrDisableOtherwise()
 
 //		if (
 //			StatusEnum.enabled == status
@@ -1529,16 +1325,15 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	fun enableIfOSSupportsOrDisableOtherwise(): Boolean {
-		if (target?.preset?.supportedOSes?.contains(Properties.util.os) == true) {
-			status = StatusEnum.enabled
+	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
+		if (StatusEnum.enabled != status) return
 
-			return true
+		// We need to skip the common source sets since they are not attached to any target.
+		if (kotlinId in listOf(commonMain, commonTest)) return
+
+		if (target?.preset?.supportedOSes?.contains(Properties.util.os) != true) {
+			status = StatusEnum.disabled
 		}
-
-//		status = StatusEnum.enabled
-
-		return false
 	}
 
 	/**
@@ -1568,22 +1363,22 @@ class Dependencies(
 	/**
 	 *
 	 */
-	var modules: MutableList<ModuleEnum> = mutableListOf(),
+	val modules: MutableSet<ModuleEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var targets: MutableList<TargetEnum> = mutableListOf(),
+	val targets: MutableSet<TargetEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var sourceSets: MutableList<SourceSetEnum> = mutableListOf(),
+	val sourceSets: MutableSet<SourceSetEnum> = mutableSetOf(),
 
 	/**
 	 *
 	 */
-	var other: MutableList<Any> = mutableListOf()
+	val other: MutableSet<Any> = mutableSetOf()
 ) {
 
 	/**

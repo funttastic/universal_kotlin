@@ -1,8 +1,12 @@
 package com.company.team.project.dsl.model.extension
 
 import com.company.team.project.dsl.Util
-// TODO Fix
-import com.company.team.project.dsl.model.enum_.*
+import com.company.team.project.dsl.model.enum_.CompilationEnum
+import com.company.team.project.dsl.model.enum_.ModuleEnum
+import com.company.team.project.dsl.model.enum_.PresetEnum
+import com.company.team.project.dsl.model.enum_.SourceSetEnum
+import com.company.team.project.dsl.model.enum_.StatusEnum
+import com.company.team.project.dsl.model.enum_.TargetEnum
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ProjectDependency
@@ -14,12 +18,14 @@ import org.gradle.kotlin.dsl.get
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
-// TODO Fix
-import org.jetbrains.kotlin.gradle.plugin.mpp.*
-import java.lang.RuntimeException
+import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractKotlinTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinAndroidTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJsCompilation
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJvmCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.xcodecompat.KotlinXcodeExtension
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinOnlyTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
+import org.jetbrains.kotlin.xcodecompat.KotlinXcodeExtension
 
 /**
  *
@@ -449,18 +455,26 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 	}
 
 	val modulesAndTargetsConfigurations: KotlinSourceSet.() -> Unit = {
-		sourceSet.dependencies?.sourceSets?.forEach {
-			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
-			dependsOn(it.kotlinSourceSet!!)
+		sourceSet.dependencies.sourceSets.forEach {
+			if (it.module == sourceSet.module) {
+				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
+				dependsOn(it.kotlinSourceSet!!)
+			} else {
+				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module."""")
+				it.requiredAt.add(sourceSet)
+				dependencies {
+					implementation(project(it.module!!))
+				}
+			}
 		}
 
 		dependencies {
-			sourceSet.dependencies?.modules?.forEach {
+			sourceSet.dependencies.modules.forEach {
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
 				implementation(project(it))
 			}
 
-			sourceSet.dependencies?.targets?.forEach {
+			sourceSet.dependencies.targets.forEach {
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
 				implementation(project(it))
 			}
@@ -496,12 +510,12 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 //		dependsOn(it.kotlinSourceSet!!)
 //	}
 
-	sourceSet.dependencies?.modules?.forEach {
+	sourceSet.dependencies.modules.forEach {
 		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
 		configurationName(project(it))
 	}
 
-	sourceSet.dependencies?.targets?.forEach {
+	sourceSet.dependencies.targets.forEach {
 		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
 		configurationName(project(it))
 	}

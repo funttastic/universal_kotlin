@@ -13,7 +13,7 @@ plugins {
 }
 
 kotlin {
-	configureTargetAttributes(ModuleEnum.`common-multiple_sources`)
+	configureTargetAttributes(ModuleEnum.`common-single_source`)
 
 //	targets.all {
 //			compilations.all {

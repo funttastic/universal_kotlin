@@ -35,7 +35,7 @@ object Util {
 	 */
 	fun initialize(taskNames: List<String>) {
 		// automaticallyDefineAndroidHomeIfPossible()
-		checkAndSetModulesAvailabilities(taskNames)
+		automaticallyEnableDependencyTree(taskNames)
 	}
 
 	/**
@@ -62,65 +62,77 @@ object Util {
 	/**
 	 *
 	 */
-	fun checkAndSetModulesAvailabilities(taskNames: List<String>) {
-		val enabledModules = Properties.properties.get<String>("enabledModules")
-		val disabledModules = Properties.properties.get<String>("disabledModules")
+	fun automaticallyEnableDependencyTree(taskNames: List<String>) {
+		val enabledModulesProperty = Properties.properties.get<String>("enabledModules")
+		val disabledModulesProperty = Properties.properties.get<String>("disabledModules")
 
-		val modulesEnabledByTask = mutableListOf<ModuleEnum>()
-		taskNames.forEach {
-			val module = it.split(":").asReversed().getOrNull(1)
+		val enabledModulesEnabledByTask = mutableSetOf<ModuleEnum>()
+		taskNames.map {
+			val moduleName = it.split(":").asReversed().getOrNull(1)
 
-			if (module != null) {
-				modulesEnabledByTask.add(ModuleEnum.getByName(module)!!)
+			if (!moduleName.isNullOrBlank()) {
+				enabledModulesEnabledByTask.add(ModuleEnum.getByName(moduleName)!!)
 			}
 		}
 
-		if (!enabledModules.isNullOrBlank() || modulesEnabledByTask.isNotEmpty()) {
-			ModuleEnum.values().map { it.status = StatusEnum.disabled }
-
-			enabledModules?.split(",")?.map {
-				ModuleEnum.getByName(it.trim())!!.status = StatusEnum.enabled
-			}
-
-			modulesEnabledByTask.forEach {
-				it.status = StatusEnum.enabled
-			}
-		} else {
-			ModuleEnum.values().map { it.status = it.defaultStatus }
+		val enabledModulesByProperty = mutableSetOf<ModuleEnum>()
+		enabledModulesProperty?.split(",")?.map {
+			enabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
 		}
 
-		if (!disabledModules.isNullOrBlank()) {
-			disabledModules.split(",").map {
-				ModuleEnum.getByName(it.trim())!!.status = StatusEnum.disabled
-			}
+		val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
+		disabledModulesProperty?.split(",")?.map {
+			disabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
 		}
+
+		val enabledModules = mutableSetOf<ModuleEnum>()
+		enabledModules.addAll(enabledModulesByProperty)
+		enabledModules.addAll(enabledModulesEnabledByTask)
+		enabledModules.removeAll(disabledModulesByProperty)
+
+		enabledModules.map { it.status = StatusEnum.enabled }
 
 		SourceSetEnum.values()
 			.filter { it.module?.status == StatusEnum.enabled }
 			.forEach {
-				it.dependencies?.modules?.forEach { it2 ->
-					it2.status = StatusEnum.enabled
-				}
-
-				it.dependencies?.targets?.forEach { it2 ->
-					it2.status = StatusEnum.enabled
-					it2.module?.status = StatusEnum.enabled
-				}
-
-				it.dependencies?.sourceSets?.forEach {it2 ->
-					it2.status = StatusEnum.enabled
-					it2.target?.status = StatusEnum.enabled
-					it2.module?.status = StatusEnum.enabled
-				}
+				enableTree(it)
 			}
+	}
 
-		ModuleEnum.values()
-			.filter { it.status == StatusEnum.enabled }
-			.forEach {
-				enableParents(it)
-			}
+	fun enableTree(module: ModuleEnum?) {
+		if (module == null || module == ModuleEnum.root) return
 
-		ModuleEnum.root.status = StatusEnum.disabled
+		if (module.status != StatusEnum.enabled) module.status = StatusEnum.enabled
+
+		enableTree(module.parent)
+	}
+
+	fun enableTree(target: TargetEnum?) {
+		if (target == null) return
+
+		if (target.status != StatusEnum.enabled) target.status = StatusEnum.enabled
+
+		enableTree(target.module)
+	}
+
+	fun enableTree(sourceSet: SourceSetEnum?) {
+		if (sourceSet == null) return
+
+		if (sourceSet.status != StatusEnum.enabled) sourceSet.status = StatusEnum.enabled
+
+		enableTree(sourceSet.target)
+
+		sourceSet.dependencies.sourceSets.forEach {
+			enableTree(it)
+		}
+
+		sourceSet.dependencies.targets.forEach {
+			enableTree(it)
+		}
+
+		sourceSet.dependencies.modules.forEach {
+			enableTree(it)
+		}
 	}
 
 	/**
