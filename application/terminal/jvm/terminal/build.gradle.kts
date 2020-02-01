@@ -61,3 +61,54 @@ tasks.withType<ShadowJar> {
 	val runtimeClasspath = target.compilations[CompilationEnum.main.id!!].compileDependencyFiles as Configuration
 	configurations = mutableListOf(runtimeClasspath)
 }
+
+val postBuild by tasks.registering {
+	doLast {
+		println("\n\n\n")
+		com.company.team.project.dsl.model.Properties.projects.root.project?.allprojects?.forEach { project ->
+			println("Project: ${project.name}")
+
+			project.configurations.forEach { configuration ->
+				println("\tConfiguration: ${configuration.name}")
+
+				if (configuration.allDependencies.isNotEmpty()) {
+					configuration.allDependencies.forEach { dependency ->
+						println("\t\tDependency: ${dependency.group}:${dependency.name}:${dependency.version}")
+					}
+				}
+			}
+		}
+		println("\n\n\n")
+
+		 println("\n\n\n")
+		 ModuleEnum.values().forEach { module ->
+		 	println("Module ${module.name} (status: ${module.status}, kotlinId: ${module.kotlinId})")
+		 	println("\tRequired at")
+		 	module.requiredAt.forEach { requiredAt ->
+		 		println("\t\t${requiredAt.name} (status: ${requiredAt.status})")
+		 	}
+		 	module.targets.forEach { target ->
+		 		println("\tTarget ${target.name} (status: ${target.status}, kotlinId: ${target.kotlinId}, kotlinTarget ${target.kotlinTarget})")
+		 		println("\t\tRequired at")
+		 		target.requiredAt.forEach { requiredAt ->
+		 			println("\t\t\t${requiredAt.name} (status: ${requiredAt.status})")
+		 		}
+		 		target.sourceSets.forEach { sourceSet ->
+		 			println("\t\tSource set ${sourceSet.name} (status: ${sourceSet.status}, kotlinId: ${sourceSet.kotlinId}, kotlinSourceSet: ${sourceSet.kotlinSourceSet})")
+		 			println("\t\t\tDepends on")
+		 			sourceSet.kotlinSourceSet?.dependsOn?.forEach { dependOn ->
+		 				println("\t\t\t\t${dependOn.name}")
+		 			}
+		 			println("\t\t\tRequired at")
+		 			sourceSet.requiredAt.forEach { requiredAt ->
+		 				println("\t\t\t\t${requiredAt.name} (status: ${requiredAt.status})")
+		 			}
+		 		}
+		 	}
+		 }
+	}
+}
+
+//tasks.named("shadowJar").configure {
+//	dependsOn(postBuild)
+//}
