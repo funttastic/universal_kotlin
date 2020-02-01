@@ -112,6 +112,12 @@ function killRemainingProcesses() {
 
 
 # Preparation
+# Clear all non versioned files from the repository
+git clean -dfx
+# Set iTerms tab size for 2 (not working)
+tabs -2
+# Clearing iTerm2 buffer
+echo -n -e '\e[2J\e[3J\e[1;1H'
 clear
 
 mkdir -p temporary
