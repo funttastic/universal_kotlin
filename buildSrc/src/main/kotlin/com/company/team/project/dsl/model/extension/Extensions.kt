@@ -1,12 +1,7 @@
 package com.company.team.project.dsl.model.extension
 
 import com.company.team.project.dsl.Util
-import com.company.team.project.dsl.model.enum_.CompilationEnum
-import com.company.team.project.dsl.model.enum_.ModuleEnum
-import com.company.team.project.dsl.model.enum_.PresetEnum
-import com.company.team.project.dsl.model.enum_.SourceSetEnum
-import com.company.team.project.dsl.model.enum_.StatusEnum
-import com.company.team.project.dsl.model.enum_.TargetEnum
+import com.company.team.project.dsl.model.enum_.*
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ProjectDependency
@@ -18,13 +13,9 @@ import org.gradle.kotlin.dsl.get
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.AbstractKotlinTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinAndroidTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJsCompilation
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJvmCompilation
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinOnlyTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
+import org.jetbrains.kotlin.gradle.plugin.mpp.*
+import org.jetbrains.kotlin.gradle.targets.js.KotlinJsTarget
+import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 import org.jetbrains.kotlin.xcodecompat.KotlinXcodeExtension
 
 /**
@@ -40,26 +31,6 @@ inline fun <T> uncheckedCast(target: Any?): T =
  */
 fun AttributeContainer.attribute(pair: Pair<Attribute<String>, String>) {
 	attribute(pair.first, pair.second)
-}
-
-/**
- *
- */
-fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.js(
-	target: TargetEnum,
-	configure: KotlinOnlyTarget<KotlinJsCompilation>.() -> Unit = { }
-): KotlinOnlyTarget<KotlinJsCompilation>? {
-	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
-}
-
-/**
- *
- */
-fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.jvm(
-	target: TargetEnum,
-	configure: KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit = { }
-): KotlinOnlyTarget<KotlinJvmCompilation>? {
-	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
 /**
@@ -125,10 +96,30 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.iosX64(
 /**
  *
  */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.js(
+	target: TargetEnum,
+	configure: KotlinJsTarget.() -> Unit = { }
+): KotlinJsTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
+fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.jvm(
+	target: TargetEnum,
+	configure: KotlinJvmTarget.() -> Unit = { }
+): KotlinJvmTarget? {
+	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
+}
+
+/**
+ *
+ */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.linuxX64(
 	target: TargetEnum,
-	configure: KotlinNativeTarget.() -> Unit = { }
-): KotlinNativeTarget? {
+	configure: KotlinNativeTargetWithTests.() -> Unit = { }
+): KotlinNativeTargetWithTests? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -167,8 +158,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.linuxMipsel32(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.macosX64(
 	target: TargetEnum,
-	configure: KotlinNativeTarget.() -> Unit = { }
-): KotlinNativeTarget? {
+	configure: KotlinNativeTargetWithTests.() -> Unit = { }
+): KotlinNativeTargetWithTests? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -177,8 +168,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.macosX64(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.mingwX64(
 	target: TargetEnum,
-	configure: KotlinNativeTarget.() -> Unit = { }
-): KotlinNativeTarget? {
+	configure: KotlinNativeTargetWithTests.() -> Unit = { }
+): KotlinNativeTargetWithTests? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -281,14 +272,14 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget
 		PresetEnum.ios_arm32 -> iosArm32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.ios_arm64 -> iosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.ios_x64 -> iosX64(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.js -> js(id, configuration as KotlinOnlyTarget<KotlinJsCompilation>.() -> Unit)
-		PresetEnum.jvm -> jvm(id, configuration as KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit)
+		PresetEnum.js -> js(id, configuration as KotlinJsTarget.() -> Unit)
+		PresetEnum.jvm -> jvm(id, configuration as KotlinJvmTarget.() -> Unit)
 		PresetEnum.linux_arm32_hfp -> linuxArm32Hfp(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mips32 -> linuxMips32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mipsel32 -> linuxMipsel32(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.linux_x64 -> linuxX64(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.macos_x64 -> macosX64(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.mingw_x64 -> mingwX64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.linux_x64 -> linuxX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
+		PresetEnum.macos_x64 -> macosX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
+		PresetEnum.mingw_x64 -> mingwX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
 		PresetEnum.mingw_x86 -> mingwX86(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.tvos_arm64 -> tvosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.tvos_x64 -> tvosX64(id, configuration as KotlinNativeTarget.() -> Unit)
