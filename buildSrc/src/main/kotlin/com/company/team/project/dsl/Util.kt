@@ -85,7 +85,7 @@ object Util {
 			|| enabledModulesEnabledByTask.isNotEmpty()
 		) {
 			val enabledModulesByDefault = mutableSetOf<ModuleEnum>()
-			ModuleEnum.values().filterTo(enabledModulesByDefault) { it.status == StatusEnum.enabled }
+			enabledModulesByDefault.addAll(ModuleEnum.values().filter { it.status == StatusEnum.enabled })
 
 			val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
 			disabledModulesProperty?.split(",")?.map {
@@ -123,7 +123,7 @@ object Util {
 	fun enableTree(target: TargetEnum?) {
 		if (target == null) return
 
-		if (target.status != StatusEnum.enabled) target.status = StatusEnum.enabled
+		if (target.status != StatusEnum.enabled) target.enableEnabledIfOSSupportsOrDisableOtherwise()
 
 		enableTree(target.module)
 	}
@@ -131,7 +131,7 @@ object Util {
 	fun enableTree(sourceSet: SourceSetEnum?) {
 		if (sourceSet == null) return
 
-		if (sourceSet.status != StatusEnum.enabled) sourceSet.status = StatusEnum.enabled
+		if (sourceSet.status != StatusEnum.enabled) sourceSet.enableEnabledIfOSSupportsOrDisableOtherwise()
 
 		enableTree(sourceSet.target)
 

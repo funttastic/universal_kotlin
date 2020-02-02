@@ -211,7 +211,7 @@ enum class TargetEnum(
 	var status: StatusEnum = defaultStatus
 		set(value) {
 			val caller = Thread.currentThread().stackTrace[2]
-			println("Status update to ${value}. Target ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+			println("Status updated to ${value}. Target ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
 			field = value
 		}
 
@@ -281,6 +281,18 @@ enum class TargetEnum(
 			}
 
 			return null
+		}
+	}
+
+	/**
+	 *
+	 */
+	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
+		if (
+			StatusEnum.enabled != status
+			&& preset?.supportedOSes?.contains(Properties.util.os) != true
+		) {
+			status = StatusEnum.enabled
 		}
 	}
 
