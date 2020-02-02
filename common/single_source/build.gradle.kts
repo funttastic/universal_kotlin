@@ -128,8 +128,6 @@ kotlin {
 		}
 
 		configureSourceSet(SourceSetEnum.`common-single_source@common@main`) {
-			kotlin.setSrcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
-			resources.setSrcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
 			dependencies {
 				implementation(kotlin("stdlib-common"))
 			}
