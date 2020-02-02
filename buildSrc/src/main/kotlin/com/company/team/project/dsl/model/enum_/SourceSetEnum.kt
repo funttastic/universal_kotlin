@@ -2016,7 +2016,7 @@ class Dependencies(
 	/**
 	 *
 	 */
-	val sourceSets: MutableSet<SourceSetEnum> = mutableSetOf(),
+	val sourceSets: MutableSet<SourceSetEnum> = mutableSetOf()
 
 //	/**
 //	 *

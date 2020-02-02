@@ -468,17 +468,17 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 			}
 		}
 
-		dependencies {
-			sourceSet.dependencies.modules.forEach {
-				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
-				implementation(project(it))
-			}
-
-			sourceSet.dependencies.targets.forEach {
-				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
-				implementation(project(it))
-			}
-		}
+//		dependencies {
+//			sourceSet.dependencies.modules.forEach {
+//				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
+//				implementation(project(it))
+//			}
+//
+//			sourceSet.dependencies.targets.forEach {
+//				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
+//				implementation(project(it))
+//			}
+//		}
 	}
 
 	val mergedConfiguration : KotlinSourceSet.() -> Unit = {
@@ -506,19 +506,26 @@ val Project.module: ModuleEnum
 fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 	val configurationName = if (CompilationEnum.main == sourceSet.compilation) {"implementation"} else {"testImplementation"}
 
-//	sourceSet.dependencies?.sourceSets?.forEach {
-//		dependsOn(it.kotlinSourceSet!!)
+	sourceSet.dependencies.sourceSets.forEach {
+		if (it.module == sourceSet.module) {
+			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} but skipping since it's not a multiplatform module."""")
+//			dependsOn(it.kotlinSourceSet!!)
+		} else {
+			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module."""")
+			it.requiredAt.add(sourceSet)
+			configurationName(project(it.module!!))
+		}
+	}
+
+//	sourceSet.dependencies.modules.forEach {
+//		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
+//		configurationName(project(it))
 //	}
-
-	sourceSet.dependencies.modules.forEach {
-		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the module "${it.name}."""")
-		configurationName(project(it))
-	}
-
-	sourceSet.dependencies.targets.forEach {
-		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
-		configurationName(project(it))
-	}
+//
+//	sourceSet.dependencies.targets.forEach {
+//		Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the target "${it.name}."""")
+//		configurationName(project(it))
+//	}
 }
 
 @Suppress("UNUSED_PARAMETER")
