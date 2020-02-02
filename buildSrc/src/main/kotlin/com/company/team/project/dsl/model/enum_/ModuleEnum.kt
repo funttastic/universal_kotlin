@@ -308,7 +308,9 @@ enum class ModuleEnum(
 	var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
-				throw IllegalArgumentException("Cannot enable module ${this.name} since it is not supported by this OS.")
+				Util.logger.warn("Not enabling module ${this.name} since it is not supported by this OS.")
+
+				return
 			}
 
 			if (field != value) {

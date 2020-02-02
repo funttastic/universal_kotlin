@@ -1,5 +1,6 @@
 package com.company.team.project.dsl.model.enum_
 
+import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.Properties.util.os
 import org.gradle.api.attributes.Attribute
@@ -209,7 +210,9 @@ enum class TargetEnum(
 	var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
-				throw IllegalArgumentException("Cannot enable target ${this.name} since it is not supported by this OS.")
+				Util.logger.warn("Not enabling target ${this.name} since it is not supported by this OS.")
+
+				return
 			}
 
 			if (field != value) {

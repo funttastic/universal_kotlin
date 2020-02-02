@@ -65,6 +65,12 @@ object Util {
 	 *
 	 */
 	fun automaticallyEnableDependencyTree(taskNames: List<String>) {
+		ModuleEnum.values().map { it.status = disabled }
+		SourceSetEnum.values().map { it.status = disabled }
+		TargetEnum.values().map { it.status = disabled }
+
+		val enabledModules = mutableSetOf<ModuleEnum>()
+
 		val enabledModulesProperty = Properties.properties.get<String>("enabledModules")
 		val disabledModulesProperty = Properties.properties.get<String>("disabledModules")
 
@@ -85,28 +91,20 @@ object Util {
 			enabledModulesByProperty.isNotEmpty()
 			|| enabledModulesEnabledByTask.isNotEmpty()
 		) {
-			val enabledModulesByDefault = mutableSetOf<ModuleEnum>()
-			enabledModulesByDefault.addAll(ModuleEnum.values().filter { it.status == enabled })
-
-			val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
-			disabledModulesProperty?.split(",")?.map {
-				ModuleEnum.getByName(it.trim())?.let { module -> disabledModulesByProperty.add(module) }
-			}
-
-			val enabledModules = mutableSetOf<ModuleEnum>()
 			enabledModules.addAll(enabledModulesByProperty)
 			enabledModules.addAll(enabledModulesEnabledByTask)
-			enabledModules.removeAll(disabledModulesByProperty)
-
-			enabledModulesByDefault.subtract(enabledModules).map { it.status = disabled }
-			enabledModules.subtract(enabledModulesByDefault).map { it.status = enabled }
 		} else {
-			ModuleEnum.values().filter { it.defaultStatus == enabled && it.status != enabled }
-				.map { it.status = it.defaultStatus }
+			enabledModules.addAll(ModuleEnum.values().filter { it.defaultStatus == enabled })
 		}
 
-		SourceSetEnum.values()
-		TargetEnum.values()
+		val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
+		disabledModulesProperty?.split(",")?.map {
+			ModuleEnum.getByName(it.trim())?.let { module -> disabledModulesByProperty.add(module) }
+		}
+
+		enabledModules.removeAll(disabledModulesByProperty)
+
+		enabledModules.map { it.status = enabled }
 
 		SourceSetEnum.values()
 			.filter { it.module?.status == enabled }

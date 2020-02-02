@@ -1,5 +1,6 @@
 package com.company.team.project.dsl.model.enum_
 
+import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.Properties.util.commonMain
 import com.company.team.project.dsl.model.Properties.util.commonTest
@@ -1805,7 +1806,9 @@ enum class SourceSetEnum(
 				&& kotlinId !in listOf(commonMain, commonTest)
 				&& !isSupportedByOs
 			) {
-				throw IllegalArgumentException("Cannot enable source set ${this.name} since it is not supported by this OS.")
+				Util.logger.warn("Not enabling source set ${this.name} since it is not supported by this OS.")
+
+				return
 			}
 
 			if (field != value) {
