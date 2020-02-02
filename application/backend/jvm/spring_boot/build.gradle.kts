@@ -12,14 +12,13 @@ plugins {
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 kotlin {
-	// TODO Fix the usage of this target.
-//	jvm(TargetEnum.`application-backend-jvm-spring_boot@jvm`) {
-//		withJava()
-//	}
-
-	jvm {
+	jvm(TargetEnum.`application-backend-jvm-spring_boot@jvm`) {
 		withJava()
 	}
+
+//	jvm {
+//		withJava()
+//	}
 
 	sourceSets {
 		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@jvm@main`) {
