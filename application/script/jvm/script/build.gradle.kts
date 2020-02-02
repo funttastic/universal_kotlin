@@ -26,8 +26,8 @@ kotlin {
 
 	sourceSets {
 		configureSourceSet(SourceSetEnum.`application-script-jvm-script@jvm@main`) {
-			kotlin.srcDir("src/main/kotlin")
-			resources.srcDir("src/main/resources")
+			kotlin.setSrcDir("src/main/kotlin")
+			resources.setSrcDir("src/main/resources")
 
 			dependencies {
 				// implementation(kotlin("stdlib-jdk8"))
@@ -39,8 +39,8 @@ kotlin {
 		}
 
 		configureSourceSet(SourceSetEnum.`application-script-jvm-script@jvm@test`) {
-			kotlin.srcDir("src/test/kotlin")
-			resources.srcDir("src/test/resources")
+			kotlin.setSrcDir("src/test/kotlin")
+			resources.setSrcDir("src/test/resources")
 
 			dependencies {
 				implementation(kotlin("test"))

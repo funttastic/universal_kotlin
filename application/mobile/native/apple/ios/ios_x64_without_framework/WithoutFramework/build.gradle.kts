@@ -29,8 +29,8 @@ kotlin {
 
 	sourceSets {
 		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@main`) {
-			kotlin.srcDir("src/main/kotlin")
-			resources.srcDir("src/main/resources")
+			kotlin.setSrcDir("src/main/kotlin")
+			resources.setSrcDir("src/main/resources")
 
 			dependencies {
 				implementation(kotlin("stdlib-common"))
@@ -38,8 +38,8 @@ kotlin {
 		}
 
 		configureSourceSet(SourceSetEnum.`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@test`) {
-			kotlin.srcDir("src/test/kotlin")
-			resources.srcDir("src/test/resources")
+			kotlin.setSrcDir("src/test/kotlin")
+			resources.setSrcDir("src/test/resources")
 
 			dependencies {
 				implementation(kotlin("test-common"))

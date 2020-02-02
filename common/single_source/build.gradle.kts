@@ -113,11 +113,11 @@ kotlin {
 				}
 
 			if (CompilationEnum.main == sourceSetEnum.compilation) {
-				kotlin.setSrcDirs(listOf(getMainSourcesPath(sourceSetEnum)))
-				resources.setSrcDirs(listOf(getMainResourcesPath(sourceSetEnum)))
+				kotlin.setSrcDir(getMainSourcesPath(sourceSetEnum))
+				resources.setSrcDir(getMainResourcesPath(sourceSetEnum))
 			} else if (CompilationEnum.test == sourceSetEnum.compilation) {
-				kotlin.setSrcDirs(listOf(getTestSourcesPath(sourceSetEnum)))
-				resources.setSrcDirs(listOf(getTestResourcesPath(sourceSetEnum)))
+				kotlin.setSrcDir(getTestSourcesPath(sourceSetEnum))
+				resources.setSrcDir(getTestResourcesPath(sourceSetEnum))
 			}
 
 			println("${"common-ss".padEnd(20)}${name.padEnd(20)}${sourceSetEnum.name.padEnd(50)}${kotlin.getSrcDirs()}")
@@ -128,8 +128,8 @@ kotlin {
 		}
 
 		configureSourceSet(SourceSetEnum.`common-single_source@common@main`) {
-			kotlin.srcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
-			resources.srcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
+			kotlin.setSrcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
+			resources.setSrcDir("src/main/kotlin/com/company/team/project/common/single_source/js/common")
 			dependencies {
 				implementation(kotlin("stdlib-common"))
 			}

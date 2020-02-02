@@ -57,8 +57,8 @@ dependencies {
 
 // 	sourceSets {
 // 		configureSourceSet(SourceSetEnum.`application-desktop-jvm-tornado_fx@jvm@main`) {
-// 			kotlin.srcDir("src/main/kotlin")
-// 			resources.srcDir("src/main/resources")
+// 			kotlin.setSrcDir("src/main/kotlin")
+// 			resources.setSrcDir("src/main/resources")
 
 // 			dependencies {
 // 				implementation(kotlin("stdlib-jdk8"))
@@ -68,8 +68,8 @@ dependencies {
 // 		}
 
 // 		configureSourceSet(SourceSetEnum.`application-desktop-jvm-tornado_fx@jvm@test`) {
-// 			kotlin.srcDir("src/test/kotlin")
-// 			resources.srcDir("src/test/resources")
+// 			kotlin.setSrcDir("src/test/kotlin")
+// 			resources.setSrcDir("src/test/resources")
 
 // 			dependencies {
 // 				implementation(kotlin("test"))

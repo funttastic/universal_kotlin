@@ -92,8 +92,8 @@ kotlin {
 //		val androidMain by getting {
 		@Suppress("IllegalIdentifier")
 		configureSourceSet(SourceSetEnum.`application-mobile-jvm-android@android@main`) {
-			kotlin.srcDir("src/main/kotlin")
-			resources.srcDir("src/main/resources")
+			kotlin.setSrcDir("src/main/kotlin")
+			resources.setSrcDir("src/main/resources")
 
 			dependencies {
 				implementation(kotlin("stdlib-common"))
@@ -104,8 +104,8 @@ kotlin {
 //		val androidTest by getting {
 		@Suppress("IllegalIdentifier")
 		configureSourceSet(SourceSetEnum.`application-mobile-jvm-android@android@test`) {
-			kotlin.srcDir("src/test/kotlin")
-			resources.srcDir("src/test/resources")
+			kotlin.setSrcDir("src/test/kotlin")
+			resources.setSrcDir("src/test/resources")
 
 			dependencies {
 				implementation(kotlin("test-common"))

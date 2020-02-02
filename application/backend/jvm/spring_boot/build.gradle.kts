@@ -22,8 +22,8 @@ kotlin {
 
 	sourceSets {
 		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@jvm@main`) {
-			kotlin.srcDir("src/main/kotlin")
-			resources.srcDir("src/main/resources")
+			kotlin.setSrcDir("src/main/kotlin")
+			resources.setSrcDir("src/main/resources")
 
 			dependencies {
 				implementation(kotlin("stdlib-common"))
@@ -41,8 +41,8 @@ kotlin {
 		}
 
 		configureSourceSet(SourceSetEnum.`application-backend-jvm-spring_boot@jvm@test`) {
-			kotlin.srcDir("src/test/kotlin")
-			resources.srcDir("src/test/resources")
+			kotlin.setSrcDir("src/test/kotlin")
+			resources.setSrcDir("src/test/resources")
 
 			dependencies {
 				implementation(kotlin("test-common"))

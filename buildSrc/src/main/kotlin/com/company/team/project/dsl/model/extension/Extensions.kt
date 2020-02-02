@@ -8,6 +8,7 @@ import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.attributes.Attribute
 import org.gradle.api.attributes.AttributeContainer
+import org.gradle.api.file.SourceDirectorySet
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.get
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
@@ -532,4 +533,8 @@ fun KotlinXcodeExtension.setupTask(nativeBinary: NativeBinary) {
 	val method = `class`.getDeclaredMethod("setupTask", NativeBinary::class.java)
 	method.setAccessible(true)
 	method.invoke(this, nativeBinary)
+}
+
+fun SourceDirectorySet.setSrcDir(srcDir: String) {
+	this.setSrcDirs(listOf(srcDir))
 }
