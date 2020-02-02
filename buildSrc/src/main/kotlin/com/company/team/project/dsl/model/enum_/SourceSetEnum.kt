@@ -66,10 +66,12 @@ enum class SourceSetEnum(
 ) {
 
 	`common-multiple_sources@common@main`(
-		kotlinId = commonMain
+		kotlinId = commonMain,
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@common@test`(
 		kotlinId = commonTest,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
@@ -128,11 +130,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -141,11 +145,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@js@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -154,11 +160,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -284,11 +292,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@wasm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@wasm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -351,10 +361,12 @@ enum class SourceSetEnum(
 
 
 	`common-single_source@common@main`(
-		kotlinId = commonMain
+		kotlinId = commonMain,
+		defaultStatus = enabled
 	),
 	`common-single_source@common@test`(
 		kotlinId = commonTest,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
@@ -413,11 +425,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-single_source@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@common@test`,
@@ -426,11 +440,13 @@ enum class SourceSetEnum(
 		)
 	),
  	`common-single_source@js@main`(
+		defaultStatus = enabled,
  		dependencies = Dependencies(
  			sourceSets = mutableSetOf(`common-single_source@common@main`)
  		)
  	),
  	`common-single_source@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@common@test`,
@@ -439,11 +455,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-single_source@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-single_source@common@main`)
 		)
 	),
 	`common-single_source@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@common@test`,
@@ -569,11 +587,13 @@ enum class SourceSetEnum(
 		)
 	),
  	`common-single_source@wasm32@main`(
+		defaultStatus = enabled,
  		dependencies = Dependencies(
  			sourceSets = mutableSetOf(`common-single_source@common@main`)
  		)
  	),
  	`common-single_source@wasm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@common@test`,
@@ -637,6 +657,7 @@ enum class SourceSetEnum(
 
 	`library-multiple_sources@common@main`(
 		kotlinId = commonMain,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@main`,
@@ -646,6 +667,7 @@ enum class SourceSetEnum(
 	),
 	`library-multiple_sources@common@test`(
 		kotlinId = commonTest,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -731,6 +753,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@main`,
@@ -740,6 +763,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@test`,
@@ -750,6 +774,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@js@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@main`,
@@ -759,6 +784,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@test`,
@@ -769,6 +795,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@main`,
@@ -778,6 +805,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@test`,
@@ -959,6 +987,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@wasm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@main`,
@@ -968,6 +997,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-multiple_sources@wasm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@test`,
@@ -1057,6 +1087,7 @@ enum class SourceSetEnum(
 
 	`library-single_source@common@main`(
 		kotlinId = commonMain,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@main`,
@@ -1066,6 +1097,7 @@ enum class SourceSetEnum(
 	),
 	`library-single_source@common@test`(
 		kotlinId = commonTest,
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -1151,6 +1183,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@main`,
@@ -1160,6 +1193,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@test`,
@@ -1170,6 +1204,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@js@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@main`,
@@ -1179,6 +1214,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@test`,
@@ -1189,6 +1225,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@main`,
@@ -1198,6 +1235,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@test`,
@@ -1379,6 +1417,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@wasm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@main`,
@@ -1388,6 +1427,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`library-single_source@wasm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@test`,
@@ -1497,6 +1537,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-backend-jvm-spring_boot@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@main`,
@@ -1507,6 +1548,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-backend-jvm-spring_boot@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@test`,
@@ -1518,6 +1560,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-js-spa-react@js@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@js@main`,
@@ -1528,6 +1571,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-js-spa-react@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@js@test`,
@@ -1539,6 +1583,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-js-vanilla@js@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@js@main`,
@@ -1549,6 +1594,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-js-vanilla@js@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@js@test`,
@@ -1560,6 +1606,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-native-wasm32@wasm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@wasm32@main`,
@@ -1570,6 +1617,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-browser-native-wasm32@wasm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@wasm32@test`,
@@ -1581,6 +1629,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-desktop-jvm-tornado_fx@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@main`,
@@ -1591,6 +1640,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-desktop-jvm-tornado_fx@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@test`,
@@ -1604,6 +1654,7 @@ enum class SourceSetEnum(
 	`application-mobile-jvm-android@android@main`(
 		// This is needed as an workaround for this issue: https://youtrack.jetbrains.com/issue/KT-29343
 		kotlinId = "androidMain",
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@main`,
@@ -1616,6 +1667,7 @@ enum class SourceSetEnum(
 	`application-mobile-jvm-android@android@test`(
 		// This is needed as an workaround for this issue: https://youtrack.jetbrains.com/issue/KT-29343
 		kotlinId = "androidTest",
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@test`,
@@ -1627,6 +1679,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@main`,
@@ -1637,6 +1690,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@test`,
@@ -1648,6 +1702,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@main`,
@@ -1658,6 +1713,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@test`,
@@ -1669,6 +1725,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@main`,
@@ -1679,6 +1736,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@test`,
@@ -1690,6 +1748,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@main`,
@@ -1700,6 +1759,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework@ios_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@ios_x64@test`,
@@ -1711,6 +1771,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-script-jvm-script@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@main`,
@@ -1721,6 +1782,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-script-jvm-script@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@test`,
@@ -1753,6 +1815,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-terminal-jvm-terminal@jvm@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@main`,
@@ -1763,6 +1826,7 @@ enum class SourceSetEnum(
 		)
 	),
 	`application-terminal-jvm-terminal@jvm@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-single_source@jvm@test`,

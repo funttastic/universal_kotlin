@@ -129,7 +129,7 @@ object Util {
 	}
 
 	fun enableTree(module: ModuleEnum?) {
-		if (module == null || module == ModuleEnum.root) return
+		if (module == null || module == ModuleEnum.root || module.defaultStatus != enabled) return
 
 		if (module.status != enabled) module.status = enabled
 
@@ -139,7 +139,7 @@ object Util {
 	}
 
 	fun enableTree(target: TargetEnum?) {
-		if (target == null) return
+		if (target == null || target.defaultStatus != enabled) return
 
 		target.status = enabled
 
@@ -149,7 +149,7 @@ object Util {
 	}
 
 	fun enableTree(sourceSet: SourceSetEnum?) {
-		if (sourceSet == null) return
+		if (sourceSet == null || sourceSet.defaultStatus != enabled) return
 
 		sourceSet.status = enabled
 

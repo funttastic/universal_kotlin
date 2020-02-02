@@ -106,10 +106,12 @@ enum class ModuleEnum(
 		absolutePath = Properties.projects.root.absolutePath
 	),
 	common(
-		parent = root
+		parent = root,
+		defaultStatus = enabled
 	),
 	`common-multiple_modules`(
-		parent = common
+		parent = common,
+		defaultStatus = enabled
 	),
 	`common-multiple_sources`(
 		parent = common,
@@ -120,10 +122,12 @@ enum class ModuleEnum(
 		defaultStatus = enabled
 	),
 	library(
-		parent = root
+		parent = root,
+		defaultStatus = enabled
 	),
 	`library-multiple_modules`(
-		parent = library
+		parent = library,
+		defaultStatus = enabled
 	),
 	`library-multiple_sources`(
 		parent = library,
@@ -134,10 +138,12 @@ enum class ModuleEnum(
 		defaultStatus = enabled
 	),
 	application(
-		parent = root
+		parent = root,
+		defaultStatus = enabled
 	),
 	`application-backend`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-backend-js`(
 		parent = `application-backend`
@@ -146,20 +152,24 @@ enum class ModuleEnum(
 		parent = `application-backend-js`
 	),
 	`application-backend-jvm`(
-		parent = `application-backend`
+		parent = `application-backend`,
+		defaultStatus = enabled
 	),
 	`application-backend-jvm-spring_boot`(
 		parent = `application-backend-jvm`,
 		defaultStatus = enabled
 	),
 	`application-browser`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-browser-js`(
-		parent = `application-browser`
+		parent = `application-browser`,
+		defaultStatus = enabled
 	),
 	`application-browser-js-spa`(
-		parent = `application-browser-js`
+		parent = `application-browser-js`,
+		defaultStatus = enabled
 	),
 	`application-browser-js-spa-react`(
 		parent = `application-browser-js-spa`,
@@ -170,40 +180,48 @@ enum class ModuleEnum(
 		defaultStatus = enabled
 	),
 	`application-browser-native`(
-		parent = `application-browser`
+		parent = `application-browser`,
+		defaultStatus = enabled
 	),
 	`application-browser-native-wasm32`(
 		parent = `application-browser-native`,
 		defaultStatus = enabled
 	),
 	`application-desktop`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-desktop-jvm`(
-		parent = `application-desktop`
+		parent = `application-desktop`,
+		defaultStatus = enabled
 	),
 	`application-desktop-jvm-tornado_fx`(
 		parent = `application-desktop-jvm`,
 		defaultStatus = enabled
 	),
 	`application-mobile`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-mobile-jvm`(
-		parent = `application-mobile`
+		parent = `application-mobile`,
+		defaultStatus = enabled
 	),
 	`application-mobile-jvm-android`(
 		parent = `application-mobile-jvm`,
 		defaultStatus = enabled
 	),
 	`application-mobile-native`(
-		parent = `application-mobile`
+		parent = `application-mobile`,
+		defaultStatus = enabled
 	),
 	`application-mobile-native-apple`(
-		parent = `application-mobile-native`
+		parent = `application-mobile-native`,
+		defaultStatus = enabled
 	),
 	`application-mobile-native-apple-ios`(
-		parent = `application-mobile-native-apple`
+		parent = `application-mobile-native-apple`,
+		defaultStatus = enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework`(
 		parent = `application-mobile-native-apple-ios`,
@@ -234,10 +252,12 @@ enum class ModuleEnum(
 		).toFile()
 	),
 	`application-script`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-script-jvm`(
-		parent = `application-script`
+		parent = `application-script`,
+		defaultStatus = enabled
 	),
 	`application-script-jvm-script`(
 		parent = `application-script-jvm`,
@@ -263,10 +283,12 @@ enum class ModuleEnum(
 		).toFile()
 	),
 	`application-terminal`(
-		parent = application
+		parent = application,
+		defaultStatus = enabled
 	),
 	`application-terminal-jvm`(
-		parent = `application-terminal`
+		parent = `application-terminal`,
+		defaultStatus = enabled
 	),
 	`application-terminal-jvm-terminal`(
 		parent = `application-terminal-jvm`,
