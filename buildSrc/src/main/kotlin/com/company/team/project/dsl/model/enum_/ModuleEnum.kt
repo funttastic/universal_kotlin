@@ -312,6 +312,12 @@ enum class ModuleEnum(
 			field = value
 		}
 
+	val isSupportedByOs by lazy {
+		if (targets.isNullOrEmpty()) throw NoSuchFieldException("Targets not properly initialized.")
+
+		targets.any { it.isSupportedByOs }
+	}
+
 	/**
 	 *
 	 */
@@ -394,6 +400,29 @@ enum class ModuleEnum(
 			}
 
 			return null
+		}
+	}
+
+	/**
+	 *
+	 */
+	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
+		if (
+			status != enabled
+			&& isSupportedByOs
+		) {
+			status = enabled
+		}
+	}
+
+	/**
+	 *
+	 */
+	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
+		if (status != enabled) return
+
+		if (!isSupportedByOs) {
+			status = disabled
 		}
 	}
 

@@ -212,6 +212,12 @@ enum class TargetEnum(
 			field = value
 		}
 
+	val isSupportedByOs by lazy {
+		if (preset == null) throw NoSuchFieldException("Preset not properly initialized.")
+
+		preset!!.isSupportedByOs
+	}
+
 	/**
 	 *
 	 */
@@ -246,8 +252,6 @@ enum class TargetEnum(
 //			)
 //		)
 	}
-
-	val isSupportedByOs by lazy { preset!!.isSupportedByOs }
 
 	/**
 	 *

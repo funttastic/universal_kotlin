@@ -1805,6 +1805,12 @@ enum class SourceSetEnum(
 			field = value
 		}
 
+	val isSupportedByOs by lazy {
+		if (target == null) throw NoSuchFieldException("Target not properly initialized.")
+
+		target!!.isSupportedByOs
+	}
+
 	init {
 		val splitName = name.split("@")
 
@@ -1887,8 +1893,6 @@ enum class SourceSetEnum(
 //			}
 //		}
 	}
-
-	val isSupportedByOs by lazy { target!!.isSupportedByOs }
 
 	/**
 	 *
