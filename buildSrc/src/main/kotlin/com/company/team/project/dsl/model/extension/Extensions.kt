@@ -264,6 +264,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget
 		return null
 	}
 
+	Util.logger.warn("""Configuring target "${target.name}" of module "${target.module?.name ?: "unknown"}".""")
+
 	val id = target.kotlinId!!
 
 	target.kotlinTarget = when(target.preset) {
@@ -452,7 +454,7 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
 				dependsOn(it.kotlinSourceSet!!)
 			} else {
-				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module."""")
+				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 				it.requiredAt.add(sourceSet)
 				dependencies {
 					implementation(project(it.module!!))
@@ -503,7 +505,7 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} but skipping since it's not a multiplatform module."""")
 //			dependsOn(it.kotlinSourceSet!!)
 		} else {
-			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module."""")
+			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 			it.requiredAt.add(sourceSet)
 			configurationName(project(it.module!!))
 		}
