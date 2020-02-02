@@ -111,6 +111,21 @@ object Util {
 			.forEach {
 				enableTree(it)
 			}
+
+		printEnabledTree()
+	}
+
+	fun printEnabledTree() {
+		println("Enabled Tree:")
+		ModuleEnum.values().filter { it.status == enabled }.sortedBy { it.name }.map { module ->
+			println("Module ${module.name}")
+			module.targets.filter { it.status == enabled }.sortedBy { it.name }.map { target ->
+				println("\tTarget ${target.name}")
+				target.sourceSets.filter { it.status == enabled}.sortedBy { it.name }.map { sourceSet ->
+					println("\t\tSource Set ${sourceSet.name}")
+				}
+			}
+		}
 	}
 
 	fun enableTree(module: ModuleEnum?) {
