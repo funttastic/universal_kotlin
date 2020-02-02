@@ -70,11 +70,10 @@ object Util {
 
 		val enabledModulesEnabledByTask = mutableSetOf<ModuleEnum>()
 		taskNames.map {
-			val moduleName = it.split(":").asReversed().getOrNull(1)
-
-			if (!moduleName.isNullOrBlank()) {
-				enabledModulesEnabledByTask.add(ModuleEnum.getByName(moduleName)!!)
-			}
+			ModuleEnum
+				.getByName(
+					it.split(":").asReversed().getOrNull(1)
+				)?.let { module -> enabledModulesEnabledByTask.add(module) }
 		}
 
 		val enabledModulesByProperty = mutableSetOf<ModuleEnum>()
@@ -91,7 +90,7 @@ object Util {
 
 			val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
 			disabledModulesProperty?.split(",")?.map {
-				disabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
+				ModuleEnum.getByName(it.trim())?.let { module -> disabledModulesByProperty.add(module) }
 			}
 
 			val enabledModules = mutableSetOf<ModuleEnum>()
