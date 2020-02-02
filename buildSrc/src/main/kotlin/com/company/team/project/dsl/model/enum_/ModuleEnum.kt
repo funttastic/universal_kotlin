@@ -308,7 +308,7 @@ enum class ModuleEnum(
 	var status: StatusEnum = defaultStatus
 		set(value) {
 			val caller = Thread.currentThread().stackTrace[2]
-			println("Status update to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+			println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
 			field = value
 		}
 
