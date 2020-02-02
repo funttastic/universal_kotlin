@@ -78,11 +78,13 @@ enum class SourceSetEnum(
 	),
 
 	`common-multiple_sources@android_native_arm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@android_native_arm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -91,11 +93,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@android_native_arm64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@android_native_arm64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -104,11 +108,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@ios_arm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_arm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -117,11 +123,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@ios_arm64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@ios_arm64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -175,11 +183,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@linux_arm32_hfp@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_arm32_hfp@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -188,11 +198,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@linux_mips32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_mips32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -201,11 +213,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@linux_mipsel32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_mipsel32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -214,11 +228,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@linux_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@linux_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -227,11 +243,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@macos_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@macos_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -240,11 +258,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@mingw_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@mingw_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
