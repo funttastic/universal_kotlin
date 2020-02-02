@@ -1798,14 +1798,14 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = disabled
+	var status: StatusEnum = defaultStatus
 		set(value) {
 			if (
 				value == enabled
 				&& kotlinId !in listOf(commonMain, commonTest)
 				&& !isSupportedByOs
 			) {
-				throw IllegalArgumentException("Cannot enable ${this.name} since it is not supported by this OS.")
+				throw IllegalArgumentException("Cannot enable source set ${this.name} since it is not supported by this OS.")
 			}
 
 			if (field != value) {
@@ -1816,11 +1816,14 @@ enum class SourceSetEnum(
 			}
 		}
 
-	val isSupportedByOs by lazy {
-		if (target == null) throw NoSuchFieldException("Target not properly initialized.")
-
-		target!!.isSupportedByOs
-	}
+	var isSupportedByOs : Boolean = false
+		get() {
+			return if (target == null) {
+				true
+			} else {
+				target!!.isSupportedByOs
+			}
+		}
 
 	init {
 		val splitName = name.split("@")
@@ -1850,10 +1853,11 @@ enum class SourceSetEnum(
 		if (name.split("@").size == 3) {
 			if (target == null) target = TargetEnum.getByName("${splitName[0]}@${splitName[1]}")
 
-			if (target != null) target!!.sourceSets.add(this)
+			if (target != null) {
+				target!!.sourceSets.add(this)
+				isSupportedByOs = target!!.isSupportedByOs
+			}
 		}
-
-		status = defaultStatus
 
 		maintainEnabledIfOSSupportsOrDisableOtherwise()
 

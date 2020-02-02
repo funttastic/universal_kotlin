@@ -305,10 +305,10 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = disabled
+	var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
-				throw IllegalArgumentException("Cannot enable ${this.name} since it is not supported by this OS.")
+				throw IllegalArgumentException("Cannot enable module ${this.name} since it is not supported by this OS.")
 			}
 
 			if (field != value) {
@@ -319,11 +319,12 @@ enum class ModuleEnum(
 			}
 		}
 
-	val isSupportedByOs by lazy {
-		if (targets.isNullOrEmpty()) throw NoSuchFieldException("Targets not properly initialized.")
+	var isSupportedByOs : Boolean = false
+		get() {
+			if (targets.isEmpty()) return true
 
-		targets.any { it.isSupportedByOs }
-	}
+			return targets.any { it.isSupportedByOs }
+		}
 
 	/**
 	 *
@@ -370,8 +371,6 @@ enum class ModuleEnum(
 		if (path == null) path = Paths.get(relativePath)
 
 		if (parent != null) parent!!.children.add(this)
-
-		status = defaultStatus
 	}
 
 	/**

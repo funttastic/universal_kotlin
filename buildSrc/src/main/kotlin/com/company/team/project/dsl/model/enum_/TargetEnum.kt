@@ -6,6 +6,7 @@ import org.gradle.api.attributes.Attribute
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
 import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
 import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
+import kotlin.properties.Delegates
 
 /**
  *
@@ -205,10 +206,10 @@ enum class TargetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = disabled
+	var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
-				throw IllegalArgumentException("Cannot enable ${this.name} since it is not supported by this OS.")
+				throw IllegalArgumentException("Cannot enable target ${this.name} since it is not supported by this OS.")
 			}
 
 			if (field != value) {
@@ -219,11 +220,7 @@ enum class TargetEnum(
 			}
 		}
 
-	val isSupportedByOs by lazy {
-		if (preset == null) throw NoSuchFieldException("Preset not properly initialized.")
-
-		preset!!.isSupportedByOs
-	}
+	var isSupportedByOs : Boolean
 
 	/**
 	 *
@@ -248,7 +245,9 @@ enum class TargetEnum(
 
 		if (preset == null) preset = PresetEnum.getByName(splitName[1])
 
-		status = defaultStatus
+		if (preset == null) throw NoSuchFieldException("Preset not properly initialized.")
+
+		isSupportedByOs = preset!!.isSupportedByOs
 
 		maintainEnabledIfOSSupportsOrDisableOtherwise()
 

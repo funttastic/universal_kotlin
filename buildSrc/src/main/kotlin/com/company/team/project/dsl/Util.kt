@@ -106,6 +106,9 @@ object Util {
 		}
 
 		SourceSetEnum.values()
+		TargetEnum.values()
+
+		SourceSetEnum.values()
 			.filter { it.module?.status == enabled }
 			.forEach {
 				enableTree(it)
