@@ -79,7 +79,7 @@ object Util {
 
 		val enabledModulesByProperty = mutableSetOf<ModuleEnum>()
 		enabledModulesProperty?.split(",")?.map {
-			enabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
+			ModuleEnum.getByName(it.trim())?.let { module -> enabledModulesByProperty.add(module) }
 		}
 
 		if (
