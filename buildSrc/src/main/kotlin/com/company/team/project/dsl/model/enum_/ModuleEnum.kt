@@ -5,6 +5,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.Util
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
+import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
 
 /**
  *
@@ -54,7 +56,7 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var defaultStatus: StatusEnum = StatusEnum.disabled,
+	var defaultStatus: StatusEnum = disabled,
 
 	/**
 	 *
@@ -110,10 +112,12 @@ enum class ModuleEnum(
 		parent = common
 	),
 	`common-multiple_sources`(
-		parent = common
+		parent = common,
+		defaultStatus = enabled
 	),
 	`common-single_source`(
-		parent = common
+		parent = common,
+		defaultStatus = enabled
 	),
 	library(
 		parent = root
@@ -122,10 +126,12 @@ enum class ModuleEnum(
 		parent = library
 	),
 	`library-multiple_sources`(
-		parent = library
+		parent = library,
+		defaultStatus = enabled
 	),
 	`library-single_source`(
-		parent = library
+		parent = library,
+		defaultStatus = enabled
 	),
 	application(
 		parent = root
@@ -143,7 +149,8 @@ enum class ModuleEnum(
 		parent = `application-backend`
 	),
 	`application-backend-jvm-spring_boot`(
-		parent = `application-backend-jvm`
+		parent = `application-backend-jvm`,
+		defaultStatus = enabled
 	),
 	`application-browser`(
 		parent = application
@@ -155,16 +162,19 @@ enum class ModuleEnum(
 		parent = `application-browser-js`
 	),
 	`application-browser-js-spa-react`(
-		parent = `application-browser-js-spa`
+		parent = `application-browser-js-spa`,
+		defaultStatus = enabled
 	),
 	`application-browser-js-vanilla`(
-		parent = `application-browser-js`
+		parent = `application-browser-js`,
+		defaultStatus = enabled
 	),
 	`application-browser-native`(
 		parent = `application-browser`
 	),
 	`application-browser-native-wasm32`(
-		parent = `application-browser-native`
+		parent = `application-browser-native`,
+		defaultStatus = enabled
 	),
 	`application-desktop`(
 		parent = application
@@ -173,7 +183,8 @@ enum class ModuleEnum(
 		parent = `application-desktop`
 	),
 	`application-desktop-jvm-tornado_fx`(
-		parent = `application-desktop-jvm`
+		parent = `application-desktop-jvm`,
+		defaultStatus = enabled
 	),
 	`application-mobile`(
 		parent = application
@@ -182,7 +193,8 @@ enum class ModuleEnum(
 		parent = `application-mobile`
 	),
 	`application-mobile-jvm-android`(
-		parent = `application-mobile-jvm`
+		parent = `application-mobile-jvm`,
+		defaultStatus = enabled
 	),
 	`application-mobile-native`(
 		parent = `application-mobile`
@@ -195,16 +207,19 @@ enum class ModuleEnum(
 	),
 	`application-mobile-native-apple-ios-ios_x64_without_framework`(
 		parent = `application-mobile-native-apple-ios`,
+		defaultStatus = enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_without_framework/WithoutFramework"
 		).toFile()
 	),
 	`application-mobile-native-apple-ios-ios_x64_copying_framework`(
-		parent = `application-mobile-native-apple-ios`
+		parent = `application-mobile-native-apple-ios`,
+		defaultStatus = enabled
 	),
 	`application-mobile-native-apple-ios-ios_x64_framework`(
 		parent = `application-mobile-native-apple-ios`,
+		defaultStatus = enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_framework/Framework"
@@ -212,6 +227,7 @@ enum class ModuleEnum(
 	),
 	`application-mobile-native-apple-ios-ios_x64_with_framework`(
 		parent = `application-mobile-native-apple-ios`,
+		defaultStatus = enabled,
 		file = Paths.get(
 			Properties.projects.root.absolutePath!!,
 			"application/mobile/native/apple/ios/ios_x64_with_framework/UniversalKotlin"
@@ -224,7 +240,8 @@ enum class ModuleEnum(
 		parent = `application-script`
 	),
 	`application-script-jvm-script`(
-		parent = `application-script-jvm`
+		parent = `application-script-jvm`,
+		defaultStatus = enabled
 	),
 	`application-television`(
 		parent = application
@@ -252,7 +269,8 @@ enum class ModuleEnum(
 		parent = `application-terminal`
 	),
 	`application-terminal-jvm-terminal`(
-		parent = `application-terminal-jvm`
+		parent = `application-terminal-jvm`,
+		defaultStatus = enabled
 	),
 	`application-watch`(
 		parent = application

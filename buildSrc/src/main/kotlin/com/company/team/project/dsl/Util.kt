@@ -80,17 +80,30 @@ object Util {
 			enabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
 		}
 
-		val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
-		disabledModulesProperty?.split(",")?.map {
-			disabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
+		if (
+			enabledModulesByProperty.isNotEmpty()
+			|| enabledModulesEnabledByTask.isNotEmpty()
+		) {
+			val enabledModulesByDefault = mutableSetOf<ModuleEnum>()
+			ModuleEnum.values().filterTo(enabledModulesByDefault) { it.status == StatusEnum.enabled }
+
+			val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
+			disabledModulesProperty?.split(",")?.map {
+				disabledModulesByProperty.add(ModuleEnum.getByName(it.trim())!!)
+			}
+
+			val enabledModules = mutableSetOf<ModuleEnum>()
+			enabledModules.addAll(enabledModulesByProperty)
+			enabledModules.addAll(enabledModulesEnabledByTask)
+			enabledModules.removeAll(disabledModulesByProperty)
+			enabledModules.removeAll(enabledModulesByDefault)
+
+			enabledModules.map { it.status = StatusEnum.enabled }
+
+			// Disable possible remaining enabled modules.
+			enabledModulesByDefault.removeAll(enabledModules)
+			enabledModulesByDefault.map { it.status = StatusEnum.disabled }
 		}
-
-		val enabledModules = mutableSetOf<ModuleEnum>()
-		enabledModules.addAll(enabledModulesByProperty)
-		enabledModules.addAll(enabledModulesEnabledByTask)
-		enabledModules.removeAll(disabledModulesByProperty)
-
-		enabledModules.map { it.status = StatusEnum.enabled }
 
 		SourceSetEnum.values()
 			.filter { it.module?.status == StatusEnum.enabled }
