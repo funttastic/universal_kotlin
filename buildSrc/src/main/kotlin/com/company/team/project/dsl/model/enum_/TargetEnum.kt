@@ -106,9 +106,7 @@ enum class TargetEnum(
 	`common-single_source@ios_arm32`,
 	`common-single_source@ios_arm64`,
 	`common-single_source@ios_x64`,
-	 `common-single_source@js`(
-	 	defaultStatus = StatusEnum.disabled
-	 ),
+	`common-single_source@js`,
 	`common-single_source@jvm`,
 	`common-single_source@linux_arm32_hfp`,
 	`common-single_source@linux_mips32`,
@@ -119,9 +117,7 @@ enum class TargetEnum(
 	`common-single_source@mingw_x86`,
 	`common-single_source@tvos_arm64`,
 	`common-single_source@tvos_x64`,
-	 `common-single_source@wasm32`(
-	 	defaultStatus = StatusEnum.disabled
-	 ),
+	`common-single_source@wasm32`,
 	`common-single_source@watchos_arm32`,
 	`common-single_source@watchos_arm64`,
 	`common-single_source@watchos_x64`,
@@ -195,9 +191,7 @@ enum class TargetEnum(
 	`application-browser-js-vanilla@js`,
 	`application-browser-native-wasm32@wasm32`,
 	`application-desktop-jvm-tornado_fx@jvm`,
-	`application-mobile-jvm-android@android`(
-		kotlinId = "android"
-	),
+	`application-mobile-jvm-android@android`,
 	`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64`,
 	`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`,
 	`application-mobile-native-apple-ios-ios_x64_framework@ios_x64`,
