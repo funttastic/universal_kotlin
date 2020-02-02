@@ -16,13 +16,13 @@ kotlin {
 //			}
 //	}
 
-//	jvm(TargetEnum.`application-script-jvm-script@jvm`) {
-//		withJava()
-//	}
-
-	jvm {
-		withJava()
+	jvm(TargetEnum.`application-script-jvm-script@jvm`) {
+		 withJava()
 	}
+
+	//  jvm {
+	//  	withJava()
+	//  }
 
 	sourceSets {
 		configureSourceSet(SourceSetEnum.`application-script-jvm-script@jvm@main`) {
