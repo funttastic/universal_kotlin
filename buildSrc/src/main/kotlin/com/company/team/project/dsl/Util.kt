@@ -126,7 +126,7 @@ object Util {
 	fun enableTree(target: TargetEnum?) {
 		if (target == null) return
 
-		target.enableEnabledIfOSSupportsOrDisableOtherwise()
+		target.status = enabled
 
 		if (enabled != target.status) return
 
@@ -136,7 +136,7 @@ object Util {
 	fun enableTree(sourceSet: SourceSetEnum?) {
 		if (sourceSet == null) return
 
-		sourceSet.enableEnabledIfOSSupportsOrDisableOtherwise()
+		sourceSet.status = enabled
 
 		if (enabled != sourceSet.status) return
 

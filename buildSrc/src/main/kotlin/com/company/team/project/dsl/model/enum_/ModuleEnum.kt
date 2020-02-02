@@ -307,9 +307,16 @@ enum class ModuleEnum(
 	 */
 	var status: StatusEnum = disabled
 		set(value) {
-			val caller = Thread.currentThread().stackTrace[2]
-			println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
-			field = value
+			if (value == enabled && !isSupportedByOs) {
+				throw IllegalArgumentException("Cannot enable ${this.name} since it is not supported by this OS.")
+			}
+
+			if (field != value) {
+				val caller = Thread.currentThread().stackTrace[2]
+				println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+
+				field = value
+			}
 		}
 
 	val isSupportedByOs by lazy {
@@ -406,21 +413,7 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
-		if (
-			status != enabled
-			&& isSupportedByOs
-		) {
-			status = enabled
-		}
-	}
-
-	/**
-	 *
-	 */
 	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
-		if (status != enabled) return
-
 		if (!isSupportedByOs) {
 			status = disabled
 		}

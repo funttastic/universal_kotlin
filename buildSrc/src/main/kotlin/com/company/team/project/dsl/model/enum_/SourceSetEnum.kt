@@ -1800,9 +1800,20 @@ enum class SourceSetEnum(
 	 */
 	var status: StatusEnum = disabled
 		set(value) {
-			val caller = Thread.currentThread().stackTrace[2]
-			println("Status updated to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
-			field = value
+			if (
+				value == enabled
+				&& kotlinId !in listOf(commonMain, commonTest)
+				&& !isSupportedByOs
+			) {
+				throw IllegalArgumentException("Cannot enable ${this.name} since it is not supported by this OS.")
+			}
+
+			if (field != value) {
+				val caller = Thread.currentThread().stackTrace[2]
+				println("Status updated to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+
+				field = value
+			}
 		}
 
 	val isSupportedByOs by lazy {
@@ -1963,27 +1974,7 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
-		if (
-			status != enabled
-			&& (
-				kotlinId in listOf(commonMain, commonTest)
-				|| isSupportedByOs
-			)
-		) {
-			status = enabled
-		}
-	}
-
-	/**
-	 *
-	 */
 	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
-		if (status != enabled) return
-
-		// We need to skip the common source sets since they are not attached to any target.
-		if (kotlinId in listOf(commonMain, commonTest)) return
-
 		if (!isSupportedByOs) {
 			status = disabled
 		}
