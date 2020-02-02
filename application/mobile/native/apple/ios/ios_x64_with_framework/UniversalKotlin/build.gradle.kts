@@ -1,11 +1,7 @@
 import com.company.team.project.dsl.model.enum_.ModuleEnum
 import com.company.team.project.dsl.model.enum_.SourceSetEnum
 import com.company.team.project.dsl.model.enum_.TargetEnum
-import com.company.team.project.dsl.model.extension.configureSourceSet
-import com.company.team.project.dsl.model.extension.configureTargetAttributes
-import com.company.team.project.dsl.model.extension.iosX64
-import com.company.team.project.dsl.model.extension.setupFramework
-import com.company.team.project.dsl.model.extension.setupTask
+import com.company.team.project.dsl.model.extension.*
 
 plugins {
 	kotlin("multiplatform")
