@@ -117,13 +117,17 @@ object Util {
 
 		if (module.status != StatusEnum.enabled) module.status = StatusEnum.enabled
 
+		if (StatusEnum.enabled != module.status) return
+
 		enableTree(module.parent)
 	}
 
 	fun enableTree(target: TargetEnum?) {
 		if (target == null) return
 
-		if (target.status != StatusEnum.enabled) target.enableEnabledIfOSSupportsOrDisableOtherwise()
+		target.enableEnabledIfOSSupportsOrDisableOtherwise()
+
+		if (StatusEnum.enabled != target.status) return
 
 		enableTree(target.module)
 	}
@@ -131,7 +135,9 @@ object Util {
 	fun enableTree(sourceSet: SourceSetEnum?) {
 		if (sourceSet == null) return
 
-		if (sourceSet.status != StatusEnum.enabled) sourceSet.enableEnabledIfOSSupportsOrDisableOtherwise()
+		sourceSet.enableEnabledIfOSSupportsOrDisableOtherwise()
+
+		if (StatusEnum.enabled != sourceSet.status) return
 
 		enableTree(sourceSet.target)
 

@@ -305,7 +305,7 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	var status: StatusEnum = disabled
 		set(value) {
 			val caller = Thread.currentThread().stackTrace[2]
 			println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
@@ -357,6 +357,8 @@ enum class ModuleEnum(
 		if (path == null) path = Paths.get(relativePath)
 
 		if (parent != null) parent!!.children.add(this)
+
+		status = defaultStatus
 	}
 
 	/**

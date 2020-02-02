@@ -1,8 +1,11 @@
 package com.company.team.project.dsl.model.enum_
 
 import com.company.team.project.dsl.model.Properties
+import com.company.team.project.dsl.model.Properties.util.os
 import org.gradle.api.attributes.Attribute
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
+import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
 
 /**
  *
@@ -208,7 +211,7 @@ enum class TargetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	var status: StatusEnum = disabled
 		set(value) {
 			val caller = Thread.currentThread().stackTrace[2]
 			println("Status updated to ${value}. Target ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
@@ -238,6 +241,8 @@ enum class TargetEnum(
 
 		if (preset == null) preset = PresetEnum.getByName(splitName[1])
 
+		status = defaultStatus
+
 		maintainEnabledIfOSSupportsOrDisableOtherwise()
 
 //		attributes.add(
@@ -247,6 +252,8 @@ enum class TargetEnum(
 //			)
 //		)
 	}
+
+	val isSupportedByOs by lazy { preset!!.isSupportedByOs }
 
 	/**
 	 *
@@ -289,10 +296,10 @@ enum class TargetEnum(
 	 */
 	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
 		if (
-			StatusEnum.enabled != status
-			&& preset?.supportedOSes?.contains(Properties.util.os) != true
+			status != enabled
+			&& isSupportedByOs
 		) {
-			status = StatusEnum.enabled
+			status = enabled
 		}
 	}
 
@@ -300,10 +307,10 @@ enum class TargetEnum(
 	 *
 	 */
 	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
-		if (StatusEnum.enabled != status) return
+		if (status != enabled) return
 
-		if (preset?.supportedOSes?.contains(Properties.util.os) != true) {
-			status = StatusEnum.disabled
+		if (!isSupportedByOs) {
+			status = disabled
 		}
 	}
 

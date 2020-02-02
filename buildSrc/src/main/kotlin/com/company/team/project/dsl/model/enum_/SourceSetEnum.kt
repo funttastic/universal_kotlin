@@ -3,7 +3,10 @@ package com.company.team.project.dsl.model.enum_
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.Properties.util.commonMain
 import com.company.team.project.dsl.model.Properties.util.commonTest
+import com.company.team.project.dsl.model.Properties.util.os
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
+import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
 
 /**
  *
@@ -1795,7 +1798,7 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	var status: StatusEnum = disabled
 		set(value) {
 			val caller = Thread.currentThread().stackTrace[2]
 			println("Status updated to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
@@ -1833,9 +1836,7 @@ enum class SourceSetEnum(
 			if (target != null) target!!.sourceSets.add(this)
 		}
 
-		if (StatusEnum.disabled == target?.status) {
-			status = StatusEnum.disabled
-		}
+		status = defaultStatus
 
 		maintainEnabledIfOSSupportsOrDisableOtherwise()
 
@@ -1886,6 +1887,8 @@ enum class SourceSetEnum(
 //			}
 //		}
 	}
+
+	val isSupportedByOs by lazy { target!!.isSupportedByOs }
 
 	/**
 	 *
@@ -1958,10 +1961,13 @@ enum class SourceSetEnum(
 	 */
 	fun enableEnabledIfOSSupportsOrDisableOtherwise() {
 		if (
-			StatusEnum.enabled != status
-			&& target?.preset?.supportedOSes?.contains(Properties.util.os) != true
+			status != enabled
+			&& (
+				kotlinId in listOf(commonMain, commonTest)
+				|| isSupportedByOs
+			)
 		) {
-			status = StatusEnum.enabled
+			status = enabled
 		}
 	}
 
@@ -1969,13 +1975,13 @@ enum class SourceSetEnum(
 	 *
 	 */
 	fun maintainEnabledIfOSSupportsOrDisableOtherwise() {
-		if (StatusEnum.enabled != status) return
+		if (status != enabled) return
 
 		// We need to skip the common source sets since they are not attached to any target.
 		if (kotlinId in listOf(commonMain, commonTest)) return
 
-		if (target?.preset?.supportedOSes?.contains(Properties.util.os) != true) {
-			status = StatusEnum.disabled
+		if (!isSupportedByOs) {
+			status = disabled
 		}
 	}
 

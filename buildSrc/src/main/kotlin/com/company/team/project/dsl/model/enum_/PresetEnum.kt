@@ -1,13 +1,9 @@
 package com.company.team.project.dsl.model.enum_
 
 import org.gradle.internal.os.OperatingSystem
-import org.gradle.internal.os.OperatingSystem.FREE_BSD
-import org.gradle.internal.os.OperatingSystem.LINUX
-import org.gradle.internal.os.OperatingSystem.MAC_OS
-import org.gradle.internal.os.OperatingSystem.SOLARIS
-import org.gradle.internal.os.OperatingSystem.UNIX
-import org.gradle.internal.os.OperatingSystem.WINDOWS
+import org.gradle.internal.os.OperatingSystem.*
 import org.jetbrains.kotlin.konan.target.KonanTarget
+import com.company.team.project.dsl.model.Properties.util.os
 
 /**
  *
@@ -38,11 +34,11 @@ enum class PresetEnum (
 	/**
 	 *
 	 */
-	var supportedOSes: MutableList<OperatingSystem> = mutableListOf()
+	val supportedOSes: MutableSet<OperatingSystem> = mutableSetOf()
 ) {
 
 	android(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -52,7 +48,7 @@ enum class PresetEnum (
 		)
 	),
 	android_native_arm32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -62,7 +58,7 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.ANDROID_ARM32
 	),
 	android_native_arm64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -72,25 +68,25 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.ANDROID_ARM64
 	),
 	ios_arm32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.IOS_ARM32
 	),
 	ios_arm64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.IOS_ARM64
 	),
 	ios_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.IOS_X64
 	),
 	js(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -100,7 +96,7 @@ enum class PresetEnum (
 		)
 	),
 	jvm(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -110,7 +106,7 @@ enum class PresetEnum (
 		)
 	),
 	linux_arm32_hfp(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			SOLARIS
@@ -118,7 +114,7 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.LINUX_ARM32_HFP
 	),
 	linux_mips32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			SOLARIS
@@ -126,7 +122,7 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.LINUX_MIPS32
 	),
 	linux_mipsel32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			SOLARIS
@@ -134,7 +130,7 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.LINUX_MIPSEL32
 	),
 	linux_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			SOLARIS
@@ -142,37 +138,37 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.LINUX_X64
 	),
 	macos_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.MACOS_X64
 	),
 	mingw_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			WINDOWS
 		),
 		konanTarget = KonanTarget.MINGW_X64
 	),
 	mingw_x86(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			WINDOWS
 		),
 		konanTarget = KonanTarget.MINGW_X86
 	),
 	tvos_arm64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.TVOS_ARM64
 	),
 	tvos_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.TVOS_X64
 	),
 	wasm32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			FREE_BSD,
 			LINUX,
 			MAC_OS,
@@ -183,25 +179,25 @@ enum class PresetEnum (
 		konanTarget = KonanTarget.WASM32
 	),
 	watchos_arm32(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.WATCHOS_ARM32
 	),
 	watchos_arm64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.WATCHOS_ARM64
 	),
 	watchos_x64(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.WATCHOS_X64
 	),
 	watchos_x86(
-		supportedOSes = mutableListOf(
+		supportedOSes = mutableSetOf(
 			MAC_OS
 		),
 		konanTarget = KonanTarget.WATCHOS_X86
@@ -219,6 +215,8 @@ enum class PresetEnum (
 
 		if (description == null) description = "$title preset."
 	}
+
+	val isSupportedByOs by lazy { os in supportedOSes }
 
 	/**
 	 *
