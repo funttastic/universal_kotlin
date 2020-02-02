@@ -139,13 +139,13 @@ object Util {
 			enableTree(it)
 		}
 
-		sourceSet.dependencies.targets.forEach {
-			enableTree(it)
-		}
-
-		sourceSet.dependencies.modules.forEach {
-			enableTree(it)
-		}
+//		sourceSet.dependencies.targets.forEach {
+//			enableTree(it)
+//		}
+//
+//		sourceSet.dependencies.modules.forEach {
+//			enableTree(it)
+//		}
 	}
 
 	/**
