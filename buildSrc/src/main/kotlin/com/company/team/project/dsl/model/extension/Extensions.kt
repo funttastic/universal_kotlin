@@ -119,8 +119,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.jvm(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.linuxX64(
 	target: TargetEnum,
-	configure: KotlinNativeTargetWithTests.() -> Unit = { }
-): KotlinNativeTargetWithTests? {
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -159,8 +159,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.linuxMipsel32(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.macosX64(
 	target: TargetEnum,
-	configure: KotlinNativeTargetWithTests.() -> Unit = { }
-): KotlinNativeTargetWithTests? {
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -169,8 +169,8 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.macosX64(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.mingwX64(
 	target: TargetEnum,
-	configure: KotlinNativeTargetWithTests.() -> Unit = { }
-): KotlinNativeTargetWithTests? {
+	configure: KotlinNativeTarget.() -> Unit = { }
+): KotlinNativeTarget? {
 	return uncheckedCast(configureTarget(target, uncheckedCast(configure)))
 }
 
@@ -280,9 +280,9 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget
 		PresetEnum.linux_arm32_hfp -> linuxArm32Hfp(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mips32 -> linuxMips32(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.linux_mipsel32 -> linuxMipsel32(id, configuration as KotlinNativeTarget.() -> Unit)
-		PresetEnum.linux_x64 -> linuxX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
-		PresetEnum.macos_x64 -> macosX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
-		PresetEnum.mingw_x64 -> mingwX64(id, configuration as KotlinNativeTargetWithTests.() -> Unit)
+		PresetEnum.linux_x64 -> linuxX64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.macos_x64 -> macosX64(id, configuration as KotlinNativeTarget.() -> Unit)
+		PresetEnum.mingw_x64 -> mingwX64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.mingw_x86 -> mingwX86(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.tvos_arm64 -> tvosArm64(id, configuration as KotlinNativeTarget.() -> Unit)
 		PresetEnum.tvos_x64 -> tvosX64(id, configuration as KotlinNativeTarget.() -> Unit)
