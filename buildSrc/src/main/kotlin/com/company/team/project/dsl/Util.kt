@@ -10,6 +10,8 @@ import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
+import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
 
 /**
  *
@@ -85,7 +87,7 @@ object Util {
 			|| enabledModulesEnabledByTask.isNotEmpty()
 		) {
 			val enabledModulesByDefault = mutableSetOf<ModuleEnum>()
-			enabledModulesByDefault.addAll(ModuleEnum.values().filter { it.status == StatusEnum.enabled })
+			enabledModulesByDefault.addAll(ModuleEnum.values().filter { it.status == enabled })
 
 			val disabledModulesByProperty = mutableSetOf<ModuleEnum>()
 			disabledModulesProperty?.split(",")?.map {
@@ -97,12 +99,15 @@ object Util {
 			enabledModules.addAll(enabledModulesEnabledByTask)
 			enabledModules.removeAll(disabledModulesByProperty)
 
-			enabledModulesByDefault.subtract(enabledModules).map { it.status = StatusEnum.disabled }
-			enabledModules.subtract(enabledModulesByDefault).map { it.status = StatusEnum.enabled }
+			enabledModulesByDefault.subtract(enabledModules).map { it.status = disabled }
+			enabledModules.subtract(enabledModulesByDefault).map { it.status = enabled }
+		} else {
+			ModuleEnum.values().filter { it.defaultStatus == enabled && it.status != enabled }
+				.map { it.status = it.defaultStatus }
 		}
 
 		SourceSetEnum.values()
-			.filter { it.module?.status == StatusEnum.enabled }
+			.filter { it.module?.status == enabled }
 			.forEach {
 				enableTree(it)
 			}
@@ -111,9 +116,9 @@ object Util {
 	fun enableTree(module: ModuleEnum?) {
 		if (module == null || module == ModuleEnum.root) return
 
-		if (module.status != StatusEnum.enabled) module.status = StatusEnum.enabled
+		if (module.status != enabled) module.status = enabled
 
-		if (StatusEnum.enabled != module.status) return
+		if (enabled != module.status) return
 
 		enableTree(module.parent)
 	}
@@ -123,7 +128,7 @@ object Util {
 
 		target.enableEnabledIfOSSupportsOrDisableOtherwise()
 
-		if (StatusEnum.enabled != target.status) return
+		if (enabled != target.status) return
 
 		enableTree(target.module)
 	}
@@ -133,7 +138,7 @@ object Util {
 
 		sourceSet.enableEnabledIfOSSupportsOrDisableOtherwise()
 
-		if (StatusEnum.enabled != sourceSet.status) return
+		if (enabled != sourceSet.status) return
 
 		enableTree(sourceSet.target)
 
@@ -155,7 +160,7 @@ object Util {
 	 */
 	fun enableParents(module: ModuleEnum) {
 		if (module.parent != null) {
-			module.parent!!.status = StatusEnum.enabled
+			module.parent!!.status = enabled
 			enableParents(module.parent!!)
 		}
 	}
@@ -295,9 +300,9 @@ object Util {
 		dump(Properties.properties.local, Properties.properties::local.name)
 		dump(Properties.util.os, Properties.util::os.name)
 		dump(Properties.util.jvm, Properties.util::jvm.name)
-		dump(ModuleEnum.values().filter { StatusEnum.enabled == it.status }, ModuleEnum::class.qualifiedName)
-		dump(TargetEnum.values().filter { StatusEnum.enabled == it.status }, TargetEnum::class.qualifiedName)
-		dump(SourceSetEnum.values().filter { StatusEnum.enabled == it.status }, SourceSetEnum::class.qualifiedName)
+		dump(ModuleEnum.values().filter { enabled == it.status }, ModuleEnum::class.qualifiedName)
+		dump(TargetEnum.values().filter { enabled == it.status }, TargetEnum::class.qualifiedName)
+		dump(SourceSetEnum.values().filter { enabled == it.status }, SourceSetEnum::class.qualifiedName)
 	}
 
 	/**
