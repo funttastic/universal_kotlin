@@ -6,7 +6,6 @@ plugins {
 	kotlin("multiplatform")
 
 	id("com.github.johnrengelman.shadow")
-	id("java")
 }
 
 //group = "com.company.team.application.jvm.jvm8.terminal"
@@ -24,6 +23,7 @@ kotlin {
 //	}
 
 	jvm(TargetEnum.`application-terminal-jvm-terminal@jvm`) {
+		withJava()
 	}
 
 	sourceSets {
