@@ -96,13 +96,9 @@ object Util {
 			enabledModules.addAll(enabledModulesByProperty)
 			enabledModules.addAll(enabledModulesEnabledByTask)
 			enabledModules.removeAll(disabledModulesByProperty)
-			enabledModules.removeAll(enabledModulesByDefault)
 
-			enabledModules.map { it.status = StatusEnum.enabled }
-
-			// Disable possible remaining enabled modules.
-			enabledModulesByDefault.removeAll(enabledModules)
-			enabledModulesByDefault.map { it.status = StatusEnum.disabled }
+			enabledModulesByDefault.subtract(enabledModules).map { it.status = StatusEnum.disabled }
+			enabledModules.subtract(enabledModulesByDefault).map { it.status = StatusEnum.enabled }
 		}
 
 		SourceSetEnum.values()
