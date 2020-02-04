@@ -76,7 +76,6 @@ enum class SourceSetEnum(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
-
 	`common-multiple_sources@android_native_arm32@main`(
 		defaultStatus = enabled,
 		dependencies = Dependencies(
@@ -273,11 +272,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@mingw_x86@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@mingw_x86@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -286,11 +287,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@tvos_arm64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@tvos_arm64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -299,11 +302,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@tvos_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@tvos_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -327,11 +332,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@watchos_arm32@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_arm32@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -340,11 +347,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@watchos_arm64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_arm64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -353,11 +362,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@watchos_x64@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_x64@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -366,11 +377,13 @@ enum class SourceSetEnum(
 		)
 	),
 	`common-multiple_sources@watchos_x86@main`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(`common-multiple_sources@common@main`)
 		)
 	),
 	`common-multiple_sources@watchos_x86@test`(
+		defaultStatus = enabled,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
