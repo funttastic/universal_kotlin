@@ -193,3 +193,6 @@ run -k ios_copying_framework -t "Stopping iOS emulator" -p "iOS X64 copying Fram
 # xcrun simctl shutdown 'iPhone 11 Pro Max'
 
 run -k all -p "All" -c "killRemainingProcesses"
+
+# Notify when the process is finished.
+# osascript -e 'display notification "Process finished." with title "Finished"'
