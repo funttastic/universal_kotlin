@@ -457,7 +457,7 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 				it.requiredAt.add(sourceSet)
 				dependencies {
-					implementation(project(it.module!!))
+					api(project(it.module!!))
 				}
 			}
 		}

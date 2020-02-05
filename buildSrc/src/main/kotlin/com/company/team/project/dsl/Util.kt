@@ -127,10 +127,16 @@ object Util {
 					println("\t\tSource Set ${sourceSet.name}")
 				}
 			}
+			println("\tWithout Target")
+			module.sourceSets.filter { it.target == null && it.status == enabled }.sortedBy { it.name }.map {sourceSet ->
+				println("\t\tSource Set ${sourceSet.name}")
+			}
 		}
 	}
 
 	fun enableTree(module: ModuleEnum?) {
+		println("Trying to enable module ${module?.name}")
+
 		if (module == null || module == ModuleEnum.root || module.defaultStatus != enabled) return
 
 		if (module.status != enabled) module.status = enabled
@@ -141,6 +147,8 @@ object Util {
 	}
 
 	fun enableTree(target: TargetEnum?) {
+		println("Trying to enable target ${target?.name}")
+
 		if (target == null || target.defaultStatus != enabled) return
 
 		target.status = enabled
@@ -151,6 +159,8 @@ object Util {
 	}
 
 	fun enableTree(sourceSet: SourceSetEnum?) {
+		println("Trying to enable source set ${sourceSet?.name}")
+
 		if (sourceSet == null || sourceSet.defaultStatus != enabled) return
 
 		sourceSet.status = enabled
