@@ -12,6 +12,8 @@ import java.nio.file.Paths
 import java.util.*
 import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
 import com.company.team.project.dsl.model.enum_.StatusEnum.disabled
+import com.company.team.project.dsl.model.Properties.util.commonMain
+import com.company.team.project.dsl.model.Properties.util.commonTest
 
 /**
  *
@@ -155,19 +157,15 @@ object Util {
 
 		if (enabled != sourceSet.status) return
 
-		enableTree(sourceSet.target)
+		if (sourceSet.target == null && sourceSet.kotlinId in listOf(commonMain, commonTest)) {
+			enableTree(sourceSet.module)
+		} else {
+			enableTree(sourceSet.target)
+		}
 
 		sourceSet.dependencies.sourceSets.forEach {
 			enableTree(it)
 		}
-
-//		sourceSet.dependencies.targets.forEach {
-//			enableTree(it)
-//		}
-//
-//		sourceSet.dependencies.modules.forEach {
-//			enableTree(it)
-//		}
 	}
 
 	/**
