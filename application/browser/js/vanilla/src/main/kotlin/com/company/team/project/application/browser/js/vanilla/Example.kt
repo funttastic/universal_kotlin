@@ -45,8 +45,9 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	fun exampleMethod(): List<String> {
-		val output = ArrayList<String>()
+	fun exampleMethod(): Set<String> {
+		val output = mutableSetOf<String>()
+
 		output.addAll(com.company.team.project.common.multiple_sources.js.exampleFunction())
 		output.addAll(com.company.team.project.common.single_source.js.common.exampleFunction())
 		output.addAll(com.company.team.project.library.multiple_sources.js.exampleFunction())
