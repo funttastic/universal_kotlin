@@ -10,7 +10,7 @@ enum class OutputType {
 /**
  *
  */
-fun formatOutput(input: List<String>?, outputType: OutputType = OutputType.PLAIN, width: Int = 0): String {
+fun formatOutput(input: Collection<String>?, outputType: OutputType = OutputType.PLAIN, width: Int = 0): String {
 	val prefix = "com.company.team.project."
 
 	val list = input?.distinct()?.sorted()?.map { it.removePrefix(prefix) }
