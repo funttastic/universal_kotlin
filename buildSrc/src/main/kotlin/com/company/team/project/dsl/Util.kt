@@ -167,7 +167,7 @@ object Util {
 
 		if (enabled != sourceSet.status) return
 
-		if (sourceSet.target == null && sourceSet.kotlinId in listOf(commonMain, commonTest)) {
+		if (sourceSet.target == null && sourceSet.isCommon) {
 			enableTree(sourceSet.module)
 		} else {
 			enableTree(sourceSet.target)
