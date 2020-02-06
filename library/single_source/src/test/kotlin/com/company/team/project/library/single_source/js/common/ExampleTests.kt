@@ -13,7 +13,7 @@ class ExampleTests {
 	 *
 	 */
 	@Test
-	fun exampleValueCannotBeEmpty() {
+	fun `Should have the expected amount of included modules`() {
 		assertEquals(4, exampleFunction().size)
 	}
 
