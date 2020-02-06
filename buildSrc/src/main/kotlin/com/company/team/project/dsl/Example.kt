@@ -8,7 +8,7 @@ val exampleValue = exampleFunction().toString()
 /**
  *
  */
-fun exampleFunction(): List<String> {
+fun exampleFunction(): Set<String> {
 	return ExampleObject.exampleMethod()
 }
 
@@ -25,8 +25,9 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	fun exampleMethod(): List<String> {
-		val output = ArrayList<String>()
+	fun exampleMethod(): Set<String> {
+		val output = mutableSetOf<String>()
+
 		output.add(exampleProperty)
 
 		return output

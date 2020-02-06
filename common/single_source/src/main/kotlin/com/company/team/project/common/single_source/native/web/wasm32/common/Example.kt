@@ -10,7 +10,7 @@ val exampleValue = formatOutput(exampleFunction())
 /**
  *
  */
-fun exampleFunction(): List<String> {
+fun exampleFunction(): Set<String> {
 	return ExampleObject.exampleMethod()
 }
 
@@ -27,8 +27,9 @@ object ExampleObject {
 	/**
 	 *
 	 */
-	fun exampleMethod(): List<String> {
-		val output = ArrayList<String>()
+	fun exampleMethod(): Set<String> {
+		val output = mutableSetOf<String>()
+
 		output.addAll(com.company.team.project.common.single_source.native.common.exampleFunction())
 		output.add(exampleProperty)
 

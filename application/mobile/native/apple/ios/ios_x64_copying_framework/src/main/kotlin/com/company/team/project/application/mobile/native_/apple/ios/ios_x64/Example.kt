@@ -17,7 +17,7 @@ val exampleValue = formatOutput(exampleFunction())
 /**
  *
  */
-fun exampleFunction(): List<String> {
+fun exampleFunction(): Set<String> {
 	return ExampleObject.exampleMethod()
 }
 
