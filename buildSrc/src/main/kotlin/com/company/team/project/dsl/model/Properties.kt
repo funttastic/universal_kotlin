@@ -8,6 +8,7 @@ import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Properties
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 /**
  *
@@ -50,8 +51,8 @@ object Properties {
 			org.gradle.internal.jvm.Jvm.current()
 		}
 
-		val commonMain = "commonMain"
-		val commonTest = "commonTest"
+		val commonMain = KotlinSourceSet.COMMON_MAIN_SOURCE_SET_NAME
+		val commonTest = KotlinSourceSet.COMMON_TEST_SOURCE_SET_NAME
 	}
 
 	object properties {
