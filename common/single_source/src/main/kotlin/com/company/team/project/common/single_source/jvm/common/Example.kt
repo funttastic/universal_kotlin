@@ -1,6 +1,5 @@
 package com.company.team.project.common.single_source.jvm.common
 
-import java.util.ArrayList
 import com.company.team.project.common.single_source.common.formatOutput
 
 /**
