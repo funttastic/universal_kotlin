@@ -451,13 +451,19 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 	val modulesAndTargetsConfigurations: KotlinSourceSet.() -> Unit = {
 		sourceSet.dependencies.sourceSets.forEach {
 			if (it.module == sourceSet.module) {
-				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
-				dependsOn(it.kotlinSourceSet!!)
+				if (it.isCommon) {
+					Util.logger.warn("""Skipping source set "${it.name}", since it's a common one and it should be automatically included."""")
+				} else if (sourceSet.isCompilationPair(it)) {
+					Util.logger.warn("""Skipping source set "${it.name}", since it's the compilation pair from "${sourceSet.name}" and it should be automatically included."""")
+				} else {
+					Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
+					dependsOn(it.kotlinSourceSet!!)
+				}
 			} else {
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 				it.requiredAt.add(sourceSet)
 				dependencies {
-					api(project(it.module!!))
+					implementation(project(it.module!!))
 				}
 			}
 		}
