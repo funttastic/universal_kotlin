@@ -210,11 +210,13 @@ enum class SourceSetEnum(
 
 	`common-single_source@common@main`(
 		kotlinId = commonMain,
-		defaultStatus = enabled
+		defaultStatus = enabled,
+		isCommon = true
 	),
 	`common-single_source@common@test`(
 		kotlinId = commonTest,
-		defaultStatus = enabled
+		defaultStatus = enabled,
+		isCommon = true
 	),
 
 	`common-single_source@android_native_arm32@main`(
@@ -348,6 +350,7 @@ enum class SourceSetEnum(
 	`library-multiple_sources@common@main`(
 		kotlinId = commonMain,
 		defaultStatus = enabled,
+		isCommon = true,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@main`,
@@ -358,6 +361,7 @@ enum class SourceSetEnum(
 	`library-multiple_sources@common@test`(
 		kotlinId = commonTest,
 		defaultStatus = enabled,
+		isCommon = true,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,
@@ -748,6 +752,7 @@ enum class SourceSetEnum(
 	`library-single_source@common@main`(
 		kotlinId = commonMain,
 		defaultStatus = enabled,
+		isCommon = true,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@main`,
@@ -758,6 +763,7 @@ enum class SourceSetEnum(
 	`library-single_source@common@test`(
 		kotlinId = commonTest,
 		defaultStatus = enabled,
+		isCommon = true,
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@common@test`,

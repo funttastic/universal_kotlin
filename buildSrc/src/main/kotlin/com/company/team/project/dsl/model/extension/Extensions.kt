@@ -442,11 +442,13 @@ fun DependencyHandler.project(sourceSet: SourceSetEnum, configuration: String? =
  *
  */
 fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: SourceSetEnum, configuration: KotlinSourceSet.() -> Unit): KotlinSourceSet? {
-	if (StatusEnum.enabled != sourceSet.status) {
+	if (StatusEnum.enabled != sourceSet.status && !sourceSet.isCommon) {
 		Util.logger.warn("""Not configuring source set "${sourceSet.name}", since it's disabled.""")
 
 		return null
 	}
+
+	Util.logger.warn("""Configuring source set "${sourceSet.name}".""")
 
 	val modulesAndTargetsConfigurations: KotlinSourceSet.() -> Unit = {
 		sourceSet.dependencies.sourceSets.forEach {
@@ -463,7 +465,7 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 				it.requiredAt.add(sourceSet)
 				dependencies {
-					implementation(project(it.module!!))
+					api(project(it.module!!))
 				}
 			}
 		}
