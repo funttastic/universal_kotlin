@@ -1,6 +1,7 @@
 package com.company.team.project.common.single_source.js.common
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
@@ -13,14 +14,14 @@ class ExampleTests {
 	 */
 	@Test
 	fun exampleValueCannotBeEmpty() {
-		assertTrue(exampleFunction().isNotEmpty())
+		assertEquals(2, exampleFunction().size)
 	}
 
-//	/**
-//	 *
-//	 */
-//	@Test
-//	fun checkIfExampleObjectPackageIsOk() {
-//		assertTrue(checkExampleObjectPackageAndReturnIt().isNotBlank())
-//	}
+	/**
+	 *
+	 */
+	@Test
+	fun checkIfExampleObjectPackageIsOk() {
+		assertTrue(checkExampleObjectPackageAndReturnIt().isNotBlank())
+	}
 }

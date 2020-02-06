@@ -1,7 +1,7 @@
 package com.company.team.project.common.single_source.common
 
 import kotlin.test.Test
-import kotlin.test.assertTrue
+import kotlin.test.assertEquals
 
 /**
  *
@@ -13,6 +13,6 @@ class ExampleTests {
 	 */
 	@Test
 	fun exampleValueCannotBeEmpty() {
-		assertTrue(exampleFunction().isNotEmpty())
+		assertEquals(1, exampleFunction().size)
 	}
 }
