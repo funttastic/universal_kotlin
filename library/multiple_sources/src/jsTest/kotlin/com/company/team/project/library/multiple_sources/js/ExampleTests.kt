@@ -1,6 +1,7 @@
 package com.company.team.project.library.multiple_sources.js
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
@@ -16,11 +17,11 @@ class ExampleTests {
 		assertTrue(exampleFunction().isNotEmpty())
 	}
 
-//	/**
-//	 *
-//	 */
-//	@Test
-//	fun checkIfExampleObjectPackageIsOk() {
-//		assertTrue(checkExampleObjectPackageAndReturnIt().isNotBlank())
-//	}
+	/**
+	 *
+	 */
+	@Test
+	fun checkIfExampleObjectPackageIsOk() {
+		assertTrue(checkExampleObjectPackageAndReturnIt().isNotBlank())
+	}
 }
