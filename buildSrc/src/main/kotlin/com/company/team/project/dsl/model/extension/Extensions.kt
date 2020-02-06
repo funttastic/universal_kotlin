@@ -455,8 +455,8 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: So
 			if (it.module == sourceSet.module) {
 				if (it.isCommon) {
 					Util.logger.warn("""Skipping source set "${it.name}", since it's a common one and it should be automatically included."""")
-				} else if (sourceSet.isCompilationPair(it)) {
-					Util.logger.warn("""Skipping source set "${it.name}", since it's the compilation pair from "${sourceSet.name}" and it should be automatically included."""")
+				} else if (sourceSet.isCompilationPair(it) && it.compilation == CompilationEnum.test) {
+					Util.logger.warn("""Skipping source set "${it.name}", since it should be automatically included because it is the test compilation pair for "${sourceSet.name}"."""")
 				} else {
 					Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
 					dependsOn(it.kotlinSourceSet!!)
