@@ -47,12 +47,17 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var defaultStatus: StatusEnum = StatusEnum.disabled,
+	var defaultStatus: StatusEnum = disabled,
 
 	/**
 	 *
 	 */
 	var kotlinSourceSet: KotlinSourceSet? = null,
+
+	/**
+	 *
+	 */
+	var isCommon: Boolean = false,
 
 	/**
 	 *
@@ -67,352 +72,139 @@ enum class SourceSetEnum(
 
 	`common-multiple_sources@common@main`(
 		kotlinId = commonMain,
-		defaultStatus = enabled
+		defaultStatus = enabled,
+		isCommon = true
 	),
 	`common-multiple_sources@common@test`(
 		kotlinId = commonTest,
 		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		isCommon = true
 	),
 	`common-multiple_sources@android_native_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@android_native_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@android_native_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@android_native_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@ios_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@js@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@js@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@jvm@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@jvm@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_arm32_hfp@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_arm32_hfp@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_mips32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_mips32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_mipsel32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_mipsel32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@linux_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@macos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@macos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@mingw_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@mingw_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@mingw_x86@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@mingw_x86@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@tvos_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@tvos_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@tvos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@tvos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@wasm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@wasm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_x86@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-multiple_sources@watchos_x86@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-multiple_sources@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 
 
@@ -422,349 +214,134 @@ enum class SourceSetEnum(
 	),
 	`common-single_source@common@test`(
 		kotlinId = commonTest,
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 
 	`common-single_source@android_native_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@android_native_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@android_native_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@android_native_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@ios_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
  	`common-single_source@js@main`(
-		defaultStatus = enabled,
- 		dependencies = Dependencies(
- 			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
- 		)
+		defaultStatus = enabled
  	),
  	`common-single_source@js@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@jvm@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@jvm@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_arm32_hfp@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_arm32_hfp@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_mips32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_mips32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_mipsel32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_mipsel32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@linux_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@macos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@macos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@mingw_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@mingw_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@mingw_x86@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@mingw_x86@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@tvos_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@tvos_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@tvos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@tvos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
  	`common-single_source@wasm32@main`(
-		defaultStatus = enabled,
- 		dependencies = Dependencies(
- 			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
- 		)
+		defaultStatus = enabled
  	),
  	`common-single_source@wasm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_arm32@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_arm32@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_arm64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_arm64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_x64@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_x64@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_x86@main`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@main`
-			)
-		)
+		defaultStatus = enabled
 	),
 	`common-single_source@watchos_x86@test`(
-		defaultStatus = enabled,
-		dependencies = Dependencies(
-			sourceSets = mutableSetOf(
-				`common-single_source@common@test`
-			)
-		)
+		defaultStatus = enabled
 	),
 
 
@@ -793,8 +370,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm32@main`,
-				`common-single_source@android_native_arm32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@android_native_arm32@main`
 			)
 		)
 	),
@@ -803,8 +379,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm32@test`,
-				`common-single_source@android_native_arm32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@android_native_arm32@test`
 			)
 		)
 	),
@@ -813,8 +388,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm64@main`,
-				`common-single_source@android_native_arm64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@android_native_arm64@main`
 			)
 		)
 	),
@@ -823,8 +397,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm64@test`,
-				`common-single_source@android_native_arm64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@android_native_arm64@test`
 			)
 		)
 	),
@@ -833,8 +406,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm32@main`,
-				`common-single_source@ios_arm32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@ios_arm32@main`
 			)
 		)
 	),
@@ -843,8 +415,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm32@test`,
-				`common-single_source@ios_arm32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@ios_arm32@test`
 			)
 		)
 	),
@@ -853,8 +424,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm64@main`,
-				`common-single_source@ios_arm64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@ios_arm64@main`
 			)
 		)
 	),
@@ -863,8 +433,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm64@test`,
-				`common-single_source@ios_arm64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@ios_arm64@test`
 			)
 		)
 	),
@@ -873,8 +442,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@main`,
-				`common-single_source@ios_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@ios_x64@main`
 			)
 		)
 	),
@@ -883,8 +451,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@test`,
-				`common-single_source@ios_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@ios_x64@test`
 			)
 		)
 	),
@@ -893,8 +460,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@main`,
-				`common-single_source@js@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@js@main`
 			)
 		)
 	),
@@ -903,8 +469,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@test`,
-				`common-single_source@js@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@js@test`
 			)
 		)
 	),
@@ -913,8 +478,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@main`,
-				`common-single_source@jvm@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@jvm@main`
 			)
 		)
 	),
@@ -923,8 +487,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@test`,
-				`common-single_source@jvm@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@jvm@test`
 			)
 		)
 	),
@@ -933,8 +496,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_arm32_hfp@main`,
-				`common-single_source@linux_arm32_hfp@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@linux_arm32_hfp@main`
 			)
 		)
 	),
@@ -943,8 +505,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_arm32_hfp@test`,
-				`common-single_source@linux_arm32_hfp@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@linux_arm32_hfp@test`
 			)
 		)
 	),
@@ -953,8 +514,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mips32@main`,
-				`common-single_source@linux_mips32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@linux_mips32@main`
 			)
 		)
 	),
@@ -963,8 +523,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mips32@test`,
-				`common-single_source@linux_mips32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@linux_mips32@test`
 			)
 		)
 	),
@@ -973,8 +532,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mipsel32@main`,
-				`common-single_source@linux_mipsel32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@linux_mipsel32@main`
 			)
 		)
 	),
@@ -983,8 +541,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mipsel32@test`,
-				`common-single_source@linux_mipsel32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@linux_mipsel32@test`
 			)
 		)
 	),
@@ -993,8 +550,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_x64@main`,
-				`common-single_source@linux_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@linux_x64@main`
 			)
 		)
 	),
@@ -1003,8 +559,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_x64@test`,
-				`common-single_source@linux_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@linux_x64@test`
 			)
 		)
 	),
@@ -1013,8 +568,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@macos_x64@main`,
-				`common-single_source@macos_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@macos_x64@main`
 			)
 		)
 	),
@@ -1023,8 +577,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@macos_x64@test`,
-				`common-single_source@macos_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@macos_x64@test`
 			)
 		)
 	),
@@ -1033,8 +586,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x64@main`,
-				`common-single_source@mingw_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@mingw_x64@main`
 			)
 		)
 	),
@@ -1043,8 +595,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x64@test`,
-				`common-single_source@mingw_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@mingw_x64@test`
 			)
 		)
 	),
@@ -1053,8 +604,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x86@main`,
-				`common-single_source@mingw_x86@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@mingw_x86@main`
 			)
 		)
 	),
@@ -1063,8 +613,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x86@test`,
-				`common-single_source@mingw_x86@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@mingw_x86@test`
 			)
 		)
 	),
@@ -1073,8 +622,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_arm64@main`,
-				`common-single_source@tvos_arm64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@tvos_arm64@main`
 			)
 		)
 	),
@@ -1083,8 +631,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_arm64@test`,
-				`common-single_source@tvos_arm64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@tvos_arm64@test`
 			)
 		)
 	),
@@ -1093,8 +640,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_x64@main`,
-				`common-single_source@tvos_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@tvos_x64@main`
 			)
 		)
 	),
@@ -1103,8 +649,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_x64@test`,
-				`common-single_source@tvos_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@tvos_x64@test`
 			)
 		)
 	),
@@ -1113,8 +658,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@main`,
-				`common-single_source@wasm32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@wasm32@main`
 			)
 		)
 	),
@@ -1123,8 +667,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@test`,
-				`common-single_source@wasm32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@wasm32@test`
 			)
 		)
 	),
@@ -1133,8 +676,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm32@main`,
-				`common-single_source@watchos_arm32@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@watchos_arm32@main`
 			)
 		)
 	),
@@ -1143,8 +685,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm32@test`,
-				`common-single_source@watchos_arm32@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@watchos_arm32@test`
 			)
 		)
 	),
@@ -1153,8 +694,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm64@main`,
-				`common-single_source@watchos_arm64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@watchos_arm64@main`
 			)
 		)
 	),
@@ -1163,8 +703,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm64@test`,
-				`common-single_source@watchos_arm64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@watchos_arm64@test`
 			)
 		)
 	),
@@ -1173,8 +712,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x64@main`,
-				`common-single_source@watchos_x64@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@watchos_x64@main`
 			)
 		)
 	),
@@ -1183,8 +721,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x64@test`,
-				`common-single_source@watchos_x64@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@watchos_x64@test`
 			)
 		)
 	),
@@ -1193,8 +730,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x86@main`,
-				`common-single_source@watchos_x86@main`,
-				`library-multiple_sources@common@main`
+				`common-single_source@watchos_x86@main`
 			)
 		)
 	),
@@ -1203,8 +739,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x86@test`,
-				`common-single_source@watchos_x86@test`,
-				`library-multiple_sources@common@test`
+				`common-single_source@watchos_x86@test`
 			)
 		)
 	),
@@ -1235,8 +770,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm32@main`,
-				`common-single_source@android_native_arm32@main`,
-				`library-single_source@common@main`
+				`common-single_source@android_native_arm32@main`
 			)
 		)
 	),
@@ -1245,8 +779,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm32@test`,
-				`common-single_source@android_native_arm32@test`,
-				`library-single_source@common@test`
+				`common-single_source@android_native_arm32@test`
 			)
 		)
 	),
@@ -1255,8 +788,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm64@main`,
-				`common-single_source@android_native_arm64@main`,
-				`library-single_source@common@main`
+				`common-single_source@android_native_arm64@main`
 			)
 		)
 	),
@@ -1265,8 +797,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@android_native_arm64@test`,
-				`common-single_source@android_native_arm64@test`,
-				`library-single_source@common@test`
+				`common-single_source@android_native_arm64@test`
 			)
 		)
 	),
@@ -1275,8 +806,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm32@main`,
-				`common-single_source@ios_arm32@main`,
-				`library-single_source@common@main`
+				`common-single_source@ios_arm32@main`
 			)
 		)
 	),
@@ -1285,8 +815,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm32@test`,
-				`common-single_source@ios_arm32@test`,
-				`library-single_source@common@test`
+				`common-single_source@ios_arm32@test`
 			)
 		)
 	),
@@ -1295,8 +824,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm64@main`,
-				`common-single_source@ios_arm64@main`,
-				`library-single_source@common@main`
+				`common-single_source@ios_arm64@main`
 			)
 		)
 	),
@@ -1305,8 +833,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_arm64@test`,
-				`common-single_source@ios_arm64@test`,
-				`library-single_source@common@test`
+				`common-single_source@ios_arm64@test`
 			)
 		)
 	),
@@ -1315,8 +842,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@main`,
-				`common-single_source@ios_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@ios_x64@main`
 			)
 		)
 	),
@@ -1325,8 +851,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@ios_x64@test`,
-				`common-single_source@ios_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@ios_x64@test`
 			)
 		)
 	),
@@ -1335,8 +860,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@main`,
-				`common-single_source@js@main`,
-				`library-single_source@common@main`
+				`common-single_source@js@main`
 			)
 		)
 	),
@@ -1345,8 +869,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@js@test`,
-				`common-single_source@js@test`,
-				`library-single_source@common@test`
+				`common-single_source@js@test`
 			)
 		)
 	),
@@ -1355,8 +878,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@main`,
-				`common-single_source@jvm@main`,
-				`library-single_source@common@main`
+				`common-single_source@jvm@main`
 			)
 		)
 	),
@@ -1365,8 +887,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@jvm@test`,
-				`common-single_source@jvm@test`,
-				`library-single_source@common@test`
+				`common-single_source@jvm@test`
 			)
 		)
 	),
@@ -1375,8 +896,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_arm32_hfp@main`,
-				`common-single_source@linux_arm32_hfp@main`,
-				`library-single_source@common@main`
+				`common-single_source@linux_arm32_hfp@main`
 			)
 		)
 	),
@@ -1385,8 +905,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_arm32_hfp@test`,
-				`common-single_source@linux_arm32_hfp@test`,
-				`library-single_source@common@test`
+				`common-single_source@linux_arm32_hfp@test`
 			)
 		)
 	),
@@ -1395,8 +914,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mips32@main`,
-				`common-single_source@linux_mips32@main`,
-				`library-single_source@common@main`
+				`common-single_source@linux_mips32@main`
 			)
 		)
 	),
@@ -1405,8 +923,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mips32@test`,
-				`common-single_source@linux_mips32@test`,
-				`library-single_source@common@test`
+				`common-single_source@linux_mips32@test`
 			)
 		)
 	),
@@ -1415,8 +932,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mipsel32@main`,
-				`common-single_source@linux_mipsel32@main`,
-				`library-single_source@common@main`
+				`common-single_source@linux_mipsel32@main`
 			)
 		)
 	),
@@ -1425,8 +941,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_mipsel32@test`,
-				`common-single_source@linux_mipsel32@test`,
-				`library-single_source@common@test`
+				`common-single_source@linux_mipsel32@test`
 			)
 		)
 	),
@@ -1435,8 +950,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_x64@main`,
-				`common-single_source@linux_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@linux_x64@main`
 			)
 		)
 	),
@@ -1445,8 +959,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@linux_x64@test`,
-				`common-single_source@linux_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@linux_x64@test`
 			)
 		)
 	),
@@ -1455,8 +968,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@macos_x64@main`,
-				`common-single_source@macos_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@macos_x64@main`
 			)
 		)
 	),
@@ -1465,8 +977,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@macos_x64@test`,
-				`common-single_source@macos_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@macos_x64@test`
 			)
 		)
 	),
@@ -1475,8 +986,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x64@main`,
-				`common-single_source@mingw_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@mingw_x64@main`
 			)
 		)
 	),
@@ -1485,8 +995,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x64@test`,
-				`common-single_source@mingw_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@mingw_x64@test`
 			)
 		)
 	),
@@ -1495,8 +1004,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x86@main`,
-				`common-single_source@mingw_x86@main`,
-				`library-single_source@common@main`
+				`common-single_source@mingw_x86@main`
 			)
 		)
 	),
@@ -1505,8 +1013,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@mingw_x86@test`,
-				`common-single_source@mingw_x86@test`,
-				`library-single_source@common@test`
+				`common-single_source@mingw_x86@test`
 			)
 		)
 	),
@@ -1515,8 +1022,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_arm64@main`,
-				`common-single_source@tvos_arm64@main`,
-				`library-single_source@common@main`
+				`common-single_source@tvos_arm64@main`
 			)
 		)
 	),
@@ -1525,8 +1031,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_arm64@test`,
-				`common-single_source@tvos_arm64@test`,
-				`library-single_source@common@test`
+				`common-single_source@tvos_arm64@test`
 			)
 		)
 	),
@@ -1535,8 +1040,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_x64@main`,
-				`common-single_source@tvos_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@tvos_x64@main`
 			)
 		)
 	),
@@ -1545,8 +1049,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@tvos_x64@test`,
-				`common-single_source@tvos_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@tvos_x64@test`
 			)
 		)
 	),
@@ -1555,8 +1058,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@main`,
-				`common-single_source@wasm32@main`,
-				`library-single_source@common@main`
+				`common-single_source@wasm32@main`
 			)
 		)
 	),
@@ -1565,8 +1067,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@wasm32@test`,
-				`common-single_source@wasm32@test`,
-				`library-single_source@common@test`
+				`common-single_source@wasm32@test`
 			)
 		)
 	),
@@ -1575,8 +1076,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm32@main`,
-				`common-single_source@watchos_arm32@main`,
-				`library-single_source@common@main`
+				`common-single_source@watchos_arm32@main`
 			)
 		)
 	),
@@ -1585,8 +1085,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm32@test`,
-				`common-single_source@watchos_arm32@test`,
-				`library-single_source@common@test`
+				`common-single_source@watchos_arm32@test`
 			)
 		)
 	),
@@ -1595,8 +1094,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm64@main`,
-				`common-single_source@watchos_arm64@main`,
-				`library-single_source@common@main`
+				`common-single_source@watchos_arm64@main`
 			)
 		)
 	),
@@ -1605,8 +1103,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_arm64@test`,
-				`common-single_source@watchos_arm64@test`,
-				`library-single_source@common@test`
+				`common-single_source@watchos_arm64@test`
 			)
 		)
 	),
@@ -1615,8 +1112,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x64@main`,
-				`common-single_source@watchos_x64@main`,
-				`library-single_source@common@main`
+				`common-single_source@watchos_x64@main`
 			)
 		)
 	),
@@ -1625,8 +1121,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x64@test`,
-				`common-single_source@watchos_x64@test`,
-				`library-single_source@common@test`
+				`common-single_source@watchos_x64@test`
 			)
 		)
 	),
@@ -1635,8 +1130,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x86@main`,
-				`common-single_source@watchos_x86@main`,
-				`library-single_source@common@main`
+				`common-single_source@watchos_x86@main`
 			)
 		)
 	),
@@ -1645,8 +1139,7 @@ enum class SourceSetEnum(
 		dependencies = Dependencies(
 			sourceSets = mutableSetOf(
 				`common-multiple_sources@watchos_x86@test`,
-				`common-single_source@watchos_x86@test`,
-				`library-single_source@common@test`
+				`common-single_source@watchos_x86@test`
 			)
 		)
 	),
@@ -2168,6 +1661,13 @@ enum class SourceSetEnum(
 		fun getTestByTarget(target: TargetEnum): SourceSetEnum? {
 			return getByTargetAndCompilation(target, CompilationEnum.test)
 		}
+	}
+
+	fun isCompilationPair(sourceSet: SourceSetEnum): Boolean {
+		val thisPrefix = this.kotlinId!!.removeSuffix(CompilationEnum.main.name.capitalize()).removeSuffix(CompilationEnum.main.name.capitalize())
+		val otherPrefix = sourceSet.kotlinId!!.removeSuffix(CompilationEnum.main.name.capitalize()).removeSuffix(CompilationEnum.main.name.capitalize())
+
+		return thisPrefix == otherPrefix
 	}
 
 	/**
