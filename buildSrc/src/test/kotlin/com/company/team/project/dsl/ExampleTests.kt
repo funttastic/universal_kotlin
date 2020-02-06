@@ -1,7 +1,7 @@
 package com.company.team.project.dsl
 
-import org.junit.Assert
 import org.junit.Test
+import org.junit.Assert.assertEquals
 
 /**
  *
@@ -13,6 +13,6 @@ class ExampleTests {
 	 */
 	@Test
 	fun exampleValueCannotBeEmpty() {
-		Assert.assertTrue(exampleFunction().isNotEmpty())
+		assertEquals(2, exampleFunction().size)
 	}
 }

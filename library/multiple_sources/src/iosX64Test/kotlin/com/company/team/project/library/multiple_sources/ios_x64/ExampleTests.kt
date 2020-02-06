@@ -13,6 +13,6 @@ class ExampleTests {
 	 */
 	@Test
 	fun exampleValueCannotBeEmpty() {
-		assertTrue(exampleFunction().isNotEmpty())
+		assertEquals(2, exampleFunction().size)
 	}
 }
