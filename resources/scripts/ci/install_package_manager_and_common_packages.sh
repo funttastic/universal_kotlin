@@ -10,12 +10,14 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
-	apt-get update && apt install unzip zip curl sed -y
+	apt update
+	apt install unzip zip curl sed -y
 
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
+	brew upgrade
 #	brew install unzip zip curl sed
 
 	curl -s "https://get.sdkman.io" | bash

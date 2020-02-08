@@ -7,7 +7,7 @@ environment:
     ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
     GRADLE_OPTS: "-Xmx3048m -Xms3048m"
 install:
-  - ps: $env:Path = "%ProgramFiles%\Git\bin;$env:Path"
+  - ps: $env:Path = "C:\Program Files\Git\bin;$env:Path"
   - bash resources/scripts/ci/install_package_manager_and_common_packages.sh
 #  - bash resources/scripts/ci/install_java.sh
 #  - resources/scripts/ci/install_android_sdk.bat
