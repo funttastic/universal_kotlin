@@ -41,12 +41,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 
 	printf "Installing Android SDK:\n"
 	if [ -d "$ANDROID_HOME" ]; then rm -rf $ANDROID_HOME; fi
-	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip
-	7z x sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip -o$ANDROID_HOME > nul
-	tree $ANDROID_HOME
-	echo off
-	yes | "$ANDROID_HOME\\tools\\bin\\sdkmanager.bat" --licenses
-	echo on
+	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
+	unzip -q $HOME/tools.zip -d $ANDROID_HOME
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager.bat --licenses
+	rm -rf $HOME/tools.zip
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
@@ -82,6 +80,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	curl -L "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+	rm -rf $HOME/tools.zip
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
@@ -121,6 +120,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	curl -L "https://dl.google.com/android/repository/sdk-tools-darwin-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+	rm -rf $HOME/tools.zip
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
