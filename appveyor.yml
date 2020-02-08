@@ -4,7 +4,7 @@ environment:
     BASH_ENV: ~/.bashrc
     BUILD_CI: APPVEYOR
     BUILD_OS: WINDOWS
-    ANDROID_HOME: "%ProgramFiles(x86)%\\Android\\android-sdk"
+    ANDROID_HOME: /c/Program\ Files\ \(x86\)/Android/android-sdk
     GRADLE_OPTS: "-Xmx3048m -Xms3048m"
 install:
   - ps: $env:Path = "C:\Program Files\Git\bin;$env:Path"
