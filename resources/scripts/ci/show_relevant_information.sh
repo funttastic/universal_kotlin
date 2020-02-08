@@ -21,5 +21,5 @@ npm --version
 
 printf "Environment Variables:\n"
 set +e
-env
+( set -o posix ; set ) | sort
 set -e
