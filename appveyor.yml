@@ -10,5 +10,4 @@ install:
   - ps: $env:Path = "C:\Program Files\Git\bin;$env:Path"
   - bash resources/scripts/ci/prepare.sh
 build_script:
-  - echo "Finished"
-#  - bash resources/scripts/complete_run.sh
+  - bash resources/scripts/complete_run.sh

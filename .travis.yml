@@ -13,7 +13,6 @@ matrix:
         - ./resources/scripts/ci/prepare.sh
       install: true
       script:
-        - echo "Finished"
-#        - ./resources/scripts/complete_run.sh
+        - ./resources/scripts/complete_run.sh
   allow_failures:
     env: ALLOW_FAILURE=true
