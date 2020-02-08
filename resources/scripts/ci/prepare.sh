@@ -12,7 +12,7 @@ ANDROID_SDK_TOOLS_VERSION="4333796"
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	ls -la "/c/Program Files/Android/android-sdk"
+	ls -la "/c/Program Files/Android"
 	exit
 
 	printf "Updating package manager:\n"
