@@ -148,5 +148,6 @@ printf "NPM:\n"
 npm --version
 
 printf "Environment Variables:\n"
+set +e
 env
-
+set -e
