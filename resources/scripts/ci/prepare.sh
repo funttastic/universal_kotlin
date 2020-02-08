@@ -12,6 +12,10 @@ ANDROID_SDK_TOOLS_VERSION="4333796"
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
+	ls -la "/c/Program\ Files"
+	ls -la "/c/Program\ Files\ \(x86\)/"
+	exit
+
 	printf "Updating package manager:\n"
 	choco upgrade chocolatey
 
@@ -40,7 +44,6 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	ls -la "/c/Program\ Files\ \(x86\)/"
 	if [ -d "$ANDROID_HOME" ]; then rm -rf "$ANDROID_HOME"; fi
 	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
 	mkdir -p "$ANDROID_HOME"
