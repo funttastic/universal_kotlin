@@ -10,12 +10,7 @@ matrix:
         - ANDROID_HOME=$HOME/android-sdk
         - GRADLE_OPTS="-Xmx3048m -Xms3048m"
       before_install:
-        - ./resources/scripts/ci/install_package_manager_and_common_packages.sh
-#        - ./resources/scripts/ci/install_java.sh
-#        - source "$HOME/.sdkman/bin/sdkman-init.sh"
-#        - ./resources/scripts/ci/install_android_sdk.sh
-#        - ./resources/scripts/ci/install_npm.sh
-#        - ./resources/scripts/ci/show_relevant_information.sh
+        - ./resources/scripts/ci/prepare.sh
       install: true
       script:
         - echo "Finished"

@@ -10,6 +10,9 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	echo "Installing common packages from the package manager:"
 	choco install nvm zip
 
+	echo "Upgrading NPM:"
+	npm install -g npm
+
 	echo "Installing SDKMAN!:"
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -35,6 +38,9 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	echo "Installing common packages from the package manager:"
 	apt install unzip zip curl sed -y
 
+	echo "Upgrading NPM:"
+	npm install -g npm
+
 	echo "Installing SDKMAN!:"
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -55,7 +61,11 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	brew upgrade
 
 	echo "Installing common packages from the package manager:"
+	echo "Nothing to install"
 #	brew install unzip zip curl sed
+
+	echo "Upgrading NPM:"
+	npm install -g npm
 
 	echo "Installing SDKMAN!:"
 	curl -s "https://get.sdkman.io" | bash
@@ -75,6 +85,9 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 else
 	echo "Unrecognized CI $BUILD_CI with OS $BUILD_OS."
 fi
+
+echo "Relevant information:"
+echo "====================="
 
 echo "Java:"
 java -version

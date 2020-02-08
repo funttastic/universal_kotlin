@@ -8,10 +8,7 @@ environment:
     GRADLE_OPTS: "-Xmx3048m -Xms3048m"
 install:
   - ps: $env:Path = "C:\Program Files\Git\bin;$env:Path"
-  - bash resources/scripts/ci/install_package_manager_and_common_packages.sh
-#  - bash resources/scripts/ci/install_java.sh
-#  - resources/scripts/ci/install_android_sdk.bat
-#  - bash resources/scripts/ci/show_relevant_information.sh
+  - bash resources/scripts/ci/prepare.sh
 build_script:
   - echo "Finished"
 #  - bash resources/scripts/complete_run.sh

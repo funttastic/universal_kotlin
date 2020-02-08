@@ -12,12 +12,8 @@ jobs:
       GRADLE_OPTS: -Xmx3048m -Xms3048m
     steps:
       - checkout
-      - run: ./resources/scripts/ci/install_package_manager_and_common_packages.sh
+      - run: ./resources/scripts/ci/prepare.sh
       - run: echo "Finished"
-#      - run: ./resources/scripts/ci/install_java.sh
-#      - run: ./resources/scripts/ci/install_android_sdk.sh
-#      - run: ./resources/scripts/ci/install_npm.sh
-#      - run: ./resources/scripts/ci/show_relevant_information.sh
 #      - run: ./resources/scripts/complete_run.sh
 workflows:
   version: 2
