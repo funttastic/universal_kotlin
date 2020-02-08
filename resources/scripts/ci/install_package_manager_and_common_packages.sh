@@ -3,7 +3,7 @@ echo "OS: $BUILD_OS"
 
 echo "Installing and updating system packages:"
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	echo "Skipping"
+	choco upgrade chocolatey
 elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	apt-get update && apt install unzip zip curl sed -y
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
