@@ -40,7 +40,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	cmd "/C ./resources/scripts/ci/install_android_sdk.bat"
+	echo "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
+	echo "https://dl.google.com/android/repository/sdk-tools-windows-%ANDROID_SDK_TOOLS_VERSION%.zip"
+	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip
+	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-%ANDROID_SDK_TOOLS_VERSION%.zip
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
