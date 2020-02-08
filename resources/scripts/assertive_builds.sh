@@ -1,6 +1,6 @@
 set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
-trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
+trap 'echo "\"${last_command}\" command finshied with exit code $?."' EXIT
 
 printf "Assertive common-multiple_sources:\n"
 ./gradlew --stacktrace :common-multiple_sources:publishToMavenLocal
