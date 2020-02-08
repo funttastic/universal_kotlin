@@ -15,10 +15,12 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
 
 	printf "Installing common packages from the package manager:\n"
-	choco install zip
+	choco install zip nvm
 
 	printf "Installing NVM:\n"
-	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
+	tree ~/.nvm
+	source ~/.nvm/nvm.sh
+	[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
@@ -53,6 +55,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 
 	printf "Installing NVM:\n"
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
+	[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
@@ -85,6 +88,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 
 	printf "Installing NVM:\n"
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
+	[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
