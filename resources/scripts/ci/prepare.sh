@@ -100,7 +100,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 
-	printf "Installing Java $JAVA_VERSION:\n"
+#	printf "Installing Java $JAVA_VERSION:\n"
 	sdk install java $JAVA_VERSION
 
 	printf "Installing KScript:\n"
