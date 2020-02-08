@@ -80,10 +80,11 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	printf "Updating package manager:\n"
-	brew upgrade
+	echo "Skipping upgrade."
+#	brew upgrade
 
 	printf "Installing common packages from the package manager:\n"
-	printf "Nothing to install\n"
+	printf "Skipping packages installation."
 #	brew install unzip zip curl sed
 
 	printf "Installing NVM:\n"
