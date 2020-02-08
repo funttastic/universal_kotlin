@@ -7,7 +7,7 @@ echo "OS: $BUILD_OS"
 
 NVM_VERSION="0.35.2"
 JAVA_VERSION="8.0.232.fx-zulu"
-ANDROID_SDK_TOOLS_VERSION="4333796"
+ANDROID_SDK_TOOLS_VERSION="$ANDROID_SDK_TOOLS_VERSION"
 
 printf "\n\n"
 
@@ -42,9 +42,9 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	printf "Installing Android SDK:\n"
 #	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
 	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
-	7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
+	7z x "sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
 	echo off
-	cmd "/C yes | \"%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat\" --licenses"
+	yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
 	echo on
 
 	printf "Installing Gradle:\n"
