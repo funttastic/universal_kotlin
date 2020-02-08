@@ -15,7 +15,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
 
 	printf "Installing common packages from the package manager:\n"
-	choco install zip nvm
+	choco install zip nvm tree
 
 	printf "Installing NVM:\n"
 	tree ~/.nvm
