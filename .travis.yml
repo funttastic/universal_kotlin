@@ -7,7 +7,7 @@ matrix:
         - BUILD_CI=TRAVIS
         - BUILD_OS=MAC_OS
         - BASH_ENV=~/.bashrc
-        - ANDROID_HOME=$HOME/android-sdk
+        - ANDROID_HOME=$HOME/Library/Android/sdk
         - GRADLE_OPTS="-Xmx3048m -Xms3048m"
       before_install:
         - ./resources/scripts/ci/prepare.sh
