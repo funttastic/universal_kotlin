@@ -35,7 +35,7 @@ printf "Assertive application-mobile-native-apple-ios-ios_x64_framework:\n"
 printf "Assertive application-mobile-native-apple-ios-ios_x64_with_framework:\n"
 
 printf "Assertive application-script-jvm-script:\n"
-#kscript application/script/jvm/script/src/main/kotlin/com/company/team/project/application/script/jvm/script/Example.kt
+kscript application/script/jvm/script/src/main/kotlin/com/company/team/project/application/script/jvm/script/Example.kt
 
 printf "Assertive application-terminal-jvm-terminal:\n"
 ./gradlew --stacktrace :application-terminal-jvm-terminal:shadowJar
