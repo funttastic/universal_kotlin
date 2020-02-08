@@ -12,7 +12,7 @@ class ExampleTests {
 	 *
 	 */
 	@Test
-	fun `Should have the expected amount of included modules`() {
+	fun shouldHaveTheExpectedAmountOfIncludedModules() {
 		assertEquals(1, exampleFunction().size)
 	}
 }
