@@ -15,10 +15,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
 
 	printf "Installing common packages from the package manager:\n"
-	choco install zip nvm tree
+	choco install zip nvm
 
 	printf "Installing NVM:\n"
-	cmd /c "call refreshenv"
+	cmd /c "refreshenv"
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
