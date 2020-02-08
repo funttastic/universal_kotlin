@@ -41,7 +41,8 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 
 	printf "Installing Android SDK:\n"
 #	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
-	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-%ANDROID_SDK_TOOLS_VERSION%.zip"
+	link="https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
+	appveyor DownloadFile %link%
 	7z x "sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o"%ANDROID_HOME%" > nul
 	tree $ANDROID_HOME
 	echo off
