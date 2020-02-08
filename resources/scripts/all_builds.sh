@@ -32,8 +32,8 @@ time (./gradlew --stacktrace :application-desktop-jvm-tornado_fx:build)
 printf "\n\nBuilding application-mobile-jvm-android:\n"
 time (./gradlew --stacktrace :application-mobile-jvm-android:build)
 
-printf "\n\nBuilding application-mobile-native-apple-ios-ios_x64:\n"
-time (./gradlew --stacktrace :application-mobile-native-apple-ios-ios_x64:build)
+printf "\n\nBuilding application-mobile-native-apple-ios-ios_x64_without_framework:\n"
+time (./gradlew --stacktrace :application-mobile-native-apple-ios-ios_x64_without_framework:build)
 
 printf "\n\nBuilding application-mobile-native-apple-ios-ios_x64_copying_framework:\n"
 time (./gradlew --stacktrace :application-mobile-native-apple-ios-ios_x64_copying_framework:build)
