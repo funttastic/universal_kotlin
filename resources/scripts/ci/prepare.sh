@@ -5,6 +5,7 @@ trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
 echo "CI: $BUILD_CI"
 echo "OS: $BUILD_OS"
 
+NVM_VERSION="0.35.2"
 JAVA_VERSION="8.0.232.fx-zulu"
 
 printf "\n\n"
@@ -14,7 +15,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
 
 	printf "Installing common packages from the package manager:\n"
-	choco install nvm zip
+	choco install zip
+
+	printf "Installing NVM:\n"
+	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
@@ -47,6 +51,9 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	printf "Installing common packages from the package manager:\n"
 	apt install unzip zip curl sed -y
 
+	printf "Installing NVM:\n"
+	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
+
 	printf "Installing latest NodeJS:\n"
 	nvm install node
 
@@ -75,6 +82,9 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	printf "Installing common packages from the package manager:\n"
 	printf "Nothing to install\n"
 #	brew install unzip zip curl sed
+
+	printf "Installing NVM:\n"
+	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
