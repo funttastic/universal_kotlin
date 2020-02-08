@@ -4,7 +4,7 @@ echo "OS: $BUILD_OS"
 echo "Installing and updating system packages:"
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
-	choco install nvm
+	choco install nvm zip
 
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
