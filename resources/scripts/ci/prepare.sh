@@ -39,7 +39,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	if exist "%ProgramFiles(x86)%\\Android\\android-sdk" rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
+#	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
 	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
 	7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
 	echo off
