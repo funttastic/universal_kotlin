@@ -18,8 +18,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco install zip nvm tree
 
 	printf "Installing NVM:\n"
-	cmd /c "call RefreshEnv.cmd"
-	cmd.exe /c "call RefreshEnv.cmd"
+	cmd /c "call refreshenv"
 
 	printf "Installing latest NodeJS:\n"
 	nvm install node
