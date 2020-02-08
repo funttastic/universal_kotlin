@@ -10,7 +10,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	echo "Installing common packages from the package manager:"
 	choco install nvm zip
 
-	echo "Upgrading NPM:"
+	ecno "Installing latest NodeJS:"
+	nvm install node
+
+	echo "Installing latest NPM:"
 	npm install -g npm
 
 	echo "Installing SDKMAN!:"
@@ -38,7 +41,10 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	echo "Installing common packages from the package manager:"
 	apt install unzip zip curl sed -y
 
-	echo "Upgrading NPM:"
+	ecno "Installing latest NodeJS:"
+	nvm install node
+
+	echo "Installing latest NPM:"
 	npm install -g npm
 
 	echo "Installing SDKMAN!:"
@@ -64,7 +70,10 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	echo "Nothing to install"
 #	brew install unzip zip curl sed
 
-	echo "Upgrading NPM:"
+	ecno "Installing latest NodeJS:"
+	nvm install node
+
+	echo "Installing latest NPM:"
 	npm install -g npm
 
 	echo "Installing SDKMAN!:"
