@@ -17,7 +17,8 @@ matrix:
 #        - ./resources/scripts/ci/install_npm.sh
 #        - ./resources/scripts/ci/show_relevant_information.sh
       install: true
-#      script:
+      script:
+        - echo "Finished"
 #        - ./resources/scripts/complete_run.sh
   allow_failures:
     env: ALLOW_FAILURE=true
