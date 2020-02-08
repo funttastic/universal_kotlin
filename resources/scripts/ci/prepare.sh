@@ -87,7 +87,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	mkdir -p "$ANDROID_HOME"
 	curl -L "$ANDROID_SDK_TOOLS_URL_PREFIX-linux-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
 	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
-	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager" --licenses
 	rm -rf "$HOME/tools.zip"
 
 	printf "Installing Gradle:\n"
@@ -131,7 +131,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	mkdir -p "$ANDROID_HOME"
 	curl -L "$ANDROID_SDK_TOOLS_URL_PREFIX-darwin-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
 	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
-	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager" --licenses
 	rm -rf "$HOME/tools.zip"
 
 	printf "Installing Gradle:\n"
