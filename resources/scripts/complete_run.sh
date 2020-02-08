@@ -1,3 +1,7 @@
 scriptDir=`dirname "$0"`
-$scriptDir/all_builds.sh
-$scriptDir/assertive_builds.sh
+
+printf "All Builds:\n"
+time $scriptDir/all_builds.sh
+
+printf "\n\nAssertive Builds:\n"
+time $scriptDir/assertive_builds.sh
