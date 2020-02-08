@@ -57,7 +57,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	apt update
 
 	printf "Installing common packages from the package manager:\n"
-	apt install unzip zip curl sed -y
+	apt install unzip zip curl sed libncurses5 -y
 
 	printf "Installing NVM:\n"
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
