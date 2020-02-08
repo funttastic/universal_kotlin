@@ -12,9 +12,15 @@ ANDROID_SDK_TOOLS_VERSION="4333796"
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	echo "$LOCALAPPDATA"
-	echo "%LOCALAPPDATA%"
-	ls -la "/c/Program Files/Android"
+	echo "$ANDROID_HOME"
+	if [ -d "$ANDROID_HOME" ]; then
+		rm -rf "$ANDROID_HOME";
+	fi
+	mkdir -p "$ANDROID_HOME"
+	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
+	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
+	rm -rf "$HOME/tools.zip"
 	exit
 
 	printf "Updating package manager:\n"
