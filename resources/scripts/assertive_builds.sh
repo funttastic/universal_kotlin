@@ -41,4 +41,4 @@ printf "Assertive application-terminal-jvm-terminal:\n"
 ./gradlew --stacktrace :application-terminal-jvm-terminal:shadowJar
 java -jar application/terminal/jvm/terminal/build/libs/application-terminal-jvm-terminal-0.0.1-all.jar
 
-printf "Assertive all:\n"
+#printf "Assertive all:\n"

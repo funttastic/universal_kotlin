@@ -16,7 +16,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco upgrade chocolatey
 
 	printf "Installing common packages from the package manager:\n"
-	choco install zip nvm nodejs
+	choco install zip nvm nodejs tree
 
 #	printf "Installing NVM:\n"
 #	cmd "/C refreshenv"
@@ -43,6 +43,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 #	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
 	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
 	7z x "sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
+	tree "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin"
 	echo off
 	yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
 	echo on
