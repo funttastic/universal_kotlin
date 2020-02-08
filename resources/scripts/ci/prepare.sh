@@ -20,10 +20,11 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	printf "Installing NVM:\n"
 	echo "$PATH"
 	export PATH="/c/ProgramData/nvm:$PATH"
+	echo "$PATH"
 	tree /c/ProgramData/nvm
 
 	printf "Installing latest NodeJS:\n"
-	nvm install node
+	/c/ProgramData/nvm/nvm.exe install node
 
 	printf "Installing latest NPM:\n"
 	npm install -g npm
