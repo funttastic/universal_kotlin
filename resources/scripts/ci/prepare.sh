@@ -1,5 +1,5 @@
-set -e
-trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+#set -e
+#trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 #trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
 
 echo "CI: $BUILD_CI"
@@ -127,8 +127,8 @@ printf "Gradle:\n"
 printf "SDKMAN!:\n"
 sdk version
 
-printf "NVM:\n"
-nvm --version
+#printf "NVM:\n"
+#nvm --version
 
 printf "NodeJS:\n"
 node --version
