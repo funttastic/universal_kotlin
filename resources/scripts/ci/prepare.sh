@@ -7,22 +7,12 @@ echo "OS: $BUILD_OS"
 
 NVM_VERSION="0.35.2"
 JAVA_VERSION="8.0.232.fx-zulu"
+ANDROID_SDK_TOOLS_URL_PREFIX="https://dl.google.com/android/repository/sdk-tools"
 ANDROID_SDK_TOOLS_VERSION="4333796"
 
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	echo "$ANDROID_HOME"
-	if [ -d "$ANDROID_HOME" ]; then
-		rm -rf "$ANDROID_HOME";
-	fi
-	mkdir -p "$ANDROID_HOME"
-	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
-	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
-	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
-	rm -rf "$HOME/tools.zip"
-	exit
-
 	printf "Updating package manager:\n"
 	choco upgrade chocolatey
 
@@ -51,9 +41,11 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	if [ -d "$ANDROID_HOME" ]; then rm -rf "$ANDROID_HOME"; fi
-	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
+	if [ -d "$ANDROID_HOME" ]; then
+		rm -rf "$ANDROID_HOME";
+	fi
 	mkdir -p "$ANDROID_HOME"
+	curl -L "$ANDROID_SDK_TOOLS_URL_PREFIX-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
 	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
 	rm -rf "$HOME/tools.zip"
@@ -61,7 +53,6 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
 elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
-	exit
 	printf "Updating package manager:\n"
 	apt update
 
@@ -90,15 +81,18 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	curl -L "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
-	unzip -q $HOME/tools.zip -d $ANDROID_HOME
-	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
-	rm -rf $HOME/tools.zip
+	if [ -d "$ANDROID_HOME" ]; then
+		rm -rf "$ANDROID_HOME";
+	fi
+	mkdir -p "$ANDROID_HOME"
+	curl -L "$ANDROID_SDK_TOOLS_URL_PREFIX-linux-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
+	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
+	rm -rf "$HOME/tools.zip"
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
-	exit
 	printf "Updating package manager:\n"
 	echo "Skipping upgrade."
 #	brew upgrade
@@ -131,10 +125,14 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	curl -L "https://dl.google.com/android/repository/sdk-tools-darwin-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
-	unzip -q $HOME/tools.zip -d $ANDROID_HOME
-	yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
-	rm -rf $HOME/tools.zip
+	if [ -d "$ANDROID_HOME" ]; then
+		rm -rf "$ANDROID_HOME";
+	fi
+	mkdir -p "$ANDROID_HOME"
+	curl -L "$ANDROID_SDK_TOOLS_URL_PREFIX-darwin-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
+	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
+	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
+	rm -rf "$HOME/tools.zip"
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
