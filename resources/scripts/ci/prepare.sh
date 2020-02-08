@@ -12,6 +12,8 @@ ANDROID_SDK_TOOLS_VERSION="4333796"
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
+	echo "$LOCALAPPDATA"
+	echo "%LOCALAPPDATA%"
 	ls -la "/c/Program Files/Android"
 	exit
 
@@ -53,6 +55,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
 elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
+	exit
 	printf "Updating package manager:\n"
 	apt update
 
@@ -89,6 +92,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
+	exit
 	printf "Updating package manager:\n"
 	echo "Skipping upgrade."
 #	brew upgrade
