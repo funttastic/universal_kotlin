@@ -18,7 +18,8 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	choco install zip nvm tree
 
 	printf "Installing NVM:\n"
-	$env:Path = "C:\ProgramData\nvm;$env:Path"
+	echo "$PATH"
+	export PATH="/c/ProgramData/nvm:$PATH"
 	tree /c/ProgramData/nvm
 
 	printf "Installing latest NodeJS:\n"
