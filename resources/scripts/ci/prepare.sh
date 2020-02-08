@@ -40,7 +40,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	cmd "/C resources/scripts/ci/install_android_sdk.bat"
+	cmd "/C 'resources/scripts/ci/install_android_sdk.bat'"
 
 	printf "Installing Gradle:\n"
 	./gradlew --stacktrace --version
