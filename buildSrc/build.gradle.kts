@@ -38,6 +38,9 @@ repositories {
 dependencies {
 	val kotlinVersion = project.properties["kotlin.version"]
 
+	compile("javassist:javassist:3.12.1.GA")
+	compile("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
+
 	testCompile("junit:junit:4.12")
 	compile("com.fasterxml.jackson.core:jackson-databind:2.9.8")
 	compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")

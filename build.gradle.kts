@@ -2,16 +2,13 @@ import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.extension.*
 import com.company.team.project.dsl.generateGraphvizDiagrams
-
-plugins {
-	kotlin("multiplatform")
-}
-
-Properties.projects.root.project = rootProject
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
 
 //com.company.team.project.dsl.Util.dumpConfigurations()
 
 buildscript {
+	com.company.team.project.dsl.model.Properties.projects.root.project = rootProject
+
 	val vendorProperties = com.company.team.project.dsl.model.Properties.vendor
 
 	repositories {
@@ -57,6 +54,8 @@ buildscript {
 //		classpath ("com.company.team.project:plugin-jvm-gradle")
 	}
 }
+
+Util.initialize(gradle.startParameter.taskNames)
 
 // TODO Fix
 //apply(plugin = "com.company.team.project:plugin-jvm-gradle")
@@ -120,10 +119,13 @@ allprojects {
 //	}
 }
 
-for (project in rootProject.allprojects) {
+rootProject.allprojects.forEach { project ->
 	// Force initialization of the module property
-	project.module.name
-	Util.logger.warn("""${project.group}:${project.name}:${project.version} - ${project.module.name} - ${Util.relativePathFromRoot(project.projectDir)}""")
+	if (project.module.status != enabled) {
+		project.tasks.all {
+			this.enabled = false
+		}
+	}
 }
 
 repositories {

@@ -46,7 +46,7 @@ object Util {
 	 *
 	 */
 	fun relativePathFromRoot(absolutePath: String): String? {
-		return Properties.projects.root.absolutePath?.let { absolutePath.removePrefix(it) }
+		return Properties.projects.root.absolutePath.let { absolutePath.removePrefix(it) }
 	}
 
 	/**

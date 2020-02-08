@@ -18,6 +18,12 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.*
 import org.jetbrains.kotlin.gradle.targets.js.KotlinJsTarget
 import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 import org.jetbrains.kotlin.xcodecompat.KotlinXcodeExtension
+import javassist.ClassPool
+import javassist.CtClass
+import javassist.CtMethod
+import javassist.CtNewMethod
+import javassist.Modifier
+//import org.jetbrains.kotlin.gradle.frontend.npm.NpmPackageManager
 
 /**
  *
@@ -548,3 +554,5 @@ fun KotlinXcodeExtension.setupTask(nativeBinary: NativeBinary) {
 fun SourceDirectorySet.setSrcDir(srcDir: String) {
 	this.setSrcDirs(listOf(srcDir))
 }
+
+//val mpmPackageManager: CtClass = ClassPool.getDefault().get(NpmPackageManager::class.java.qualifiedName)

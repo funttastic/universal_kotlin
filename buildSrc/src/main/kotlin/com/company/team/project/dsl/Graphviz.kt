@@ -87,7 +87,7 @@ fun generateModulesLinks(diagram: GraphvizDiagram, root: ModuleEnum = ModuleEnum
 
 fun save(diagram: GraphvizDiagram, content: String) {
 	Paths.get(
-		com.company.team.project.dsl.model.Properties.projects.root.absolutePath!!,
+		com.company.team.project.dsl.model.Properties.projects.root.absolutePath,
 		"resources/architecture/diagram/graphviz/definitions/${diagram.name}.txt"
 	).toFile().writeText(content)
 }
