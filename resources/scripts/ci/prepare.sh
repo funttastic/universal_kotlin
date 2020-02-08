@@ -41,11 +41,11 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 
 	printf "Installing Android SDK:\n"
 #	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
-	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
-	7z x "sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
-	tree "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin"
+	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-%ANDROID_SDK_TOOLS_VERSION%.zip"
+	7z x "sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o"%ANDROID_HOME%" > nul
+	tree $ANDROID_HOME
 	echo off
-	yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
+	yes | "%ANDROID_HOME%\\tools\\bin\\sdkmanager.bat" --licenses
 	echo on
 
 	printf "Installing Gradle:\n"
