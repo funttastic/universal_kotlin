@@ -7,8 +7,8 @@ jobs:
     environment:
       BUILD_CI: CIRCLE_CI
       BUILD_OS: LINUX
-      BASH_ENV: $HOME/.bashrc
-      ANDROID_HOME: $HOME/Android/Sdk
+      BASH_ENV: ~/.bashrc
+      ANDROID_HOME: ~/Android/Sdk
       GRADLE_OPTS: -Xmx3048m -Xms3048m
     steps:
       - checkout
