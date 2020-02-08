@@ -40,8 +40,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
+	ls -la "/c/Program\ Files\ \(x86\)/"
 	if [ -d "$ANDROID_HOME" ]; then rm -rf "$ANDROID_HOME"; fi
 	curl -L "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip" -o "$HOME/tools.zip"
+	mkdir -p "$ANDROID_HOME"
 	unzip -q "$HOME/tools.zip" -d "$ANDROID_HOME"
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | "$ANDROID_HOME/tools/bin/sdkmanager.bat" --licenses
 	rm -rf "$HOME/tools.zip"
