@@ -1,7 +1,5 @@
 scriptDir=`dirname "$0"`
 
-exit
-
 printf "All Builds:\n"
 time $scriptDir/all_builds.sh
 
