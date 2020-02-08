@@ -7,31 +7,33 @@ echo "OS: $BUILD_OS"
 
 JAVA_VERSION="8.0.232.fx-zulu"
 
+printf "\n\n"
+
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	echo "Updating package manager:"
+	printf "Updating package manager:\n"
 	choco upgrade chocolatey
 
-	echo "Installing common packages from the package manager:"
+	printf "Installing common packages from the package manager:\n"
 	choco install nvm zip
 
-	echo "Installing latest NodeJS:"
+	printf "Installing latest NodeJS:\n"
 	nvm install node
 
-	echo "Installing latest NPM:"
+	printf "Installing latest NPM:\n"
 	npm install -g npm
 
-	echo "Installing SDKMAN!:"
+	printf "Installing SDKMAN!:\n"
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 
-	echo "Installing Java $JAVA_VERSION:"
+	printf "Installing Java $JAVA_VERSION:\n"
 	sdk install java $JAVA_VERSION
 
-	echo "Installing KScript:"
+	printf "Installing KScript:\n"
 	sdk install kscript
 
-	echo "Installing Android SDK:"
+	printf "Installing Android SDK:\n"
 	RMDIR "%ProgramFiles(x86)%\\Android\\android-sdk" /S /Q
 	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
 	7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
@@ -39,75 +41,75 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
 	echo on
 elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
-	echo "Updating package manager:"
+	printf "Updating package manager:\n"
 	apt update
 
-	echo "Installing common packages from the package manager:"
+	printf "Installing common packages from the package manager:\n"
 	apt install unzip zip curl sed -y
 
-	echo "Installing latest NodeJS:"
+	printf "Installing latest NodeJS:\n"
 	nvm install node
 
-	echo "Installing latest NPM:"
+	printf "Installing latest NPM:\n"
 	npm install -g npm
 
-	echo "Installing SDKMAN!:"
+	printf "Installing SDKMAN!:\n"
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 
-	echo "Installing Java $JAVA_VERSION:"
+	printf "Installing Java $JAVA_VERSION:\n"
 	sdk install java $JAVA_VERSION
 
-	echo "Installing KScript:"
+	printf "Installing KScript:\n"
 	sdk install kscript
 
-	echo "Installing Android SDK:"
+	printf "Installing Android SDK:\n"
 	curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 elif [ "$BUILD_CI" == "TRAVIS" ]; then
-	echo "Updating package manager:"
+	printf "Updating package manager:\n"
 	brew upgrade
 
-	echo "Installing common packages from the package manager:"
-	echo "Nothing to install"
+	printf "Installing common packages from the package manager:\n"
+	printf "Nothing to install\n"
 #	brew install unzip zip curl sed
 
-	echo "Installing latest NodeJS:"
+	printf "Installing latest NodeJS:\n"
 	nvm install node
 
-	echo "Installing latest NPM:"
+	printf "Installing latest NPM:\n"
 	npm install -g npm
 
-	echo "Installing SDKMAN!:"
+	printf "Installing SDKMAN!:\n"
 	curl -s "https://get.sdkman.io" | bash
 	source "$HOME/.sdkman/bin/sdkman-init.sh"
 	sdk version
 
-	echo "Installing Java $JAVA_VERSION:"
+	printf "Installing Java $JAVA_VERSION:\n"
 	sdk install java $JAVA_VERSION
 
-	echo "Installing KScript:"
+	printf "Installing KScript:\n"
 	sdk install kscript
 
-	echo "Installing Android SDK:"
+	printf "Installing Android SDK:\n"
 	curl -L https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 else
-	echo "Unrecognized CI $BUILD_CI with OS $BUILD_OS."
+	printf "Unrecognized CI $BUILD_CI with OS $BUILD_OS.\n"
 fi
 
-echo "Relevant information:"
-echo "====================="
+printf "Relevant information:\n"
+printf "=====================\n"
 
-echo "Java:"
+printf "Java:\n"
 java -version
 
-echo "Gradle:"
+printf "Gradle:\n"
 ./gradlew --version
 
-echo "Environment Variables:"
+printf "Environment Variables:\n"
 env
 
