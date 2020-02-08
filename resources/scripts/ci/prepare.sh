@@ -7,6 +7,7 @@ echo "OS: $BUILD_OS"
 
 NVM_VERSION="0.35.2"
 JAVA_VERSION="8.0.232.fx-zulu"
+ANDROID_SDK_TOOLS_VERSION="4333796"
 
 printf "\n\n"
 
@@ -40,10 +41,10 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 
 	printf "Installing Android SDK:\n"
 #	rd /q /s "%ProgramFiles(x86)%\\Android\\android-sdk"
-	appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
+	appveyor DownloadFile "https://dl.google.com/android/repository/sdk-tools-windows-$ANDROID_SDK_TOOLS_VERSION.zip"
 	7z x sdk-tools-windows-4333796.zip -o"%ProgramFiles(x86)%\\Android\\android-sdk" > nul
 	echo off
-	yes | "%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat" --licenses
+	cmd "/C yes | \"%ProgramFiles(x86)%\\Android\\android-sdk\\tools\\bin\\sdkmanager.bat\" --licenses"
 	echo on
 
 	printf "Installing Gradle:\n"
@@ -77,7 +78,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	curl -L https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -o $HOME/tools.zip
+	curl -L "https://dl.google.com/android/repository/sdk-tools-linux-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	(echo y; echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
@@ -116,7 +117,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	sdk install kscript
 
 	printf "Installing Android SDK:\n"
-	curl -L https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip -o $HOME/tools.zip
+	curl -L "https://dl.google.com/android/repository/sdk-tools-darwin-$ANDROID_SDK_TOOLS_VERSION.zip" -o $HOME/tools.zip
 	unzip -q $HOME/tools.zip -d $ANDROID_HOME
 	yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
@@ -125,29 +126,3 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 else
 	printf "Unrecognized CI $BUILD_CI with OS $BUILD_OS.\n"
 fi
-
-printf "Relevant information:\n"
-printf "=====================\n"
-
-printf "Java:\n"
-java -version
-
-printf "Gradle:\n"
-./gradlew --version
-
-printf "SDKMAN!:\n"
-sdk version
-
-#printf "NVM:\n"
-#nvm --version
-
-printf "NodeJS:\n"
-node --version
-
-printf "NPM:\n"
-npm --version
-
-printf "Environment Variables:\n"
-set +e
-env
-set -e

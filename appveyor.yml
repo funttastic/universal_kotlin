@@ -9,5 +9,6 @@ environment:
 install:
   - ps: $env:Path = "C:\Program Files\Git\bin;$env:Path"
   - bash resources/scripts/ci/prepare.sh
+  - bash resources/scripts/ci/show_relevant_information.sh
 build_script:
   - bash resources/scripts/complete_run.sh

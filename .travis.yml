@@ -11,6 +11,7 @@ matrix:
         - GRADLE_OPTS="-Xmx3048m -Xms3048m"
       before_install:
         - ./resources/scripts/ci/prepare.sh
+        - ./resources/scripts/ci/show_relevant_information.sh
       install: true
       script:
         - ./resources/scripts/complete_run.sh
