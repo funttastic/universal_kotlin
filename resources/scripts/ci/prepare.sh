@@ -1,3 +1,7 @@
+set -e
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
+
 echo "CI: $BUILD_CI"
 echo "OS: $BUILD_OS"
 
@@ -10,7 +14,7 @@ if [ "$BUILD_CI" == "APPVEYOR" ]; then
 	echo "Installing common packages from the package manager:"
 	choco install nvm zip
 
-	ecno "Installing latest NodeJS:"
+	echo "Installing latest NodeJS:"
 	nvm install node
 
 	echo "Installing latest NPM:"
@@ -41,7 +45,7 @@ elif [ "$BUILD_CI" == "CIRCLE_CI" ]; then
 	echo "Installing common packages from the package manager:"
 	apt install unzip zip curl sed -y
 
-	ecno "Installing latest NodeJS:"
+	echo "Installing latest NodeJS:"
 	nvm install node
 
 	echo "Installing latest NPM:"
@@ -70,7 +74,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	echo "Nothing to install"
 #	brew install unzip zip curl sed
 
-	ecno "Installing latest NodeJS:"
+	echo "Installing latest NodeJS:"
 	nvm install node
 
 	echo "Installing latest NPM:"
