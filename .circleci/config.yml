@@ -16,7 +16,7 @@ jobs:
       - run: ./resources/scripts/ci/install_android_sdk.sh
       - run: ./resources/scripts/ci/install_npm.sh
       - run: ./resources/scripts/ci/show_relevant_information.sh
-      - run: ./resources/scripts/complete_run.sh
+#      - run: ./resources/scripts/complete_run.sh
 workflows:
   version: 2
   all:

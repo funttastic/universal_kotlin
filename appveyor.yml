@@ -11,5 +11,5 @@ install:
   - bash resources/scripts/ci/install_java.sh
   - resources/scripts/ci/install_android_sdk.bat
   - bash resources/scripts/ci/show_relevant_information.sh
-build_script:
-  - bash resources/scripts/complete_run.sh
+#build_script:
+#  - bash resources/scripts/complete_run.sh
