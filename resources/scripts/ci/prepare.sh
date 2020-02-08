@@ -12,8 +12,7 @@ ANDROID_SDK_TOOLS_VERSION="4333796"
 printf "\n\n"
 
 if [ "$BUILD_CI" == "APPVEYOR" ]; then
-	ls -la /c
-	ls -la "/c/Program\ Files"
+	ls -la "/c/Program Files"
 	ls -la "/c/Program\ Files\ \(x86\)/"
 	exit
 
