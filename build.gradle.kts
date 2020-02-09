@@ -2,23 +2,15 @@ import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.Properties
 import com.company.team.project.dsl.model.extension.*
 import com.company.team.project.dsl.generateGraphvizDiagrams
-
-plugins {
-	kotlin("multiplatform")
-}
-
-Properties.projects.root.project = rootProject
-
-//com.company.team.project.dsl.Util.dumpConfigurations()
+import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
 
 buildscript {
+	com.company.team.project.dsl.model.Properties.projects.root.project = rootProject
+
 	val vendorProperties = com.company.team.project.dsl.model.Properties.vendor
 
 	repositories {
-		// TODO Fix
-		flatDir {
-			dirs("plugin")
-		}
+		flatDir { dirs("plugin") }
 		mavenLocal()
 		gradlePluginPortal()
 		mavenCentral()
@@ -27,7 +19,7 @@ buildscript {
 		maven( url = "https://plugins.gradle.org/m2" )
 		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+//		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 
 		maven( url = "http://dl.bintray.com/kotlinx/kotlinx" )
 		maven( url = "https://kotlin.bintray.com/kotlinx" )
@@ -58,6 +50,8 @@ buildscript {
 	}
 }
 
+Util.initialize(gradle.startParameter.taskNames)
+
 // TODO Fix
 //apply(plugin = "com.company.team.project:plugin-jvm-gradle")
 
@@ -69,10 +63,14 @@ buildscript {
 
 allprojects {
 	repositories {
+		flatDir { dirs("plugin") }
+		mavenLocal()
+		gradlePluginPortal()
 		mavenCentral()
 		jcenter()
 		google()
-		mavenLocal()
+		maven( url = "https://plugins.gradle.org/m2" )
+		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 	}
@@ -120,10 +118,13 @@ allprojects {
 //	}
 }
 
-for (project in rootProject.allprojects) {
+rootProject.allprojects.forEach { project ->
 	// Force initialization of the module property
-	project.module.name
-	Util.logger.warn("""${project.group}:${project.name}:${project.version} - ${project.module.name} - ${Util.relativePathFromRoot(project.projectDir)}""")
+	if (project.module.status != enabled) {
+		project.tasks.all {
+			this.enabled = false
+		}
+	}
 }
 
 repositories {

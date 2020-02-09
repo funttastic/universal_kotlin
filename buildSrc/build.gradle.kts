@@ -20,10 +20,7 @@ group = project.properties["project.group"].toString()
 version = project.properties["project.version"].toString()
 
 repositories {
-	// TODO Fix
-	flatDir {
-		dirs("plugin")
-	}
+	flatDir { dirs("plugin") }
 	mavenLocal()
 	gradlePluginPortal()
 	mavenCentral()
@@ -32,7 +29,7 @@ repositories {
 	maven( url = "https://plugins.gradle.org/m2" )
 	maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 	maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+//	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 }
 
 dependencies {

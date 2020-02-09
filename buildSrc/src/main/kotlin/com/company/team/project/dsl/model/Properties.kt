@@ -74,7 +74,7 @@ object Properties {
 		 */
 		val gradle: Properties by lazy {
 			val relativePath = "gradle.properties"
-			val file = Paths.get(projects.root.descriptor?.projectDir?.absolutePath, relativePath).toFile()
+			val file = Paths.get(projects.root.absolutePath, relativePath).toFile()
 
 			val properties = Properties()
 
@@ -90,7 +90,7 @@ object Properties {
 		 */
 		val local: Properties by lazy {
 			val relativePath = "local.properties"
-			val file = Paths.get(projects.root.descriptor?.projectDir?.absolutePath, relativePath).toFile()
+			val file = Paths.get(projects.root.absolutePath, relativePath).toFile()
 
 			val properties = Properties()
 
@@ -106,7 +106,7 @@ object Properties {
 //		 */
 //		val configuration by lazy {
 //			String relativePath = "buildSrc/src/main/resources/configuration.yml"
-//			val path = Paths.get(projects.root.descriptor?.projectDir?.absolutePath, relativePath)
+//			val path = Paths.get(projects.root.absolutePath, relativePath)
 //
 //			val mapper = ObjectMapper(YAMLFactory())
 //			mapper.registerModule(KotlinModule())
@@ -178,40 +178,19 @@ object Properties {
 
 	object projects {
 		object root {
-			var descriptor: ProjectDescriptor? = null
+			lateinit var project: Project
 
-			var project: Project? = null
+			val path: Path by lazy {
+				Paths.get(project.projectDir.absolutePath)
+			}
 
-			var path: Path? = null
-				get() {
-					if (field != null) return field
+			val file: File by lazy {
+				path.toFile()
+			}
 
-					if (descriptor != null) {
-						field = Paths.get(descriptor?.projectDir?.absolutePath)
-					} else if (project != null) {
-						field = Paths.get(project?.projectDir?.absolutePath)
-					}
-
-					return field
-				}
-
-			var file: File? = null
-				get() {
-					if (field != null) return field
-
-					field = path?.toFile()
-
-					return field
-				}
-
-			var absolutePath: String? = null
-				get() {
-					if (field != null) return field
-
-					field = file?.absolutePath
-
-					return field
-				}
+			val absolutePath: String by lazy {
+				file.absolutePath
+			}
 		}
 	}
 
