@@ -23,7 +23,8 @@ import javassist.CtClass
 import javassist.CtMethod
 import javassist.CtNewMethod
 import javassist.Modifier
-//import org.jetbrains.kotlin.gradle.frontend.npm.NpmPackageManager
+import javassist.LoaderClassPath
+import java.net.URLClassLoader
 
 /**
  *
@@ -555,4 +556,31 @@ fun SourceDirectorySet.setSrcDir(srcDir: String) {
 	this.setSrcDirs(listOf(srcDir))
 }
 
-//val mpmPackageManager: CtClass = ClassPool.getDefault().get(NpmPackageManager::class.java.qualifiedName)
+//fun testingJavaAssist() {
+//	val classPool = ClassPool.getDefault()
+//	val classLoader = NpmPackageManager::class.java.classLoader
+//	classPool.appendClassPath(LoaderClassPath(classLoader))
+//	val ctClass = classPool[NpmPackageManager::class.qualifiedName]
+//	ctClass.defrost()
+//	println(ctClass)
+//	val overrideMethod = CtNewMethod.make("""
+//		public void asdf() {
+//			System.out.println("ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD");
+//		}
+//	""".trimMargin(),
+//		ctClass
+//	)
+/// /	val remove = ctClass.getDeclaredMethod("injectDependencies")
+////	ctClass.removeMethod(remove)
+//	ctClass.addMethod(overrideMethod)
+////	org.gradle.internal.classloader.VisitableURLClassLoader::class.java.classLoader.loadClass(org.jetbrains.kotlin.gradle.frontend.PackageManager::class.qualifiedName)
+//	classPool[org.jetbrains.kotlin.gradle.frontend.PackageManager::class.qualifiedName].toClass(org.gradle.internal.classloader.VisitableURLClassLoader::class.java.classLoader, org.jetbrains.kotlin.gradle.frontend.PackageManager::class.java.getProtectionDomain())
+//	ctClass.toClass(org.gradle.internal.classloader.VisitableURLClassLoader::class.java.classLoader, NpmPackageManager::class.java.getProtectionDomain())
+//
+//	val obj = NpmPackageManager(com.company.team.project.dsl.model.Properties.projects.root.project)
+//	val method = obj::class.java.getDeclaredMethod("asdf")
+//	method.setAccessible(true)
+//	method.invoke(obj)
+//
+//	println("ASDFASDFASDFASDFASDFASDF")
+//}

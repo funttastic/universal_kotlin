@@ -33,13 +33,21 @@ repositories {
 	maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 	maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
 	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+
+	maven( url = "http://dl.bintray.com/kotlinx/kotlinx" )
+	maven( url = "https://kotlin.bintray.com/kotlinx" )
+	maven( url = "http://dl.bintray.com/kotlin/kotlin-js-wrappers" )
+	maven( url = "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" )
+
+	maven( url = "https://dl.bintray.com/salomonbrys/gradle-plugins" )
 }
 
 dependencies {
 	val kotlinVersion = project.properties["kotlin.version"]
 
-	compile("javassist:javassist:3.12.1.GA")
 	compile("org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion")
+//	compile("org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.45")
+	compile("javassist:javassist:3.12.1.GA")
 
 	testCompile("junit:junit:4.12")
 	compile("com.fasterxml.jackson.core:jackson-databind:2.9.8")

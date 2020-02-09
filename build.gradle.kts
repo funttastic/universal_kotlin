@@ -9,6 +9,8 @@ import com.company.team.project.dsl.model.enum_.StatusEnum.enabled
 buildscript {
 	com.company.team.project.dsl.model.Properties.projects.root.project = rootProject
 
+//	com.company.team.project.dsl.model.extension.testingJavaAssist()
+
 	val vendorProperties = com.company.team.project.dsl.model.Properties.vendor
 
 	repositories {
@@ -39,7 +41,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${vendorProperties.springBoot}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${vendorProperties.kotlin}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${vendorProperties.kotlin}")
-		classpath("org.jetbrains.kotlin:kotlin-frontend-plugin:${vendorProperties.frontend}")
+//		classpath("org.jetbrains.kotlin:kotlin-frontend-plugin:${vendorProperties.frontend}")
 		classpath("org.jetbrains.kotlin:kotlin-serialization:${vendorProperties.kotlin}")
 //		classpath("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${vendorProperties.kotlin}")
 
