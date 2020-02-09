@@ -48,11 +48,15 @@ kotlin {
 	}
 
 	js(TargetEnum.`library-multiple_sources@js`) {
+		browser {
+		}
+
 		kotlinJsNodeTests {
 			thisTarget {
 				engine = mocha
 			}
 		}
+
 
 		configure(listOf(compilations[CompilationEnum.main.id!!], compilations[CompilationEnum.test.id!!])) {
 			tasks.getByName(compileKotlinTaskName) {

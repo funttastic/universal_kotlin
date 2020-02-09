@@ -13,6 +13,6 @@ class ExampleTests {
 	 */
 	@Test
 	fun shouldHaveTheExpectedAmountOfIncludedModules() {
-		assertEquals(9, exampleFunction().size)
+		assertEquals(91, exampleFunction().size)
 	}
 }

@@ -47,6 +47,9 @@ kotlin {
 	}
 
 	js(TargetEnum.`library-single_source@js`) {
+		browser {
+		}
+
 		kotlinJsNodeTests {
 			thisTarget {
 				engine = mocha
