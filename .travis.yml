@@ -11,7 +11,7 @@ matrix:
         - GRADLE_OPTS="-Xmx3048m -Xms3048m"
       before_install:
         - ./resources/scripts/ci/prepare.sh
-        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - source "$HOME/.sdkman/bin/sdkman-init.sh" # Without this line Travis do not get the correct Java version
         - ./resources/scripts/ci/show_relevant_information.sh
       install: true
       script:
