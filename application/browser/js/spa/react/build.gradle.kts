@@ -56,8 +56,8 @@ kotlin {
 				implementation(npm("react-dom", "16.9.0"))
 				implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.6.12")
 				implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.14.0")
-				implementation("org.jetbrains:kotlin-react:16.9.0-pre.89-kotlin-1.3.60")
-				implementation("org.jetbrains:kotlin-react-dom:16.9.0-pre.89-kotlin-1.3.60")
+				implementation("org.jetbrains:kotlin-react:16.9.0-pre.90-kotlin-1.3.61")
+				implementation("org.jetbrains:kotlin-react-dom:16.9.0-pre.90-kotlin-1.3.61")
 			}
 		}
 

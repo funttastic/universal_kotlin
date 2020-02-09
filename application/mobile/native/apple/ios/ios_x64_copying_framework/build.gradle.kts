@@ -52,23 +52,27 @@ configurations {
 task("copyFramework") {
 	val buildType = (project.findProperty("kotlin.build.type") ?: "DEBUG").toString()
 	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_copying_framework@ios_x64`.kotlinId!!
-	val linkTask = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).linkTask
+	val kotlinTarget = kotlin.targets.findByName(target) as KotlinNativeTarget?
 
-	dependsOn(linkTask)
+	if (kotlinTarget != null) {
+		val linkTask = kotlinTarget.binaries.getFramework(buildType).linkTask
 
-	doLast {
-		val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
-		val targetDir = project.properties["configuration.build.dir"]!!
+		dependsOn(linkTask)
 
-		/*
-		These names need to be coincident with the imported framework inside of the ios project,
-			also the name configured in the target -> binaries -> framework -> baseName.
-		 */
-		copy {
-			from(srcFile.parent)
-			into(targetDir)
-			include("UniversalKotlin.framework/**")
-			include("UniversalKotlin.framework.dSYM")
+		doLast {
+			val srcFile = (kotlin.targets[target] as KotlinNativeTarget).binaries.getFramework(buildType).outputFile
+			val targetDir = project.properties["configuration.build.dir"]!!
+
+			/*
+			These names need to be coincident with the imported framework inside of the ios project,
+				also the name configured in the target -> binaries -> framework -> baseName.
+			 */
+			copy {
+				from(srcFile.parent)
+				into(targetDir)
+				include("UniversalKotlin.framework/**")
+				include("UniversalKotlin.framework.dSYM")
+			}
 		}
 	}
 }

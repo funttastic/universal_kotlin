@@ -69,40 +69,45 @@ kotlin {
 task("copyApplication", Copy::class) {
 	val buildType = (project.findProperty("kotlin.build.type") ?: NativeBuildType.DEBUG.name).toString()
 	val target = TargetEnum.`application-mobile-native-apple-ios-ios_x64_without_framework@ios_x64`.kotlinId!!
-	val kotlinBinary = (kotlin.targets[target] as KotlinNativeTarget).binaries.getExecutable(buildType)
-	val linkTask = kotlinBinary.linkTask
 
-	val targetBuildDir: String? = System.getenv("TARGET_BUILD_DIR")
-	val executablePath: String? = System.getenv("EXECUTABLE_PATH")
+	val kotlinTarget = kotlin.targets.findByName(target) as KotlinNativeTarget?
 
-	if (targetBuildDir != null && executablePath != null) {
-		val dsymSource = kotlinBinary.outputFile.absolutePath + ".dSYM"
-		val dsymDestination = File(executablePath).parentFile.name + ".dSYM"
-		val oldExecName = kotlinBinary.outputFile.name
-		val newExecName = File(executablePath).name
+	if (kotlinTarget != null) {
+		val kotlinBinary = kotlinTarget.binaries.getExecutable(buildType)
+		val linkTask = kotlinBinary.linkTask
 
-		println(
-			"""
-			targetBuildDir: $targetBuildDir
-			executablePath: $executablePath
-			dsymSource: $dsymSource
-			dsymDestination: $dsymDestination
-			oldExecName: $oldExecName
-			newExecName: $newExecName
-		""".trimIndent()
-		)
+		val targetBuildDir: String? = System.getenv("TARGET_BUILD_DIR")
+		val executablePath: String? = System.getenv("EXECUTABLE_PATH")
 
-		dependsOn(linkTask)
+		if (targetBuildDir != null && executablePath != null) {
+			val dsymSource = kotlinBinary.outputFile.absolutePath + ".dSYM"
+			val dsymDestination = File(executablePath).parentFile.name + ".dSYM"
+			val oldExecName = kotlinBinary.outputFile.name
+			val newExecName = File(executablePath).name
 
-		destinationDir = file(targetBuildDir)
+			println(
+				"""
+					targetBuildDir: $targetBuildDir
+					executablePath: $executablePath
+					dsymSource: $dsymSource
+					dsymDestination: $dsymDestination
+					oldExecName: $oldExecName
+					newExecName: $newExecName
+				""".trimIndent()
+			)
 
-		from(dsymSource) {
-			into(dsymDestination)
-			rename(oldExecName, newExecName)
-		}
+			dependsOn(linkTask)
 
-		from(kotlinBinary.outputFile) {
-			rename { executablePath }
+			destinationDir = file(targetBuildDir)
+
+			from(dsymSource) {
+				into(dsymDestination)
+				rename(oldExecName, newExecName)
+			}
+
+			from(kotlinBinary.outputFile) {
+				rename { executablePath }
+			}
 		}
 	}
 }

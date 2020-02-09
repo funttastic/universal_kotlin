@@ -42,11 +42,7 @@ enableFeaturePreview("GRADLE_METADATA")
 Util.initialize(gradle.startParameter.taskNames)
 
 ModuleEnum.values().forEach { module ->
-	if (
-		StatusEnum.enabled == module.status
-	) {
 		Util.logger.warn("Including ${module.kotlinId}")
 		include(module.kotlinId)
 		project(":${module.kotlinId}").projectDir = module.file!!
-	}
 }
