@@ -99,7 +99,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 
 	printf "Installing common packages from the package manager:\n"
 	printf "Skipping packages installation."
-#	brew install unzip zip curl sed
+	brew install unzip zip curl gsed
 
 	printf "Installing NVM:\n"
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
@@ -117,9 +117,9 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	sdk version
 
 	printf "Installing Java $JAVA_VERSION:\n"
-	set +e # In this CI the Repackaging command was failing without a reason.
+#	set +e # In this CI the Repackaging command was failing without a reason.
 	sdk install java $JAVA_VERSION
-	set -e
+#	set -e
 
 	printf "Installing KScript:\n"
 	sdk install kscript
