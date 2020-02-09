@@ -117,9 +117,10 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 	sdk version
 
 	printf "Installing Java $JAVA_VERSION:\n"
-#	set +e # In this CI the Repackaging command was failing without a reason.
+	set +e # In this CI the Repackaging command was failing without a reason.
 	sdk install java $JAVA_VERSION
-#	set -e
+	java -version
+	set -e
 
 	printf "Installing KScript:\n"
 	sdk install kscript

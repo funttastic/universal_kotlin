@@ -13,6 +13,8 @@ matrix:
         - ./resources/scripts/ci/prepare.sh
         - ./resources/scripts/ci/show_relevant_information.sh
       install: true
+      before_script:
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
       script:
         - ./resources/scripts/complete_run.sh
   allow_failures:
