@@ -99,7 +99,7 @@ elif [ "$BUILD_CI" == "TRAVIS" ]; then
 
 	printf "Installing common packages from the package manager:\n"
 	printf "Skipping packages installation."
-	brew install unzip zip curl gsed
+	brew install unzip zip curl gnu-sed
 
 	printf "Installing NVM:\n"
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh" | bash
