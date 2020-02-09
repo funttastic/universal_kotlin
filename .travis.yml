@@ -9,12 +9,10 @@ matrix:
         - BASH_ENV=~/.bashrc
         - ANDROID_HOME=$HOME/Library/Android/sdk
         - GRADLE_OPTS="-Xmx3048m -Xms3048m"
-      before_install:
-        - ./resources/scripts/ci/prepare.sh
-        - ./resources/scripts/ci/show_relevant_information.sh
       install: true
       before_script:
-        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - ./resources/scripts/ci/prepare.sh
+        - ./resources/scripts/ci/show_relevant_information.sh
       script:
         - ./resources/scripts/complete_run.sh
   allow_failures:
