@@ -121,14 +121,14 @@ allprojects {
 //	}
 }
 
-rootProject.allprojects.forEach { project ->
-	// Force initialization of the module property
-	if (project.module.status != enabled) {
-		project.tasks.all {
-			this.enabled = false
-		}
-	}
-}
+//rootProject.allprojects.forEach { project ->
+//	// Force initialization of the module property
+//	if (project.module.status != enabled) {
+//		project.tasks.all {
+//			this.enabled = false
+//		}
+//	}
+//}
 
 repositories {
 	mavenCentral()
