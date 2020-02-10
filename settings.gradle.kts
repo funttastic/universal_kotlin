@@ -11,7 +11,7 @@ pluginManagement {
 		maven( url = "https://plugins.gradle.org/m2" )
 		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-//		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+		// maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 
 		maven( url = "https://dl.bintray.com/salomonbrys/gradle-plugins" )
 	}
@@ -29,7 +29,7 @@ pluginManagement {
 	}
 }
 
-enableFeaturePreview("GRADLE_METADATA")
+// enableFeaturePreview("GRADLE_METADATA")
 
 include("common")
 include("common-multiple_modules")
@@ -48,8 +48,8 @@ include("application-backend-jvm-spring_boot")
 include("application-browser")
 include("application-browser-js")
 include("application-browser-js-spa")
-include("application-browser-js-spa-react")
-include("application-browser-js-vanilla")
+// include("application-browser-js-spa-react")
+// include("application-browser-js-vanilla")
 include("application-browser-native")
 include("application-browser-native-wasm32")
 include("application-desktop")
@@ -102,8 +102,8 @@ project(":application-backend-jvm-spring_boot").projectDir = File(rootDir, "appl
 project(":application-browser").projectDir = File(rootDir, "application/browser")
 project(":application-browser-js").projectDir = File(rootDir, "application/browser/js")
 project(":application-browser-js-spa").projectDir = File(rootDir, "application/browser/js/spa")
-project(":application-browser-js-spa-react").projectDir = File(rootDir, "application/browser/js/spa/react")
-project(":application-browser-js-vanilla").projectDir = File(rootDir, "application/browser/js/vanilla")
+// project(":application-browser-js-spa-react").projectDir = File(rootDir, "application/browser/js/spa/react")
+// project(":application-browser-js-vanilla").projectDir = File(rootDir, "application/browser/js/vanilla")
 project(":application-browser-native").projectDir = File(rootDir, "application/browser/native")
 project(":application-browser-native-wasm32").projectDir = File(rootDir, "application/browser/native/wasm32")
 project(":application-desktop").projectDir = File(rootDir, "application/desktop")
@@ -111,7 +111,7 @@ project(":application-desktop-jvm").projectDir = File(rootDir, "application/desk
 project(":application-desktop-jvm-tornado_fx").projectDir = File(rootDir, "application/desktop/jvm/tornado_fx")
 project(":application-mobile").projectDir = File(rootDir, "application/mobile")
 project(":application-mobile-jvm").projectDir = File(rootDir, "application/mobile/jvm")
-project(":application-mobile-jvm-android").projectDir = File(rootDir, "application/mobile/jvm/android")
+// project(":application-mobile-jvm-android").projectDir = File(rootDir, "application/mobile/jvm/android")
 project(":application-mobile-native").projectDir = File(rootDir, "application/mobile/native")
 project(":application-mobile-native-apple").projectDir = File(rootDir, "application/mobile/native/apple")
 project(":application-mobile-native-apple-ios").projectDir = File(rootDir, "application/mobile/native/apple/ios")

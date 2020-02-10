@@ -1497,14 +1497,14 @@ enum class SourceSetEnum(
 				&& kotlinId !in listOf(commonMain, commonTest)
 				&& !isSupportedByOs
 			) {
-				Util.logger.warn("Not enabling source set ${this.name} since it is not supported by this OS.")
+//				Util.logger.warn("Not enabling source set ${this.name} since it is not supported by this OS.")
 
 				return
 			}
 
 			if (field != value) {
-				val caller = Thread.currentThread().stackTrace[2]
-				println("Status updated to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+//				val caller = Thread.currentThread().stackTrace[2]
+//				println("Status updated to ${value}. Source set ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
 
 				field = value
 			}
@@ -1533,7 +1533,7 @@ enum class SourceSetEnum(
 //				joinToString("") { it.capitalize() }.decapitalize().plus(compilation!!.id!!.capitalize())
 //		}
 
-		println("""SourceSet "$name", kotlinId "$kotlinId".""")
+//		println("""SourceSet "$name", kotlinId "$kotlinId".""")
 
 		if (title == null) title = name.replace("_", " ").replace("[-@]".toRegex(), " -> ").
 			split(" ".toRegex()).joinToString(" ") { it.capitalize() }

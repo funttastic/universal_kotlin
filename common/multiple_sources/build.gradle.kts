@@ -116,7 +116,7 @@ kotlin {
 				resources.setSrcDir(getTestResourcesPath(sourceSetEnum))
 			}
 
-			println("${"common-ms".padEnd(20)}${name.padEnd(20)}${sourceSetEnum.name.padEnd(50)}${kotlin.getSrcDirs()}")
+//			println("${"common-ms".padEnd(20)}${name.padEnd(20)}${sourceSetEnum.name.padEnd(50)}${kotlin.getSrcDirs()}")
 
 //			languageSettings {
 //				progressiveMode = true

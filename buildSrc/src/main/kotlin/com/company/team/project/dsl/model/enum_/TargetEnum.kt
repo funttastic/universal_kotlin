@@ -182,8 +182,8 @@ enum class TargetEnum(
 			}
 
 			if (field != value) {
-				val caller = Thread.currentThread().stackTrace[2]
-				println("Status updated to ${value}. Target ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+//				val caller = Thread.currentThread().stackTrace[2]
+//				println("Status updated to ${value}. Target ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
 
 				field = value
 			}
@@ -201,7 +201,7 @@ enum class TargetEnum(
 
 //		if (kotlinId == null) kotlinId = name.split("[@_-]".toRegex()).joinToString("") { it.capitalize() }.decapitalize()
 
-		println("""Target "$name", kotlinId "$kotlinId".""")
+//		println("""Target "$name", kotlinId "$kotlinId".""")
 
 		if (title == null) title = name.replace("_", " ").replace("[-@]".toRegex(), " -> ").
 			split(" ".toRegex()).joinToString(" ") { it.capitalize() }

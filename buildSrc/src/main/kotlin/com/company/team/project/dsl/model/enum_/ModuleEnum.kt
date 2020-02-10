@@ -227,7 +227,7 @@ enum class ModuleEnum(
 		parent = `application-mobile-native-apple-ios`,
 		defaultStatus = enabled,
 		file = Paths.get(
-			Properties.projects.root.absolutePath!!,
+			Properties.projects.root.absolutePath,
 			"application/mobile/native/apple/ios/ios_x64_without_framework/WithoutFramework"
 		).toFile()
 	),
@@ -239,7 +239,7 @@ enum class ModuleEnum(
 		parent = `application-mobile-native-apple-ios`,
 		defaultStatus = enabled,
 		file = Paths.get(
-			Properties.projects.root.absolutePath!!,
+			Properties.projects.root.absolutePath,
 			"application/mobile/native/apple/ios/ios_x64_framework/Framework"
 		).toFile()
 	),
@@ -247,7 +247,7 @@ enum class ModuleEnum(
 		parent = `application-mobile-native-apple-ios`,
 		defaultStatus = enabled,
 		file = Paths.get(
-			Properties.projects.root.absolutePath!!,
+			Properties.projects.root.absolutePath,
 			"application/mobile/native/apple/ios/ios_x64_with_framework/UniversalKotlin"
 		).toFile()
 	),
@@ -278,7 +278,7 @@ enum class ModuleEnum(
 	`application-television-native-apple-tvos-tvos_x64`(
 		parent = `application-television-native-apple-tvos`,
 		file = Paths.get(
-			Properties.projects.root.absolutePath!!,
+			Properties.projects.root.absolutePath,
 			"application/television/native/apple/tvos/tvos_x64/application"
 		).toFile()
 	),
@@ -309,7 +309,7 @@ enum class ModuleEnum(
 	`application-watch-native-apple-watchos-watchos_x64`(
 		parent = `application-watch-native-apple-watchos`,
 		file = Paths.get(
-			Properties.projects.root.absolutePath!!,
+			Properties.projects.root.absolutePath,
 			"application/television/native/apple/watchos/watchos_x64/application"
 		).toFile()
 	),
@@ -336,8 +336,8 @@ enum class ModuleEnum(
 			}
 
 			if (field != value) {
-				val caller = Thread.currentThread().stackTrace[2]
-				println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
+//				val caller = Thread.currentThread().stackTrace[2]
+//				println("Status updated to ${value}. Module ${this.name}. ${caller.className}#${caller.methodName}:${caller.lineNumber}")
 
 				field = value
 			}
@@ -366,7 +366,7 @@ enum class ModuleEnum(
 //			}
 		}
 
-		println("""Module "$name", kotlinId "$kotlinId".""")
+//		println("""Module "$name", kotlinId "$kotlinId".""")
 
 		if (title == null) title = name.replace("_", " ").replace("-", " -> ").
 			split(" ".toRegex()).joinToString(" ") { it.capitalize() }
@@ -383,7 +383,7 @@ enum class ModuleEnum(
 
 		if (file == null) {
 			file = Paths.get(
-				Properties.projects.root.absolutePath!!,
+				Properties.projects.root.absolutePath,
 				name.replace("-", "/")
 			).toFile()
 		}

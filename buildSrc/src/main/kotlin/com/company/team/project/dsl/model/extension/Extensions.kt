@@ -259,12 +259,12 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.watchosX86(
  */
 fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget(target: TargetEnum, configuration: (AbstractKotlinTarget.() -> Unit) = {}): KotlinTarget? {
 	if (StatusEnum.enabled != target.status) {
-		Util.logger.warn("""Skipping target "${target.name}" of module "${target.module?.name ?: "unknown"}", since it is disabled.""")
+//		Util.logger.warn("""Skipping target "${target.name}" of module "${target.module?.name ?: "unknown"}", since it is disabled.""")
 
 		return null
 	}
 
-	Util.logger.warn("""Configuring target "${target.name}" of module "${target.module?.name ?: "unknown"}".""")
+//	Util.logger.warn("""Configuring target "${target.name}" of module "${target.module?.name ?: "unknown"}".""")
 
 	val id = target.kotlinId!!
 
@@ -314,7 +314,7 @@ fun org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.configureTarget
  */
 fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(target: TargetEnum, compilation: CompilationEnum, configuration: KotlinSourceSet.() -> Unit): KotlinSourceSet? {
 	if (StatusEnum.enabled != target.status) {
-		Util.logger.warn("""Not getting "${compilation.name}" source set of target "${target.name}", since the target is disabled.""")
+//		Util.logger.warn("""Not getting "${compilation.name}" source set of target "${target.name}", since the target is disabled.""")
 
 		return null
 	}
@@ -322,7 +322,7 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(target: Targe
 	val sourceSet = SourceSetEnum.getByTargetAndCompilation(target, compilation)
 
 	if (sourceSet == null) {
-		Util.logger.warn(""""Not getting ${compilation.name}" source set of target "${target.name}", since the source set was not found.""")
+//		Util.logger.warn(""""Not getting ${compilation.name}" source set of target "${target.name}", since the source set was not found.""")
 
 		return null
 	}
@@ -360,7 +360,7 @@ fun NamedDomainObjectContainer<KotlinSourceSet>.getOrConfigureSourceSet(sourceSe
  */
 fun NamedDomainObjectContainer<KotlinSourceSet>.getSourceSet(sourceSet: SourceSetEnum): KotlinSourceSet? {
 	if (StatusEnum.enabled != sourceSet.status) {
-		Util.logger.warn("""Not getting source set "${sourceSet.name}", since it's disabled.""")
+//		Util.logger.warn("""Not getting source set "${sourceSet.name}", since it's disabled.""")
 
 		return null
 	}
@@ -443,26 +443,26 @@ fun DependencyHandler.project(sourceSet: SourceSetEnum, configuration: String? =
  */
 fun NamedDomainObjectContainer<KotlinSourceSet>.configureSourceSet(sourceSet: SourceSetEnum, configuration: KotlinSourceSet.() -> Unit): KotlinSourceSet? {
 	if (StatusEnum.enabled != sourceSet.status && !sourceSet.isCommon) {
-		Util.logger.warn("""Not configuring source set "${sourceSet.name}", since it's disabled.""")
+//		Util.logger.warn("""Not configuring source set "${sourceSet.name}", since it's disabled.""")
 
 		return null
 	}
 
-	Util.logger.warn("""Configuring source set "${sourceSet.name}".""")
+//	Util.logger.warn("""Configuring source set "${sourceSet.name}".""")
 
 	val modulesAndTargetsConfigurations: KotlinSourceSet.() -> Unit = {
 		sourceSet.dependencies.sourceSets.forEach {
 			if (it.module == sourceSet.module) {
 				if (it.isCommon) {
-					Util.logger.warn("""Skipping source set "${it.name}", since it's a common one and it should be automatically included."""")
+//					Util.logger.warn("""Skipping source set "${it.name}", since it's a common one and it should be automatically included."""")
 				} else if (sourceSet.isCompilationPair(it) && it.compilation == CompilationEnum.test) {
-					Util.logger.warn("""Skipping source set "${it.name}", since it should be automatically included because it is the test compilation pair for "${sourceSet.name}"."""")
+//					Util.logger.warn("""Skipping source set "${it.name}", since it should be automatically included because it is the test compilation pair for "${sourceSet.name}"."""")
 				} else {
-					Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
+//					Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name}."""")
 					dependsOn(it.kotlinSourceSet!!)
 				}
 			} else {
-				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
+//				Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 				it.requiredAt.add(sourceSet)
 				dependencies {
 					api(project(it.module!!))
@@ -510,10 +510,10 @@ fun DependencyHandlerScope.configureDependencies(sourceSet: SourceSetEnum) {
 
 	sourceSet.dependencies.sourceSets.forEach {
 		if (it.module == sourceSet.module) {
-			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} but skipping since it's not a multiplatform module."""")
+//			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} but skipping since it's not a multiplatform module."""")
 //			dependsOn(it.kotlinSourceSet!!)
 		} else {
-			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
+//			Util.logger.warn("""The sourceSet "${sourceSet.name}" depends on the sourceSet "${it.name} from a different module. Including module ${it.module!!.name}."""")
 			it.requiredAt.add(sourceSet)
 			configurationName(project(it.module!!))
 		}

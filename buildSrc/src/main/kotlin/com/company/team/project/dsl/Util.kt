@@ -46,7 +46,7 @@ object Util {
 	 *
 	 */
 	fun relativePathFromRoot(absolutePath: String): String? {
-		return Properties.projects.root.absolutePath?.let { absolutePath.removePrefix(it) }
+		return Properties.projects.root.absolutePath.let { absolutePath.removePrefix(it) }
 	}
 
 	/**
@@ -114,7 +114,7 @@ object Util {
 				enableTree(it)
 			}
 
-		printEnabledTree()
+//		printEnabledTree()
 	}
 
 	fun printEnabledTree() {
@@ -135,7 +135,7 @@ object Util {
 	}
 
 	fun enableTree(module: ModuleEnum?) {
-		println("Trying to enable module ${module?.name}")
+//		println("Trying to enable module ${module?.name}")
 
 		if (module == null || module == ModuleEnum.root || module.defaultStatus != enabled) return
 
@@ -147,7 +147,7 @@ object Util {
 	}
 
 	fun enableTree(target: TargetEnum?) {
-		println("Trying to enable target ${target?.name}")
+//		println("Trying to enable target ${target?.name}")
 
 		if (target == null || target.defaultStatus != enabled) return
 
@@ -159,7 +159,7 @@ object Util {
 	}
 
 	fun enableTree(sourceSet: SourceSetEnum?) {
-		println("Trying to enable source set ${sourceSet?.name}")
+//		println("Trying to enable source set ${sourceSet?.name}")
 
 		if (sourceSet == null || sourceSet.defaultStatus != enabled) return
 

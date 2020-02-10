@@ -76,10 +76,10 @@ repositories {
 	jcenter()
 	mavenLocal()
 	mavenCentral()
-	maven( url = "http://dl.bintray.com/kotlin/kotlin-dev" )
-	maven( url = "http://dl.bintray.com/kotlinx/kotlinx" )
+	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+	maven( url = "https://dl.bintray.com/kotlinx/kotlinx" )
 	maven( url = "https://kotlin.bintray.com/kotlinx" )
-	maven( url = "http://dl.bintray.com/kotlin/kotlin-js-wrappers" )
+	maven( url = "https://dl.bintray.com/kotlin/kotlin-js-wrappers" )
 }
 
 kotlinFrontend {

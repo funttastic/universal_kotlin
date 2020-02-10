@@ -19,11 +19,11 @@ buildscript {
 		maven( url = "https://plugins.gradle.org/m2" )
 		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-//		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+		// maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 
-		maven( url = "http://dl.bintray.com/kotlinx/kotlinx" )
+		maven( url = "https://dl.bintray.com/kotlinx/kotlinx" )
 		maven( url = "https://kotlin.bintray.com/kotlinx" )
-		maven( url = "http://dl.bintray.com/kotlin/kotlin-js-wrappers" )
+		maven( url = "https://dl.bintray.com/kotlin/kotlin-js-wrappers" )
 		maven( url = "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" )
 
 		maven( url = "https://dl.bintray.com/salomonbrys/gradle-plugins" )
@@ -72,7 +72,7 @@ allprojects {
 		maven( url = "https://plugins.gradle.org/m2" )
 		maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 		maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-		maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+		// maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 	}
 
 	group = Properties.general.group
@@ -128,12 +128,16 @@ rootProject.allprojects.forEach { project ->
 }
 
 repositories {
+	flatDir { dirs("plugin") }
+	mavenLocal()
+	gradlePluginPortal()
 	mavenCentral()
 	jcenter()
 	google()
-	mavenLocal()
+	maven( url = "https://plugins.gradle.org/m2" )
+	maven( url = "https://repo.gradle.org/gradle/libs-releases-local" )
 	maven( url = "https://dl.bintray.com/kotlin/kotlin-eap" )
-	maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
+	// maven( url = "https://dl.bintray.com/kotlin/kotlin-dev" )
 }
 
 tasks.register("generateGraphvizDiagrams") {
