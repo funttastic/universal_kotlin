@@ -37,6 +37,12 @@ android {
 						implementation(project(":common-single_source"))
 						implementation(project(":library-multiple_sources"))
 						implementation(project(":library-single_source"))
+
+						implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+						implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Properties.vendor.kotlin}")
+						implementation("androidx.appcompat:appcompat:1.1.0")
+						implementation("androidx.core:core-ktx:1.2.0")
+						implementation("com.android.support.constraint:constraint-layout:1.1.3")
 					}
 				}
 
@@ -48,20 +54,13 @@ android {
 						implementation(kotlin("test-annotations-common"))
 						implementation(kotlin("test"))
 						implementation(kotlin("test-junit"))
+
+						testImplementation("junit:junit:4.12")
+						androidTestImplementation("androidx.test.ext:junit:1.1.1")
+						androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 					}
 				}
 			}
 		}
 	}
-}
-
-dependencies {
-	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Properties.vendor.kotlin}")
-	implementation("androidx.appcompat:appcompat:1.1.0")
-	implementation("androidx.core:core-ktx:1.2.0")
-	implementation("com.android.support.constraint:constraint-layout:1.1.3")
-	testImplementation("junit:junit:4.12")
-	androidTestImplementation("androidx.test.ext:junit:1.1.1")
-	androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 }
