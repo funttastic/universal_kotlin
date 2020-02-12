@@ -47,6 +47,10 @@ buildscript {
 
 		// TODO Fix
 //		classpath ("com.company.team.project:plugin-jvm-gradle")
+
+		// For Android modules
+		classpath("com.android.tools.build:gradle:3.5.3")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${vendorProperties.kotlin}")
 	}
 }
 

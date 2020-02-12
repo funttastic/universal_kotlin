@@ -44,4 +44,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 	implementation(gradleApi())
 	implementation("org.jetbrains.kotlin.xcode-compat:org.jetbrains.kotlin.xcode-compat.gradle.plugin:0.2.5")
+
+	// For Android modules
+	implementation("com.android.tools.build:gradle:3.5.3")
+	implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 }
