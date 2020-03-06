@@ -173,4 +173,4 @@ if (rootProject.name == "buildSrc") {
 	Properties.modules.root.file = rootDir
 }
 
-extra["getProperty"] = {key: String -> Properties.get(key)}
+extra["getProperty"] = { key: String -> Properties.get(key) }
