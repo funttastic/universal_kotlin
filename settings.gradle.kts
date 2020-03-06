@@ -1,5 +1,10 @@
 rootProject.name = "universal_kotlin"
 
+apply("plugin/properties/build.gradle.kts")
+@Suppress("unchecked_cast", "nothing_to_inline")
+inline fun <T> uncheckedCast(target: Any?): T = target as T
+val getDependencyVersion = uncheckedCast<(key: String) -> String>(extra["getDependencyVersion"])
+
 pluginManagement {
 	repositories {
 		flatDir { dirs("plugin") }
@@ -24,29 +29,11 @@ pluginManagement {
 			}
 
 			// For Kotlin JS modules
-			if (requested.id.id.startsWith("com.github.salomonbrys.gradle.kotlin.js.")) {
-				useModule("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils:1.2.0")
+			if (requested.id.id.startsWith("com.github.salomonbrys.gradle.kotlin.js")) {
+				useModule(getDependencyVersion("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils"))
 			}
 		}
 	}
 }
 
 apply("plugin/init/build.gradle.kts")
-
-apply("plugin/properties/build.gradle.kts")
-@Suppress("unchecked_cast", "nothing_to_inline")
-inline fun <T> uncheckedCast(target: Any?): T = target as T
-val getProperty = uncheckedCast<(key: String) -> String>(extra["getProperty"])
-
-fun <T> cast(target: Any?, `class`: Class<T>): T {
-	return `class`.cast(target)
-}
-
-val myTest = extra["myTest"]!!
-
-val test = cast(myTest, myTest::class.java)
-
-println(test)
-//data class Dummy(val test: String = "fdsa")
-//val myTest by extra.get("myTest")
-//println(myTest as Any)
