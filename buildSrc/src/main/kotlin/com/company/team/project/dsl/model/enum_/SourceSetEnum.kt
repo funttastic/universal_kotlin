@@ -68,7 +68,7 @@ enum class SourceSetEnum(
 	 *
 	 */
 	val requiredAt: MutableSet<SourceSetEnum> = mutableSetOf()
-) {
+) : Stateful {
 
 	`common-multiple_sources@common@main`(
 		kotlinId = commonMain,
@@ -1490,7 +1490,7 @@ enum class SourceSetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	override var status: StatusEnum = defaultStatus
 		set(value) {
 			if (
 				value == enabled

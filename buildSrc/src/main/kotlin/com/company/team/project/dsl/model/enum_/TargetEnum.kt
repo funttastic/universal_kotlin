@@ -63,7 +63,7 @@ enum class TargetEnum(
 	 *
 	 */
 	val requiredAt: MutableList<SourceSetEnum> = mutableListOf()
-) {
+) : Stateful {
 
 	`common-multiple_sources@android_native_arm32`( defaultStatus = enabled ),
 	`common-multiple_sources@android_native_arm64`( defaultStatus = enabled ),
@@ -173,7 +173,7 @@ enum class TargetEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	override var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
 				Util.logger.warn("Not enabling target ${this.name} since it is not supported by this OS.")

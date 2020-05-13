@@ -97,7 +97,7 @@ enum class ModuleEnum(
 	 *
 	 */
 	val requiredAt: MutableSet<SourceSetEnum> = mutableSetOf()
-) {
+) : Stateful {
 
 	root(
 		kotlinId = "",
@@ -327,7 +327,7 @@ enum class ModuleEnum(
 	/**
 	 *
 	 */
-	var status: StatusEnum = defaultStatus
+	override var status: StatusEnum = defaultStatus
 		set(value) {
 			if (value == enabled && !isSupportedByOs) {
 				Util.logger.warn("Not enabling module ${this.name} since it is not supported by this OS.")
