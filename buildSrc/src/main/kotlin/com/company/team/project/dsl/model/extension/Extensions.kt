@@ -1,6 +1,5 @@
 package com.company.team.project.dsl.model.extension
 
-import com.company.team.project.dsl.Util
 import com.company.team.project.dsl.model.enum_.*
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
@@ -547,4 +546,10 @@ fun KotlinXcodeExtension.setupTask(nativeBinary: NativeBinary) {
 
 fun SourceDirectorySet.setSrcDir(srcDir: String) {
 	this.setSrcDirs(listOf(srcDir))
+}
+
+fun ifEnabled(target: Stateful, action: () -> Unit) {
+	if (target.isEnabled()) {
+		action()
+	}
 }
