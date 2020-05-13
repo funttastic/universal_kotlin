@@ -1,9 +1,14 @@
 rootProject.name = "universal_kotlin"
 
-apply("plugin/properties/build.gradle.kts")
 @Suppress("unchecked_cast", "nothing_to_inline")
 inline fun <T> uncheckedCast(target: Any?): T = target as T
-val getDependencyVersion = uncheckedCast<(key: String) -> String>(extra["getDependencyVersion"])
+
+apply("plugin/properties.gradle.kts")
+apply("plugin/dependencies.gradle.kts")
+
+val getProperty = uncheckedCast<(key: String) -> String>(extra["getProperty"])
+val getDependencyVersion = uncheckedCast<(group: String, dependencyId: String) -> String>(extra["getDependencyVersion"])
+
 
 pluginManagement {
 	repositories {
@@ -23,6 +28,13 @@ pluginManagement {
 	}
 
 	resolutionStrategy {
+		apply("plugin/properties.gradle.kts")
+		apply("plugin/dependencies.gradle.kts")
+		@Suppress("unchecked_cast", "nothing_to_inline")
+		fun <T> uncheckedCast(target: Any?): T = target as T
+		val getProperty = uncheckedCast<(key: String) -> String>(extra["getProperty"])
+		val getDependencyVersion = uncheckedCast<(group: String, dependencyId: String) -> String>(extra["getDependencyVersion"])
+
 		eachPlugin {
 			if (requested.id.id == "kotlin-multiplatform") {
 				useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
@@ -30,10 +42,10 @@ pluginManagement {
 
 			// For Kotlin JS modules
 			if (requested.id.id.startsWith("com.github.salomonbrys.gradle.kotlin.js")) {
-				useModule(getDependencyVersion("com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils"))
+				useModule(getDependencyVersion("settings.gradle.kts", "com.github.salomonbrys.gradle.kotlin.js:kotlin-js-gradle-utils"))
 			}
 		}
 	}
 }
 
-apply("plugin/init/build.gradle.kts")
+apply("plugin/initialize.gradle.kts")
