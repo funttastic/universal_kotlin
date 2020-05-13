@@ -11,7 +11,7 @@ import java.util.Properties
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 /**
- *
+ * TODO Integrate this object with the pluging/properties.gradle.kts.
  */
 object Properties {
 
@@ -192,16 +192,5 @@ object Properties {
 				file.absolutePath
 			}
 		}
-	}
-
-	/**
-	 *
-	 */
-	object vendor {
-		val kotlin = properties.get<String>("kotlin.version")
-
-		val springBoot = "2.2.2.RELEASE"
-		val androidTools = "3.3.2"
-		val frontend = "0.0.45"
 	}
 }
