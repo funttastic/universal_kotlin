@@ -2,34 +2,6 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Properties as JavaProperties
 
-data class Dependency(
-	val group: String,
-	val artifact: String,
-	val version: String,
-	val module: String = "root"
-)
-
-data class Dependencies(
-	val dependencies: MutableMap<String, Dependency> = mutableMapOf()
-) {
-	fun add(dependency: Dependency) {
-		dependencies["${dependency.group}:${dependency.artifact}:${dependency.module}"] = dependency
-	}
-
-	fun get(key: String): Dependency {
-		// TODO Support getting using the modules
-		return dependencies[key] ?: throw Exception("Dependency \"$key\" not found.")
-	}
-}
-
-val dependencies = Dependencies()
-
-dependencies.add(Dependency(
-	"com.github.salomonbrys.gradle.kotlin.js",
-	"kotlin-js-gradle-utils",
-	"1.2.0"
-))
-
 /**
  *
  */
@@ -201,5 +173,5 @@ if (rootProject.name == "buildSrc") {
 	Properties.modules.root.file = rootDir
 }
 
+// TODO Export more methods
 extra["getProperty"] = { key: String -> Properties.get(key) }
-extra["getDependencyVersion"] = { key: String -> dependencies.get(key).version }

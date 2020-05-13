@@ -10,16 +10,19 @@ val buildFilename = "build.gradle(\\.kts)?".toRegex()
 val includeModules = ".*".toRegex()
 val excludeModules = "^\$|^buildSrc.*|^temporary.*|^plugin.*".toRegex()
 
-println("""
-Modules:
-========
-""".trimEnd())
+println(
+	"""
+
+	Included modules:
+	========================
+	""".trimIndent()
+)
 rootDir.walk().filter {
 	val relativeDirectoryPath = it.parentFile.toRelativeString(rootDir)
 
 	it.name.matches(buildFilename)
-	&& relativeDirectoryPath.matches(includeModules)
-	&& !relativeDirectoryPath.matches(excludeModules)
+		&& relativeDirectoryPath.matches(includeModules)
+		&& !relativeDirectoryPath.matches(excludeModules)
 }.forEach {
 	val directory = it.parentFile
 	val relativeDirectoryPath = directory.toRelativeString(rootDir)
@@ -29,4 +32,10 @@ rootDir.walk().filter {
 	project(":${id}").projectDir = directory
 	println(":${id} ($relativeDirectoryPath)")
 }
-println()
+println(
+	"""
+	========================
+	End of included modules.
+
+	""".trimIndent()
+)
