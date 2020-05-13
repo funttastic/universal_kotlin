@@ -1,23 +1,15 @@
-import java.io.FileInputStream
-import java.util.Properties
-
 plugins {
 	`kotlin-dsl`
 }
 
-//apply(from = "load_gradle_properties.gradle.kts")
+apply("../plugin/properties.gradle.kts")
+apply("../plugin/dependencies.gradle.kts")
 
-val properties = Properties()
-val input = FileInputStream(file("../gradle.properties"))
-properties.load(input)
-input.close()
+@Suppress("unchecked_cast", "nothing_to_inline")
+inline fun <T> uncheckedCast(target: Any?): T = target as T
 
-for (key in properties.stringPropertyNames()) {
-	extensions.extraProperties[key] = properties.getProperty(key)
-}
-
-group = project.properties["project.group"].toString()
-version = project.properties["project.version"].toString()
+val getProperty = uncheckedCast<(key: String) -> String>(extra["getProperty"])
+val getDependencyVersion = uncheckedCast<(group: String, dependencyId: String) -> String>(extra["getDependencyVersion"])
 
 repositories {
 	flatDir { dirs("plugin") }
@@ -33,7 +25,7 @@ repositories {
 }
 
 dependencies {
-	val kotlinVersion = project.properties["kotlin.version"]
+	val kotlinVersion = getProperty("kotlin.version")
 
 	testImplementation("junit:junit:4.12")
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.10.1")
